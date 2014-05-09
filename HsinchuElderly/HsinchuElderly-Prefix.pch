@@ -13,4 +13,9 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import "UIColor+TPCategory.h"
+    #import "BasicViewController.h"
+    #import "NSString+TPCategory.h"
+    #import "Global.h"
+    #import "UINavigationBar+TPCategory.h"
 #endif

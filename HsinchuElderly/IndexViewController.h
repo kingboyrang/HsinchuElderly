@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  IndexViewController.h
 //  HsinchuElderly
 //
 //  Created by aJia on 2014/5/7.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface IndexViewController : BasicViewController<UINavigationControllerDelegate>
 
 @end
