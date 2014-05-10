@@ -1,18 +1,17 @@
 //
-//  MedicineDrug.m
+//  Blood.m
 //  HsinchuElderly
 //
-//  Created by aJia on 2014/5/9.
+//  Created by aJia on 2014/5/10.
 //  Copyright (c) 2014年 lz. All rights reserved.
 //
 
-#import "MedicineDrug.h"
+#import "Blood.h"
 
-@implementation MedicineDrug
+@implementation Blood
 - (void)encodeWithCoder:(NSCoder *)encoder{
     [encoder encodeObject:self.ID forKey:@"ID"];
     [encoder encodeObject:self.UserId forKey:@"UserId"];
-    [encoder encodeObject:self.Name forKey:@"Name"];
     [encoder encodeObject:self.Rate forKey:@"Rate"];
     [encoder encodeObject:self.TimeSpan forKey:@"TimeSpan"];
     [encoder encodeObject:self.CreateDate forKey:@"CreateDate"];
@@ -20,7 +19,6 @@
 - (id)initWithCoder:(NSCoder *)aDecoder{
     if (self=[super init]) {
         self.ID=[aDecoder decodeObjectForKey:@"ID"];
-        self.Name=[aDecoder decodeObjectForKey:@"Name"];
         self.UserId=[aDecoder decodeObjectForKey:@"UserId"];
         self.Rate=[aDecoder decodeObjectForKey:@"Rate"];
         self.TimeSpan=[aDecoder decodeObjectForKey:@"TimeSpan"];
@@ -39,7 +37,7 @@
         {
             str=@"下午";
         }else{
-             str=@"晚上";
+            str=@"晚上";
         }
         return [NSString stringWithFormat:@"%@ %d點%@分",str,minute,arr[1]];
     }

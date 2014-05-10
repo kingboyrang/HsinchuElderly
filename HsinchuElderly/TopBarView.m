@@ -15,22 +15,26 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor=[UIColor colorFromHexRGB:@"fd980a"];
-        
+        UIImage *img1=[UIImage imageNamed:@"btn_bg.png"];
+        img1=[img1 stretchableImageWithLeftCapWidth:15 topCapHeight:0];
         _categoryButton=[UIButton barButtonWithTitle:@"所有類別" target:self action:nil forControlEvents:UIControlEventTouchUpInside];
-        CGFloat h=frame.size.height-10,w=(frame.size.width-20*3)/2;
-        _categoryButton.frame=CGRectMake(20, 5, w, h);
+        [_categoryButton setBackgroundImage:img1 forState:UIControlStateNormal];
         [self addSubview:_categoryButton];
+        
+        _areaButton=[UIButton barButtonWithTitle:@"所有區域" target:self action:nil forControlEvents:UIControlEventTouchUpInside];
+        [_areaButton setBackgroundImage:img1 forState:UIControlStateNormal];
+        [self addSubview:_areaButton];
     }
     return self;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    CGFloat leftx=10,topY=5;
+    CGFloat w=(self.frame.size.width-leftx*2-20)/2;
+    _categoryButton.frame=CGRectMake(leftx, topY, w, self.frame.size.height-topY*2);
+    
+    CGRect r=_categoryButton.frame;
+    r.origin.x+=r.size.width+20;
+    _areaButton.frame=r;
 }
-*/
-
 @end

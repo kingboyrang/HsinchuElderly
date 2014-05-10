@@ -8,6 +8,7 @@
 
 #import "IndexViewController.h"
 #import "ClockViewController.h"
+#import "MedicalCareController.h"
 @interface IndexViewController ()
 - (void)addMenuItemWithFrame:(CGRect)frame tag:(NSInteger)tag image:(UIImage*)img;
 @end
@@ -65,7 +66,8 @@
         [self.navigationController pushViewController:clock animated:YES];
     }
     if (btn.tag==101) {//医疗
-        
+        MedicalCareController *medicaCare=[[MedicalCareController alloc] init];
+        [self.navigationController pushViewController:medicaCare animated:YES];
     }
     if (btn.tag==102) {//服务
         

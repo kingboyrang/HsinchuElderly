@@ -8,6 +8,8 @@
 
 #import "ClockViewController.h"
 #import "UserManagerController.h"
+#import "UseDrugViewController.h"
+#import "BloodViewController.h"
 @interface ClockViewController ()
 - (void)addMenuItemWithFrame:(CGRect)frame title:(NSString*)title tag:(NSInteger)tag;
 - (void)buttonMenuItemClick:(UIButton*)btn;
@@ -58,10 +60,12 @@
         [self.navigationController pushViewController:info animated:YES];
     }
     if (btn.tag==101) {//用藥提醒
-        
+        UseDrugViewController *drug=[[UseDrugViewController alloc] init];
+        [self.navigationController pushViewController:drug animated:YES];
     }
     if (btn.tag==102) {//血壓測量
-        
+        BloodViewController *blood=[[BloodViewController alloc] init];
+        [self.navigationController pushViewController:blood animated:YES];
     }
     if (btn.tag==103) {//血糖測量
         

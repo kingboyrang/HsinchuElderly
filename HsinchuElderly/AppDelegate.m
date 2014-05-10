@@ -20,6 +20,8 @@
     UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:index];
     self.window.rootViewController=nav;
     [self.window makeKeyAndVisible];
+    NSString *usrid=[NSString createGUID];
+    NSLog(@"usrid=%d",[usrid length]);
     return YES;
 }
 							

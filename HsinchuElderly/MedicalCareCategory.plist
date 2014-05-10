@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>ID</key>
+		<string>00</string>
+		<key>Name</key>
+		<string>所有類別</string>
+	</dict>
+	<dict>
+		<key>ID</key>
+		<string>01</string>
+		<key>Name</key>
+		<string>醫院</string>
+	</dict>
+	<dict>
+		<key>ID</key>
+		<string>02</string>
+		<key>Name</key>
+		<string>中醫診所</string>
+	</dict>
+	<dict>
+		<key>ID</key>
+		<string>03</string>
+		<key>Name</key>
+		<string>西醫診所</string>
+	</dict>
+	<dict>
+		<key>ID</key>
+		<string>04</string>
+		<key>Name</key>
+		<string>牙醫診所</string>
+	</dict>
+	<dict>
+		<key>ID</key>
+		<string>05</string>
+		<key>Name</key>
+		<string>衛生所</string>
+	</dict>
+	<dict>
+		<key>ID</key>
+		<string>06</string>
+		<key>Name</key>
+		<string>藥局</string>
+	</dict>
+</array>
+</plist>

@@ -12,6 +12,25 @@
 		01622223191CC6C500B4AD50 /* AnimateErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01622221191CC6C500B4AD50 /* AnimateErrorView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01A97361191CE1EB0073530F /* UseDrugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97360191CE1EB0073530F /* UseDrugViewController.m */; };
 		01A97364191CE31A0073530F /* MedicineDrug.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97363191CE31A0073530F /* MedicineDrug.m */; };
+		01A97367191DBBF50073530F /* MedicineDrugHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97366191DBBF50073530F /* MedicineDrugHelper.m */; };
+		01A9736A191DC27A0073530F /* UseDrugModifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97369191DC27A0073530F /* UseDrugModifyController.m */; };
+		01A9736E191DC6300073530F /* TKDrugCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9736D191DC6300073530F /* TKDrugCell.m */; };
+		01A97372191DCD3F0073530F /* CVUICalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97371191DCD3F0073530F /* CVUICalendar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01A97378191DCD560073530F /* CVUIPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97375191DCD560073530F /* CVUIPopoverView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01A97379191DCD560073530F /* CVUIPopoverText.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97377191DCD560073530F /* CVUIPopoverText.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01A9737D191DCD690073530F /* CVUISelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9737C191DCD690073530F /* CVUISelect.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01A97380191DCFC70073530F /* TKLabelCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9737F191DCFC70073530F /* TKLabelCalendarCell.m */; };
+		01A97383191DD1C10073530F /* TKLabelSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97382191DD1C10073530F /* TKLabelSelectCell.m */; };
+		01A97386191DF0120073530F /* Frequency.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01A97385191DF0120073530F /* Frequency.plist */; };
+		01A97389191DFD870073530F /* Blood.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97388191DFD870073530F /* Blood.m */; };
+		01A9738C191DFE2B0073530F /* BloodHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9738B191DFE2B0073530F /* BloodHelper.m */; };
+		01A97390191DFF000073530F /* BloodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9738F191DFF000073530F /* BloodViewController.m */; };
+		01A97393191DFF1F0073530F /* BloodModifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97392191DFF1F0073530F /* BloodModifyController.m */; };
+		01A97397191E06640073530F /* MedicalCareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97396191E06640073530F /* MedicalCareController.m */; };
+		01A973A1191E120F0073530F /* UIPopoverListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A973A0191E120F0073530F /* UIPopoverListView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01A973A4191E15490073530F /* TPMenuHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A973A3191E15490073530F /* TPMenuHelper.m */; };
+		01A973A6191E208C0073530F /* MedicalCareCategory.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01A973A5191E208C0073530F /* MedicalCareCategory.plist */; };
+		01A973A8191E23DA0073530F /* MedicalCareArea.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01A973A7191E23DA0073530F /* MedicalCareArea.plist */; };
 		01BF7FA8191B186C002E34E9 /* UIColor+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */; };
 		01BF7FAF191B1C30002E34E9 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FAE191B1C30002E34E9 /* ClockViewController.m */; };
 		01BF7FB4191B1DB9002E34E9 /* UIButton+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FB3191B1DB9002E34E9 /* UIButton+TPCategory.m */; };
@@ -24,7 +43,6 @@
 		01BF7FD2191B6469002E34E9 /* TKLabelFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FD1191B6469002E34E9 /* TKLabelFieldCell.m */; };
 		01BF7FD4191B6503002E34E9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BF7FD3191B6503002E34E9 /* QuartzCore.framework */; };
 		01BF7FD7191B6D57002E34E9 /* TKLabelSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FD6191B6D57002E34E9 /* TKLabelSegmentCell.m */; };
-		01BF7FE8191B78BF002E34E9 /* MCSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FE7191B78BF002E34E9 /* MCSegmentedControl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01BFE02E191C682600095A8A /* HESegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BFE02D191C682600095A8A /* HESegmentControl.m */; };
 		01BFE034191C746700095A8A /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BFE033191C746700095A8A /* TopBarView.m */; };
 		01BFE037191C782800095A8A /* UINavigationBar+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BFE036191C782800095A8A /* UINavigationBar+TPCategory.m */; };
@@ -76,6 +94,41 @@
 		01A97360191CE1EB0073530F /* UseDrugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseDrugViewController.m; sourceTree = "<group>"; };
 		01A97362191CE31A0073530F /* MedicineDrug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicineDrug.h; sourceTree = "<group>"; };
 		01A97363191CE31A0073530F /* MedicineDrug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicineDrug.m; sourceTree = "<group>"; };
+		01A97365191DBBF50073530F /* MedicineDrugHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicineDrugHelper.h; sourceTree = "<group>"; };
+		01A97366191DBBF50073530F /* MedicineDrugHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicineDrugHelper.m; sourceTree = "<group>"; };
+		01A97368191DC27A0073530F /* UseDrugModifyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseDrugModifyController.h; sourceTree = "<group>"; };
+		01A97369191DC27A0073530F /* UseDrugModifyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseDrugModifyController.m; sourceTree = "<group>"; };
+		01A9736C191DC6300073530F /* TKDrugCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDrugCell.h; sourceTree = "<group>"; };
+		01A9736D191DC6300073530F /* TKDrugCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDrugCell.m; sourceTree = "<group>"; };
+		01A97370191DCD3F0073530F /* CVUICalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVUICalendar.h; sourceTree = "<group>"; };
+		01A97371191DCD3F0073530F /* CVUICalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVUICalendar.m; sourceTree = "<group>"; };
+		01A97374191DCD560073530F /* CVUIPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVUIPopoverView.h; sourceTree = "<group>"; };
+		01A97375191DCD560073530F /* CVUIPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVUIPopoverView.m; sourceTree = "<group>"; };
+		01A97376191DCD560073530F /* CVUIPopoverText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVUIPopoverText.h; sourceTree = "<group>"; };
+		01A97377191DCD560073530F /* CVUIPopoverText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVUIPopoverText.m; sourceTree = "<group>"; };
+		01A9737B191DCD690073530F /* CVUISelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVUISelect.h; sourceTree = "<group>"; };
+		01A9737C191DCD690073530F /* CVUISelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVUISelect.m; sourceTree = "<group>"; };
+		01A9737E191DCFC70073530F /* TKLabelCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelCalendarCell.h; sourceTree = "<group>"; };
+		01A9737F191DCFC70073530F /* TKLabelCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLabelCalendarCell.m; sourceTree = "<group>"; };
+		01A97381191DD1C10073530F /* TKLabelSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelSelectCell.h; sourceTree = "<group>"; };
+		01A97382191DD1C10073530F /* TKLabelSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLabelSelectCell.m; sourceTree = "<group>"; };
+		01A97385191DF0120073530F /* Frequency.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Frequency.plist; sourceTree = "<group>"; };
+		01A97387191DFD870073530F /* Blood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blood.h; sourceTree = "<group>"; };
+		01A97388191DFD870073530F /* Blood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blood.m; sourceTree = "<group>"; };
+		01A9738A191DFE2B0073530F /* BloodHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodHelper.h; sourceTree = "<group>"; };
+		01A9738B191DFE2B0073530F /* BloodHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodHelper.m; sourceTree = "<group>"; };
+		01A9738E191DFF000073530F /* BloodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodViewController.h; sourceTree = "<group>"; };
+		01A9738F191DFF000073530F /* BloodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodViewController.m; sourceTree = "<group>"; };
+		01A97391191DFF1F0073530F /* BloodModifyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodModifyController.h; sourceTree = "<group>"; };
+		01A97392191DFF1F0073530F /* BloodModifyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodModifyController.m; sourceTree = "<group>"; };
+		01A97395191E06640073530F /* MedicalCareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalCareController.h; sourceTree = "<group>"; };
+		01A97396191E06640073530F /* MedicalCareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalCareController.m; sourceTree = "<group>"; };
+		01A9739F191E120F0073530F /* UIPopoverListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPopoverListView.h; sourceTree = "<group>"; };
+		01A973A0191E120F0073530F /* UIPopoverListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPopoverListView.m; sourceTree = "<group>"; };
+		01A973A2191E15490073530F /* TPMenuHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPMenuHelper.h; sourceTree = "<group>"; };
+		01A973A3191E15490073530F /* TPMenuHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPMenuHelper.m; sourceTree = "<group>"; };
+		01A973A5191E208C0073530F /* MedicalCareCategory.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MedicalCareCategory.plist; sourceTree = "<group>"; };
+		01A973A7191E23DA0073530F /* MedicalCareArea.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MedicalCareArea.plist; sourceTree = "<group>"; };
 		01BF7FA6191B186C002E34E9 /* UIColor+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TPCategory.h"; sourceTree = "<group>"; };
 		01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TPCategory.m"; sourceTree = "<group>"; };
 		01BF7FAA191B188C002E34E9 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
@@ -100,8 +153,6 @@
 		01BF7FD3191B6503002E34E9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		01BF7FD5191B6D57002E34E9 /* TKLabelSegmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelSegmentCell.h; sourceTree = "<group>"; };
 		01BF7FD6191B6D57002E34E9 /* TKLabelSegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLabelSegmentCell.m; sourceTree = "<group>"; };
-		01BF7FE6191B78BF002E34E9 /* MCSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSegmentedControl.h; sourceTree = "<group>"; };
-		01BF7FE7191B78BF002E34E9 /* MCSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSegmentedControl.m; sourceTree = "<group>"; };
 		01BFE02C191C682600095A8A /* HESegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HESegmentControl.h; sourceTree = "<group>"; };
 		01BFE02D191C682600095A8A /* HESegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HESegmentControl.m; sourceTree = "<group>"; };
 		01BFE032191C746700095A8A /* TopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarView.h; sourceTree = "<group>"; };
@@ -180,20 +231,102 @@
 		017FF270191B0FB600255E76 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
-				01A9735E191CE1A60073530F /* UseDrug */,
+				01BF7FBE191B53B9002E34E9 /* Account */,
+				01A97394191E03EC0073530F /* BloodSugar */,
+				01A9738D191DFEE90073530F /* Blood */,
+				01A9735E191CE1A60073530F /* Drug */,
 				01BF7FAD191B1C30002E34E9 /* ClockViewController.h */,
 				01BF7FAE191B1C30002E34E9 /* ClockViewController.m */,
 			);
 			name = Clock;
 			sourceTree = "<group>";
 		};
-		01A9735E191CE1A60073530F /* UseDrug */ = {
+		01A9735E191CE1A60073530F /* Drug */ = {
 			isa = PBXGroup;
 			children = (
+				01A9736B191DC6170073530F /* UI */,
 				01A9735F191CE1EB0073530F /* UseDrugViewController.h */,
 				01A97360191CE1EB0073530F /* UseDrugViewController.m */,
+				01A97368191DC27A0073530F /* UseDrugModifyController.h */,
+				01A97369191DC27A0073530F /* UseDrugModifyController.m */,
 			);
-			name = UseDrug;
+			name = Drug;
+			sourceTree = "<group>";
+		};
+		01A9736B191DC6170073530F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				01A9736C191DC6300073530F /* TKDrugCell.h */,
+				01A9736D191DC6300073530F /* TKDrugCell.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		01A9736F191DCD340073530F /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				01A97373191DCD4A0073530F /* HelperView */,
+				01A97370191DCD3F0073530F /* CVUICalendar.h */,
+				01A97371191DCD3F0073530F /* CVUICalendar.m */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		01A97373191DCD4A0073530F /* HelperView */ = {
+			isa = PBXGroup;
+			children = (
+				01A97374191DCD560073530F /* CVUIPopoverView.h */,
+				01A97375191DCD560073530F /* CVUIPopoverView.m */,
+				01A97376191DCD560073530F /* CVUIPopoverText.h */,
+				01A97377191DCD560073530F /* CVUIPopoverText.m */,
+			);
+			name = HelperView;
+			sourceTree = "<group>";
+		};
+		01A9737A191DCD5D0073530F /* Select */ = {
+			isa = PBXGroup;
+			children = (
+				01A9737B191DCD690073530F /* CVUISelect.h */,
+				01A9737C191DCD690073530F /* CVUISelect.m */,
+			);
+			name = Select;
+			sourceTree = "<group>";
+		};
+		01A97384191DEFD20073530F /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				01A973A7191E23DA0073530F /* MedicalCareArea.plist */,
+				01A973A5191E208C0073530F /* MedicalCareCategory.plist */,
+				01A97385191DF0120073530F /* Frequency.plist */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		01A9738D191DFEE90073530F /* Blood */ = {
+			isa = PBXGroup;
+			children = (
+				01A9738E191DFF000073530F /* BloodViewController.h */,
+				01A9738F191DFF000073530F /* BloodViewController.m */,
+				01A97391191DFF1F0073530F /* BloodModifyController.h */,
+				01A97392191DFF1F0073530F /* BloodModifyController.m */,
+			);
+			name = Blood;
+			sourceTree = "<group>";
+		};
+		01A97394191E03EC0073530F /* BloodSugar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = BloodSugar;
+			sourceTree = "<group>";
+		};
+		01A9739E191E12000073530F /* PopoverView */ = {
+			isa = PBXGroup;
+			children = (
+				01A9739F191E120F0073530F /* UIPopoverListView.h */,
+				01A973A0191E120F0073530F /* UIPopoverListView.m */,
+			);
+			name = PopoverView;
 			sourceTree = "<group>";
 		};
 		01BF7FA5191B1820002E34E9 /* Category */ = {
@@ -255,6 +388,9 @@
 		01BF7FCB191B63D9002E34E9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				01A9739E191E12000073530F /* PopoverView */,
+				01A9737A191DCD5D0073530F /* Select */,
+				01A9736F191DCD340073530F /* Calendar */,
 				01BF7FD8191B7547002E34E9 /* Segment */,
 				01BF7FCC191B63EA002E34E9 /* Cell */,
 			);
@@ -270,6 +406,10 @@
 				01BF7FD1191B6469002E34E9 /* TKLabelFieldCell.m */,
 				01BF7FD5191B6D57002E34E9 /* TKLabelSegmentCell.h */,
 				01BF7FD6191B6D57002E34E9 /* TKLabelSegmentCell.m */,
+				01A9737E191DCFC70073530F /* TKLabelCalendarCell.h */,
+				01A9737F191DCFC70073530F /* TKLabelCalendarCell.m */,
+				01A97381191DD1C10073530F /* TKLabelSelectCell.h */,
+				01A97382191DD1C10073530F /* TKLabelSelectCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -277,28 +417,20 @@
 		01BF7FD8191B7547002E34E9 /* Segment */ = {
 			isa = PBXGroup;
 			children = (
-				01BF7FE6191B78BF002E34E9 /* MCSegmentedControl.h */,
-				01BF7FE7191B78BF002E34E9 /* MCSegmentedControl.m */,
 				01BFE02C191C682600095A8A /* HESegmentControl.h */,
 				01BFE02D191C682600095A8A /* HESegmentControl.m */,
 			);
 			name = Segment;
 			sourceTree = "<group>";
 		};
-		01BFE02F191C743800095A8A /* Menu */ = {
+		01BFE02F191C743800095A8A /* MedicalCare */ = {
 			isa = PBXGroup;
 			children = (
 				01BFE031191C744800095A8A /* UI */,
-				01BFE030191C743F00095A8A /* Service */,
+				01A97395191E06640073530F /* MedicalCareController.h */,
+				01A97396191E06640073530F /* MedicalCareController.m */,
 			);
-			name = Menu;
-			sourceTree = "<group>";
-		};
-		01BFE030191C743F00095A8A /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Service;
+			name = MedicalCare;
 			sourceTree = "<group>";
 		};
 		01BFE031191C744800095A8A /* UI */ = {
@@ -306,6 +438,8 @@
 			children = (
 				01BFE032191C746700095A8A /* TopBarView.h */,
 				01BFE033191C746700095A8A /* TopBarView.m */,
+				01A973A2191E15490073530F /* TPMenuHelper.h */,
+				01A973A3191E15490073530F /* TPMenuHelper.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -332,6 +466,8 @@
 				01BFE06C191CACE800095A8A /* SystemUser.m */,
 				01A97362191CE31A0073530F /* MedicineDrug.h */,
 				01A97363191CE31A0073530F /* MedicineDrug.m */,
+				01A97387191DFD870073530F /* Blood.h */,
+				01A97388191DFD870073530F /* Blood.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -341,6 +477,10 @@
 			children = (
 				01BFE06F191CADF900095A8A /* SystemUserHelper.h */,
 				01BFE070191CADF900095A8A /* SystemUserHelper.m */,
+				01A97365191DBBF50073530F /* MedicineDrugHelper.h */,
+				01A97366191DBBF50073530F /* MedicineDrugHelper.m */,
+				01A9738A191DFE2B0073530F /* BloodHelper.h */,
+				01A9738B191DFE2B0073530F /* BloodHelper.m */,
 			);
 			name = DAL;
 			sourceTree = "<group>";
@@ -392,6 +532,7 @@
 		01CDC1AB191A220A0002AE47 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				01A97384191DEFD20073530F /* Source */,
 				01CDC1AC191A220A0002AE47 /* HsinchuElderly-Info.plist */,
 				01CDC1AD191A220A0002AE47 /* InfoPlist.strings */,
 				01CDC1B0191A220A0002AE47 /* main.m */,
@@ -434,8 +575,7 @@
 		01CDC1DD191A243E0002AE47 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				01BFE02F191C743800095A8A /* Menu */,
-				01BF7FBE191B53B9002E34E9 /* Account */,
+				01BFE02F191C743800095A8A /* MedicalCare */,
 				017FF270191B0FB600255E76 /* Clock */,
 				01CDC1E3191A28630002AE47 /* Common */,
 				01CDC1E0191A28460002AE47 /* IndexViewController.h */,
@@ -536,7 +676,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				01CDC1C0191A220A0002AE47 /* Images.xcassets in Resources */,
+				01A973A8191E23DA0073530F /* MedicalCareArea.plist in Resources */,
 				01CDC1AF191A220A0002AE47 /* InfoPlist.strings in Resources */,
+				01A973A6191E208C0073530F /* MedicalCareCategory.plist in Resources */,
+				01A97386191DF0120073530F /* Frequency.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,35 +698,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01A9737D191DCD690073530F /* CVUISelect.m in Sources */,
 				01BF7FD2191B6469002E34E9 /* TKLabelFieldCell.m in Sources */,
+				01A97389191DFD870073530F /* Blood.m in Sources */,
 				01BFE071191CADF900095A8A /* SystemUserHelper.m in Sources */,
 				01BFE066191CAAB100095A8A /* AlertHelper.m in Sources */,
 				01BFE059191CA4BF00095A8A /* AlbumCameraImage.m in Sources */,
+				01A9738C191DFE2B0073530F /* BloodHelper.m in Sources */,
 				01BF7FD7191B6D57002E34E9 /* TKLabelSegmentCell.m in Sources */,
+				01A97378191DCD560073530F /* CVUIPopoverView.m in Sources */,
 				01CDC1E6191A289A0002AE47 /* BasicNavigationController.m in Sources */,
 				01622222191CC6C500B4AD50 /* AnimateLoadView.m in Sources */,
 				01CDC1B5191A220A0002AE47 /* AppDelegate.m in Sources */,
 				01CDC1B1191A220A0002AE47 /* main.m in Sources */,
 				01CDC1E9191A2BD90002AE47 /* BasicViewController.m in Sources */,
 				01BFE063191CAAB100095A8A /* UIActionSheet+Blocks.m in Sources */,
+				01A97380191DCFC70073530F /* TKLabelCalendarCell.m in Sources */,
+				01A97367191DBBF50073530F /* MedicineDrugHelper.m in Sources */,
 				01BFE06D191CACE800095A8A /* SystemUser.m in Sources */,
 				01BFE02E191C682600095A8A /* HESegmentControl.m in Sources */,
+				01A97390191DFF000073530F /* BloodViewController.m in Sources */,
+				01A973A4191E15490073530F /* TPMenuHelper.m in Sources */,
+				01A9736E191DC6300073530F /* TKDrugCell.m in Sources */,
+				01A97393191DFF1F0073530F /* BloodModifyController.m in Sources */,
 				01BF7FBA191B1DD4002E34E9 /* NSData+TPCategory.m in Sources */,
 				01BFE069191CAC6F00095A8A /* FileHelper.m in Sources */,
 				01BF7FC1191B53CF002E34E9 /* UserInfoViewController.m in Sources */,
+				01A97379191DCD560073530F /* CVUIPopoverText.m in Sources */,
 				0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */,
 				01A97364191CE31A0073530F /* MedicineDrug.m in Sources */,
+				01A97372191DCD3F0073530F /* CVUICalendar.m in Sources */,
 				01BFE034191C746700095A8A /* TopBarView.m in Sources */,
 				01BFE064191CAAB100095A8A /* UIAlertView+Blocks.m in Sources */,
 				01BFE065191CAAB100095A8A /* RIButtonItem.m in Sources */,
+				01A97397191E06640073530F /* MedicalCareController.m in Sources */,
+				01A973A1191E120F0073530F /* UIPopoverListView.m in Sources */,
 				01BF7FB7191B1DC7002E34E9 /* UIImage+TPCategory.m in Sources */,
 				01CDC1E2191A28460002AE47 /* IndexViewController.m in Sources */,
 				01BF7FA8191B186C002E34E9 /* UIColor+TPCategory.m in Sources */,
 				01BFE053191C896A00095A8A /* UIBarButtonItem+TPCategory.m in Sources */,
 				01622223191CC6C500B4AD50 /* AnimateErrorView.m in Sources */,
+				01A97383191DD1C10073530F /* TKLabelSelectCell.m in Sources */,
 				01BF7FBD191B1DF0002E34E9 /* NSString+TPCategory.m in Sources */,
 				01A97361191CE1EB0073530F /* UseDrugViewController.m in Sources */,
-				01BF7FE8191B78BF002E34E9 /* MCSegmentedControl.m in Sources */,
+				01A9736A191DC27A0073530F /* UseDrugModifyController.m in Sources */,
 				01BFE056191CA25900095A8A /* UserManagerController.m in Sources */,
 				01BF7FAF191B1C30002E34E9 /* ClockViewController.m in Sources */,
 				01BF7FCF191B63F9002E34E9 /* TKLabelCell.m in Sources */,

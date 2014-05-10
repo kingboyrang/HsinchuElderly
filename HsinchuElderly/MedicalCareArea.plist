@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>ID</key>
+		<string>00</string>
+		<key>Name</key>
+		<string>所有區域</string>
+	</dict>
+	<dict>
+		<key>ID</key>
+		<string>01</string>
+		<key>Name</key>
+		<string>竹北市</string>
+	</dict>
+	<dict>
+		<key>ID</key>
+		<string>02</string>
+		<key>Name</key>
+		<string>竹東鎮</string>
+	</dict>
+	<dict>
+		<key>ID</key>
+		<string>03</string>
+		<key>Name</key>
+		<string>新埔鎮</string>
+	</dict>
+	<dict>
+		<key>ID</key>
+		<string>04</string>
+		<key>Name</key>
+		<string>關西鎮</string>
+	</dict>
+	<dict>
+		<key>ID</key>
+		<string>04</string>
+		<key>Name</key>
+		<string>新豐鄉</string>
+	</dict>
+	<dict>
+		<key>ID</key>
+		<string>05</string>
+		<key>Name</key>
+		<string>峨眉鄉</string>
+	</dict>
+	<dict>
+		<key>ID</key>
+		<string>06</string>
+		<key>Name</key>
+		<string>寶山鄉</string>
+	</dict>
+</array>
+</plist>

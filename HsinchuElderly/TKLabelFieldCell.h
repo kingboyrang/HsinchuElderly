@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TKLabelCell.h"
-@interface TKLabelFieldCell : TKLabelCell
+@interface TKLabelFieldCell : TKLabelCell<UITextFieldDelegate>
 @property (nonatomic,strong) UITextField *field;
 @property (nonatomic,readonly) BOOL hasValue;
 @end

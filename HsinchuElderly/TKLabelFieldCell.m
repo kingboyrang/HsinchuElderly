@@ -21,6 +21,7 @@
     _field.layer.cornerRadius=8.0;
     _field.layer.masksToBounds=YES;
     _field.font=defaultSDeviceFont;
+    _field.delegate=self;
     [self.contentView addSubview:_field];
     return self;
 }
@@ -33,6 +34,10 @@
         return YES;
     }
     return NO;
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
 }
 - (void)layoutSubviews{
     [super layoutSubviews];

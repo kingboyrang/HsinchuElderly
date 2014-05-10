@@ -12,17 +12,34 @@
 #define saveImageFilePath [DocumentPath stringByAppendingPathComponent:@"SystemUserImage"]
 
 @interface SystemUserHelper ()
+@property (nonatomic,strong) NSMutableArray *userDataSource;
 - (BOOL)findById:(NSString*)sysId position:(NSInteger*)index;
-- (void)saveWithSources:(NSArray*)sources;
 @end
 
 @implementation SystemUserHelper
 
-- (NSMutableArray*)systemUsers{
+- (void)loadDataSource{
     NSString *path=[DocumentPath stringByAppendingPathComponent:@"systemUser.db"];
     NSMutableArray *source=[NSMutableArray array];
     if([FileHelper existsFilePath:path]){ //如果不存在
         [source addObjectsFromArray:[NSKeyedUnarchiver unarchiveObjectWithFile: path]];
+    }
+    self.userDataSource=source;
+}
+- (NSMutableArray*)systemUsers{
+    if (self.userDataSource&&[self.userDataSource count]>0) {
+       return self.userDataSource;
+    }else{
+        [self loadDataSource];
+    }
+    return self.userDataSource;
+}
+- (NSMutableArray*)dictonaryUsers{
+    NSMutableArray *source=[NSMutableArray array];
+    if (self.userDataSource&&[self.userDataSource count]>0) {
+    for (SystemUser *item in self.userDataSource) {
+        [source addObject:[NSDictionary dictionaryWithObjectsAndKeys:item.Name,@"Name",item.ID,@"ID", nil]];
+    }
     }
     return source;
 }
@@ -41,7 +58,6 @@
     }else{//新增
         [source addObject:entity];
     }
-    
     [self saveWithSources:source];
 }
 - (void)removeUserWithModel:(SystemUser*)entity{
@@ -59,6 +75,18 @@
             }
         }
     }
+}
+- (SystemUser*)findUserWithId:(NSString*)userId{
+    NSMutableArray *arr=[self systemUsers];
+    if (arr&&[arr count]>0) {
+        NSString *match=[NSString stringWithFormat:@"SELF.ID =='%@'",userId];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:match];
+        NSArray *results = [arr filteredArrayUsingPredicate:predicate];
+        if (results&&[results count]>0) {
+            return (SystemUser*)[results objectAtIndex:0];
+        }
+    }
+    return nil;
 }
 - (void)removeUserPhotoWithId:(NSString*)userId{
     NSString *path=[saveImageFilePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",userId]];
