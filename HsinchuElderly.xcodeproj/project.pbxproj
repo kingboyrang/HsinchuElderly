@@ -71,6 +71,8 @@
 		01CDC1E2191A28460002AE47 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CDC1E1191A28460002AE47 /* IndexViewController.m */; };
 		01CDC1E6191A289A0002AE47 /* BasicNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CDC1E5191A289A0002AE47 /* BasicNavigationController.m */; };
 		01CDC1E9191A2BD90002AE47 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CDC1E8191A2BD90002AE47 /* BasicViewController.m */; };
+		26A9F524191F74060018EE32 /* MedicalCareDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A9F523191F74060018EE32 /* MedicalCareDetailController.m */; };
+		26A9F527191F76FF0018EE32 /* TKLabelLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A9F526191F76FF0018EE32 /* TKLabelLabelCell.m */; };
 		26DEBA0B191F2C320007DB43 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DEBA0A191F2C320007DB43 /* libsqlite3.dylib */; };
 		26DEBA18191F2C4D0007DB43 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DEBA0E191F2C4D0007DB43 /* FMDatabase.m */; };
 		26DEBA19191F2C4D0007DB43 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DEBA10191F2C4D0007DB43 /* FMDatabaseAdditions.m */; };
@@ -217,6 +219,10 @@
 		01CDC1E5191A289A0002AE47 /* BasicNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicNavigationController.m; sourceTree = "<group>"; };
 		01CDC1E7191A2BD90002AE47 /* BasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicViewController.h; sourceTree = "<group>"; };
 		01CDC1E8191A2BD90002AE47 /* BasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicViewController.m; sourceTree = "<group>"; };
+		26A9F522191F74060018EE32 /* MedicalCareDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalCareDetailController.h; sourceTree = "<group>"; };
+		26A9F523191F74060018EE32 /* MedicalCareDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalCareDetailController.m; sourceTree = "<group>"; };
+		26A9F525191F76FF0018EE32 /* TKLabelLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelLabelCell.h; sourceTree = "<group>"; };
+		26A9F526191F76FF0018EE32 /* TKLabelLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLabelLabelCell.m; sourceTree = "<group>"; };
 		26DEBA0A191F2C320007DB43 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		26DEBA0D191F2C4D0007DB43 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		26DEBA0E191F2C4D0007DB43 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
@@ -457,6 +463,8 @@
 				01A9737F191DCFC70073530F /* TKLabelCalendarCell.m */,
 				01A97381191DD1C10073530F /* TKLabelSelectCell.h */,
 				01A97382191DD1C10073530F /* TKLabelSelectCell.m */,
+				26A9F525191F76FF0018EE32 /* TKLabelLabelCell.h */,
+				26A9F526191F76FF0018EE32 /* TKLabelLabelCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -476,6 +484,8 @@
 				01BFE031191C744800095A8A /* UI */,
 				01A97395191E06640073530F /* MedicalCareController.h */,
 				01A97396191E06640073530F /* MedicalCareController.m */,
+				26A9F522191F74060018EE32 /* MedicalCareDetailController.h */,
+				26A9F523191F74060018EE32 /* MedicalCareDetailController.m */,
 			);
 			name = MedicalCare;
 			sourceTree = "<group>";
@@ -812,6 +822,7 @@
 				01BF7FD7191B6D57002E34E9 /* TKLabelSegmentCell.m in Sources */,
 				01A97378191DCD560073530F /* CVUIPopoverView.m in Sources */,
 				01CDC1E6191A289A0002AE47 /* BasicNavigationController.m in Sources */,
+				26A9F524191F74060018EE32 /* MedicalCareDetailController.m in Sources */,
 				01622222191CC6C500B4AD50 /* AnimateLoadView.m in Sources */,
 				01CDC1B5191A220A0002AE47 /* AppDelegate.m in Sources */,
 				26DEBA38191F440F0007DB43 /* PullingRefreshTableView.m in Sources */,
@@ -856,6 +867,7 @@
 				26DEBA19191F2C4D0007DB43 /* FMDatabaseAdditions.m in Sources */,
 				01BF7FCF191B63F9002E34E9 /* TKLabelCell.m in Sources */,
 				26DEBA1A191F2C4D0007DB43 /* FMDatabasePool.m in Sources */,
+				26A9F527191F76FF0018EE32 /* TKLabelLabelCell.m in Sources */,
 				01BF7FB4191B1DB9002E34E9 /* UIButton+TPCategory.m in Sources */,
 				01BF7FC5191B5D8F002E34E9 /* TKPhotoCell.m in Sources */,
 				01BFE037191C782800095A8A /* UINavigationBar+TPCategory.m in Sources */,

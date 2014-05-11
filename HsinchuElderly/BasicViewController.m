@@ -175,7 +175,13 @@
 }
 -(void) showErrorViewWithHide:(void (^)(AnimateErrorView *errorView))process completed:(void (^)(AnimateErrorView *errorView))complete{
     [self showErrorViewAnimated:process];
-    [self performSelector:@selector(hideErrorViewAnimated:) withObject:complete afterDelay:2.0f];
+    //设置延迟执行时间为1秒
+    int64_t delayInSeconds = 2.0f;
+    dispatch_time_t popTime =
+    dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self hideErrorViewAnimated:complete];
+    });
 }
 -(void) hideLoadingFailedWithTitle:(NSString*)title completed:(void (^)(AnimateErrorView *errorView))complete{
     [self hideLoadingViewAnimated:^(AnimateLoadView *hideView) {
@@ -211,7 +217,14 @@
 }
 -(void) showSuccessViewWithHide:(void (^)(AnimateErrorView *errorView))process completed:(void (^)(AnimateErrorView *errorView))complete{
     [self showSuccessViewAnimated:process];
-    [self performSelector:@selector(hideSuccessViewAnimated:) withObject:complete afterDelay:2.0f];
+    //设置延迟执行时间为1秒
+    int64_t delayInSeconds = 2.0f;
+    dispatch_time_t popTime =
+    dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self hideSuccessViewAnimated:complete];
+    });
+    
 }
 -(void) hideLoadingSuccessWithTitle:(NSString*)title completed:(void (^)(AnimateErrorView *errorView))complete{
     [self hideLoadingViewAnimated:^(AnimateLoadView *hideView) {

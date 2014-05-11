@@ -7,8 +7,9 @@
 //
 
 #import "MedicalCareController.h"
-
+#import "MedicalCare.h"
 #import "UIBarButtonItem+TPCategory.h"
+#import "MedicalCareDetailController.h"
 @interface MedicalCareController ()
 - (void)buttonMapClick:(UIButton*)btn;
 @end
@@ -35,15 +36,41 @@
     [_topBarView.areaButton addTarget:self action:@selector(buttonAreaClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_topBarView];
     
+    CGRect r=self.view.bounds;
+    r.origin.y=44;
+    r.size.height-=[self topHeight]+r.origin.y;
+    _refreshTable=[[PullingRefreshTableView alloc] initWithFrame:r pullingDelegate:self];
+    _refreshTable.dataSource=self;
+    _refreshTable.delegate=self;
+    _refreshTable.backgroundColor=[UIColor clearColor];
+    [self.view addSubview:_refreshTable];
+    
     self.menuHelper=[[TPMenuHelper alloc] init];
+    
+    [self defaultInitParams];
+    [_refreshTable launchRefreshing];//加载数据
+    
+    //加载数据
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        if ([self.medicalCategorys count]==0) {
+            self.medicalCategorys=[self.dbHelper categorys];
+        }
+        if ([self.medicalAreas count]==0) {
+            self.medicalAreas=[self.dbHelper areas];
+        }
+    });
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
 }
 - (void)defaultInitParams{
     pageSize=10;
-    pageNumber=1;
+    pageNumber=0;
 }
 //地图
 - (void)buttonMapClick:(UIButton*)btn{
-    
+   
 }
 //类别
 - (void)buttonCategoryClick:(UIButton*)btn{
@@ -63,9 +90,7 @@
      ***/
    
     //NSString *path=[[NSBundle mainBundle] pathForResource:@"MedicalCareCategory" ofType:@"plist"];
-    if ([self.medicalCategorys count]==0) {
-        self.medicalCategorys=[self.dbHelper categorys];
-    }
+   
     CGFloat xWidth = self.view.bounds.size.width - 20.0f;
     CGFloat yHeight = 300.0f;
     CGFloat yOffset = (self.view.bounds.size.height - yHeight)/2.0f;
@@ -80,9 +105,7 @@
 }
 //区域
 - (void)buttonAreaClick:(UIButton*)btn{
-    if ([self.medicalAreas count]==0) {
-        self.medicalAreas=[self.dbHelper areas];
-    }
+  
     //NSString *path=[[NSBundle mainBundle] pathForResource:@"MedicalCareArea" ofType:@"plist"];
     CGFloat xWidth = self.view.bounds.size.width - 20.0f;
     CGFloat yHeight = 300.0f;
@@ -106,9 +129,113 @@
     NSDictionary *dic=(NSDictionary*)item;
     if (index==1) {//类别
         [_topBarView.categoryButton setTitle:[dic objectForKey:@"Name"] forState:UIControlStateNormal];
+        if (![self.categoryGuid isEqualToString:[dic objectForKey:@"ID"]]) {
+            self.categoryGuid=[dic objectForKey:@"ID"];
+            [self defaultInitParams];
+            [_refreshTable launchRefreshing];
+        }
     }else{//区域
         [_topBarView.areaButton setTitle:[dic objectForKey:@"Name"] forState:UIControlStateNormal];
+        if (![self.areaGuid isEqualToString:[dic objectForKey:@"ID"]]) {
+            self.areaGuid=[dic objectForKey:@"ID"];
+            [self defaultInitParams];
+            [_refreshTable launchRefreshing];
+        }
     }
 }
+//加载数据
+- (void)loadData{
+    pageNumber++;
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        // 处理耗时操作的代码块...
+        NSMutableArray *arr=[self.dbHelper searchWithCategory:self.categoryGuid aresGuid:self.areaGuid size:pageSize page:pageNumber];
+        [_refreshTable tableViewDidFinishedLoading];
+        _refreshTable.reachedTheEnd = NO;
+        if (self.refreshing) {
+            self.refreshing = NO;
+        }
+        if (arr&&[arr count]>0) {
+            //通知主线程刷新
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"为什么不能做点击呢？");
+                //回调或者说是通知主线程刷新，
+                if (pageNumber==1) {
+                    self.list=arr;
+                    [_refreshTable reloadData];
+                }else{
+                    NSMutableArray *insertIndexPaths = [NSMutableArray arrayWithCapacity:arr.count];
+                    int total=self.list.count;
+                    for (int i=0; i<[arr count]; i++) {
+                        [self.list addObject:[arr objectAtIndex:i]];
+                        NSIndexPath *newPath=[NSIndexPath indexPathForRow:i+total inSection:0];
+                        [insertIndexPaths addObject:newPath];
+                    }
+                    //重新呼叫UITableView的方法, 來生成行.
+                    [_refreshTable beginUpdates];
+                    [_refreshTable insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+                    [_refreshTable endUpdates];
+                    [self showSuccessViewWithHide:^(AnimateErrorView *successView) {
+                        successView.labelTitle.text=[NSString stringWithFormat:@"更新%d筆資料!",insertIndexPaths.count];
+                    } completed:nil];
+                }
+            });
+        }else{
+            pageNumber--;
+            [self showErrorViewWithHide:^(AnimateErrorView *errorView) {
+                errorView.labelTitle.text=@"沒有了哦!";
+                errorView.backgroundColor=[UIColor colorFromHexRGB:@"0e4880"];
+            } completed:nil];
+        }
+       
+        
+    });
+}
+#pragma mark UITableViewDataSource Methods
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.list.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellIdentifier=@"medicalCareCell";
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell==nil) {
+        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        UIImage *img=[UIImage imageNamed:@"cell_bg.png"];
+        img=[img stretchableImageWithLeftCapWidth:10 topCapHeight:0];
+        UIView *bgView=[[UIView alloc] initWithFrame:cell.frame];
+        UIImageView *imageView=[[UIImageView alloc] initWithFrame:bgView.bounds];
+        [imageView setImage:img];
+        [bgView addSubview:imageView];
+        
+        cell.backgroundView=bgView;
+    }
+    MedicalCare *entity=self.list[indexPath.row];
+    cell.textLabel.text=entity.Name;
+    cell.textLabel.textColor=defaultDeviceFontColor;
+    cell.textLabel.font=defaultSDeviceFont;
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    MedicalCareDetailController *detail=[[MedicalCareDetailController alloc] init];
+    detail.Entity=self.list[indexPath.row];
+    [self.navigationController pushViewController:detail animated:YES];
+}
+#pragma mark - PullingRefreshTableViewDelegate
+//下拉加载
+- (void)pullingTableViewDidStartRefreshing:(PullingRefreshTableView *)tableView{
+    self.refreshing = YES;
+    [self performSelector:@selector(loadData) withObject:nil afterDelay:1.f];
+}
+//上拉加载
+- (void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
+    [self performSelector:@selector(loadData) withObject:nil afterDelay:1.f];
+}
+#pragma mark - Scroll
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [_refreshTable tableViewDidScroll:scrollView];
+}
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    [_refreshTable tableViewDidEndDragging:scrollView];
+}
 @end

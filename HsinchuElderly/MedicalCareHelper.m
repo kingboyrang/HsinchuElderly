@@ -49,7 +49,6 @@
     }
     [sql appendString:@" order by Name"];
     [sql appendFormat:@" limit %d offset %d",size,size*(page-1)];
-    
     NSMutableArray *sources=[NSMutableArray array];
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
     if ([db open]) {//表示打开
