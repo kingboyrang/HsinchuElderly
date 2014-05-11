@@ -8,10 +8,23 @@
 
 #import "AppDelegate.h"
 #import "IndexViewController.h"
+#import "FileHelper.h"
 @implementation AppDelegate
 
+- (void)dbInitLoad{
+    NSString *path=[[NSBundle mainBundle] pathForResource:@"HsinchuElderly" ofType:@"sqlite"];
+    NSString *dbPath=[DocumentPath stringByAppendingPathComponent:@"HsinchuElderly.sqlite"];
+    if (![FileHelper existsFilePath:dbPath]) {
+         NSData *mainBundleFile = [NSData dataWithContentsOfFile:path];
+        [[NSFileManager defaultManager] createFileAtPath:dbPath
+                                                contents:mainBundleFile
+                                              attributes:nil];
+    }
+    [FileHelper createDocumentDirectoryWithName:@"SystemUserImage"];
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self dbInitLoad];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     // Override point for customization after application launch.
@@ -20,8 +33,7 @@
     UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:index];
     self.window.rootViewController=nav;
     [self.window makeKeyAndVisible];
-    NSString *usrid=[NSString createGUID];
-    NSLog(@"usrid=%d",[usrid length]);
+
     return YES;
 }
 							

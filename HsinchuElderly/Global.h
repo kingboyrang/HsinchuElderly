@@ -29,6 +29,9 @@
 #define defaultBDeviceFont [UIFont fontWithName:defaultDeviceFontName size:16]
 #define defaultSDeviceFont [UIFont fontWithName:defaultDeviceFontName size:14]
 
+//数据库配置路径
+#define HEDBPath [DocumentPath stringByAppendingPathComponent:@"HsinchuElderly.sqlite"]
+
 
 
 

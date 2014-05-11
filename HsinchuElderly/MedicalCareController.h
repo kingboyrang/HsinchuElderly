@@ -9,7 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "TPMenuHelper.h"
 #import "TopBarView.h"
-@interface MedicalCareController : BasicViewController<TPMenuHelperDelegate>
+#import "MedicalCareHelper.h"
+@interface MedicalCareController : BasicViewController<TPMenuHelperDelegate>{
+    int pageSize;
+    int pageNumber;
+}
 @property (nonatomic,strong) TPMenuHelper *menuHelper;
 @property (nonatomic,strong) TopBarView *topBarView;
+@property (nonatomic,strong) MedicalCareHelper *dbHelper;
+@property (nonatomic,strong) NSMutableArray *medicalCategorys;
+@property (nonatomic,strong) NSMutableArray *medicalAreas;
+@property (nonatomic,strong) NSMutableArray *list;
 @end
