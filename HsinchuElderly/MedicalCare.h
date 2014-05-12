@@ -7,13 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface MedicalCare : NSObject
-@property (nonatomic,copy) NSString *ID;
-@property (nonatomic,copy) NSString *Name;
-@property (nonatomic,copy) NSString *Address;
-@property (nonatomic,copy) NSString *Tel;
-@property (nonatomic,copy) NSString *MedicalCareCategoryGuid;
-@property (nonatomic,copy) NSString *MedicalCareAreaGuid;
-@property (nonatomic,copy) NSString *WebSiteURL;
+#import "BasicModel.h"
+@interface MedicalCare : BasicModel
+//@property (nonatomic,copy) NSString *MedicalCareCategoryGuid;
+//@property (nonatomic,copy) NSString *MedicalCareAreaGuid;
 @end

@@ -1,13 +1,13 @@
 //
-//  MedicalCareHelper.h
+//  HEServiceHelper.h
 //  HsinchuElderly
 //
-//  Created by rang on 14-5-10.
+//  Created by aJia on 2014/5/12.
 //  Copyright (c) 2014年 lz. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "HEBasicHelper.h"
-@interface MedicalCareHelper : HEBasicHelper
+@interface HEServiceHelper : HEBasicHelper
 
 @end

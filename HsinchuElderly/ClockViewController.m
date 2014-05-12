@@ -10,6 +10,7 @@
 #import "UserManagerController.h"
 #import "UseDrugViewController.h"
 #import "BloodViewController.h"
+#import "BloodSugarViewController.h"
 @interface ClockViewController ()
 - (void)addMenuItemWithFrame:(CGRect)frame title:(NSString*)title tag:(NSInteger)tag;
 - (void)buttonMenuItemClick:(UIButton*)btn;
@@ -68,7 +69,8 @@
         [self.navigationController pushViewController:blood animated:YES];
     }
     if (btn.tag==103) {//血糖測量
-        
+        BloodSugarViewController *bloodSugar=[[BloodSugarViewController alloc] init];
+        [self.navigationController pushViewController:bloodSugar animated:YES];
     }
 }
 - (void)didReceiveMemoryWarning

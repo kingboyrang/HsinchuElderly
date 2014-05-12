@@ -7,6 +7,11 @@
 //
 
 #import "TKLabelLabelCell.h"
+#import "UIImage+TPCategory.h"
+
+@interface TKLabelLabelCell ()
+@property (nonatomic,strong) UIImageView *lineImageView;
+@end
 
 @implementation TKLabelLabelCell
 
@@ -27,6 +32,10 @@
     _labDetail.font = defaultSDeviceFont;
 	[self.contentView addSubview:_labDetail];
     
+    UIImage *image=[UIImage createImageWithColor:[UIColor colorFromHexRGB:@"fec75a"] imageSize:CGSizeMake(self.frame.size.width, 2)];
+    _lineImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
+    [_lineImageView setImage:image];
+    [self.contentView addSubview:_lineImageView];
     return self;
 }
 - (id) initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
@@ -49,6 +58,10 @@
     CGFloat w=self.frame.size.width-leftX-5;
     size=[_labDetail.text textSize:defaultSDeviceFont withWidth:w];
     _labDetail.frame=CGRectMake(leftX,(self.frame.size.height-size.height)/2, size.width, size.height);
+    
+    r=_lineImageView.frame;
+    r.origin.y=self.frame.size.height-r.size.height;
+    _lineImageView.frame=r;
 }
 
 @end

@@ -30,8 +30,8 @@
 #define defaultSDeviceFont [UIFont fontWithName:defaultDeviceFontName size:14]
 
 //数据库配置路径
+//#define HEDBPath [[NSBundle mainBundle] pathForResource:@"HsinchuElderly" ofType:@"sqlite"]
 #define HEDBPath [DocumentPath stringByAppendingPathComponent:@"HsinchuElderly.sqlite"]
-
 
 
 

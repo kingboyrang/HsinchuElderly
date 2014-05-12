@@ -19,7 +19,9 @@
         [[NSFileManager defaultManager] createFileAtPath:dbPath
                                                 contents:mainBundleFile
                                               attributes:nil];
+        NSLog(@"path=%@",dbPath);
     }
+    NSLog(@"path=%@",dbPath);
     [FileHelper createDocumentDirectoryWithName:@"SystemUserImage"];
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

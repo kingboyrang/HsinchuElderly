@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MedicalCare.h"
-@interface MedicalCareDetailController : BasicViewController<UITableViewDataSource,UITableViewDelegate>
+#import "BasicModel.h"
+@interface HEItemDetailController : BasicViewController<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *detailTable;
-@property (nonatomic,strong) MedicalCare *Entity;
+@property (nonatomic,strong) BasicModel *Entity;
 @property (nonatomic,strong) NSMutableArray *cells;
+@property (nonatomic,strong) UIWebView *webView;
 @end
