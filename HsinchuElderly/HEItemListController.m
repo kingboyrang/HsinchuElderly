@@ -10,6 +10,7 @@
 #import "BasicModel.h"
 #import "UIBarButtonItem+TPCategory.h"
 #import "HEItemDetailController.h"
+#import "HEItemListMapsController.h"
 @interface HEItemListController ()
 - (void)buttonMapClick:(UIButton*)btn;
 @end
@@ -75,7 +76,12 @@
 }
 //地图
 - (void)buttonMapClick:(UIButton*)btn{
-    
+    HEItemListMapsController *maps=[[HEItemListMapsController alloc] init];
+    maps.title=self.title;
+    maps.medicalAreas=self.medicalAreas;
+    maps.medicalCategorys=self.medicalCategorys;
+    maps.dbHelper=self.dbHelper;
+    [self.navigationController pushViewController:maps animated:YES];
 }
 //类别
 - (void)buttonCategoryClick:(UIButton*)btn{

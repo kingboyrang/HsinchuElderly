@@ -19,11 +19,11 @@
         [[NSFileManager defaultManager] createFileAtPath:dbPath
                                                 contents:mainBundleFile
                                               attributes:nil];
-        NSLog(@"path=%@",dbPath);
     }
     NSLog(@"path=%@",dbPath);
     [FileHelper createDocumentDirectoryWithName:@"SystemUserImage"];
 }
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self dbInitLoad];
@@ -35,7 +35,6 @@
     UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:index];
     self.window.rootViewController=nav;
     [self.window makeKeyAndVisible];
-
     return YES;
 }
 							

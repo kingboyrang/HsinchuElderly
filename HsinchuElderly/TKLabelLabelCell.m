@@ -27,9 +27,11 @@
     
     _labDetail = [[UILabel alloc] initWithFrame:CGRectZero];
 	_labDetail.backgroundColor = [UIColor clearColor];
-    _labDetail.textAlignment = NSTextAlignmentRight;
+    _labDetail.textAlignment = NSTextAlignmentLeft;
     _labDetail.textColor = [UIColor blackColor];
     _labDetail.font = defaultSDeviceFont;
+    _labDetail.numberOfLines=0;
+    _labDetail.lineBreakMode=NSLineBreakByWordWrapping;
 	[self.contentView addSubview:_labDetail];
     
     UIImage *image=[UIImage createImageWithColor:[UIColor colorFromHexRGB:@"fec75a"] imageSize:CGSizeMake(self.frame.size.width, 2)];

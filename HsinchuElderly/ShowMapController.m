@@ -42,6 +42,7 @@
             MKPointAnnotation *ann = [[MKPointAnnotation alloc] init];
             ann.coordinate = place.coordinate;
             [ann setTitle:self.Address];
+            //[ann setSubtitle:self.Address];
             //触发viewForAnnotation
             [self.map addAnnotation:ann];
             
@@ -76,6 +77,8 @@
     pinView.pinColor = MKPinAnnotationColorRed;
     pinView.canShowCallout = YES;
     pinView.animatesDrop = YES;
+    //pinView.centerOffset= CGPointMake(0,-5);
+    //pinView.calloutOffset = CGPointMake(-8,0);
     return pinView;
 }
 - (void)didReceiveMemoryWarning

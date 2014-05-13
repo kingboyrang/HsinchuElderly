@@ -25,6 +25,8 @@ typedef enum{
 - (NSMutableArray*)categorys;
 //区域
 - (NSMutableArray*)areas;
+//取得所有数据
+- (NSMutableArray*)tableDataList;
 //分页查询
 - (NSMutableArray*)searchWithCategory:(NSString*)category
                              aresGuid:(NSString*)areaId

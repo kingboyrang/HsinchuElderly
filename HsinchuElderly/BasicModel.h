@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class SVPlacemark;
 @interface BasicModel : NSObject
 @property (nonatomic,copy) NSString *ID;
 @property (nonatomic,copy) NSString *Name;
@@ -16,4 +16,6 @@
 @property (nonatomic,copy) NSString *CategoryGuid;
 @property (nonatomic,copy) NSString *AreaGuid;
 @property (nonatomic,copy) NSString *WebSiteURL;
+
+@property (nonatomic, strong) SVPlacemark *placemark;
 @end

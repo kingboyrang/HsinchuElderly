@@ -52,6 +52,13 @@
 		01A9743F1920DF6E0073530F /* HEWelfare.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9743E1920DF6E0073530F /* HEWelfare.m */; };
 		01A974421920DF8D0073530F /* HEWelfareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974411920DF8D0073530F /* HEWelfareHelper.m */; };
 		01A974461920E06B0073530F /* HEWelfareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974451920E06B0073530F /* HEWelfareViewController.m */; };
+		01A974491921AD910073530F /* HEItemListMapsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974481921AD910073530F /* HEItemListMapsController.m */; };
+		01A9744F1921BB100073530F /* CallOutAnnotationVifew.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9744C1921BB100073530F /* CallOutAnnotationVifew.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01A974501921BB100073530F /* CalloutMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9744E1921BB100073530F /* CalloutMapAnnotation.m */; };
+		01A974531921BB8D0073530F /* PaoPaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974521921BB8D0073530F /* PaoPaoView.m */; };
+		01A974561921BEAB0073530F /* TKEmptyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974551921BEAB0073530F /* TKEmptyCell.m */; };
+		01A974591921FD4D0073530F /* BasicMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974581921FD4D0073530F /* BasicMapAnnotation.m */; };
+		01A9745C192203BB0073530F /* TKLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9745B192203BB0073530F /* TKLineCell.m */; };
 		01BF7FA8191B186C002E34E9 /* UIColor+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */; };
 		01BF7FAF191B1C30002E34E9 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FAE191B1C30002E34E9 /* ClockViewController.m */; };
 		01BF7FB4191B1DB9002E34E9 /* UIButton+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FB3191B1DB9002E34E9 /* UIButton+TPCategory.m */; };
@@ -206,6 +213,20 @@
 		01A974411920DF8D0073530F /* HEWelfareHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEWelfareHelper.m; sourceTree = "<group>"; };
 		01A974441920E06B0073530F /* HEWelfareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEWelfareViewController.h; sourceTree = "<group>"; };
 		01A974451920E06B0073530F /* HEWelfareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEWelfareViewController.m; sourceTree = "<group>"; };
+		01A974471921AD910073530F /* HEItemListMapsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEItemListMapsController.h; sourceTree = "<group>"; };
+		01A974481921AD910073530F /* HEItemListMapsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEItemListMapsController.m; sourceTree = "<group>"; };
+		01A9744B1921BB100073530F /* CallOutAnnotationVifew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallOutAnnotationVifew.h; sourceTree = "<group>"; };
+		01A9744C1921BB100073530F /* CallOutAnnotationVifew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallOutAnnotationVifew.m; sourceTree = "<group>"; };
+		01A9744D1921BB100073530F /* CalloutMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalloutMapAnnotation.h; sourceTree = "<group>"; };
+		01A9744E1921BB100073530F /* CalloutMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalloutMapAnnotation.m; sourceTree = "<group>"; };
+		01A974511921BB8D0073530F /* PaoPaoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaoPaoView.h; sourceTree = "<group>"; };
+		01A974521921BB8D0073530F /* PaoPaoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaoPaoView.m; sourceTree = "<group>"; };
+		01A974541921BEAB0073530F /* TKEmptyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKEmptyCell.h; sourceTree = "<group>"; };
+		01A974551921BEAB0073530F /* TKEmptyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKEmptyCell.m; sourceTree = "<group>"; };
+		01A974571921FD4D0073530F /* BasicMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMapAnnotation.h; sourceTree = "<group>"; };
+		01A974581921FD4D0073530F /* BasicMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMapAnnotation.m; sourceTree = "<group>"; };
+		01A9745A192203BB0073530F /* TKLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLineCell.h; sourceTree = "<group>"; };
+		01A9745B192203BB0073530F /* TKLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLineCell.m; sourceTree = "<group>"; };
 		01BF7FA6191B186C002E34E9 /* UIColor+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TPCategory.h"; sourceTree = "<group>"; };
 		01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TPCategory.m"; sourceTree = "<group>"; };
 		01BF7FAA191B188C002E34E9 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
@@ -454,12 +475,15 @@
 		01A974291920C5E10073530F /* HECommon */ = {
 			isa = PBXGroup;
 			children = (
+				01A9744A1921BAF10073530F /* UI */,
 				26A9F522191F74060018EE32 /* HEItemDetailController.h */,
 				26A9F523191F74060018EE32 /* HEItemDetailController.m */,
 				01A973B1192062040073530F /* ShowMapController.h */,
 				01A973B2192062040073530F /* ShowMapController.m */,
 				01A9742A1920CA7F0073530F /* HEItemListController.h */,
 				01A9742B1920CA7F0073530F /* HEItemListController.m */,
+				01A974471921AD910073530F /* HEItemListMapsController.h */,
+				01A974481921AD910073530F /* HEItemListMapsController.m */,
 			);
 			name = HECommon;
 			sourceTree = "<group>";
@@ -489,6 +513,23 @@
 				01A974451920E06B0073530F /* HEWelfareViewController.m */,
 			);
 			name = Welfare;
+			sourceTree = "<group>";
+		};
+		01A9744A1921BAF10073530F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				01A974571921FD4D0073530F /* BasicMapAnnotation.h */,
+				01A974581921FD4D0073530F /* BasicMapAnnotation.m */,
+				01A9744B1921BB100073530F /* CallOutAnnotationVifew.h */,
+				01A9744C1921BB100073530F /* CallOutAnnotationVifew.m */,
+				01A9744D1921BB100073530F /* CalloutMapAnnotation.h */,
+				01A9744E1921BB100073530F /* CalloutMapAnnotation.m */,
+				01A974511921BB8D0073530F /* PaoPaoView.h */,
+				01A974521921BB8D0073530F /* PaoPaoView.m */,
+				01A9745A192203BB0073530F /* TKLineCell.h */,
+				01A9745B192203BB0073530F /* TKLineCell.m */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		01BF7FA5191B1820002E34E9 /* Category */ = {
@@ -574,6 +615,8 @@
 				01A97382191DD1C10073530F /* TKLabelSelectCell.m */,
 				26A9F525191F76FF0018EE32 /* TKLabelLabelCell.h */,
 				26A9F526191F76FF0018EE32 /* TKLabelLabelCell.m */,
+				01A974541921BEAB0073530F /* TKEmptyCell.h */,
+				01A974551921BEAB0073530F /* TKEmptyCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -949,6 +992,7 @@
 				01A973AD19205E810073530F /* ActionSheetHelper.m in Sources */,
 				01A974461920E06B0073530F /* HEWelfareViewController.m in Sources */,
 				01BFE059191CA4BF00095A8A /* AlbumCameraImage.m in Sources */,
+				01A974591921FD4D0073530F /* BasicMapAnnotation.m in Sources */,
 				01A9738C191DFE2B0073530F /* BloodHelper.m in Sources */,
 				01BF7FD7191B6D57002E34E9 /* TKLabelSegmentCell.m in Sources */,
 				01A97378191DCD560073530F /* CVUIPopoverView.m in Sources */,
@@ -956,6 +1000,7 @@
 				01A974191920B8090073530F /* SVGeocoder.m in Sources */,
 				01A974251920C50D0073530F /* HEService.m in Sources */,
 				26A9F524191F74060018EE32 /* HEItemDetailController.m in Sources */,
+				01A9744F1921BB100073530F /* CallOutAnnotationVifew.m in Sources */,
 				01622222191CC6C500B4AD50 /* AnimateLoadView.m in Sources */,
 				01A974351920DD9D0073530F /* LeisureTimeController.m in Sources */,
 				01CDC1B5191A220A0002AE47 /* AppDelegate.m in Sources */,
@@ -970,6 +1015,8 @@
 				01BFE02E191C682600095A8A /* HESegmentControl.m in Sources */,
 				26DEBA1C191F2C4D0007DB43 /* FMResultSet.m in Sources */,
 				01A973C2192075060073530F /* BloodSugarViewController.m in Sources */,
+				01A974531921BB8D0073530F /* PaoPaoView.m in Sources */,
+				01A974491921AD910073530F /* HEItemListMapsController.m in Sources */,
 				01A97390191DFF000073530F /* BloodViewController.m in Sources */,
 				01A973A4191E15490073530F /* TPMenuHelper.m in Sources */,
 				26DEBA18191F2C4D0007DB43 /* FMDatabase.m in Sources */,
@@ -980,6 +1027,7 @@
 				01BF7FBA191B1DD4002E34E9 /* NSData+TPCategory.m in Sources */,
 				01BFE069191CAC6F00095A8A /* FileHelper.m in Sources */,
 				01BF7FC1191B53CF002E34E9 /* UserInfoViewController.m in Sources */,
+				01A974501921BB100073530F /* CalloutMapAnnotation.m in Sources */,
 				01A9741A1920B8090073530F /* SVPlacemark.m in Sources */,
 				01A97379191DCD560073530F /* CVUIPopoverText.m in Sources */,
 				01A973C8192075730073530F /* BloodSugarHelper.m in Sources */,
@@ -992,6 +1040,7 @@
 				01BFE064191CAAB100095A8A /* UIAlertView+Blocks.m in Sources */,
 				01BFE065191CAAB100095A8A /* RIButtonItem.m in Sources */,
 				01A97397191E06640073530F /* MedicalCareController.m in Sources */,
+				01A9745C192203BB0073530F /* TKLineCell.m in Sources */,
 				01A973A1191E120F0073530F /* UIPopoverListView.m in Sources */,
 				01BF7FB7191B1DC7002E34E9 /* UIImage+TPCategory.m in Sources */,
 				01A9742C1920CA7F0073530F /* HEItemListController.m in Sources */,
@@ -1021,6 +1070,7 @@
 				01A974391920DE7B0073530F /* HEServiceViewController.m in Sources */,
 				26DEBA28191F2E2F0007DB43 /* MedicalCareHelper.m in Sources */,
 				01A974221920C4DF0073530F /* HEStudy.m in Sources */,
+				01A974561921BEAB0073530F /* TKEmptyCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

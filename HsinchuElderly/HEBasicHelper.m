@@ -41,6 +41,31 @@
     }
     return sources;
 }
+//取得所有数据
+- (NSMutableArray*)tableDataList{
+   NSMutableString *sql=[NSMutableString stringWithFormat:@"SELECT * FROM %@",[self tableName]];
+    NSMutableArray *sources=[NSMutableArray array];
+    NSString *categoryColumnName=[NSString stringWithFormat:@"%@Guid",[self categoryTableName]];
+    NSString *areaColumnName=[NSString stringWithFormat:@"%@Guid",[self areaTableName]];
+    FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
+    if ([db open]) {//表示打开
+        FMResultSet *rs = [db executeQuery:sql];
+        while (rs.next) {
+            BasicModel *entity=(BasicModel*)[[self.customSubclass alloc] init];
+            entity.ID=[rs stringForColumn:@"ID"];
+            entity.Name=[rs stringForColumn:@"Name"];
+            entity.Address=[rs stringForColumn:@"Address"];
+            entity.Tel=[rs stringForColumn:@"Tel"];
+            entity.CategoryGuid=[rs stringForColumn:categoryColumnName];
+            entity.AreaGuid=[rs stringForColumn:areaColumnName];
+            entity.WebSiteURL=[rs stringForColumn:@"WebSiteURL"];
+            [self setColumnValueWithModel:entity resultSet:rs];
+            [sources addObject:entity];
+        }
+        [db close];
+    }
+    return sources;
+}
 //注册mode子类
 -(void) registerBasicModelSubclass:(Class) aClass{
     self.customSubclass = aClass;
