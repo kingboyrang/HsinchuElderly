@@ -104,7 +104,6 @@
     
     NSString *latlng=[NSString stringWithFormat:@"%f,%f",self.Entity.placemark.coordinate.latitude,self.Entity.placemark.coordinate.longitude];
     NSString *skipURL=[NSString stringWithFormat:@"http://maps.apple.com/?q=%@&ll=%@",self.Entity.placemark.formattedAddress,latlng];
-    //NSString *skipURL=[NSString stringWithFormat:@"http://maps.apple.com/?ll=%@",latlng];
     
     
     NSString * encodedString=(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,

@@ -92,24 +92,41 @@
     size_t count = [source count];
     dispatch_apply(count, queue, ^(size_t i) {
         BasicModel *entity=source[i];
-        [SVGeocoder geocode:entity.Address completion:^(NSArray *placemarks, NSHTTPURLResponse *urlResponse, NSError *error) {
-            if (placemarks&&[placemarks count]>0) {
-                SVPlacemark *place=[placemarks objectAtIndex:0];
-                entity.placemark=place;
-                //主线程加载标注
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    
-                    MKCoordinateRegion region=MKCoordinateRegionMakeWithDistance(place.coordinate,40000 ,40000);
-                    MKCoordinateRegion adjustedRegion = [self.map regionThatFits:region];
-                    [self.map setRegion:adjustedRegion animated:YES];
-                    
-                    BasicMapAnnotation *ann=[[BasicMapAnnotation alloc] initWithLatitude:place.coordinate.latitude andLongitude:place.coordinate.longitude];
-                    ann.Entity=entity;
-                    [self.map addAnnotation:ann];
-                    
-                });
-            }
-        }];
+        if (!entity.placemark) {//表示没有经纬度
+            [SVGeocoder geocode:entity.Address completion:^(NSArray *placemarks, NSHTTPURLResponse *urlResponse, NSError *error) {
+                if (placemarks&&[placemarks count]>0) {
+                    SVPlacemark *place=[placemarks objectAtIndex:0];
+                    entity.placemark=place;
+                    //主线程加载标注
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        MKCoordinateRegion region=MKCoordinateRegionMakeWithDistance(place.coordinate,40000 ,40000);
+                        MKCoordinateRegion adjustedRegion = [self.map regionThatFits:region];
+                        [self.map setRegion:adjustedRegion animated:YES];
+                        
+                        BasicMapAnnotation *ann=[[BasicMapAnnotation alloc] initWithLatitude:place.coordinate.latitude andLongitude:place.coordinate.longitude];
+                        ann.Entity=entity;
+                        [self.map addAnnotation:ann];
+                        
+                    });
+                }
+            }];
+        }else{
+            //主线程加载标注
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                MKCoordinateRegion region=MKCoordinateRegionMakeWithDistance(entity.placemark.coordinate,40000 ,40000);
+                MKCoordinateRegion adjustedRegion = [self.map regionThatFits:region];
+                [self.map setRegion:adjustedRegion animated:YES];
+                
+                BasicMapAnnotation *ann=[[BasicMapAnnotation alloc] initWithLatitude:entity.placemark.coordinate.latitude andLongitude:entity.placemark.coordinate.longitude];
+                ann.Entity=entity;
+                [self.map addAnnotation:ann];
+                
+            });
+        
+        }
+        
     });
     // 销毁队列
     //dispatch_release(queue);

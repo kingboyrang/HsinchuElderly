@@ -13,14 +13,15 @@ typedef enum{
     HEBasicMedicalCare=0,
     HEBasicStudy=1,
     HEBasicService=2,
-    HEBasicWelfare=3
+    HEBasicWelfare=3,
+    HEBasicConsultation=4
 }HEBasicTable;
 
 @interface HEBasicHelper : NSObject
-@property (nonatomic,readonly) HEBasicTable basicTable;
-@property (nonatomic,readonly) NSString *tableName;
-@property (nonatomic,readonly) NSString *categoryTableName;
-@property (nonatomic,readonly) NSString *areaTableName;
+@property (nonatomic,assign) HEBasicTable basicTable;
+@property (nonatomic,copy) NSString *tableName;
+@property (nonatomic,copy) NSString *categoryTableName;
+@property (nonatomic,copy) NSString *areaTableName;
 //分类
 - (NSMutableArray*)categorys;
 //区域

@@ -12,6 +12,8 @@
 #import "LeisureTimeController.h"
 #import "HEServiceViewController.h"
 #import "HEWelfareViewController.h"
+#import "HEItemListController.h"
+#import "HEConsultationHelper.h"
 @interface IndexViewController ()
 - (void)addMenuItemWithFrame:(CGRect)frame tag:(NSInteger)tag image:(UIImage*)img;
 @end
@@ -100,7 +102,10 @@
         [self.navigationController pushViewController:HEWelfare animated:YES];
     }
     if (btn.tag==105) {//学习咨询
-        
+        HEItemListController *consulation=[[HEItemListController alloc] init];
+        consulation.dbHelper=[[HEConsultationHelper alloc] init];
+        consulation.title=@"咨詢站";
+        [self.navigationController pushViewController:consulation animated:YES];
     }
 
 }
