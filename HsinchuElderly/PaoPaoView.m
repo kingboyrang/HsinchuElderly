@@ -74,9 +74,9 @@
     TKLabelLabelCell *cell3=self.cells[2];
     cell3.labDetail.text=entity.Tel;
     
-    [self.userTable reloadData];//重新加载数据
+    [self.userTable reloadData];//重新載入數據
     
-    [self relayout];//重新布局
+    [self relayout];//重新Layout
     
 }
 #pragma mark - UITableViewDataSource Methods
@@ -112,7 +112,7 @@
                                                                                                    NULL,
                                                                                                    kCFStringEncodingUTF8));
     NSURL *url=[NSURL URLWithString:encodedString];
-    [[UIApplication sharedApplication] openURL:url];//使用浏览器打开
+    [[UIApplication sharedApplication] openURL:url];//使用瀏覽器打開
 
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

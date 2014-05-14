@@ -11,7 +11,7 @@
 #import "AnimateErrorView.h"
 @interface BasicViewController : UIViewController
 @property(nonatomic,readonly) float topHeight;
-//动画操作
+//動畫操作
 -(AnimateErrorView*) errorView;
 -(AnimateErrorView*) successView;
 -(AnimateLoadView*) loadingView;

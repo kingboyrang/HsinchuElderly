@@ -56,7 +56,7 @@
     _titleView.frame = CGRectMake(5, 0, xWidth, 32.0f);
     [self addSubview:_titleView];
     
-    //新增一条横线
+    //新增一條橫線
     UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 32, xWidth, 5)];
     [imageView setImage:[UIImage createImageWithColor:[UIColor colorFromHexRGB:@"ff6b00"] imageSize:CGSizeMake(xWidth, 5)]];
     [self addSubview:imageView];

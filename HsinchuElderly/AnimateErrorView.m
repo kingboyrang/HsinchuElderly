@@ -52,7 +52,7 @@
         
         
         [self addSubview:_labelTitle];
-        //kvo模式判断内容是否发生改变
+        //kvo模式判斷内容是否發生改變
         [_labelTitle addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
         
         self.backgroundColor=[UIColor blackColor];

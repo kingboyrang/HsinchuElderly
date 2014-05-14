@@ -48,27 +48,27 @@
     
     //162/* 315/292
     
-    //医疗
+    //醫療
     UIImage *medical=[UIImage imageNamed:@"medical.png"];
     [self addMenuItemWithFrame:CGRectMake(0, (self.view.bounds.size.height-medical.size.height)/2, medical.size.width,medical.size.height) tag:101 image:medical];
-    //服务
+    //服務
     [self addMenuItemWithFrame:CGRectMake(self.view.bounds.size.width-medical.size.width, (self.view.bounds.size.height-medical.size.height)/2, medical.size.width,medical.size.height) tag:102 image:[UIImage imageNamed:@"service.png"]];
     
-    //小闹钟
+    //小鬧鐘
     CGFloat leftX=(self.view.bounds.size.width-medical.size.width*2-20)/2;
     [self addMenuItemWithFrame:CGRectMake(leftX,imgLogoView.frame.origin.y-medical.size.height+10, medical.size.width,medical.size.height) tag:100 image:[UIImage imageNamed:@"clock.png"]];
-    //学习咨询
+    //諮詢站
     [self addMenuItemWithFrame:CGRectMake(leftX+medical.size.width+20,imgLogoView.frame.origin.y-medical.size.height+10, medical.size.width,medical.size.height) tag:105 image:[UIImage imageNamed:@"consult.png"]];
-    //学习
+    //休閒
     CGFloat topY=imgLogoView.frame.origin.y+imgLogoView.frame.size.height-10;
     [self addMenuItemWithFrame:CGRectMake(leftX,topY, medical.size.width,medical.size.height) tag:103 image:[UIImage imageNamed:@"leisure.png"]];
     //福利
     [self addMenuItemWithFrame:CGRectMake(leftX+medical.size.width+20,topY, medical.size.width,medical.size.height) tag:104 image:[UIImage imageNamed:@"welfare.png"]];
     
-    //说明
+    //說明
     UIImage *exclamationImg=[UIImage imageNamed:@"exclamation.png"];
     [self addMenuItemWithFrame:CGRectMake(10,self.view.frame.size.height-exclamationImg.size.height, exclamationImg.size.width,exclamationImg.size.height) tag:106 image:exclamationImg];
-    //抽奖
+    //好康抽獎
     UIImage *lotteryImg=[UIImage imageNamed:@"lottery.png"];
      [self addMenuItemWithFrame:CGRectMake(self.view.bounds.size.width-lotteryImg.size.width-5,self.view.frame.size.height-lotteryImg.size.height, lotteryImg.size.width,lotteryImg.size.height) tag:107 image:lotteryImg];
     
@@ -82,19 +82,19 @@
 }
 //menu click
 - (void)buttonMenuItemClick:(UIButton*)btn{
-    if (btn.tag==100) {//小闹钟
+    if (btn.tag==100) {//小鬧鐘
         ClockViewController *clock=[[ClockViewController alloc] init];
         [self.navigationController pushViewController:clock animated:YES];
     }
-    if (btn.tag==101) {//医疗
+    if (btn.tag==101) {//醫療
         MedicalCareController *medicaCare=[[MedicalCareController alloc] init];
         [self.navigationController pushViewController:medicaCare animated:YES];
     }
-    if (btn.tag==102) {//服务
+    if (btn.tag==102) {//服務
         HEServiceViewController *HEService=[[HEServiceViewController alloc] init];
         [self.navigationController pushViewController:HEService animated:YES];
     }
-    if (btn.tag==103) {//学习
+    if (btn.tag==103) {//休閒
         LeisureTimeController *LeisureTime=[[LeisureTimeController alloc] init];
         [self.navigationController pushViewController:LeisureTime animated:YES];
     }
@@ -102,13 +102,13 @@
         HEWelfareViewController *HEWelfare=[[HEWelfareViewController alloc] init];
         [self.navigationController pushViewController:HEWelfare animated:YES];
     }
-    if (btn.tag==105) {//学习咨询
+    if (btn.tag==105) {//諮詢站
         HEItemListController *consulation=[[HEItemListController alloc] init];
         consulation.dbHelper=[[HEConsultationHelper alloc] init];
-        consulation.title=@"咨詢站";
+        consulation.title=@"諮詢站";
         [self.navigationController pushViewController:consulation animated:YES];
     }
-    if (btn.tag==107) {//抽奖
+    if (btn.tag==107) {//好康抽獎
         LotteryViewController *lottery=[[LotteryViewController alloc] init];
         lottery.title=@"分享照片";
         [self.navigationController pushViewController:lottery animated:YES];

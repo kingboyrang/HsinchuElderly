@@ -11,10 +11,10 @@
 @interface BloodHelper : NSObject
 //列表
 - (NSMutableArray*)pressureBloods;
-//新增与修改
+//新增與修改
 - (void)addEditDrugWithModel:(Blood*)entity;
-//保存
+//儲存
 - (void)saveWithSources:(NSArray*)sources;
-//加载数据源
+//載入數據
 - (void)loadDataSource;
 @end

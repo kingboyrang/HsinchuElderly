@@ -45,7 +45,7 @@
 }
 - (void)addEditUserWithModel:(SystemUser*)entity headImage:(UIImage*)image{
     [FileHelper createDirectoryWithPath:saveImageFilePath];
-    if (image) {//保存图片
+    if (image) {//儲存圖片
         NSString *path=[saveImageFilePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",entity.ID]];
         [image saveImage:path];
         entity.PhotoURL=path;
@@ -106,7 +106,7 @@
     }
     return NO;
 }
-//保存
+//儲存
 -(void)saveWithSources:(NSArray*)sources{
     if (sources&&[sources count]>0) {
         NSString *path=[DocumentPath stringByAppendingPathComponent:@"systemUser.db"];

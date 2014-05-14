@@ -12,14 +12,14 @@
 //列表
 - (NSMutableArray*)systemUsers;
 - (NSMutableArray*)dictonaryUsers;
-//新增与修改
+//新增與修改
 - (void)addEditUserWithModel:(SystemUser*)entity headImage:(UIImage*)image;
 //删除
 - (void)removeUserWithModel:(SystemUser*)entity;
 - (void)removeUserPhotoWithId:(NSString*)userId;
 - (SystemUser*)findUserWithId:(NSString*)userId;
-//保存
+//儲存
 - (void)saveWithSources:(NSArray*)sources;
-//加载数据源
+//載入數據
 - (void)loadDataSource;
 @end

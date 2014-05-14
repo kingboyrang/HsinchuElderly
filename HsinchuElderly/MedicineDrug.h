@@ -10,11 +10,11 @@
 
 @interface MedicineDrug : NSObject<NSCoding>
 @property (nonatomic,copy) NSString *ID;
-@property (nonatomic,copy) NSString *UserId;//用户id
-@property (nonatomic,copy) NSString *Name;//药名
+@property (nonatomic,copy) NSString *UserId;//使用者id
+@property (nonatomic,copy) NSString *Name;//藥名
 @property (nonatomic,copy) NSString *Rate;//频率
-@property (nonatomic,copy) NSString *TimeSpan;//定时时间
-@property (nonatomic,copy) NSString *CreateDate;//创建时间
+@property (nonatomic,copy) NSString *TimeSpan;//定時時間
+@property (nonatomic,copy) NSString *CreateDate;//建立時間
 
 @property (nonatomic,readonly) NSString *TimeSpanText;
 @end

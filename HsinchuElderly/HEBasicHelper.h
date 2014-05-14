@@ -22,19 +22,19 @@ typedef enum{
 @property (nonatomic,copy) NSString *tableName;
 @property (nonatomic,copy) NSString *categoryTableName;
 @property (nonatomic,copy) NSString *areaTableName;
-//分类
+//類別
 - (NSMutableArray*)categorys;
-//区域
+//區域
 - (NSMutableArray*)areas;
-//取得所有数据
+//取得所有數據
 - (NSMutableArray*)tableDataList;
-//分页查询
+//分頁查詢
 - (NSMutableArray*)searchWithCategory:(NSString*)category
                              aresGuid:(NSString*)areaId
                                  size:(int)size
                                  page:(int)page;
-//注册mode子类
+//註冊mode子類別
 -(void) registerBasicModelSubclass:(Class) aClass;
-//子类重写复值
+//子類別重寫復值
 - (void)setColumnValueWithModel:(BasicModel*)entity resultSet:(FMResultSet*)rs;
 @end

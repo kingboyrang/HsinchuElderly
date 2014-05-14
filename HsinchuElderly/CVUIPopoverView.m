@@ -28,7 +28,7 @@
     return self;
 }
 #pragma mark -
-#pragma mark 属性方法重写
+#pragma mark 屬性方法重寫
 - (void)setToolBarTitle:(NSString*)title{
     CGSize size=[self textSizeWithText:title font:_labTitle.font withWidth:self.bounds.size.width];
     CGRect r=_labTitle.frame;
@@ -48,7 +48,7 @@
         [self addSubview:view];
         
        
-       //重设大小
+       //重設大小
        CGRect orginRect=self.frame;
        orginRect.size.height+=viewRect.size.height;
         CGFloat viewY=screenRect.size.height+orginRect.size.height;

@@ -40,7 +40,7 @@
     if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
         w=320;
     }
-    //日期控件
+    //日期控制項
     if (!_datePicker) {
         _datePicker=[[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, w, 216)];
         _datePicker.datePickerMode=1;
@@ -70,7 +70,7 @@
         [_datePicker setDate:date animated:YES];
     }
 }
-//显示事件
+//顯示事件
 - (void)show{
     [self setCalendarValue];
     [_popView show:self];
@@ -78,7 +78,7 @@
         [self.delegate showPopoverCalendar:self];
     }
 }
-//确定事件
+//確定事件
 -(void)buttonDoneClick{
     _popText.field.text=[_dateForFormat stringFromDate:_datePicker.date];
     if (self.delegate&&[self.delegate respondsToSelector:@selector(doneCalendarChooseItem:)]) {
@@ -86,7 +86,7 @@
     }
     [self buttonCancelClick];
 }
-//清空事件
+//清除事件
 -(void)buttonClearClick{
     _popText.field.text=@"";
     [self buttonCancelClick];

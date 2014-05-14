@@ -25,19 +25,19 @@
 @property(nonatomic,retain) CVUIPopoverText *popText;
 @property(nonatomic,readonly) NSString *key;
 @property(nonatomic,readonly) NSString *value;
-@property(nonatomic,assign) BOOL isChange;//前一次与当前选中项是否发生改变
+@property(nonatomic,assign) BOOL isChange;//錢一次與目前選中項目是否發生改變
 
-@property(nonatomic,copy) NSString *bindName;//绑定的key字段
-@property(nonatomic,copy) NSString *bindValue;//绑定的value字段
+@property(nonatomic,copy) NSString *bindName;//绑定的key字串
+@property(nonatomic,copy) NSString *bindValue;//绑定的value字串
 @property(nonatomic,assign) id<CVUISelectDelegate> delegate;
 
 - (void)show;
-//设置第几项被选中
+//設置第幾項被選中
 -(void)findBindName:(NSString*)search;
 -(void)findBindValue:(NSString*)search;
 -(void)setIndex:(NSInteger)i;
 -(void)setSelectedValue:(NSString*)value;
-//设定数据源
+//設定資料來源
 -(void)setDataSourceForArray:(NSArray*)source;
 -(void)setDataSourceForArray:(NSArray*)source dataTextName:(NSString*)textName dataValueName:(NSString*)valueName;
 -(void)setDataSourceForDictionary:(NSDictionary*)source;

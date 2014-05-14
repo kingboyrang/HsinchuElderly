@@ -13,19 +13,19 @@
  @return a guid string.
  */
 +(NSString*)createGUID;
-/** 向前查找字符串.
- @return 查找到字符串的位置,否则返回-1
+/** 向前查找字串.
+ @return 查找到字串的位置,否則返回-1
  */
 -(NSInteger)indexOf:(NSString*)search;
-/** 向后查找字符串.
- @return 查找到字符串的位置,否则返回-1
+/** 向後查找字串.
+ @return 查找到字串的位置,否則返回-1
  */
 -(NSInteger)lastIndexOf:(NSString*)search;
-/** 去除字符串前后空格.
- @return 去除字符串前后空格的字符串
+/** 去除字串前後空格.
+ @return 去除字串前後空格的字串
  */
 -(NSString*)Trim;
-/** 根据字体与宽度计算字符串的大小.
+/** 根據字體與寬度計算字串的大小.
  @return 获取文本大小
  */
 -(CGSize)textSize:(UIFont*)f withWidth:(CGFloat)w;
