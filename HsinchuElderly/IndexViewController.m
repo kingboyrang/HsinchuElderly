@@ -14,6 +14,7 @@
 #import "HEWelfareViewController.h"
 #import "HEItemListController.h"
 #import "HEConsultationHelper.h"
+#import "LotteryViewController.h"
 @interface IndexViewController ()
 - (void)addMenuItemWithFrame:(CGRect)frame tag:(NSInteger)tag image:(UIImage*)img;
 @end
@@ -106,6 +107,11 @@
         consulation.dbHelper=[[HEConsultationHelper alloc] init];
         consulation.title=@"咨詢站";
         [self.navigationController pushViewController:consulation animated:YES];
+    }
+    if (btn.tag==107) {//抽奖
+        LotteryViewController *lottery=[[LotteryViewController alloc] init];
+        lottery.title=@"分享照片";
+        [self.navigationController pushViewController:lottery animated:YES];
     }
 
 }
