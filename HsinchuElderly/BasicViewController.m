@@ -85,7 +85,7 @@
 - (BOOL)backPrevViewController{
     return YES;
 }
-#pragma mark 动画提示
+#pragma mark 動畫提示
 -(AnimateErrorView*) errorView {
     
     if (!_errorView) {
@@ -179,7 +179,7 @@
 }
 -(void) showErrorViewWithHide:(void (^)(AnimateErrorView *errorView))process completed:(void (^)(AnimateErrorView *errorView))complete{
     [self showErrorViewAnimated:process];
-    //设置延迟执行时间为1秒
+    //設置延遲執行時間為1秒
     int64_t delayInSeconds = 2.0f;
     dispatch_time_t popTime =
     dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -221,7 +221,7 @@
 }
 -(void) showSuccessViewWithHide:(void (^)(AnimateErrorView *errorView))process completed:(void (^)(AnimateErrorView *errorView))complete{
     [self showSuccessViewAnimated:process];
-    //设置延迟执行时间为1秒
+    //設置延遲執行時間為1秒
     int64_t delayInSeconds = 2.0f;
     dispatch_time_t popTime =
     dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -241,7 +241,11 @@
 - (void) showErrorNetWorkNotice:(void (^)(void))dismissError{
     
     [self showErrorViewWithHide:^(AnimateErrorView *errorView) {
+<<<<<<< HEAD
         errorView.labelTitle.text=@"網絡未連接,請檢查!";
+=======
+        errorView.labelTitle.text=@"網路尚未連接，請檢查您的網路連接後再次連接！";
+>>>>>>> FETCH_HEAD
     } completed:nil];
 }
 - (void) showMessageWithTitle:(NSString*)title{

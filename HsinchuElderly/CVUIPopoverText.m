@@ -13,14 +13,14 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        //文本框显示日期
+        //Text顯示日期
         _field=[[UITextField alloc] initWithFrame:self.bounds];
         _field.borderStyle=UITextBorderStyleRoundedRect;
         _field.placeholder=@"請選擇";
-        _field.contentVerticalAlignment=UIControlContentVerticalAlignmentCenter;//設定本文垂直置中
-        _field.enabled=NO;//设置不可以编辑
+        _field.contentVerticalAlignment=UIControlContentVerticalAlignmentCenter;//設定垂直置中
+        _field.enabled=NO;//設定不可以编辑
         _field.font=[UIFont systemFontOfSize:14];
-        //设置按钮
+        //設定按钮
         _button=[UIButton buttonWithType:UIButtonTypeCustom];
         _button.frame=self.bounds;
         

@@ -55,7 +55,7 @@
     }
     return NO;
 }
-//保存
+//儲存
 -(void)saveWithSources:(NSArray*)sources{
     if (sources&&[sources count]>0) {
         NSString *path=[DocumentPath stringByAppendingPathComponent:@"blood.db"];

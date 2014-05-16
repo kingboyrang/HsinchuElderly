@@ -10,7 +10,7 @@
 #import "NSData+TPCategory.h"
 #import <CommonCrypto/CommonDigest.h>
 @implementation NSString (TPCategory)
-//生成一个guid值
+//創建一個guid值
 +(NSString*)createGUID{
     CFUUIDRef uuid_ref = CFUUIDCreate(NULL);
     CFStringRef uuid_string_ref= CFUUIDCreateString(NULL, uuid_ref);
@@ -19,7 +19,7 @@
     CFRelease(uuid_string_ref);
     return uuid;
 }
-//向前查找字符串
+//向前查找字串
 -(NSInteger)indexOf:(NSString*)search{
     NSRange r=[self rangeOfString:search];
     if (r.location!=NSNotFound) {
@@ -27,7 +27,7 @@
     }
     return -1;
 }
-//向后查找字符串
+//向後查找字串
 -(NSInteger)lastIndexOf:(NSString*)search{
     NSRange r=[self rangeOfString:search options:NSBackwardsSearch];
     if (r.location!=NSNotFound) {
@@ -35,20 +35,20 @@
     }
     return -1;
 }
-//去除字符串前后空格
+//去除字串前後空格
 -(NSString*)Trim{
     if (self) {
-        //whitespaceAndNewlineCharacterSet 去除前后空格与回车
-        //whitespaceCharacterSet 除前后空格
+        //whitespaceAndNewlineCharacterSet 去除前後空格與enter
+        //whitespaceCharacterSet 除前後空格
         return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     }
     return @"";
 }
-//获取文本大小
+//取得text大小
 -(CGSize)textSize:(UIFont*)f withWidth:(CGFloat)w{
     return  [self sizeWithFont:f constrainedToSize:CGSizeMake(w, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
 }
-//产生MD5字符串
+//產生MD5字串
 - (NSString *) stringFromMD5{
     if(self == nil || [self length] == 0)
         return nil;
@@ -76,7 +76,7 @@
 	return [data SHA256Sum];
 }
 
-//url字符串编码处理
+//url字串編碼處理
 -(NSString*)URLEncode{
     
     NSString *encodedString = ( NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,

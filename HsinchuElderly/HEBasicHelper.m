@@ -41,14 +41,14 @@
     }
     return sources;
 }
-//取得所有数据
+//取得所有數據
 - (NSMutableArray*)tableDataList{
    NSMutableString *sql=[NSMutableString stringWithFormat:@"SELECT * FROM %@",[self tableName]];
     NSMutableArray *sources=[NSMutableArray array];
     NSString *categoryColumnName=[NSString stringWithFormat:@"%@Guid",[self categoryTableName]];
     NSString *areaColumnName=[NSString stringWithFormat:@"%@Guid",[self areaTableName]];
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
-    if ([db open]) {//表示打开
+    if ([db open]) {//表示打開
         FMResultSet *rs = [db executeQuery:sql];
         while (rs.next) {
             BasicModel *entity=(BasicModel*)[[self.customSubclass alloc] init];
@@ -66,7 +66,7 @@
     }
     return sources;
 }
-//注册mode子类
+//註冊mode子類別
 -(void) registerBasicModelSubclass:(Class) aClass{
     self.customSubclass = aClass;
 }
@@ -74,7 +74,7 @@
                              aresGuid:(NSString*)areaId
                                  size:(int)size
                                  page:(int)page{
-    //防止出错
+    //防止出錯
     if (![self.customSubclass isSubclassOfClass:[BasicModel class]]) {
         [self registerBasicModelSubclass:[BasicModel class]];
     }
@@ -92,7 +92,7 @@
     [sql appendFormat:@" limit %d offset %d",size,size*(page-1)];
     NSMutableArray *sources=[NSMutableArray array];
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
-    if ([db open]) {//表示打开
+    if ([db open]) {//表示打開
         FMResultSet *rs = [db executeQuery:sql];
         while (rs.next) {
             BasicModel *entity=(BasicModel*)[[self.customSubclass alloc] init];

@@ -12,7 +12,7 @@
 @implementation UINavigationBar (TPCategory)
 UIImageView *backgroundView;
  #pragma -
- #pragma 第一种方法添加背景图
+ #pragma 第一種方法增加背景圖
  -(UIImage*)barBackground
  {
      UIImage *image=[UIImage imageNamed:@"nav_bg.png"];

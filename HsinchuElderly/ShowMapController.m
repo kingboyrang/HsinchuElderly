@@ -43,7 +43,7 @@
             ann.coordinate = place.coordinate;
             [ann setTitle:self.Address];
             //[ann setSubtitle:self.Address];
-            //触发viewForAnnotation
+            //觸發viewForAnnotation
             [self.map addAnnotation:ann];
             
             MKCoordinateRegion region;
@@ -52,11 +52,11 @@
             span.longitudeDelta=0.1; //zoom level
             region.span=span;
             region.center=place.coordinate;
-            // 设置显示位置(动画)
+            // 設置顯示位置(動畫)
             [self.map setRegion:region animated:YES];
-            // 设置地图显示的类型及根据范围进行显示
+            // 設置地圖顯示的類型及根據範圍進行顯示
             [self.map regionThatFits:region];
-            //默认选中
+            //預設選中
             [self.map selectAnnotation:ann animated:YES];
         }
         if (error) {

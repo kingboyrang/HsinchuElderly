@@ -10,48 +10,48 @@
 
 @interface FileHelper : NSObject
 /**
- ** @reutrn 获取document文件路径
+ ** @reutrn 取得document文件路徑
  **/
 + (NSString*)documentFilePath;
 /**
- ** @reutrn 获取缓存文件路径
+ ** @reutrn 取得快取文件路徑
  **/
 + (NSString*)cacheFilePath;
 /**
- ** @param path 文件路径
- ** @reutrn 创建文件目录
+ ** @param path 文件路徑
+ ** @reutrn 建立文件目錄
  **/
 + (void)createDirectoryWithPath:(NSString*)path;
 /**
- ** @param path 文件路径
- ** @param name 目录名
- ** @reutrn 创建文件目录
+ ** @param path 文件路徑
+ ** @param name 目錄名
+ ** @reutrn 建立文件目錄
  **/
 + (NSString*)createDirectoryWithPath:(NSString*)path directoryName:(NSString*)name;
 /**
- ** @param name 目录名
- ** @reutrn 创建document文件目录
+ ** @param name 目錄名
+ ** @reutrn 建立document文件目錄
  **/
 + (NSString*)createDocumentDirectoryWithName:(NSString*)name;
 /**
- ** @param fromPath copy项从那里的路径开始
- ** @param toPath 将copy项保存到这个路径
- ** @reutrn 将文件cope到另一个文件路径
+ ** @param fromPath copy項從那裡的路徑開始
+ ** @param toPath 將copy項保存到這個路徑
+ ** @reutrn 將文件cope到另一個文件路徑
  **/
 + (void)copyItemFromPath:(NSString*)fromPath toPath:(NSString*)toPath;
 /**
- ** @param fromPath copy项从那里的路径开始
- ** @param toPath 将copy项保存到这个路径
- ** @reutrn 将文件move到另一个文件路径
+ ** @param fromPath copy項從那裡的路徑開始
+ ** @param toPath 將copy項保存到這個路徑
+ ** @reutrn 將文件move到另一個文件路徑
  **/
 + (void)moveItemFromPath:(NSString*)fromPath toPath:(NSString*)toPath;
 /**
- ** @param name 文件路径
+ ** @param name 文件路徑
  ** @reutrn 删除文件
  **/
 + (void)deleteFileWithPath:(NSString*)path;
 /**
- ** @reutrn 判断文件是否存在
+ ** @reutrn 判斷文件是否存在
  **/
 + (BOOL)existsFilePath:(NSString*)path;
 

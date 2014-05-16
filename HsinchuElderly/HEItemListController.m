@@ -49,9 +49,9 @@
     self.menuHelper=[[TPMenuHelper alloc] init];
     
     [self defaultInitParams];
-    [_refreshTable launchRefreshing];//加载数据
+    [_refreshTable launchRefreshing];//載入數據
     
-    //加载数据
+    //載入數據
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         if ([self.medicalCategorys count]==0) {
             self.medicalCategorys=[self.dbHelper categorys];
@@ -74,7 +74,7 @@
     pageSize=10;
     pageNumber=0;
 }
-//地图
+//地圖
 - (void)buttonMapClick:(UIButton*)btn{
     HEItemListMapsController *maps=[[HEItemListMapsController alloc] init];
     maps.title=self.title;
@@ -83,7 +83,7 @@
     maps.dbHelper=self.dbHelper;
     [self.navigationController pushViewController:maps animated:YES];
 }
-//类别
+//類別
 - (void)buttonCategoryClick:(UIButton*)btn{
     /***
      NSMutableArray *sources=[NSMutableArray array];
@@ -114,7 +114,7 @@
     self.menuHelper.delegate=self;
     [self.menuHelper showMenuWithTitle:@"請選擇類別" frame:CGRectMake(10, yOffset, xWidth, yHeight)];
 }
-//区域
+//區域
 - (void)buttonAreaClick:(UIButton*)btn{
     
     //NSString *path=[[NSBundle mainBundle] pathForResource:@"MedicalCareArea" ofType:@"plist"];
@@ -133,14 +133,14 @@
 #pragma mark TPMenuHelperDelegate Methods
 - (void)chooseMenuItem:(id)item index:(NSInteger)index{
     NSDictionary *dic=(NSDictionary*)item;
-    if (index==1) {//类别
+    if (index==1) {//類別
         [_topBarView.categoryButton setTitle:[dic objectForKey:@"Name"] forState:UIControlStateNormal];
         if (![self.categoryGuid isEqualToString:[dic objectForKey:@"ID"]]) {
             self.categoryGuid=[dic objectForKey:@"ID"];
             [self defaultInitParams];
             [_refreshTable launchRefreshing];
         }
-    }else{//区域
+    }else{//區域
         [_topBarView.areaButton setTitle:[dic objectForKey:@"Name"] forState:UIControlStateNormal];
         if (![self.areaGuid isEqualToString:[dic objectForKey:@"ID"]]) {
             self.areaGuid=[dic objectForKey:@"ID"];
@@ -149,21 +149,21 @@
         }
     }
 }
-//加载数据
+//載入數據
 - (void)loadData{
     pageNumber++;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        // 处理耗时操作的代码块...
+        // 處理耗時操作的block...
         NSMutableArray *arr=[self.dbHelper searchWithCategory:self.categoryGuid aresGuid:self.areaGuid size:pageSize page:pageNumber];
         if (arr&&[arr count]>0) {
-            //通知主线程刷新
+            //通知MainThread更新
             dispatch_async(dispatch_get_main_queue(), ^{
                 [_refreshTable tableViewDidFinishedLoading];
                 _refreshTable.reachedTheEnd = NO;
                 if (self.refreshing) {
                     self.refreshing = NO;
                 }
-                //回调或者说是通知主线程刷新，
+                //Callback或者說是通知MainThread更新，
                 if (pageNumber==1) {
                     self.list=arr;
                     [_refreshTable reloadData];
@@ -240,12 +240,12 @@
     [self.navigationController pushViewController:detail animated:YES];
 }
 #pragma mark - PullingRefreshTableViewDelegate
-//下拉加载
+//下拉載入
 - (void)pullingTableViewDidStartRefreshing:(PullingRefreshTableView *)tableView{
     self.refreshing = YES;
     [self performSelector:@selector(loadData) withObject:nil afterDelay:1.f];
 }
-//上拉加载
+//上拉載入
 - (void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
     [self performSelector:@selector(loadData) withObject:nil afterDelay:1.f];
 }

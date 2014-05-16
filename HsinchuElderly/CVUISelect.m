@@ -20,7 +20,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        //添加文本框
+        //資加text
         _popText=[[CVUIPopoverText alloc] initWithFrame:frame];
         [_popText.button addTarget:self action:@selector(show) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_popText];
@@ -38,7 +38,7 @@
         //[(UIView*)[[self.picker subviews] objectAtIndex:0] setAlpha:0.0f];
         //[(UIView*)[[self.picker subviews] objectAtIndex:1] setAlpha:0.0f];
         //[(UIView*)[[self.picker subviews] objectAtIndex:3] setAlpha:0.0f];
-        //初始化弹出框
+        //初始化彈跳框
         _popView=[[CVUIPopoverView alloc] initWithFrame:CGRectMake(0, 0, w, 44)];
         UIBarButtonItem *leftButton=[[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(buttonCancelClick)];
         UIBarButtonItem *midleButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
@@ -57,14 +57,14 @@
     }
     return self;
 }
-//显示事件
+//顯示事件
 - (void)show{
     [_popView show:self];
     if (self.delegate&&[self.delegate respondsToSelector:@selector(showPopoverSelect:)]) {
         [self.delegate showPopoverSelect:self];
     }
 }
-//确定事件
+//確定事件
 -(void)buttonDoneClick{
     NSInteger row=[self.picker selectedRowInComponent:0];
     NSDictionary *dic=[self.pickerData objectAtIndex:row];
@@ -100,7 +100,7 @@
     [_popView hide];
 }
 #pragma mark -
-#pragma mark 属性重写
+#pragma mark 属性重寫
 -(void)setPickerData:(NSArray *)data{
     if (_pickerData!=data) {
         [_pickerData release];
@@ -188,7 +188,7 @@
 -(void)findBindValue:(NSString*)search{
     [self findByName:search searchName:self.bindValue];
 }
-//设置选中项
+//設定選中項目
 -(void)setIndex:(NSInteger)i{
     if (i>=0&&i<[self.pickerData count]) {
         [self.picker selectRow:i inComponent:0 animated:NO];

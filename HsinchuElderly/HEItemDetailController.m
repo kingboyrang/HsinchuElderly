@@ -94,7 +94,7 @@
 #pragma mark -UITableViewDelegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row==1&&self.Entity.Tel&&[self.Entity.Tel length]>0) {//电话
+    if (indexPath.row==1&&self.Entity.Tel&&[self.Entity.Tel length]>0) {//電話
          NSArray *arrs=[self.Entity.Tel componentsSeparatedByString:@","];
         if (arrs.count==1) {
             [self callTelWithNumber:self.Entity.Tel];
@@ -118,7 +118,7 @@
             [self.navigationController pushViewController:map animated:YES];
         }];
     }
-    if (indexPath.row==3&&self.Entity.WebSiteURL&&[self.Entity.WebSiteURL length]>0) {//网址
+    if (indexPath.row==3&&self.Entity.WebSiteURL&&[self.Entity.WebSiteURL length]>0) {//網址
         [ActionSheetHelper showSheetInView:self.view confirmTitle:@"前往瀏覽" confirmAction:^{
             NSString * encodedString=(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                                                            (CFStringRef)self.Entity.WebSiteURL,
@@ -126,7 +126,7 @@
                                                                                            NULL,
                                                                                            kCFStringEncodingUTF8));
             NSURL *url=[NSURL URLWithString:encodedString];
-            [[UIApplication sharedApplication] openURL:url];//使用浏览器打开
+            [[UIApplication sharedApplication] openURL:url];//使用瀏覽器打開
         }];
     }
 }
