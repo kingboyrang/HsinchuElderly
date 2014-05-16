@@ -8,6 +8,7 @@
 
 #import "BasicViewController.h"
 #import "UIButton+TPCategory.h"
+#import "NetWorkConnection.h"
 @interface BasicViewController (){
     AnimateLoadView *_loadView;
     AnimateErrorView *_errorView;
@@ -66,6 +67,9 @@
         return 44;
     }
     return h;
+}
+- (BOOL)hasNewWork{
+    return [NetWorkConnection IsEnableConnection];
 }
 - (void)setBarBackButtonItem{
     UIButton *btn=[UIButton buttonWithImageName:@"left_back.png" target:self action:@selector(buttonBackClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -237,7 +241,7 @@
 - (void) showErrorNetWorkNotice:(void (^)(void))dismissError{
     
     [self showErrorViewWithHide:^(AnimateErrorView *errorView) {
-        errorView.labelTitle.text=@"网络未连接,请检查!";
+        errorView.labelTitle.text=@"網絡未連接,請檢查!";
     } completed:nil];
 }
 - (void) showMessageWithTitle:(NSString*)title{

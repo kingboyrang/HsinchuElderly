@@ -110,7 +110,6 @@
     }
     if (btn.tag==107) {//抽奖
         LotteryViewController *lottery=[[LotteryViewController alloc] init];
-        lottery.title=@"分享照片";
         [self.navigationController pushViewController:lottery animated:YES];
     }
 

@@ -33,6 +33,10 @@
 //#define HEDBPath [[NSBundle mainBundle] pathForResource:@"HsinchuElderly" ofType:@"sqlite"]
 #define HEDBPath [DocumentPath stringByAppendingPathComponent:@"HsinchuElderly.sqlite"]
 
+//图片上传 
+#define DataWebserviceURL @"http://192.168.123.150:8080/WebService.asmx"
+#define DataWeserviceNameSpace @"http://tempuri.org/"
+
 
 
 

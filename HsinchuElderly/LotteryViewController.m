@@ -8,6 +8,8 @@
 
 #import "LotteryViewController.h"
 #import "ActivityView.h"
+#import "ChoosePhotoController.h"
+#import "AlertHelper.h"
 @interface LotteryViewController ()
 
 @end
@@ -26,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title=@"分享照片";
     UILabel *labTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
     labTitle.backgroundColor=[UIColor clearColor];
     labTitle.textColor=defaultDeviceFontColor;
@@ -56,12 +59,12 @@
     [self.view addSubview:lab];
     
     title=@"獲獎禮品由新竹縣政府提供，與蘋果官方無任何關係";
-    size=[title textSize:[UIFont fontWithName:defaultDeviceFontName size:18] withWidth:self.view.frame.size.width-10*2];
+    size=[title textSize:[UIFont fontWithName:defaultDeviceFontName size:17] withWidth:self.view.frame.size.width-10*2];
     
     UILabel *lab1=[[UILabel alloc] initWithFrame:CGRectMake(10,self.chkButton.frame.size.height+self.chkButton.frame.origin.y+10, size.width, size.height)];
     lab1.backgroundColor=[UIColor clearColor];
     lab1.textColor=[UIColor blackColor];
-    lab1.font=[UIFont fontWithName:defaultDeviceFontName size:18];
+    lab1.font=[UIFont fontWithName:defaultDeviceFontName size:17];
     lab1.text=title;
     lab1.numberOfLines=0;
     lab1.lineBreakMode=NSLineBreakByWordWrapping;
@@ -76,8 +79,18 @@
     [btn setBackgroundImage:img1 forState:UIControlStateNormal];
     [btn setTitle:@"下一步" forState:UIControlStateNormal];
     [btn setTitleColor:defaultDeviceFontColor forState:UIControlStateNormal];
+    btn.titleLabel.font=defaultBDeviceFont;
+    [btn addTarget:self action:@selector(buttonNextClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
-    
+}
+//下一步
+- (void)buttonNextClick:(UIButton*)btn{
+    if (!self.chkButton.selected) {
+        [AlertHelper initWithTitle:@"提示" message:@"請選擇是否同意分享照片!"];
+        return;
+    }
+    ChoosePhotoController *photo=[[ChoosePhotoController alloc] init];
+    [self.navigationController pushViewController:photo animated:YES];
 }
 - (void)buttonChkClick:(UIButton*)btn{
     btn.selected=!btn.selected;

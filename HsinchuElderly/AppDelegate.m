@@ -12,6 +12,8 @@
 @implementation AppDelegate
 
 - (void)dbInitLoad{
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTintColor:[UIColor colorFromHexRGB:@"ff5500"]];
+    
     NSString *path=[[NSBundle mainBundle] pathForResource:@"HsinchuElderly" ofType:@"sqlite"];
     NSString *dbPath=[DocumentPath stringByAppendingPathComponent:@"HsinchuElderly.sqlite"];
     if (![FileHelper existsFilePath:dbPath]) {
