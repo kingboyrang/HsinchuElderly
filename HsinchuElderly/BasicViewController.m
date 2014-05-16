@@ -241,11 +241,7 @@
 - (void) showErrorNetWorkNotice:(void (^)(void))dismissError{
     
     [self showErrorViewWithHide:^(AnimateErrorView *errorView) {
-<<<<<<< HEAD
-        errorView.labelTitle.text=@"網絡未連接,請檢查!";
-=======
         errorView.labelTitle.text=@"網路尚未連接，請檢查您的網路連接後再次連接！";
->>>>>>> FETCH_HEAD
     } completed:nil];
 }
 - (void) showMessageWithTitle:(NSString*)title{
