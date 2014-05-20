@@ -45,7 +45,7 @@
         _datePicker=[[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, w, 216)];
         _datePicker.datePickerMode=1;
 		_datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_Hant_TW"];//zh_Hant_TW zh_CN
-        _datePicker.backgroundColor=[UIColor clearColor];
+        _datePicker.backgroundColor=[UIColor whiteColor];
     }
     if (!_popView) {
         _popView=[[CVUIPopoverView alloc] initWithFrame:CGRectMake(0, 0, w, 44)];

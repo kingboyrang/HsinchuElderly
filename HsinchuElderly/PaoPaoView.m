@@ -100,7 +100,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
      //http://maps.apple.com/?q=Ray%27s%20Pizza&ll=32.715000,-117.162500
-    //https://maps.google.com/maps?daddr=
+    //http://maps.google.com/maps?daddr=Lat,Lng
     
     NSString *latlng=[NSString stringWithFormat:@"%f,%f",self.Entity.placemark.coordinate.latitude,self.Entity.placemark.coordinate.longitude];
     NSString *skipURL=[NSString stringWithFormat:@"http://maps.apple.com/?q=%@&ll=%@",self.Entity.placemark.formattedAddress,latlng];
@@ -112,7 +112,16 @@
                                                                                                    NULL,
                                                                                                    kCFStringEncodingUTF8));
     NSURL *url=[NSURL URLWithString:encodedString];
-    [[UIApplication sharedApplication] openURL:url];//使用瀏覽器打開
+    //[[UIApplication sharedApplication] openURL:url];//使用瀏覽器打開
+    
+    //if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]]){
+    if ([[UIApplication sharedApplication] canOpenURL:url]){
+        //NSURL *url=[NSURL URLWithString:encodedString];
+        [[UIApplication sharedApplication] openURL:url];//使用瀏覽器打開
+    }else{
+       NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"http://maps.google.com/maps?daddr=%f,%f",self.Entity.placemark.coordinate.latitude, self.Entity.placemark.coordinate.longitude]];
+        [[UIApplication sharedApplication] openURL:url];//使用瀏覽器打開
+    }
 
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

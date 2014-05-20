@@ -57,6 +57,7 @@
         _dateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 //        _dateLabel.text = NSLocalizedString(@"最后更新", @"");
         [self addSubview:_dateLabel];
+        _dateLabel.hidden=YES;
         
         _arrowView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20) ];
 
@@ -113,7 +114,7 @@
         
         UIImage *arrow = [UIImage imageNamed:@"blueArrowDown"];        
         _arrow.contents = (id)arrow.CGImage;
-        _stateLabel.text = NSLocalizedString(@"上拉加载", @"");
+        _stateLabel.text = NSLocalizedString(@"上拉加載", @"");
     }
     
     _stateLabel.frame = stateFrame;
@@ -140,9 +141,9 @@
             
             _loading = YES;
             if (self.isAtTop) {
-                _stateLabel.text = NSLocalizedString(@"正在加载", @"");
+                _stateLabel.text = NSLocalizedString(@"正在加載", @"");
             } else {
-                _stateLabel.text = NSLocalizedString(@"正在加载", @"");
+                _stateLabel.text = NSLocalizedString(@"正在加載", @"");
             }
             
         } else if (_state == kPRStatePulling && !_loading) {    //Scrolling
@@ -157,9 +158,9 @@
             [CATransaction commit];
             
             if (self.isAtTop) {
-                _stateLabel.text = NSLocalizedString(@"释放刷新", @"");
+                _stateLabel.text = NSLocalizedString(@"放開後更新", @"");
             } else {
-                _stateLabel.text = NSLocalizedString(@"释放加载更多", @"");
+                _stateLabel.text = NSLocalizedString(@"放開後載入資料", @"");
             }
             
         } else if (_state == kPRStateNormal && !_loading){    //Reset
@@ -176,12 +177,12 @@
             if (self.isAtTop) {
                 _stateLabel.text = @"下拉刷新";
             } else {
-                _stateLabel.text = @"上拉加载更多";
+                _stateLabel.text = @"上拉後載入資料";
             }
         } else if (_state == kPRStateHitTheEnd) {
             if (!self.isAtTop) {    //footer
                 _arrow.hidden = YES;
-                _stateLabel.text = @"沒有了哦";
+                _stateLabel.text = @"沒有了哦!";
             }
         }
     }
@@ -218,7 +219,7 @@
         
     } 
     _dateLabel.text = [NSString stringWithFormat:@"%@: %@",
-                       NSLocalizedString(@"最后更新", @""),
+                       NSLocalizedString(@"最後更新", @""),
                        dateString];
     [df release];
 }

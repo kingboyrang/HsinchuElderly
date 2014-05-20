@@ -22,6 +22,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        self.backgroundColor=[UIColor whiteColor];
         // Initialization code
         [self loadControl:frame];
     }
@@ -118,13 +120,12 @@
     return NO;
 }
 -(void)loadControl:(CGRect)frame{
-        self.backgroundColor=[UIColor grayColor];
         //Tool Bar
         _toolBar=[[UIToolbar alloc] initWithFrame:CGRectMake(0, 0,frame.size.width, 44)];
         _toolBar.barStyle =UIBarStyleBlackTranslucent;
         [self addSubview:_toolBar];
     
-    NSString *memo=@"请选择";
+    NSString *memo=@"請選擇";
     CGSize size=[self textSizeWithText:memo font:[UIFont boldSystemFontOfSize:14] withWidth:frame.size.width];
     _labTitle=[[UILabel alloc] initWithFrame:CGRectMake((frame.size.width-size.width)/2,(44-size.height)/2, size.width, size.height)];
     _labTitle.text=memo;

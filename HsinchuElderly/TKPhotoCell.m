@@ -26,7 +26,7 @@
     
     UIImage *img1=[UIImage imageNamed:@"btn_bg.png"];
     UIEdgeInsets edginset=UIEdgeInsetsMake(10, 10, 10, 10);
-    _albumBtn=[UIButton barButtonWithTitle:@"相冊" target:self action:nil forControlEvents:UIControlEventTouchUpInside];
+    _albumBtn=[UIButton barButtonWithTitle:@"相簿" target:self action:nil forControlEvents:UIControlEventTouchUpInside];
     [_albumBtn setBackgroundImage:[img1 resizableImageWithCapInsets:edginset] forState:UIControlStateNormal];
     [self.contentView addSubview:_albumBtn];
     

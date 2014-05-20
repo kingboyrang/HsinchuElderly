@@ -130,10 +130,12 @@
 //完成
 - (void)buttonSubmitClick:(UIButton*)btn{
     TKPhotoCell *cell1=self.cells[0];
+    /**
     if (self.operType==1&&!cell1.hasImage) {
         [AlertHelper initWithTitle:@"提示" message:@"請選擇頭像!"];
         return;
     }
+     ***/
     TKLabelFieldCell *cell2=self.cells[1];
     if (!cell2.hasValue) {
         [AlertHelper initWithTitle:@"提示" message:@"請輸入姓名!"];
