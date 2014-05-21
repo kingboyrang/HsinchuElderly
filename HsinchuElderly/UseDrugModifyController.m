@@ -62,7 +62,7 @@
     cell3.select.delegate=self;
     cell3.select.popText.field.placeholder=@"請選擇頻率";
     NSString *path=[[NSBundle mainBundle] pathForResource:@"Frequency" ofType:@"plist"];
-    [cell3.select setDataSourceForArray:[NSArray arrayWithContentsOfFile:path]];
+    [cell3.select setDataSourceForArray:[NSArray arrayWithContentsOfFile:path] dataTextName:@"Name" dataValueName:@"ID"];
     
     TKLabelCalendarCell *cell4=[[TKLabelCalendarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     cell4.label.text=@"時間:";

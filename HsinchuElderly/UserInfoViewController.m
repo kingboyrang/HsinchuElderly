@@ -53,6 +53,7 @@
     
     TKPhotoCell *cell1=[[TKPhotoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     [cell1.albumBtn addTarget:self action:@selector(buttonAlbumClick:) forControlEvents:UIControlEventTouchUpInside];
+    [cell1.cameraBtn addTarget:self action:@selector(buttonCameraClick:) forControlEvents:UIControlEventTouchUpInside];
     
     TKLabelFieldCell *cell2=[[TKLabelFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     cell2.label.text=@"姓名:";

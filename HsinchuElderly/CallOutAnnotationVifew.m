@@ -53,7 +53,7 @@
     r=self.frame;
     r.size.height=view.frame.size.height+Arror_height;
     self.frame=r;
-    self.centerOffset= CGPointMake(0, -55*r.size.height/80+23);
+    self.centerOffset= CGPointMake(0, -55*r.size.height/80+18);
     [self setNeedsDisplay];
 }
 

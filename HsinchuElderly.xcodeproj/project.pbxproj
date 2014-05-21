@@ -107,6 +107,7 @@
 		01BFE069191CAC6F00095A8A /* FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BFE068191CAC6F00095A8A /* FileHelper.m */; };
 		01BFE06D191CACE800095A8A /* SystemUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BFE06C191CACE800095A8A /* SystemUser.m */; };
 		01BFE071191CADF900095A8A /* SystemUserHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BFE070191CADF900095A8A /* SystemUserHelper.m */; };
+		01C9419B192CB5680044AA2B /* AppHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9419A192CB5680044AA2B /* AppHelper.m */; };
 		01CDC1A5191A220A0002AE47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01CDC1A4191A220A0002AE47 /* Foundation.framework */; };
 		01CDC1A7191A220A0002AE47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01CDC1A6191A220A0002AE47 /* CoreGraphics.framework */; };
 		01CDC1A9191A220A0002AE47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01CDC1A8191A220A0002AE47 /* UIKit.framework */; };
@@ -342,6 +343,8 @@
 		01BFE06C191CACE800095A8A /* SystemUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemUser.m; sourceTree = "<group>"; };
 		01BFE06F191CADF900095A8A /* SystemUserHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemUserHelper.h; sourceTree = "<group>"; };
 		01BFE070191CADF900095A8A /* SystemUserHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemUserHelper.m; sourceTree = "<group>"; };
+		01C94199192CB5680044AA2B /* AppHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppHelper.h; sourceTree = "<group>"; };
+		01C9419A192CB5680044AA2B /* AppHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppHelper.m; sourceTree = "<group>"; };
 		01CDC1A1191A220A0002AE47 /* HsinchuElderly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HsinchuElderly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01CDC1A4191A220A0002AE47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		01CDC1A6191A220A0002AE47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -722,6 +725,8 @@
 				01BFE067191CAC6F00095A8A /* FileHelper.h */,
 				01BFE068191CAC6F00095A8A /* FileHelper.m */,
 				01BF7FAA191B188C002E34E9 /* Global.h */,
+				01C94199192CB5680044AA2B /* AppHelper.h */,
+				01C9419A192CB5680044AA2B /* AppHelper.m */,
 			);
 			name = Uitils;
 			sourceTree = "<group>";
@@ -1163,6 +1168,7 @@
 				01A9737D191DCD690073530F /* CVUISelect.m in Sources */,
 				01BF7FD2191B6469002E34E9 /* TKLabelFieldCell.m in Sources */,
 				01A97389191DFD870073530F /* Blood.m in Sources */,
+				01C9419B192CB5680044AA2B /* AppHelper.m in Sources */,
 				01BFE071191CADF900095A8A /* SystemUserHelper.m in Sources */,
 				01BFE066191CAAB100095A8A /* AlertHelper.m in Sources */,
 				01A973AD19205E810073530F /* ActionSheetHelper.m in Sources */,

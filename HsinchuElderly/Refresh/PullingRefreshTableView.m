@@ -141,9 +141,9 @@
             
             _loading = YES;
             if (self.isAtTop) {
-                _stateLabel.text = NSLocalizedString(@"正在加載", @"");
+                _stateLabel.text = NSLocalizedString(@"正在載入資料", @"");
             } else {
-                _stateLabel.text = NSLocalizedString(@"正在加載", @"");
+                _stateLabel.text = NSLocalizedString(@"正在載入資料", @"");
             }
             
         } else if (_state == kPRStatePulling && !_loading) {    //Scrolling
