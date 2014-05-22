@@ -10,6 +10,8 @@
 		0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01622222191CC6C500B4AD50 /* AnimateLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221F191CC6C500B4AD50 /* AnimateLoadView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01622223191CC6C500B4AD50 /* AnimateErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01622221191CC6C500B4AD50 /* AnimateErrorView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0189C434192E035B002ED63A /* VersionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0189C433192E035B002ED63A /* VersionViewController.m */; };
+		0189C438192E039B002ED63A /* VersionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0189C437192E039B002ED63A /* VersionView.m */; };
 		01A97361191CE1EB0073530F /* UseDrugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97360191CE1EB0073530F /* UseDrugViewController.m */; };
 		01A97364191CE31A0073530F /* MedicineDrug.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97363191CE31A0073530F /* MedicineDrug.m */; };
 		01A97367191DBBF50073530F /* MedicineDrugHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97366191DBBF50073530F /* MedicineDrugHelper.m */; };
@@ -157,6 +159,10 @@
 		0162221F191CC6C500B4AD50 /* AnimateLoadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimateLoadView.m; sourceTree = "<group>"; };
 		01622220191CC6C500B4AD50 /* AnimateErrorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimateErrorView.h; sourceTree = "<group>"; };
 		01622221191CC6C500B4AD50 /* AnimateErrorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimateErrorView.m; sourceTree = "<group>"; };
+		0189C432192E035B002ED63A /* VersionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionViewController.h; sourceTree = "<group>"; };
+		0189C433192E035B002ED63A /* VersionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionViewController.m; sourceTree = "<group>"; };
+		0189C436192E039B002ED63A /* VersionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionView.h; sourceTree = "<group>"; };
+		0189C437192E039B002ED63A /* VersionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionView.m; sourceTree = "<group>"; };
 		01A9735F191CE1EB0073530F /* UseDrugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseDrugViewController.h; sourceTree = "<group>"; };
 		01A97360191CE1EB0073530F /* UseDrugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseDrugViewController.m; sourceTree = "<group>"; };
 		01A97362191CE31A0073530F /* MedicineDrug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicineDrug.h; sourceTree = "<group>"; };
@@ -440,6 +446,25 @@
 				01BF7FAE191B1C30002E34E9 /* ClockViewController.m */,
 			);
 			name = Clock;
+			sourceTree = "<group>";
+		};
+		0189C431192E033E002ED63A /* Version */ = {
+			isa = PBXGroup;
+			children = (
+				0189C435192E0386002ED63A /* UI */,
+				0189C432192E035B002ED63A /* VersionViewController.h */,
+				0189C433192E035B002ED63A /* VersionViewController.m */,
+			);
+			name = Version;
+			sourceTree = "<group>";
+		};
+		0189C435192E0386002ED63A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0189C436192E039B002ED63A /* VersionView.h */,
+				0189C437192E039B002ED63A /* VersionView.m */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		01A9735E191CE1A60073530F /* Drug */ = {
@@ -989,6 +1014,7 @@
 		01CDC1DD191A243E0002AE47 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0189C431192E033E002ED63A /* Version */,
 				01A975281923388A0073530F /* Lottery */,
 				01A9752719231F2E0073530F /* Consultation */,
 				01A974431920E0560073530F /* Welfare */,
@@ -1166,6 +1192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01A9737D191DCD690073530F /* CVUISelect.m in Sources */,
+				0189C434192E035B002ED63A /* VersionViewController.m in Sources */,
 				01BF7FD2191B6469002E34E9 /* TKLabelFieldCell.m in Sources */,
 				01A97389191DFD870073530F /* Blood.m in Sources */,
 				01C9419B192CB5680044AA2B /* AppHelper.m in Sources */,
@@ -1225,6 +1252,7 @@
 				01A9756C19236AF50073530F /* SRMNetworkEngine.m in Sources */,
 				01A973C8192075730073530F /* BloodSugarHelper.m in Sources */,
 				01A9755F19236A060073530F /* Reachability.m in Sources */,
+				0189C438192E039B002ED63A /* VersionView.m in Sources */,
 				01A973C51920753A0073530F /* BloodSugar.m in Sources */,
 				0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */,
 				01A97364191CE31A0073530F /* MedicineDrug.m in Sources */,

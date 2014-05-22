@@ -15,6 +15,7 @@
 #import "HEItemListController.h"
 #import "HEConsultationHelper.h"
 #import "LotteryViewController.h"
+#import "VersionViewController.h"
 @interface IndexViewController ()
 - (void)addMenuItemWithFrame:(CGRect)frame tag:(NSInteger)tag image:(UIImage*)img;
 @end
@@ -112,6 +113,10 @@
         consulation.dbHelper=[[HEConsultationHelper alloc] init];
         consulation.title=@"諮詢站";
         [self.navigationController pushViewController:consulation animated:YES];
+    }
+    if (btn.tag==106) {//版本说明
+        VersionViewController *lottery=[[VersionViewController alloc] init];
+        [self.navigationController pushViewController:lottery animated:YES];
     }
     if (btn.tag==107) {//好康抽獎
         LotteryViewController *lottery=[[LotteryViewController alloc] init];
