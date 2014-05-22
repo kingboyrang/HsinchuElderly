@@ -14,7 +14,9 @@
     if(!(self=[super initWithStyle:style reuseIdentifier:reuseIdentifier])) return nil;
     UIImage *img=[UIImage imageNamed:@"cell_bg.png"];
     img=[img stretchableImageWithLeftCapWidth:10 topCapHeight:0];
-    UIView *bgView=[[UIView alloc] initWithFrame:self.frame];
+    CGRect r=self.frame;
+    r.size.width=DeviceWidth;
+    UIView *bgView=[[UIView alloc] initWithFrame:r];
     UIImageView *imageView=[[UIImageView alloc] initWithFrame:bgView.bounds];
     [imageView setImage:img];
     [bgView addSubview:imageView];

@@ -7,7 +7,7 @@
 //
 
 #import "MedicineDrug.h"
-
+#import "NSDate+TPCategory.h"
 @implementation MedicineDrug
 - (void)encodeWithCoder:(NSCoder *)encoder{
     [encoder encodeObject:self.ID forKey:@"ID"];
@@ -27,6 +27,21 @@
         self.CreateDate=[aDecoder decodeObjectForKey:@"CreateDate"];
     }
     return self;
+}
+- (NSCalendarUnit)repeatInterval{
+    if (_Rate&&[_Rate length]>0) {
+        if ([_Rate isEqualToString:@"8"]) {
+            return NSCalendarUnitDay;
+        }
+        return NSCalendarUnitWeekday;
+    }
+    return 0;
+}
+- (NSDate*)repeatDate{
+    NSDate *now=[NSDate date];
+    NSString *str=[NSDate stringFromDate:now withFormat:@"yyyy-MM-dd"];
+    str=[NSString stringWithFormat:@"%@ %@",str,[self TimeSpan]];
+    return [NSDate dateFromString:str withFormat:@"yyyy-MM-dd HH:mm"];
 }
 - (NSString*)TimeSpanText{
     if (_TimeSpan&&[_TimeSpan length]>0) {

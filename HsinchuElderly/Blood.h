@@ -16,4 +16,6 @@
 @property (nonatomic,copy) NSString *CreateDate;//建立時間
 
 @property (nonatomic,readonly) NSString *TimeSpanText;
+@property (nonatomic,readonly) NSCalendarUnit repeatInterval;
+@property (nonatomic,readonly) NSDate *repeatDate;
 @end

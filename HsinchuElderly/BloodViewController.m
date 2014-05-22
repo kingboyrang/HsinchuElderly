@@ -11,6 +11,7 @@
 #import "UIBarButtonItem+TPCategory.h"
 #import "AlertHelper.h"
 #import "TKDrugCell.h"
+#import "AppHelper.h"
 @interface BloodViewController ()
 - (void)buttonAddClick:(UIButton*)btn;
 - (NSString*)getShowName:(Blood*)entity;
@@ -81,6 +82,10 @@
         }
         UITableViewCell *cell=(UITableViewCell*)v;
         NSIndexPath *indexPath=[self.userTable indexPathForCell:cell];
+        
+        Blood *entity=self.list[indexPath.row];
+        [AppHelper removeLocationNoticeWithName:entity.ID];
+        
         [self.list removeObjectAtIndex:indexPath.row];
         [self.userTable beginUpdates];
         [self.userTable deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];

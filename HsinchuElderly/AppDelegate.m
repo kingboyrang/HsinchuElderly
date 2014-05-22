@@ -70,7 +70,7 @@
 #pragma mark 本地通知
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     //点击提示框的打开
-    application.applicationIconBadgeNumber = 0;
+    application.applicationIconBadgeNumber = notification.applicationIconBadgeNumber-1;
     UIApplicationState state = application.applicationState;
     //    NSLog(@"%@,%d",notification,state);
     if (state == UIApplicationStateActive) {

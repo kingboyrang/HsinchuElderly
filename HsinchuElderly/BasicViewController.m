@@ -41,10 +41,10 @@
     if (self.navigationController) {
         if ([self.navigationController.viewControllers count]==1) {
             UIImageView *imageView=[[UIImageView alloc] initWithFrame:self.view.bounds];
-            [imageView setImage:[UIImage imageNamed:@"index_bg.png"]];
+            [imageView setImage:[UIImage imageNamed:[self imageNameWithName:@"index_bg" forType:@"png"]]];
             [self.view addSubview:imageView];
         }else{
-            UIImage *img=[UIImage imageNamed:@"bg.png"];
+            UIImage *img=[UIImage imageNamed:[self imageNameWithName:@"bg" forType:@"png"]];
             CGRect r=self.view.bounds;
             r.size.height-=[self topHeight];
             UIImageView *imageView=[[UIImageView alloc] initWithFrame:r];
@@ -91,6 +91,12 @@
 }
 - (BOOL)hasNewWork{
     return [NetWorkConnection IsEnableConnection];
+}
+- (NSString*)imageNameWithName:(NSString*)name forType:(NSString*)type{
+    if (DeviceIsPad) {
+        return [NSString stringWithFormat:@"%@_ipad.%@",name,type];
+    }
+    return  [NSString stringWithFormat:@"%@.%@",name,type];
 }
 - (void)setBarBackButtonItem{
     UIButton *btn=[UIButton buttonWithImageName:@"left_back.png" target:self action:@selector(buttonBackClick:) forControlEvents:UIControlEventTouchUpInside];

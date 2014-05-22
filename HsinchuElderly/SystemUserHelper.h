@@ -18,6 +18,7 @@
 - (void)removeUserWithModel:(SystemUser*)entity;
 - (void)removeUserPhotoWithId:(NSString*)userId;
 - (SystemUser*)findUserWithId:(NSString*)userId;
+- (BOOL)existsUserWithId:(NSString*)userId;
 //儲存
 - (void)saveWithSources:(NSArray*)sources;
 //載入數據

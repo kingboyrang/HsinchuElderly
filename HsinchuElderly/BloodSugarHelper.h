@@ -12,9 +12,10 @@
 //列表
 - (NSMutableArray*)pressureBloodSugars;
 //新增與修改
-- (void)addEditWithModel:(BloodSugar*)entity;
+- (void)addEditWithModel:(BloodSugar*)entity name:(NSString*)name;
 //儲存
 - (void)saveWithSources:(NSArray*)sources;
+- (BOOL)existsByUserId:(NSString*)userId;
 //儲存數據
 - (void)loadDataSource;
 @end

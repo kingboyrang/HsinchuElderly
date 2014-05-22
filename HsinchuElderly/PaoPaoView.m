@@ -129,10 +129,10 @@
         TKLabelLabelCell *cell=self.cells[indexPath.row];
         CGFloat w=240-cell.labName.frame.size.width-cell.labName.frame.origin.x-2-5;
         CGSize size=[cell.labDetail.text textSize:defaultSDeviceFont withWidth:w];
-        if (size.height+10>35.0f) {
-            return size.height+10;
+        if (size.height+20>44.0f) {
+            return size.height+20;
         }
     }
-    return 35.0f;
+    return 44.0f;
 }
 @end

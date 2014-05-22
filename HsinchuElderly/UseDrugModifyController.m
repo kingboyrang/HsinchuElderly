@@ -116,7 +116,7 @@
     MedicineDrugHelper *_helper=[[MedicineDrugHelper alloc] init];
     NSString *memo=self.operType==1?@"新增":@"修改";
     [self showLoadingAnimatedWithTitle:[NSString stringWithFormat:@"正在%@...",memo]];
-    [_helper addEditDrugWithModel:self.Entity];
+    [_helper addEditDrugWithModel:self.Entity name:cell1.select.key];
     [self hideLoadingSuccessWithTitle:[NSString stringWithFormat:@"%@成功!",memo] completed:^(AnimateErrorView *successView) {
         [self.navigationController popViewControllerAnimated:YES];
     }];

@@ -220,7 +220,7 @@
 #pragma mark UITableViewDelegate Methods
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.cells[indexPath.row] isKindOfClass:[TKPhotoCell class]]) {
-        return 193;
+        return DeviceIsPad?327:193;
     }
     return 44.0;
 }

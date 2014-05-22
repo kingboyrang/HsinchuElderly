@@ -134,7 +134,7 @@
 //類別
 - (void)buttonCategoryClick:(UIButton*)btn{
     CGFloat xWidth = self.view.bounds.size.width - 20.0f;
-    CGFloat yHeight = 300.0f;
+    CGFloat yHeight = (300.0f/480.0f)*self.view.bounds.size.height;
     CGFloat yOffset = (self.view.bounds.size.height - yHeight)/2.0f;
     
     //TPMenuHelper *helper=[[TPMenuHelper alloc] init];
@@ -150,7 +150,7 @@
     
     //NSString *path=[[NSBundle mainBundle] pathForResource:@"MedicalCareArea" ofType:@"plist"];
     CGFloat xWidth = self.view.bounds.size.width - 20.0f;
-    CGFloat yHeight = 300.0f;
+    CGFloat yHeight = (300.0f/480.0f)*self.view.bounds.size.height;
     CGFloat yOffset = (self.view.bounds.size.height - yHeight)/2.0f;
     
     //TPMenuHelper *helper=[[TPMenuHelper alloc] init];

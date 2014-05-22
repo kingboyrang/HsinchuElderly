@@ -37,6 +37,10 @@
 #define DataWebserviceURL @"http://192.168.123.150:8080/WebService.asmx"
 #define DataWeserviceNameSpace @"http://tempuri.org/"
 
+#define PushBloodSugarMessage @"親愛的%@,該量血糖囉!"
+#define PushBloodMessage @"親愛的%@,該量血壓囉!"
+#define PushDrugMessage @"親愛的%@,該吃藥囉!"
+
 
 
 

@@ -8,7 +8,7 @@
 
 #import "MedicineDrugHelper.h"
 #import "FileHelper.h"
-
+#import "AppHelper.h"
 @interface MedicineDrugHelper ()
 @property (nonatomic,strong) NSMutableArray *drugDataSource;
 - (BOOL)findById:(NSString*)sysId position:(NSInteger*)index;
@@ -31,15 +31,18 @@
     }
     return self.drugDataSource;
 }
-- (void)addEditDrugWithModel:(MedicineDrug*)entity{
+- (void)addEditDrugWithModel:(MedicineDrug*)entity name:(NSString*)name{
     NSInteger index;
     BOOL boo=[self findById:entity.ID position:&index];
     NSMutableArray *source=[self medicineDrugs];
+     NSString *msg=[NSString stringWithFormat:PushDrugMessage,name];
     if (boo) {//存在就修改
         [source replaceObjectAtIndex:index withObject:entity];
+         [AppHelper removeLocationNoticeWithName:entity.ID];
     }else{//新增
         [source addObject:entity];
     }
+    [AppHelper sendLocationNotice:entity.ID message:msg noticeDate:entity.repeatDate repeatInterval:entity.repeatInterval];
     [self saveWithSources:source];
 }
 - (BOOL)findById:(NSString*)sysId position:(NSInteger*)index{
@@ -62,5 +65,17 @@
         NSString *path=[DocumentPath stringByAppendingPathComponent:@"medicineDrug.db"];
         [NSKeyedArchiver archiveRootObject:sources toFile:path];
     }
+}
+- (BOOL)existsByUserId:(NSString*)userId{
+    NSMutableArray *arr=[self medicineDrugs];
+    if (arr&&[arr count]>0) {
+        NSString *match=[NSString stringWithFormat:@"SELF.UserId =='%@'",userId];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:match];
+        NSArray *results = [arr filteredArrayUsingPredicate:predicate];
+        if (results&&[results count]>0) {
+            return YES;
+        }
+    }
+    return NO;
 }
 @end

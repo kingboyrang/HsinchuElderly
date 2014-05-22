@@ -45,6 +45,7 @@
     _refreshTable.delegate=self;
     _refreshTable.backgroundColor=[UIColor clearColor];
     [self.view addSubview:_refreshTable];
+    [self.view insertSubview:_topBarView belowSubview:_refreshTable];
     
     self.menuHelper=[[TPMenuHelper alloc] init];
     
@@ -71,7 +72,7 @@
 }
 
 - (void)defaultInitParams{
-    pageSize=10;
+    pageSize=DeviceIsPad?20:10;
     pageNumber=0;
 }
 //地圖
@@ -103,7 +104,7 @@
     //NSString *path=[[NSBundle mainBundle] pathForResource:@"MedicalCareCategory" ofType:@"plist"];
     
     CGFloat xWidth = self.view.bounds.size.width - 20.0f;
-    CGFloat yHeight = 300.0f;
+    CGFloat yHeight = (300.0f/480.0f)*self.view.bounds.size.height;
     CGFloat yOffset = (self.view.bounds.size.height - yHeight)/2.0f;
     
     //TPMenuHelper *helper=[[TPMenuHelper alloc] init];
@@ -119,7 +120,7 @@
     
     //NSString *path=[[NSBundle mainBundle] pathForResource:@"MedicalCareArea" ofType:@"plist"];
     CGFloat xWidth = self.view.bounds.size.width - 20.0f;
-    CGFloat yHeight = 300.0f;
+    CGFloat yHeight = (300.0f/480.0f)*self.view.bounds.size.height;
     CGFloat yOffset = (self.view.bounds.size.height - yHeight)/2.0f;
     
     //TPMenuHelper *helper=[[TPMenuHelper alloc] init];
@@ -213,7 +214,9 @@
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         UIImage *img=[UIImage imageNamed:@"cell_bg.png"];
         img=[img stretchableImageWithLeftCapWidth:10 topCapHeight:0];
-        UIView *bgView=[[UIView alloc] initWithFrame:cell.frame];
+        CGRect r=cell.frame;
+        r.size.width=self.view.bounds.size.width;
+        UIView *bgView=[[UIView alloc] initWithFrame:r];
         UIImageView *imageView=[[UIImageView alloc] initWithFrame:bgView.bounds];
         [imageView setImage:img];
         [bgView addSubview:imageView];

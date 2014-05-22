@@ -9,14 +9,29 @@
 #import "SystemUserHelper.h"
 #import "FileHelper.h"
 #import "UIImage+TPCategory.h"
+#import "MedicineDrugHelper.h"
+#import "BloodHelper.h"
+#import "BloodSugarHelper.h"
 #define saveImageFilePath [DocumentPath stringByAppendingPathComponent:@"SystemUserImage"]
 
 @interface SystemUserHelper ()
 @property (nonatomic,strong) NSMutableArray *userDataSource;
+@property (nonatomic,strong) MedicineDrugHelper *drugHelper;
+@property (nonatomic,strong) BloodHelper *bloodHelper;
+@property (nonatomic,strong) BloodSugarHelper *bloodsugarHelper;
 - (BOOL)findById:(NSString*)sysId position:(NSInteger*)index;
 @end
 
 @implementation SystemUserHelper
+
+-(id)init{
+    if (self=[super init]) {
+        self.drugHelper=[[MedicineDrugHelper alloc] init];
+        self.bloodHelper=[[BloodHelper alloc] init];
+        self.bloodsugarHelper=[[BloodSugarHelper alloc] init];
+    }
+    return self;
+}
 
 - (void)loadDataSource{
     NSString *path=[DocumentPath stringByAppendingPathComponent:@"systemUser.db"];
@@ -87,6 +102,18 @@
         }
     }
     return nil;
+}
+- (BOOL)existsUserWithId:(NSString*)userId{
+    if ([self.drugHelper existsByUserId:userId]) {
+        return NO;
+    }
+    if ([self.bloodHelper existsByUserId:userId]) {
+        return NO;
+    }
+    if ([self.bloodsugarHelper existsByUserId:userId]) {
+        return NO;
+    }
+    return YES;
 }
 - (void)removeUserPhotoWithId:(NSString*)userId{
     NSString *path=[saveImageFilePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",userId]];

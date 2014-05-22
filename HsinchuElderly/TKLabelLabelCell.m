@@ -48,6 +48,7 @@
 
 - (void) layoutSubviews {
     [super layoutSubviews];
+    
 	
 	CGRect r = CGRectInset(self.contentView.bounds, 10, 10);
     r.size = CGSizeMake(72,27);
@@ -62,6 +63,7 @@
     _labDetail.frame=CGRectMake(leftX,(self.frame.size.height-size.height)/2, size.width, size.height);
     
     r=_lineImageView.frame;
+    r.size.width=self.frame.size.width;
     r.origin.y=self.frame.size.height-r.size.height;
     _lineImageView.frame=r;
 }

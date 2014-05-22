@@ -41,7 +41,7 @@
     [self.view addSubview:imageView];
      ***/
     
-     UIImage *img=[UIImage imageNamed:@"login_title.png"];
+     UIImage *img=[UIImage imageNamed:[self imageNameWithName:@"login_title" forType:@"png"]];
      UIImageView *imgLogoView=[[UIImageView alloc] initWithFrame:CGRectMake((self.view.bounds.size.width-img.size.width)/2, (self.view.bounds.size.height-img.size.height)/2, img.size.width, img.size.height)];
     [imgLogoView setImage:img];
     [self.view addSubview:imgLogoView];
@@ -49,27 +49,32 @@
     //162/* 315/292
     
     //醫療
-    UIImage *medical=[UIImage imageNamed:@"medical.png"];
+    UIImage *medical=[UIImage imageNamed:[self imageNameWithName:@"medical" forType:@"png"]];
     [self addMenuItemWithFrame:CGRectMake(0, (self.view.bounds.size.height-medical.size.height)/2, medical.size.width,medical.size.height) tag:101 image:medical];
     //服務
-    [self addMenuItemWithFrame:CGRectMake(self.view.bounds.size.width-medical.size.width, (self.view.bounds.size.height-medical.size.height)/2, medical.size.width,medical.size.height) tag:102 image:[UIImage imageNamed:@"service.png"]];
+    [self addMenuItemWithFrame:CGRectMake(self.view.bounds.size.width-medical.size.width, (self.view.bounds.size.height-medical.size.height)/2, medical.size.width,medical.size.height) tag:102 image:[UIImage imageNamed:[self imageNameWithName:@"service" forType:@"png"]]];
     
     //小鬧鐘
     CGFloat leftX=(self.view.bounds.size.width-medical.size.width*2-20)/2;
-    [self addMenuItemWithFrame:CGRectMake(leftX,imgLogoView.frame.origin.y-medical.size.height+10, medical.size.width,medical.size.height) tag:100 image:[UIImage imageNamed:@"clock.png"]];
+    [self addMenuItemWithFrame:CGRectMake(leftX,imgLogoView.frame.origin.y-medical.size.height+10, medical.size.width,medical.size.height) tag:100 image:[UIImage imageNamed:[self imageNameWithName:@"clock" forType:@"png"]]];
+    
+    
     //諮詢站
-    [self addMenuItemWithFrame:CGRectMake(leftX+medical.size.width+20,imgLogoView.frame.origin.y-medical.size.height+10, medical.size.width,medical.size.height) tag:105 image:[UIImage imageNamed:@"consult.png"]];
+    [self addMenuItemWithFrame:CGRectMake(leftX+medical.size.width+20,imgLogoView.frame.origin.y-medical.size.height+10, medical.size.width,medical.size.height) tag:105 image:[UIImage imageNamed:[self imageNameWithName:@"consult" forType:@"png"]]];
     //休閒
+    
     CGFloat topY=imgLogoView.frame.origin.y+imgLogoView.frame.size.height-10;
-    [self addMenuItemWithFrame:CGRectMake(leftX,topY, medical.size.width,medical.size.height) tag:103 image:[UIImage imageNamed:@"leisure.png"]];
+    [self addMenuItemWithFrame:CGRectMake(leftX,topY, medical.size.width,medical.size.height) tag:103 image:[UIImage imageNamed:[self imageNameWithName:@"leisure" forType:@"png"]]];
     //福利
-    [self addMenuItemWithFrame:CGRectMake(leftX+medical.size.width+20,topY, medical.size.width,medical.size.height) tag:104 image:[UIImage imageNamed:@"welfare.png"]];
+    
+    [self addMenuItemWithFrame:CGRectMake(leftX+medical.size.width+20,topY, medical.size.width,medical.size.height) tag:104 image:[UIImage imageNamed:[self imageNameWithName:@"welfare" forType:@"png"]]];
     
     //說明
-    UIImage *exclamationImg=[UIImage imageNamed:@"exclamation.png"];
+    
+    UIImage *exclamationImg=[UIImage imageNamed:[self imageNameWithName:@"exclamation" forType:@"png"]];
     [self addMenuItemWithFrame:CGRectMake(10,self.view.frame.size.height-exclamationImg.size.height, exclamationImg.size.width,exclamationImg.size.height) tag:106 image:exclamationImg];
     //好康抽獎
-    UIImage *lotteryImg=[UIImage imageNamed:@"lottery.png"];
+    UIImage *lotteryImg=[UIImage imageNamed:[self imageNameWithName:@"lottery" forType:@"png"]];
      [self addMenuItemWithFrame:CGRectMake(self.view.bounds.size.width-lotteryImg.size.width-5,self.view.frame.size.height-lotteryImg.size.height, lotteryImg.size.width,lotteryImg.size.height) tag:107 image:lotteryImg];
     
    

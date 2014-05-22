@@ -62,15 +62,22 @@
 }
 //删除功能
 - (void)buttonDeleteClick:(UIButton*)btn{
+    
+    
     [AlertHelper initWithTitle:@"提示" message:@"確定刪除?" cancelTitle:@"取消" cancelAction:nil confirmTitle:@"確認" confirmAction:^{
         id v=[btn superview];
         while (![v isKindOfClass:[UITableViewCell class]]) {
             v=[v superview];
         }
-        
         UITableViewCell *cell=(UITableViewCell*)v;
         NSIndexPath *indexPath=[self.userTable indexPathForCell:cell];
         SystemUser *entity=self.list[indexPath.row];
+        
+        if (![self.userHelper existsUserWithId:entity.ID]) {
+            [AlertHelper initWithTitle:@"提示" message:@"帳號資料正在使用中,無法刪除!"];
+            return;
+        }
+
         [self.userHelper removeUserPhotoWithId:entity.ID];//删除头像
         [self.list removeObjectAtIndex:indexPath.row];
         [self.userTable beginUpdates];
@@ -94,7 +101,9 @@
         
         UIImage *img=[UIImage imageNamed:@"cell_bg.png"];
         img=[img stretchableImageWithLeftCapWidth:10 topCapHeight:0];
-        UIView *bgView=[[UIView alloc] initWithFrame:cell.frame];
+        CGRect r=cell.frame;
+        r.size.width=self.view.bounds.size.width;
+        UIView *bgView=[[UIView alloc] initWithFrame:r];
         UIImageView *imageView=[[UIImageView alloc] initWithFrame:bgView.bounds];
         [imageView setImage:img];
         [bgView addSubview:imageView];

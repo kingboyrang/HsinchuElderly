@@ -31,7 +31,8 @@
     self.albumCamera=[[AlbumCameraImage alloc] init];
     self.albumCamera.delegate=self;
     
-    UIImage *img1=[UIImage imageNamed:@"upalbum.png"];
+    
+    UIImage *img1=[UIImage imageNamed:[self imageNameWithName:@"upalbum" forType:@"png"]];
     UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame=CGRectMake(10, 10, img1.size.width, img1.size.height);
     [btn setImage:img1 forState:UIControlStateNormal];
@@ -39,7 +40,7 @@
     [self.view addSubview:btn];
     
     
-    UIImage *img2=[UIImage imageNamed:@"upcamera.png"];
+    UIImage *img2=[UIImage imageNamed:[self imageNameWithName:@"upcamera" forType:@"png"]];
     CGFloat topY=self.view.bounds.size.height-[self topHeight]-img2.size.height-10;
     UIButton *btn2=[UIButton buttonWithType:UIButtonTypeCustom];
     btn2.frame=CGRectMake(self.view.bounds.size.width-img2.size.width-10, topY, img2.size.width, img2.size.height);

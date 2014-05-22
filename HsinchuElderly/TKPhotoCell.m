@@ -18,8 +18,8 @@
 @synthesize hasImage=_hasImg;
 - (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
 	if(!(self=[super initWithStyle:style reuseIdentifier:reuseIdentifier])) return nil;
-    
-    UIImage *img=[UIImage imageNamed:@"head"];
+    NSString *imgName=DeviceIsPad?@"head_ipad.png":@"head.png";
+    UIImage *img=[UIImage imageNamed:imgName];
     _photoImage=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, img.size.width,img.size.height)];
     [_photoImage setImage:[UIImage imageNamed:@"head"]];
     [self.contentView addSubview:_photoImage];

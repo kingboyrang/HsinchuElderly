@@ -11,6 +11,7 @@
 #import "TKDrugCell.h"
 #import "UIBarButtonItem+TPCategory.h"
 #import "AlertHelper.h"
+#import "AppHelper.h"
 @interface UseDrugViewController ()
 - (NSString*)getShowName:(MedicineDrug*)entity;
 - (void)buttonDeleteClick:(UIButton*)btn;
@@ -79,6 +80,10 @@
         }
         UITableViewCell *cell=(UITableViewCell*)v;
         NSIndexPath *indexPath=[self.userTable indexPathForCell:cell];
+        
+        MedicineDrug *entity=self.list[indexPath.row];
+        [AppHelper removeLocationNoticeWithName:entity.ID];
+        
         [self.list removeObjectAtIndex:indexPath.row];
         [self.userTable beginUpdates];
         [self.userTable deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];

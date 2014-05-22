@@ -29,7 +29,7 @@
     [super viewDidLoad];
     self.title=@"分享照片";
     //顶部图片
-    UIImage *topImg=[UIImage imageNamed:@"u_top.png"];
+    UIImage *topImg=[UIImage imageNamed:[self imageNameWithName:@"u_top" forType:@"png"]];
     UIImageView *imageView1=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, topImg.size.width, topImg.size.height)];
     [imageView1 setImage:topImg];
     [self.view addSubview:imageView1];
@@ -48,7 +48,7 @@
     [self.view addSubview:btn];
     
     //底部图片
-    UIImage *bottomImg=[UIImage imageNamed:@"u_bottom.png"];
+    UIImage *bottomImg=[UIImage imageNamed:[self imageNameWithName:@"u_bottom" forType:@"png"]];
     UIImageView *imageView2=[[UIImageView alloc] initWithFrame:CGRectMake(0,btn.frame.origin.y-bottomImg.size.height-10, bottomImg.size.width, bottomImg.size.height)];
     [imageView2 setImage:bottomImg];
     [self.view addSubview:imageView2];
