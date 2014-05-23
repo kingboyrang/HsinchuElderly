@@ -127,6 +127,7 @@
     
     SRMNetworkEngine *engine=[[SRMNetworkEngine alloc] initWithHostName:args.hostName];
     [engine requestWithArgs:args success:^(MKNetworkOperation *completedOperation) {
+        //NSLog(@"xml=%@",completedOperation.responseString);
         btn.enabled=YES;
         [self hideLoadingSuccessWithTitle:@"上傳成功!" completed:^(AnimateErrorView *successView) {
             [self.navigationController popToRootViewControllerAnimated:YES];
