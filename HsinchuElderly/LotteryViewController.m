@@ -37,10 +37,11 @@
     labTitle.text=@"家有一老 如有一寶活動";
     [self.view addSubview:labTitle];
     
-    ActivityView *activity=[[ActivityView alloc] initWithFrame:CGRectMake(10, 46, self.view.bounds.size.width-10*2, 150)];
+    CGFloat h=DeviceIsPad?160:190;
+    ActivityView *activity=[[ActivityView alloc] initWithFrame:CGRectMake(10, 46, self.view.bounds.size.width-10*2, h)];
     [self.view addSubview:activity];
     
-    CGFloat topY=46+150+10;
+    CGFloat topY=46+activity.frame.size.height+10;
     UIImage *img=[UIImage imageNamed:@"chk.png"];
     self.chkButton=[UIButton buttonWithType:UIButtonTypeCustom];
     self.chkButton.frame=CGRectMake(10, topY, img.size.width, img.size.height);

@@ -13,7 +13,7 @@
 @implementation AppDelegate
 
 - (void)dbInitLoad{
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTintColor:[UIColor colorFromHexRGB:@"ff5500"]];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTintColor:[UIColor blackColor]];//ff5500
     
     NSString *path=[[NSBundle mainBundle] pathForResource:@"HsinchuElderly" ofType:@"sqlite"];
     NSString *dbPath=[DocumentPath stringByAppendingPathComponent:@"HsinchuElderly.sqlite"];

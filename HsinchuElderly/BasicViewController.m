@@ -132,7 +132,7 @@
 -(AnimateErrorView*) successView {
     if (!_successView) {
         _successView=[[AnimateErrorView alloc] initWithFrame:CGRectMake(0, 4, self.view.bounds.size.width, 40)];
-        _successView.backgroundColor=[UIColor colorFromHexRGB:@"51c345"];
+        _successView.backgroundColor=[UIColor colorFromHexRGB:@"fff68d"];
         [_successView setErrorImage:[UIImage imageNamed:@"notice_success_icon.png"]];
     }
     return _successView;

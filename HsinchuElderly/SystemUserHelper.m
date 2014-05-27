@@ -36,11 +36,13 @@
 - (void)loadDataSource{
     NSString *path=[DocumentPath stringByAppendingPathComponent:@"systemUser.db"];
     NSMutableArray *source=[NSMutableArray array];
+
     if([FileHelper existsFilePath:path]){ //如果不存在
         [source addObjectsFromArray:[NSKeyedUnarchiver unarchiveObjectWithFile: path]];
     }
     self.userDataSource=source;
 }
+
 - (NSMutableArray*)systemUsers{
     if (self.userDataSource&&[self.userDataSource count]>0) {
        return self.userDataSource;
@@ -51,6 +53,7 @@
 }
 - (NSMutableArray*)dictonaryUsers{
     NSMutableArray *source=[NSMutableArray array];
+    [source addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"無特定對象",@"Name",@"A001",@"ID", nil]];
     if (self.userDataSource&&[self.userDataSource count]>0) {
     for (SystemUser *item in self.userDataSource) {
         [source addObject:[NSDictionary dictionaryWithObjectsAndKeys:item.Name,@"Name",item.ID,@"ID", nil]];

@@ -181,6 +181,7 @@
                     [_refreshTable insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationFade];
                     [_refreshTable endUpdates];
                     [self showSuccessViewWithHide:^(AnimateErrorView *successView) {
+                        successView.labelTitle.textColor=[UIColor blackColor];
                         successView.labelTitle.text=[NSString stringWithFormat:@"更新%d筆資料!",insertIndexPaths.count];
                     } completed:nil];
                 }
@@ -195,7 +196,7 @@
                 }
                 pageNumber--;
                 [self showErrorViewWithHide:^(AnimateErrorView *errorView) {
-                    errorView.labelTitle.text=@"沒有了哦!";
+                    errorView.labelTitle.text=@"已載入所有資料!";
                     errorView.backgroundColor=[UIColor colorFromHexRGB:@"0e4880"];
                 } completed:nil];
             });

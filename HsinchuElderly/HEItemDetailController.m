@@ -57,11 +57,17 @@
     cell3.labName.text=@"地址：";
     cell3.labDetail.text=self.Entity.Address;
     
-    TKLabelLabelCell *cell4=[[TKLabelLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell4.labName.text=@"網址：";
-    cell4.labDetail.text=@"";
+    if(self.Entity.WebSiteURL&&[self.Entity.WebSiteURL length]>0){
+        TKLabelLabelCell *cell4=[[TKLabelLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell4.labName.text=@"網址：";
+        cell4.labDetail.text=self.Entity.WebSiteURL;
+        self.cells=[NSMutableArray arrayWithObjects:cell1,cell2,cell3,cell4, nil];
+    }else{
+        self.cells=[NSMutableArray arrayWithObjects:cell1,cell2,cell3, nil];
+    }
     
-    self.cells=[NSMutableArray arrayWithObjects:cell1,cell2,cell3,cell4, nil];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,12 +89,22 @@
     if (indexPath.row==0) {
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
     }else{
-        //cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-        UIImage *rightImg=[UIImage imageNamed:@"arrow_right.png"];
-        UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame=CGRectMake(0, 0, rightImg.size.width, rightImg.size.height);
-        [btn setBackgroundImage:rightImg forState:UIControlStateNormal];
-        cell.accessoryView=btn;
+        if (indexPath.row==1) {
+            if (!DeviceIsPad) {
+                UIImage *rightImg=[UIImage imageNamed:@"arrow_right.png"];
+                UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
+                btn.frame=CGRectMake(0, 0, rightImg.size.width, rightImg.size.height);
+                [btn setBackgroundImage:rightImg forState:UIControlStateNormal];
+                cell.accessoryView=btn;
+            }
+        }else{
+            UIImage *rightImg=[UIImage imageNamed:@"arrow_right.png"];
+            UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
+            btn.frame=CGRectMake(0, 0, rightImg.size.width, rightImg.size.height);
+            [btn setBackgroundImage:rightImg forState:UIControlStateNormal];
+            cell.accessoryView=btn;
+        }
+       
     }
     return cell;
 }
