@@ -18,7 +18,7 @@
         _field.borderStyle=UITextBorderStyleRoundedRect;
         _field.placeholder=@"請選擇";
         _field.contentVerticalAlignment=UIControlContentVerticalAlignmentCenter;//設定垂直置中
-        _field.enabled=NO;//設定不可以编辑
+        _field.enabled=NO;//設定不可以編輯
         _field.font=[UIFont systemFontOfSize:14];
         //設定按钮
         _button=[UIButton buttonWithType:UIButtonTypeCustom];

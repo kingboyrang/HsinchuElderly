@@ -121,7 +121,7 @@
     [params addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSString createGUID],@"title", nil]];
     
     ServiceArgs *args=[[ServiceArgs alloc] init];
-    args.methodName=@"UploadImg";//要條用的webservice方法
+    args.methodName=@"UploadImg";//要調用的webservice方法
     args.soapParams=params;//傳遞方法參數
     args.httpWay=ServiceHttpSoap12;
     

@@ -302,10 +302,10 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     
     return img;
 }
-//圖片转换为base64
+//圖片轉換為base64
 -(NSString *) imageBase64String{
-	NSData* pictureData = UIImageJPEGRepresentation(self,0.3);//进行圖片压缩从0.0到1.0（0.0表示最大压缩，质量最低);
-	NSString* pictureDataString = [pictureData base64EncodedString];//圖片转码成为base64Encoding，
+	NSData* pictureData = UIImageJPEGRepresentation(self,0.3);//進行圖片壓縮從0.0到1.0（0.0表示最大壓縮，質量最低);
+	NSString* pictureDataString = [pictureData base64EncodedString];//圖片轉碼成為base64Encoding，
 	return pictureDataString;
 }
 +(UIImage *) dataFromBase64String:(NSString *)string{

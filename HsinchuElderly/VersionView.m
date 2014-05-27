@@ -37,7 +37,7 @@
         
         CGFloat topY=labTime.frame.origin.y+labTime.frame.size.height+10;
         
-        title=@"主辦單位:新竹縣政府";
+        title=@"主辦單位：新竹縣政府";
         size=[title textSize:[UIFont fontWithName:defaultDeviceFontName size:20] withWidth:frame.size.width];
         UILabel *lab1=[[UILabel alloc] initWithFrame:CGRectMake(0, topY,frame.size.width, size.height)];
         lab1.backgroundColor=[UIColor clearColor];

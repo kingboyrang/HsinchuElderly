@@ -46,7 +46,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.userHelper loadDataSource];//重新載入數據來源
+    [self.userHelper loadDataSource];//重新載入數據
     self.list=[self.userHelper systemUsers];
     [_userTable reloadData];
 }

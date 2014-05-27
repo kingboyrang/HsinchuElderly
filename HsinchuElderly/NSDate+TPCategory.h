@@ -77,7 +77,7 @@ typedef struct TKDateInformation TKDateInformation;
 + (NSDate*) dateFromDateInformation:(TKDateInformation)info timeZone:(NSTimeZone*)tz;
 + (NSString*) dateInformationDescriptionWithInformation:(TKDateInformation)info;
 /***時間大小的比較
-  @return: 左邊的時間大於date返回YES，否则返回NO
+  @return: 左邊的時間大於date返回YES，否則返回NO
  ***/
 -(BOOL)compareToDate:(NSDate*)date;
 @end

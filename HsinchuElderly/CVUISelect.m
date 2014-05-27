@@ -100,7 +100,7 @@
     [_popView hide];
 }
 #pragma mark -
-#pragma mark 属性重寫
+#pragma mark 屬性重寫
 -(void)setPickerData:(NSArray *)data{
     if (_pickerData!=data) {
         [_pickerData release];
@@ -112,7 +112,7 @@
     if (!self.bindValue) {
         self.bindName=@"value";
     }
-    self.picker.userInteractionEnabled=YES;//以防万一
+    self.picker.userInteractionEnabled=YES;//以防萬一
     [self unBindSource];
 }
 -(NSString*)key{

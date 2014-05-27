@@ -133,7 +133,7 @@
     TKPhotoCell *cell1=self.cells[0];
     /**
     if (self.operType==1&&!cell1.hasImage) {
-        [AlertHelper initWithTitle:@"提示" message:@"請選擇頭像!"];
+        [AlertHelper initWithTitle:@"提示" message:@"請選擇頭像！"];
         return;
     }
      ***/

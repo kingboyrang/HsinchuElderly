@@ -16,7 +16,7 @@ typedef enum{
 @property(nonatomic,readonly) NSString *httpMethod;//請求方法
 @property(nonatomic,readonly) NSString *operationPath;
 
-@property(nonatomic,assign)   ServiceHttpWay httpWay;//請求方式,預設为ServiceHttpSoap12請求
+@property(nonatomic,assign)   ServiceHttpWay httpWay;//請求方式,預設為ServiceHttpSoap12請求
 @property(nonatomic,assign)   NSTimeInterval timeOutSeconds;//請求超過時間,預設60秒
 @property(nonatomic,assign)   NSStringEncoding defaultEncoding;//預設编辑
 @property(nonatomic,copy)     NSString *serviceURL;//webservice訪問地址

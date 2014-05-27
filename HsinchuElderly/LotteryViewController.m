@@ -34,7 +34,7 @@
     labTitle.textColor=defaultDeviceFontColor;
     labTitle.font=[UIFont fontWithName:defaultDeviceFontName size:20];
     labTitle.textAlignment=NSTextAlignmentCenter;
-    labTitle.text=@"家有一老  如有一寶活動";
+    labTitle.text=@"家有一老 如有一寶活動";
     [self.view addSubview:labTitle];
     
     ActivityView *activity=[[ActivityView alloc] initWithFrame:CGRectMake(10, 46, self.view.bounds.size.width-10*2, 150)];
@@ -58,7 +58,7 @@
     lab.text=title;
     [self.view addSubview:lab];
     
-    title=@"獲獎禮品由新竹縣政府提供，與蘋果官方無任何關係";
+    title=@"獲獎禮品由新竹縣政府提供，與蘋果官方無任何關係。";
     size=[title textSize:[UIFont fontWithName:defaultDeviceFontName size:17] withWidth:self.view.frame.size.width-10*2];
     
     UILabel *lab1=[[UILabel alloc] initWithFrame:CGRectMake(10,self.chkButton.frame.size.height+self.chkButton.frame.origin.y+10, size.width, size.height)];
@@ -86,7 +86,7 @@
 //下一步
 - (void)buttonNextClick:(UIButton*)btn{
     if (!self.chkButton.selected) {
-        [AlertHelper initWithTitle:@"提示" message:@"請選擇是否同意分享照片!"];
+        [AlertHelper initWithTitle:@"提示" message:@"請選擇是否同意分享照片！"];
         return;
     }
     ChoosePhotoController *photo=[[ChoosePhotoController alloc] init];

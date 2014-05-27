@@ -26,7 +26,7 @@
  */
 -(NSString*)Trim;
 /** 根據字體與寬度計算字串的大小.
- @return 获取文本大小
+ @return 獲取text大小
  */
 -(CGSize)textSize:(UIFont*)f withWidth:(CGFloat)w;
 /** Returns an MD5 string of from the given `NSString`.

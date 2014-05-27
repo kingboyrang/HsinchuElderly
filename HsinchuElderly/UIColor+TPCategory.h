@@ -58,7 +58,7 @@ UIColor* UIColorMakeRGB(CGFloat red, CGFloat green, CGFloat blue);
  @return The `UIColor` object.
 */
 + (UIColor *) randomColor;
-//颜色代碼轉RGB(如:ff9ab00)
+//顏色代碼轉RGB(如:ff9ab00)
 + (UIColor *)colorFromHexRGB:(NSString *)inColorString;
 /**
  The receiver's red component value. (read-only)

@@ -25,7 +25,7 @@
 @property(nonatomic,retain) CVUIPopoverText *popText;
 @property(nonatomic,readonly) NSString *key;
 @property(nonatomic,readonly) NSString *value;
-@property(nonatomic,assign) BOOL isChange;//錢一次與目前選中項目是否發生改變
+@property(nonatomic,assign) BOOL isChange;//前一次與目前選中項目是否發生改變
 
 @property(nonatomic,copy) NSString *bindName;//绑定的key字串
 @property(nonatomic,copy) NSString *bindValue;//绑定的value字串

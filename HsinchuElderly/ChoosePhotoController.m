@@ -48,7 +48,7 @@
     [btn2 addTarget:self action:@selector(buttonCameraClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn2];
 }
-//相册
+//相簿
 - (void)buttonAlbumClick:(UIButton*)btn{
   [self.albumCamera showAlbumInController:self];
 }

@@ -70,14 +70,14 @@
 #pragma mark -
 #pragma mark 本地通知
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    //点击提示框的打开
+    //點選提示框的打開
     application.applicationIconBadgeNumber = notification.applicationIconBadgeNumber-1;
     UIApplicationState state = application.applicationState;
     //    NSLog(@"%@,%d",notification,state);
     if (state == UIApplicationStateActive) {
         /***
         [AlterMessage initWithTip:[NSString stringWithFormat:@"%@,是否直接開啟?",notification.alertBody] confirmMessage:@"是" cancelMessage:@"否" confirmAction:^(){
-            //处理确认操作
+            //處理確認
             UITabBarController *rootController=(UITabBarController*)self.window.rootViewController;
             NSArray *arr=rootController.viewControllers;
             UINavigationController *nav=(UINavigationController*)[arr objectAtIndex:rootController.selectedIndex];

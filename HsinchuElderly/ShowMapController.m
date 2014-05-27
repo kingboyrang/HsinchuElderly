@@ -60,7 +60,7 @@
             [self.map selectAnnotation:ann animated:YES];
         }
         if (error) {
-            [AlertHelper initWithTitle:@"提示" message:@"在地圖上未找到當前位置!"];
+            [AlertHelper initWithTitle:@"提示" message:@"無法找到目前位置！"];
         }
     }];
 }

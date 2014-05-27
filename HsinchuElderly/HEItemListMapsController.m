@@ -71,9 +71,9 @@
             if ([self.list count]==0) {
                 self.list=[self.dbHelper tableDataList];
             }
-             //加載標註
+             //載入標註
             if (self.list&&[self.list count]>0) {
-                //預設加載10筆資料
+                //預設載入10筆資料
                 self.annotationList=[NSMutableArray array];
                 for (int i=0; i<10; i++) {
                     [self.annotationList addObject:self.list[i]];
@@ -97,7 +97,7 @@
                 if (placemarks&&[placemarks count]>0) {
                     SVPlacemark *place=[placemarks objectAtIndex:0];
                     entity.placemark=place;
-                    //MainThread加載標註
+                    //MainThread載入標註
                     dispatch_async(dispatch_get_main_queue(), ^{
                         
                         MKCoordinateRegion region=MKCoordinateRegionMakeWithDistance(place.coordinate,40000 ,40000);
@@ -112,7 +112,7 @@
                 }
             }];
         }else{
-            //MainThread加載標註
+            //MainThread載入標註
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 MKCoordinateRegion region=MKCoordinateRegionMakeWithDistance(entity.placemark.coordinate,40000 ,40000);
@@ -207,7 +207,7 @@
             [self cleanMap];
             [self.annotationList removeAllObjects];
             [self.annotationList addObjectsFromArray:source];
-            [self loadAnnotationWithSource:source];//加載標註
+            [self loadAnnotationWithSource:source];//載入標註
         }
     }
 }
@@ -253,7 +253,7 @@
         CallOutAnnotationVifew *annotationView = (CallOutAnnotationVifew *)[mapView dequeueReusableAnnotationViewWithIdentifier:ann.Entity.ID];
         if (!annotationView) {
             annotationView = [[CallOutAnnotationVifew alloc] initWithAnnotation:annotation reuseIdentifier:ann.Entity.ID];
-            //添加自定义view
+            //添加自定View
             PaoPaoView *paoView=[[PaoPaoView alloc] initWithFrame:CGRectMake(0, 0, 240, 100)];
             [paoView setViewDataSource:ann.Entity];
             [annotationView addCustomView:paoView];
