@@ -43,7 +43,7 @@
 +(UIImage*)createImageWithColor:(UIColor*)color;
 +(UIImage*)createImageWithColor:(UIColor*)color imageSize:(CGSize)size;
 /*
- * 生成圆角图片
+ * 生成圓角圖片
  */
 + (id)createRoundedRectImage:(UIImage*)image size:(CGSize)size radius:(NSInteger)r;
 /*
@@ -63,7 +63,7 @@
 + (UIImage*)imageWithResourcesPathCompontent:(NSString*)pathCompontent;
 
 /*
- * Scales the image to the given size, NOT aspect 等比缩放图片
+ * Scales the image to the given size, NOT aspect 等比缩放圖片
  */
 - (UIImage*)scaleToSize:(CGSize)size;
 
@@ -91,7 +91,7 @@
  */
 - (UIImage*)aspectScaleToSize:(CGSize)size;
 /*
- * view生成图片
+ * view生成圖片
  */
 +(UIImage *)getImageFromView:(UIView *)view;
 
