@@ -23,7 +23,7 @@
                                                 contents:mainBundleFile
                                               attributes:nil];
     }
-    NSLog(@"path=%@",dbPath);
+    //NSLog(@"path=%@",dbPath);
     [FileHelper createDocumentDirectoryWithName:@"SystemUserImage"];
 }
 
