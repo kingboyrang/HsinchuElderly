@@ -57,13 +57,13 @@
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
-    //UIStatusBarStyleDefault = 0 黑色文字，浅色背景时使用
-    //UIStatusBarStyleLightContent = 1 白色文字，深色背景时使用
+    //UIStatusBarStyleDefault = 0 黑色文字，淺色背景時使用
+    //UIStatusBarStyleLightContent = 1 白色文字，深色背景時使用
 }
 
 - (BOOL)prefersStatusBarHidden
 {
-    return self.navigationController.viewControllers.count==1?YES:NO; //返回NO表示要显示，返回YES将hiden
+    return self.navigationController.viewControllers.count==1?YES:NO; //返回NO表示要顯示，返回YES將hiden
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

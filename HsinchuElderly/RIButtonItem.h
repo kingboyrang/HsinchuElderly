@@ -5,7 +5,7 @@
 //  Created by Jiva DeVoe on 1/12/11.
 //  Copyright 2011 Random Ideas, LLC. All rights reserved.
 //
-//https://github.com/jivadevoe/UIAlertView-Blocks 原下载地址
+//https://github.com/jivadevoe/UIAlertView-Blocks 原下載地址
 #import <Foundation/Foundation.h>
 
 @interface RIButtonItem : NSObject

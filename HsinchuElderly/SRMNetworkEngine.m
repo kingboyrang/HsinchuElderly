@@ -18,7 +18,7 @@
             return args.bodyMessage;
         } forType:args.contentType];
     }
-    //设置请求头
+    //設置請求頭
     if(args.headers&&[args.headers count]>0)
     {
         [op addHeaders:args.headers];

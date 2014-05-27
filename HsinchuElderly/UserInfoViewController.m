@@ -56,17 +56,17 @@
     [cell1.cameraBtn addTarget:self action:@selector(buttonCameraClick:) forControlEvents:UIControlEventTouchUpInside];
     
     TKLabelFieldCell *cell2=[[TKLabelFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell2.label.text=@"姓名:";
+    cell2.label.text=@"姓名：";
     cell2.field.placeholder=@"請輸入姓名";
     cell2.field.delegate=self;
 
     
     TKLabelSegmentCell *cell3=[[TKLabelSegmentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell3.label.text=@"性別:";
+    cell3.label.text=@"性別：";
     [cell3.segmented setTitle:@"男" withIndex:0];
     [cell3.segmented setTitle:@"女" withIndex:1];
     
-    if (self.operType==2) {//修改时复值
+    if (self.operType==2) {//修改時複值
         if (self.Entity.PhotoURL&&[self.Entity.PhotoURL length]>0&&[FileHelper existsFilePath:self.Entity.PhotoURL]) {
           [cell1 setPhotoWithImage:[UIImage imageWithContentsOfFile:self.Entity.PhotoURL]];
           cell1.hasImage=NO;
@@ -85,7 +85,7 @@
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(done:)];
     tapGestureRecognizer.numberOfTapsRequired =1;
     tapGestureRecognizer.cancelsTouchesInView =NO;
-    [self.userTable addGestureRecognizer:tapGestureRecognizer];  //只需要点击非文字输入区域就会响应hideKeyBoard
+    [self.userTable addGestureRecognizer:tapGestureRecognizer];  //只需要點選非文字輸入區域就會觸發hideKeyBoard
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleKeyboardWillShowHideNotification:)
@@ -110,9 +110,9 @@
 - (void)handleKeyboardWillShowHideNotification:(NSNotification *)notification
 {
     NSDictionary *info = [notification userInfo];
-    //取得键盘的大小
+    //取得鍵盤的大小
     //CGRect kbFrame = [[info valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    if ([notification.name isEqualToString:UIKeyboardDidHideNotification]) {//隐藏键盘
+    if ([notification.name isEqualToString:UIKeyboardDidHideNotification]) {//隱藏鍵盤
         
         NSTimeInterval animationDuration = [[info valueForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
         [UIView animateWithDuration:animationDuration animations:^{
@@ -120,7 +120,7 @@
         }];
     }
 }
-//相册
+//相簿
 - (void)buttonAlbumClick:(UIButton*)btn{
     [self.albumCamera showAlbumInController:self];
 }
@@ -139,7 +139,7 @@
      ***/
     TKLabelFieldCell *cell2=self.cells[1];
     if (!cell2.hasValue) {
-        [AlertHelper initWithTitle:@"提示" message:@"請輸入姓名!"];
+        [AlertHelper initWithTitle:@"提示" message:@"請輸入姓名！"];
         return;
     }
     if (self.operType==1) {//新增
@@ -154,7 +154,7 @@
     NSString *memo=self.operType==1?@"新增":@"修改";
     [self showLoadingAnimatedWithTitle:[NSString stringWithFormat:@"正在%@...",memo]];
     [_helper addEditUserWithModel:self.Entity headImage:cell1.hasImage?cell1.photoImage.image:nil];
-    [self hideLoadingSuccessWithTitle:[NSString stringWithFormat:@"%@成功!",memo] completed:^(AnimateErrorView *successView) {
+    [self hideLoadingSuccessWithTitle:[NSString stringWithFormat:@"%@成功！",memo] completed:^(AnimateErrorView *successView) {
         [self.navigationController popViewControllerAnimated:YES];
     }];
 }

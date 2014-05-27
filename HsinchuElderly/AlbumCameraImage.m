@@ -12,7 +12,7 @@
 -(void)showCameraInController:(UIViewController*)controller{
     UIImagePickerController *picker=[[UIImagePickerController alloc] init];
     picker.delegate=self;
-    picker.allowsEditing=YES;//是否允许编辑
+    picker.allowsEditing=YES;//是否允許編輯
     if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
     {
         picker.sourceType=UIImagePickerControllerSourceTypeCamera;
@@ -28,8 +28,8 @@
 -(void)showAlbumInController:(UIViewController*)controller{
     UIImagePickerController *picker=[[UIImagePickerController alloc] init];
     picker.delegate=self;
-    picker.allowsEditing=YES;//是否允许编辑
-   //相册
+    picker.allowsEditing=YES;//是否允許編輯
+   //相簿
     if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypePhotoLibrary])
     {
             picker.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;

@@ -44,7 +44,7 @@
     [self.view addSubview:_userTable];
     
     TKLabelSelectCell *cell1=[[TKLabelSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell1.label.text=@"名字:";
+    cell1.label.text=@"名字：";
     cell1.select.delegate=self;
     cell1.select.popText.field.placeholder=@"請選擇名字";
     if (self.systemUsers&&[self.systemUsers count]>0) {
@@ -53,19 +53,19 @@
     
     
     TKLabelFieldCell *cell2=[[TKLabelFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell2.label.text=@"藥名:";
+    cell2.label.text=@"藥名：";
     cell2.field.placeholder=@"請輸入藥名";
     cell2.field.delegate=self;
     
     TKLabelSelectCell *cell3=[[TKLabelSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell3.label.text=@"頻率:";
+    cell3.label.text=@"頻率：";
     cell3.select.delegate=self;
     cell3.select.popText.field.placeholder=@"請選擇頻率";
     NSString *path=[[NSBundle mainBundle] pathForResource:@"Frequency" ofType:@"plist"];
     [cell3.select setDataSourceForArray:[NSArray arrayWithContentsOfFile:path] dataTextName:@"Name" dataValueName:@"ID"];
     
     TKLabelCalendarCell *cell4=[[TKLabelCalendarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell4.label.text=@"時間:";
+    cell4.label.text=@"時間：";
     cell4.calendar.delegate=self;
     cell4.calendar.popText.field.placeholder=@"請選擇時間";
     cell4.calendar.datePicker.datePickerMode=UIDatePickerModeTime;
@@ -90,7 +90,7 @@
     }
     TKLabelFieldCell *cell2=self.cells[1];
     if (!cell2.hasValue) {
-        [AlertHelper initWithTitle:@"提示" message:@"藥名不為空!"];
+        [AlertHelper initWithTitle:@"提示" message:@"請輸入藥名"];
         return;
     }
     TKLabelSelectCell *cell3=self.cells[2];
@@ -117,7 +117,7 @@
     NSString *memo=self.operType==1?@"新增":@"修改";
     [self showLoadingAnimatedWithTitle:[NSString stringWithFormat:@"正在%@...",memo]];
     [_helper addEditDrugWithModel:self.Entity name:cell1.select.key];
-    [self hideLoadingSuccessWithTitle:[NSString stringWithFormat:@"%@成功!",memo] completed:^(AnimateErrorView *successView) {
+    [self hideLoadingSuccessWithTitle:[NSString stringWithFormat:@"%@成功！",memo] completed:^(AnimateErrorView *successView) {
         [self.navigationController popViewControllerAnimated:YES];
     }];
 }

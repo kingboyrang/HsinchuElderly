@@ -60,7 +60,7 @@
     [self addMenuItemWithFrame:CGRectMake(leftX,imgLogoView.frame.origin.y-medical.size.height+10, medical.size.width,medical.size.height) tag:100 image:[UIImage imageNamed:[self imageNameWithName:@"clock" forType:@"png"]]];
     
     
-    //諮詢站
+    //諮詢
     [self addMenuItemWithFrame:CGRectMake(leftX+medical.size.width+20,imgLogoView.frame.origin.y-medical.size.height+10, medical.size.width,medical.size.height) tag:105 image:[UIImage imageNamed:[self imageNameWithName:@"consult" forType:@"png"]]];
     //休閒
     
@@ -108,10 +108,10 @@
         HEWelfareViewController *HEWelfare=[[HEWelfareViewController alloc] init];
         [self.navigationController pushViewController:HEWelfare animated:YES];
     }
-    if (btn.tag==105) {//諮詢站
+    if (btn.tag==105) {//諮詢
         HEItemListController *consulation=[[HEItemListController alloc] init];
         consulation.dbHelper=[[HEConsultationHelper alloc] init];
-        consulation.title=@"諮詢站";
+        consulation.title=@"諮詢";
         [self.navigationController pushViewController:consulation animated:YES];
     }
     if (btn.tag==106) {//版本说明

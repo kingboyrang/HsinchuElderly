@@ -46,7 +46,7 @@
     [self.view addSubview:_userTable];
     
     TKLabelSelectCell *cell1=[[TKLabelSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell1.label.text=@"名字:";
+    cell1.label.text=@"名字：";
     cell1.select.popText.field.placeholder=@"請選擇名字";
     if (self.systemUsers&&[self.systemUsers count]>0) {
         [cell1.select setDataSourceForArray:self.systemUsers dataTextName:@"Name" dataValueName:@"ID"];
@@ -54,13 +54,13 @@
     
     
     TKLabelSelectCell *cell2=[[TKLabelSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell2.label.text=@"頻率:";
+    cell2.label.text=@"頻率：";
     cell2.select.popText.field.placeholder=@"請選擇頻率";
     NSString *path=[[NSBundle mainBundle] pathForResource:@"Frequency" ofType:@"plist"];
     [cell2.select setDataSourceForArray:[NSArray arrayWithContentsOfFile:path] dataTextName:@"Name" dataValueName:@"ID"];
     
     TKLabelCalendarCell *cell3=[[TKLabelCalendarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell3.label.text=@"時間:";
+    cell3.label.text=@"時間：";
     cell3.calendar.popText.field.placeholder=@"請選擇時間";
     cell3.calendar.datePicker.datePickerMode=UIDatePickerModeTime;
     [cell3.calendar.dateForFormat setDateFormat:@"HH:mm"];
@@ -112,7 +112,7 @@
     NSString *memo=self.operType==1?@"新增":@"修改";
     [self showLoadingAnimatedWithTitle:[NSString stringWithFormat:@"正在%@...",memo]];
     [_helper addEditWithModel:self.Entity name:cell1.select.key];
-    [self hideLoadingSuccessWithTitle:[NSString stringWithFormat:@"%@成功!",memo] completed:^(AnimateErrorView *successView) {
+    [self hideLoadingSuccessWithTitle:[NSString stringWithFormat:@"%@成功！",memo] completed:^(AnimateErrorView *successView) {
         [self.navigationController popViewControllerAnimated:YES];
     }];
 }

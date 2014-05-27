@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TKDrugCell : UITableViewCell
-@property (nonatomic,strong) UILabel *drugName;//药名
-@property (nonatomic,strong) UILabel *timeText;//时间
+@property (nonatomic,strong) UILabel *drugName;//藥名
+@property (nonatomic,strong) UILabel *timeText;//時間
 @property (nonatomic,strong) UIButton *deleteButton;
 @end

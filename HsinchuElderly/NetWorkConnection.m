@@ -17,7 +17,7 @@
 @implementation NetWorkConnection
 @synthesize delegate;
 @synthesize hasNewWork;
-//单例模式
+//單例模式
 + (NetWorkConnection *)sharedInstance{
     static dispatch_once_t  onceToken;
     static NetWorkConnection * sSharedInstance;
@@ -27,7 +27,7 @@
     });
     return sSharedInstance;
 }
-#pragma mark 实时监听连接
+#pragma mark 實時監聽連結
 -(void)ListenerConection:(id<NetWorkDelegate>)thedelegate
 {
     [self ListenerConection:@"http://www.baidu.com" delegate:thedelegate];
@@ -36,13 +36,13 @@
 {
     self.delegate=thedelegate;
     NSURL *webURL=[NSURL URLWithString:url];
-    //开启网络状况的监听
+    //開啟網路狀態監聽
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reachabilityChanged:)
                                                  name: kReachabilityChangedNotification
                                                object: nil];
-    hostReach = [[Reachability reachabilityWithHostname:[webURL host]] retain];//可以以多种形式初始化
-    [hostReach startNotifier];  //开始监听,会启动一个run loop
+    hostReach = [[Reachability reachabilityWithHostname:[webURL host]] retain];//可以多種形式的初始化
+    [hostReach startNotifier];  //開始監聽，會啟動一個run loop
     [self updateInterfaceWithReachability: hostReach];
    
 }
@@ -50,18 +50,18 @@
     Block_release(_listenerNetWorkResult);
     _listenerNetWorkResult=Block_copy(networkResult);
     NSURL *webURL=[NSURL URLWithString:@"http://www.baidu.com"];
-    //开启网络状况的监听
+    //開啟網路狀態監聽
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reachabilityChanged:)
                                                  name: kReachabilityChangedNotification
                                                object: nil];
-    hostReach = [[Reachability reachabilityWithHostname:[webURL host]] retain];//可以以多种形式初始化
-    [hostReach startNotifier];  //开始监听,会启动一个run loop
+    hostReach = [[Reachability reachabilityWithHostname:[webURL host]] retain];//可以多種形式的初始化
+    [hostReach startNotifier];  //開始監聽，會啟動一個run loop
     [self updateInterfaceWithReachability: hostReach];
 }
 /****
 //http://www.oschina.net/code/snippet_588197_11928
-//3g与2g网络区分
+//3g與2g網路區分
 - (NetworkStatus) networkStatusForFlags: (SCNetworkReachabilityFlags) flags
 {
     if ((flags & kSCNetworkReachabilityFlagsReachable) == 0)
@@ -170,20 +170,20 @@
 + (BOOL) IsEnable3G {
     return ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable);
 }
-//gps检测
+//gps檢測
 + (BOOL)locationServicesEnabled {
     if (([CLLocationManager locationServicesEnabled]) && ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized)) {
-        //NSLog(@"手机gps定位已经开启");
+        //NSLog(@"手機gps定位已經開啟");
         return YES;
     } else {
-        //NSLog(@"手机gps定位未开启");
+        //NSLog(@"手機gps定位未開啟");
         return NO;
     }
 }
 
 #pragma mark -
 #pragma mark 私有方法
-// 连接改变
+// 連接改變
 - (void) reachabilityChanged: (NSNotification* )note
 {
     Reachability* curReach = [note object];
@@ -192,10 +192,10 @@
 }
 - (void) updateInterfaceWithReachability: (Reachability*) curReach
 {
-    //对连接改变做出响应的处理动作。
+    //對連接改變做出響應的處理動作。
     NetworkStatus status = [curReach currentReachabilityStatus];
     BOOL b=YES;
-    if (status == NotReachable) {  //没有连接到网络就弹出提实况
+    if (status == NotReachable) {  //沒有連接到網路就彈出實況
         b=NO;
     }
     if (self.delegate&&[self.delegate respondsToSelector:@selector(NetWorkHandler:IsConnection:)]) {

@@ -127,11 +127,11 @@ static NSString *defaultWebServiceNameSpace=DataWeserviceNameSpace;
 }
 - (NSURLRequest*)request{
     NSMutableURLRequest *req=[NSMutableURLRequest requestWithURL:[self requestURL]];
-    //头部设置
+    //頭部設置
     [req setAllHTTPHeaderFields:[self headers]];
-    //超时设置
+    //超時設置
     [req setTimeoutInterval:self.timeOutSeconds];
-    //访问方式
+    //訪問方式
     [req setHTTPMethod:self.httpWay==ServiceHttpGet?@"GET":@"POST"];
     //body内容
     if (self.httpWay!=ServiceHttpGet) {

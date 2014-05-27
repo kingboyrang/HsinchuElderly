@@ -49,7 +49,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.userHelper loadDataSource];//重新加载数据源
+    [self.userHelper loadDataSource];//重新載入數據來源
     self.list=[self.userHelper medicineDrugs];
     [_userTable reloadData];
 }//新增
@@ -73,7 +73,7 @@
 }
 //删除
 - (void)buttonDeleteClick:(UIButton*)btn{
-    [AlertHelper initWithTitle:@"提示" message:@"確定刪除?" cancelTitle:@"取消" cancelAction:nil confirmTitle:@"確認" confirmAction:^{
+    [AlertHelper initWithTitle:@"提示" message:@"確定刪除？" cancelTitle:@"取消" cancelAction:nil confirmTitle:@"確認" confirmAction:^{
         id v=[btn superview];
         while (![v isKindOfClass:[UITableViewCell class]]) {
             v=[v superview];
@@ -89,7 +89,7 @@
         [self.userTable deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
         [self.userTable endUpdates];
         [self.userHelper saveWithSources:self.list];
-        [AlertHelper initWithTitle:@"提示" message:@"刪除成功!"];
+        [AlertHelper initWithTitle:@"提示" message:@"刪除成功！"];
     }];
 }
 #pragma mark UITableViewDataSource Methods

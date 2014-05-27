@@ -13,7 +13,6 @@
 @property(nonatomic,readonly) float topHeight;
 @property(nonatomic,readonly) BOOL hasNewWork;
 - (NSString*)imageNameWithName:(NSString*)name forType:(NSString*)type;
-//动画操作
 //動畫操作
 
 -(AnimateErrorView*) errorView;

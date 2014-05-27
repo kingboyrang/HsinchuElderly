@@ -46,7 +46,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.userHelper loadDataSource];//重新加载数据源
+    [self.userHelper loadDataSource];//重新載入數據來源
     self.list=[self.userHelper systemUsers];
     [_userTable reloadData];
 }
@@ -60,11 +60,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-//删除功能
+//刪除功能
 - (void)buttonDeleteClick:(UIButton*)btn{
     
     
-    [AlertHelper initWithTitle:@"提示" message:@"確定刪除?" cancelTitle:@"取消" cancelAction:nil confirmTitle:@"確認" confirmAction:^{
+    [AlertHelper initWithTitle:@"提示" message:@"確定刪除？" cancelTitle:@"取消" cancelAction:nil confirmTitle:@"確認" confirmAction:^{
         id v=[btn superview];
         while (![v isKindOfClass:[UITableViewCell class]]) {
             v=[v superview];
@@ -74,17 +74,17 @@
         SystemUser *entity=self.list[indexPath.row];
         
         if (![self.userHelper existsUserWithId:entity.ID]) {
-            [AlertHelper initWithTitle:@"提示" message:@"帳號資料正在使用中,無法刪除!"];
+            [AlertHelper initWithTitle:@"提示" message:@"帳號資料正在使用中，無法刪除！"];
             return;
         }
 
-        [self.userHelper removeUserPhotoWithId:entity.ID];//删除头像
+        [self.userHelper removeUserPhotoWithId:entity.ID];//删除頭像
         [self.list removeObjectAtIndex:indexPath.row];
         [self.userTable beginUpdates];
         [self.userTable deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
         [self.userTable endUpdates];
         [self.userHelper saveWithSources:self.list];
-        [AlertHelper initWithTitle:@"提示" message:@"刪除成功!"];
+        [AlertHelper initWithTitle:@"提示" message:@"刪除成功！"];
     }];
 }
 

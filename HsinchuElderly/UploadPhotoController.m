@@ -28,13 +28,13 @@
 {
     [super viewDidLoad];
     self.title=@"分享照片";
-    //顶部图片
+    //頂部圖片
     UIImage *topImg=[UIImage imageNamed:[self imageNameWithName:@"u_top" forType:@"png"]];
     UIImageView *imageView1=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, topImg.size.width, topImg.size.height)];
     [imageView1 setImage:topImg];
     [self.view addSubview:imageView1];
     
-    //上传按钮
+    //上傳按鈕
     CGFloat topY=self.view.bounds.size.height-[self topHeight]-10-40;
     UIImage *img1=[UIImage imageNamed:@"btn_bg.png"];
     img1=[img1 stretchableImageWithLeftCapWidth:10 topCapHeight:10];
@@ -47,13 +47,13 @@
     [btn addTarget:self action:@selector(buttonUploadClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
-    //底部图片
+    //底部圖片
     UIImage *bottomImg=[UIImage imageNamed:[self imageNameWithName:@"u_bottom" forType:@"png"]];
     UIImageView *imageView2=[[UIImageView alloc] initWithFrame:CGRectMake(0,btn.frame.origin.y-bottomImg.size.height-10, bottomImg.size.width, bottomImg.size.height)];
     [imageView2 setImage:bottomImg];
     [self.view addSubview:imageView2];
     
-    //图片预览部分背景
+    //圖片預覽部分背景
     topY=imageView1.frame.origin.y+imageView1.frame.size.height;
     CGFloat h=imageView2.frame.origin.y-topY;
     CGRect r=CGRectMake(0, topY, self.view.bounds.size.width, h);
@@ -70,7 +70,7 @@
     [self.view addSubview:bgView1];
     [self.view bringSubviewToFront:btn];
     
-    //显示图片
+    //顯示圖片
     CGSize imgSize=[self autoImageSize:self.uploadImage.size];
     topY=self.maxRect.origin.y+(self.maxRect.size.height-imgSize.height)/2;
     _previewImageView=[[UIImageView alloc] initWithFrame:CGRectMake((self.view.bounds.size.width-imgSize.width)/2, topY, imgSize.width, imgSize.height)];
@@ -78,14 +78,14 @@
     [self.view addSubview:_previewImageView];
     
 }
-//图片等比缩放显示
+//圖片等比例顯示
 - (CGSize)autoImageSize:(CGSize)imgSize
 {
     CGFloat oldWidth = imgSize.width;
     CGFloat oldHeight = imgSize.height;
     CGSize saveSize =imgSize;
     
-    CGSize defaultSize =self.maxRect.size; //默認大小
+    CGSize defaultSize =self.maxRect.size; //預設大小
     CGFloat wPre = oldWidth / defaultSize.width;
     CGFloat hPre = oldHeight / defaultSize.height;
     if (oldWidth > defaultSize.width || oldHeight > defaultSize.height) {
@@ -106,7 +106,7 @@
     }
     return saveSize;
 }
-//上传图片
+//上傳圖片
 - (void)buttonUploadClick:(UIButton*)btn{
     if (![self hasNewWork]) {
         [self showErrorNetWorkNotice:nil];
@@ -114,27 +114,27 @@
     }
     
     btn.enabled=NO;
-    [self showLoadingAnimatedWithTitle:@"正在上傳,請稍後..."];
+    [self showLoadingAnimatedWithTitle:@"上傳中，請稍後..."];
     
     NSMutableArray *params=[NSMutableArray array];
     [params addObject:[NSDictionary dictionaryWithObjectsAndKeys:[self.uploadImage imageBase64String],@"imgBase64String", nil]];
     [params addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSString createGUID],@"title", nil]];
     
     ServiceArgs *args=[[ServiceArgs alloc] init];
-    args.methodName=@"UploadImg";//要调用的webservice方法
-    args.soapParams=params;//传递方法参数
+    args.methodName=@"UploadImg";//要條用的webservice方法
+    args.soapParams=params;//傳遞方法參數
     args.httpWay=ServiceHttpSoap12;
     
     SRMNetworkEngine *engine=[[SRMNetworkEngine alloc] initWithHostName:args.hostName];
     [engine requestWithArgs:args success:^(MKNetworkOperation *completedOperation) {
         //NSLog(@"xml=%@",completedOperation.responseString);
         btn.enabled=YES;
-        [self hideLoadingSuccessWithTitle:@"上傳成功!" completed:^(AnimateErrorView *successView) {
+        [self hideLoadingSuccessWithTitle:@"上傳成功！" completed:^(AnimateErrorView *successView) {
             [self.navigationController popToRootViewControllerAnimated:YES];
         }];
     } failure:^(MKNetworkOperation *completedOperation, NSError *error) {
         btn.enabled=YES;
-        [self hideLoadingFailedWithTitle:@"上傳失敗!" completed:nil];
+        [self hideLoadingFailedWithTitle:@"上傳失敗！" completed:nil];
     }];
 }
 - (void)didReceiveMemoryWarning

@@ -12,7 +12,7 @@
 @property (nonatomic,copy) NSString *ID;
 @property (nonatomic,copy) NSString *UserId;//使用者id
 @property (nonatomic,copy) NSString *Name;//藥名
-@property (nonatomic,copy) NSString *Rate;//频率
+@property (nonatomic,copy) NSString *Rate;//頻率
 @property (nonatomic,copy) NSString *TimeSpan;//定時時間
 @property (nonatomic,copy) NSString *CreateDate;//建立時間
 

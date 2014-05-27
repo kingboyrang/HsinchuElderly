@@ -46,19 +46,19 @@
     [self.view addSubview:_detailTable];
     
     TKLabelLabelCell *cell1=[[TKLabelLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell1.labName.text=@"名稱:";
+    cell1.labName.text=@"名稱：";
     cell1.labDetail.text=self.Entity.Name;
     
     TKLabelLabelCell *cell2=[[TKLabelLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell2.labName.text=@"電話:";
+    cell2.labName.text=@"電話：";
     cell2.labDetail.text=self.Entity.Tel;
     
     TKLabelLabelCell *cell3=[[TKLabelLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell3.labName.text=@"地址:";
+    cell3.labName.text=@"地址：";
     cell3.labDetail.text=self.Entity.Address;
     
     TKLabelLabelCell *cell4=[[TKLabelLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell4.labName.text=@"網址:";
+    cell4.labName.text=@"網址：";
     cell4.labDetail.text=@"";
     
     self.cells=[NSMutableArray arrayWithObjects:cell1,cell2,cell3,cell4, nil];
@@ -114,7 +114,7 @@
     }
     if (indexPath.row==2) {//地址
         if (DeviceIsPad) {
-            [AlertHelper initWithTitle:@"提示" message:@"是否觀看地圖?" cancelTitle:@"取消" cancelAction:nil confirmTitle:@"確認" confirmAction:^{
+            [AlertHelper initWithTitle:@"提示" message:@"是否觀看地圖？" cancelTitle:@"取消" cancelAction:nil confirmTitle:@"確認" confirmAction:^{
                 ShowMapController *map=[[ShowMapController alloc] init];
                 map.Address=self.Entity.Address;
                 [self.navigationController pushViewController:map animated:YES];
@@ -130,7 +130,7 @@
     if (indexPath.row==3&&self.Entity.WebSiteURL&&[self.Entity.WebSiteURL length]>0) {//網址
         
         if (DeviceIsPad) {
-            [AlertHelper initWithTitle:@"提示" message:@"是否前往瀏覽?" cancelTitle:@"取消" cancelAction:nil confirmTitle:@"確認" confirmAction:^{
+            [AlertHelper initWithTitle:@"提示" message:@"是否前往瀏覽？" cancelTitle:@"取消" cancelAction:nil confirmTitle:@"確認" confirmAction:^{
                 NSString * encodedString=(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                                                                                (CFStringRef)self.Entity.WebSiteURL,
                                                                                                                NULL,

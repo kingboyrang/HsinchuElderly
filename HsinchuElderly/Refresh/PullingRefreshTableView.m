@@ -46,7 +46,7 @@
         _stateLabel.textAlignment = NSTextAlignmentCenter;
         _stateLabel.backgroundColor = kPRBGColor;
         _stateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        _stateLabel.text = NSLocalizedString(@"下拉刷新", @"");
+        _stateLabel.text = NSLocalizedString(@"下拉更新", @"");
         [self addSubview:_stateLabel];
 
         _dateLabel = [[UILabel alloc] init];
@@ -55,7 +55,7 @@
         _dateLabel.textAlignment = NSTextAlignmentCenter;
         _dateLabel.backgroundColor = kPRBGColor;
         _dateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-//        _dateLabel.text = NSLocalizedString(@"最后更新", @"");
+//        _dateLabel.text = NSLocalizedString(@"最後更新", @"");
         [self addSubview:_dateLabel];
         _dateLabel.hidden=YES;
         
@@ -114,7 +114,7 @@
         
         UIImage *arrow = [UIImage imageNamed:@"blueArrowDown"];        
         _arrow.contents = (id)arrow.CGImage;
-        _stateLabel.text = NSLocalizedString(@"上拉加載", @"");
+        _stateLabel.text = NSLocalizedString(@"上拉載入更多資料", @"");
     }
     
     _stateLabel.frame = stateFrame;
@@ -175,14 +175,14 @@
             [CATransaction commit];
             
             if (self.isAtTop) {
-                _stateLabel.text = @"下拉刷新";
+                _stateLabel.text = @"下拉更新";
             } else {
                 _stateLabel.text = @"上拉後載入資料";
             }
         } else if (_state == kPRStateHitTheEnd) {
             if (!self.isAtTop) {    //footer
                 _arrow.hidden = YES;
-                _stateLabel.text = @"沒有了哦!";
+                _stateLabel.text = @"已載入所有資料";
             }
         }
     }
