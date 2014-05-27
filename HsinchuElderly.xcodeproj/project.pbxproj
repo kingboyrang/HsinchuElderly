@@ -12,6 +12,7 @@
 		01622223191CC6C500B4AD50 /* AnimateErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01622221191CC6C500B4AD50 /* AnimateErrorView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0189C434192E035B002ED63A /* VersionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0189C433192E035B002ED63A /* VersionViewController.m */; };
 		0189C438192E039B002ED63A /* VersionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0189C437192E039B002ED63A /* VersionView.m */; };
+		0189C52819343E3B002ED63A /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 0189C52719343E3B002ED63A /* iTunesArtwork */; };
 		01A97361191CE1EB0073530F /* UseDrugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97360191CE1EB0073530F /* UseDrugViewController.m */; };
 		01A97364191CE31A0073530F /* MedicineDrug.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97363191CE31A0073530F /* MedicineDrug.m */; };
 		01A97367191DBBF50073530F /* MedicineDrugHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97366191DBBF50073530F /* MedicineDrugHelper.m */; };
@@ -83,7 +84,6 @@
 		01A9756F19236C700073530F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A9756E19236C700073530F /* SystemConfiguration.framework */; };
 		01A9757119236CA20073530F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A9757019236CA20073530F /* ImageIO.framework */; };
 		01A97575192376720073530F /* NetWorkConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97574192376720073530F /* NetWorkConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		01A9757919237B660073530F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 01A9757819237B660073530F /* iTunesArtwork */; };
 		01BF7FA8191B186C002E34E9 /* UIColor+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */; };
 		01BF7FAF191B1C30002E34E9 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FAE191B1C30002E34E9 /* ClockViewController.m */; };
 		01BF7FB4191B1DB9002E34E9 /* UIButton+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FB3191B1DB9002E34E9 /* UIButton+TPCategory.m */; };
@@ -163,6 +163,7 @@
 		0189C433192E035B002ED63A /* VersionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionViewController.m; sourceTree = "<group>"; };
 		0189C436192E039B002ED63A /* VersionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionView.h; sourceTree = "<group>"; };
 		0189C437192E039B002ED63A /* VersionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionView.m; sourceTree = "<group>"; };
+		0189C52719343E3B002ED63A /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		01A9735F191CE1EB0073530F /* UseDrugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseDrugViewController.h; sourceTree = "<group>"; };
 		01A97360191CE1EB0073530F /* UseDrugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseDrugViewController.m; sourceTree = "<group>"; };
 		01A97362191CE31A0073530F /* MedicineDrug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicineDrug.h; sourceTree = "<group>"; };
@@ -298,7 +299,6 @@
 		01A9757019236CA20073530F /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		01A97573192376720073530F /* NetWorkConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkConnection.h; sourceTree = "<group>"; };
 		01A97574192376720073530F /* NetWorkConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkConnection.m; sourceTree = "<group>"; };
-		01A9757819237B660073530F /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		01BF7FA6191B186C002E34E9 /* UIColor+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TPCategory.h"; sourceTree = "<group>"; };
 		01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TPCategory.m"; sourceTree = "<group>"; };
 		01BF7FAA191B188C002E34E9 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
@@ -967,7 +967,7 @@
 		01CDC1AB191A220A0002AE47 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				01A9757819237B660073530F /* iTunesArtwork */,
+				0189C52719343E3B002ED63A /* iTunesArtwork */,
 				01A97384191DEFD20073530F /* Source */,
 				01CDC1AC191A220A0002AE47 /* HsinchuElderly-Info.plist */,
 				01CDC1AD191A220A0002AE47 /* InfoPlist.strings */,
@@ -1170,7 +1170,7 @@
 				26DEBA37191F440F0007DB43 /* blueArrowDown@2x.png in Resources */,
 				01CDC1AF191A220A0002AE47 /* InfoPlist.strings in Resources */,
 				26DEBA34191F440F0007DB43 /* blueArrow.png in Resources */,
-				01A9757919237B660073530F /* iTunesArtwork in Resources */,
+				0189C52819343E3B002ED63A /* iTunesArtwork in Resources */,
 				26DEBA36191F440F0007DB43 /* blueArrowDown.png in Resources */,
 				01A97386191DF0120073530F /* Frequency.plist in Resources */,
 			);
