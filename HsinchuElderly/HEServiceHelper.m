@@ -12,8 +12,9 @@
 - (HEBasicTable)basicTable{
     return HEBasicService;
 }
+//服務
 - (NSString*)tableName{
-    return @"Service";
+    return @"3";
 }
 - (NSString*)categoryTableName{
     return @"ServiceCategory";

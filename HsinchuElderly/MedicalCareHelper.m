@@ -13,8 +13,9 @@
 - (HEBasicTable)basicTable{
     return HEBasicMedicalCare;
 }
+//醫療
 - (NSString*)tableName{
-    return @"MedicalCare";
+    return @"2";
 }
 - (NSString*)categoryTableName{
     return @"MedicalCareCategory";

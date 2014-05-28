@@ -31,7 +31,7 @@
 
 //資料庫設置路徑
 //#define HEDBPath [[NSBundle mainBundle] pathForResource:@"HsinchuElderly" ofType:@"sqlite"]
-#define HEDBPath [DocumentPath stringByAppendingPathComponent:@"HsinchuElderly.sqlite"]
+#define HEDBPath [DocumentPath stringByAppendingPathComponent:@"remind.sqlite"]
 
 //图片上传
 //http://60.251.51.217/Hchg_Elderly/WebService.asmx

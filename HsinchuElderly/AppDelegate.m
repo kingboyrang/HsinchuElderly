@@ -13,10 +13,18 @@
 @implementation AppDelegate
 
 - (void)dbInitLoad{
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTintColor:[UIColor blackColor]];//ff5500
+    //控件颜色设置
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
+    shadow.shadowOffset = CGSizeMake(0, 1);
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                           shadow, NSShadowAttributeName,
+                                                           [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:20.0], NSFontAttributeName, nil]];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTintColor:[UIColor whiteColor]];//ff5500
     
-    NSString *path=[[NSBundle mainBundle] pathForResource:@"HsinchuElderly" ofType:@"sqlite"];
-    NSString *dbPath=[DocumentPath stringByAppendingPathComponent:@"HsinchuElderly.sqlite"];
+    NSString *path=[[NSBundle mainBundle] pathForResource:@"remind" ofType:@"sqlite"];
+    NSString *dbPath=[DocumentPath stringByAppendingPathComponent:@"remind.sqlite"];
     if (![FileHelper existsFilePath:dbPath]) {
          NSData *mainBundleFile = [NSData dataWithContentsOfFile:path];
         [[NSFileManager defaultManager] createFileAtPath:dbPath

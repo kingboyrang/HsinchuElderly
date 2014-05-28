@@ -16,6 +16,8 @@
 @property (nonatomic,copy) NSString *CategoryGuid;
 @property (nonatomic,copy) NSString *AreaGuid;
 @property (nonatomic,copy) NSString *WebSiteURL;
-
+@property (nonatomic,copy) NSString *Lat;
+@property (nonatomic,copy) NSString *Lng;//DISTANCE
+@property (nonatomic,copy) NSString *Distance;
 @property (nonatomic, strong) SVPlacemark *placemark;
 @end

@@ -12,8 +12,9 @@
 - (HEBasicTable)basicTable{
     return HEBasicWelfare;
 }
+//福利
 - (NSString*)tableName{
-    return @"Welfare";
+    return @"5";
 }
 - (NSString*)categoryTableName{
     return @"WelfareCategory";

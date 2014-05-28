@@ -12,8 +12,9 @@
 - (HEBasicTable)basicTable{
     return HEBasicWelfare;
 }
+//咨詢
 - (NSString*)tableName{
-    return @"Consultation";
+    return @"1";
 }
 - (NSString*)categoryTableName{
     return @"ConsultationCategory";

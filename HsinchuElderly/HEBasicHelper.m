@@ -19,6 +19,7 @@
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
     if ([db open]) {
         NSString *sql=[NSString stringWithFormat:@"SELECT * FROM %@ order by Sort ASC",[self categoryTableName]];
+        
         FMResultSet *rs = [db executeQuery:sql];
         while (rs.next) {
             [sources addObject:[NSDictionary dictionaryWithObjectsAndKeys:[rs stringForColumn:@"Name"],@"Name",[rs stringForColumn:@"ID"],@"ID", nil]];
@@ -32,7 +33,9 @@
     [sources addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"所有區域",@"Name",@"",@"ID", nil]];
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
     if ([db open]) {
-        NSString *sql=[NSString stringWithFormat:@"SELECT * FROM %@ order by Sort ASC",[self areaTableName]];
+        //InformationArea
+        //NSString *sql=[NSString stringWithFormat:@"SELECT * FROM %@ order by Sort ASC",[self areaTableName]];
+        NSString *sql=@"SELECT * FROM InformationArea order by Sort ASC";
         FMResultSet *rs = [db executeQuery:sql];
         while (rs.next) {
             [sources addObject:[NSDictionary dictionaryWithObjectsAndKeys:[rs stringForColumn:@"Name"],@"Name",[rs stringForColumn:@"ID"],@"ID", nil]];
@@ -43,22 +46,26 @@
 }
 //取得所有數據
 - (NSMutableArray*)tableDataList{
-   NSMutableString *sql=[NSMutableString stringWithFormat:@"SELECT * FROM %@",[self tableName]];
+    //Information
+   NSMutableString *sql=[NSMutableString stringWithFormat:@"SELECT * FROM Information where TYPE='%@'",[self tableName]];
     NSMutableArray *sources=[NSMutableArray array];
-    NSString *categoryColumnName=[NSString stringWithFormat:@"%@Guid",[self categoryTableName]];
-    NSString *areaColumnName=[NSString stringWithFormat:@"%@Guid",[self areaTableName]];
+    //NSString *categoryColumnName=[NSString stringWithFormat:@"%@Guid",[self categoryTableName]];
+    //NSString *areaColumnName=[NSString stringWithFormat:@"%@Guid",[self areaTableName]];
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
     if ([db open]) {//表示打開
         FMResultSet *rs = [db executeQuery:sql];
         while (rs.next) {
             BasicModel *entity=(BasicModel*)[[self.customSubclass alloc] init];
-            entity.ID=[rs stringForColumn:@"ID"];
-            entity.Name=[rs stringForColumn:@"Name"];
-            entity.Address=[rs stringForColumn:@"Address"];
-            entity.Tel=[rs stringForColumn:@"Tel"];
-            entity.CategoryGuid=[rs stringForColumn:categoryColumnName];
-            entity.AreaGuid=[rs stringForColumn:areaColumnName];
-            entity.WebSiteURL=[rs stringForColumn:@"WebSiteURL"];
+            entity.ID=[rs stringForColumn:@"_id"];
+            entity.Name=[rs stringForColumn:@"NAME"];
+            entity.Address=[rs stringForColumn:@"ADDRESS"];
+            entity.Tel=[rs stringForColumn:@"PHONE"];
+            entity.CategoryGuid=[rs stringForColumn:@"CATEGORY"];
+            entity.AreaGuid=[rs stringForColumn:@"TYPE"];
+            entity.WebSiteURL=[rs stringForColumn:@"SITE"];
+            entity.Lat=[rs stringForColumn:@"LAT"];
+            entity.Lng=[rs stringForColumn:@"LNG"];
+            entity.Distance=[rs stringForColumn:@"DISTANCE"];
             [self setColumnValueWithModel:entity resultSet:rs];
             [sources addObject:entity];
         }
@@ -79,14 +86,14 @@
         [self registerBasicModelSubclass:[BasicModel class]];
     }
     
-    NSString *categoryColumnName=[NSString stringWithFormat:@"%@Guid",[self categoryTableName]];
-    NSString *areaColumnName=[NSString stringWithFormat:@"%@Guid",[self areaTableName]];
-    NSMutableString *sql=[NSMutableString stringWithFormat:@"SELECT * FROM %@ where 1=1",[self tableName]];
+    //NSString *categoryColumnName=[NSString stringWithFormat:@"%@Guid",[self categoryTableName]];
+   // NSString *areaColumnName=[NSString stringWithFormat:@"%@Guid",[self areaTableName]];
+    NSMutableString *sql=[NSMutableString stringWithFormat:@"SELECT * FROM Information where TYPE='%@'",[self tableName]];
     if (category&&[category length]>0) {
-        [sql appendFormat:@" and %@='%@'",categoryColumnName,category];
+        [sql appendFormat:@" and CATEGORY='%@'",category];
     }
     if (areaId&&[areaId length]>0) {
-        [sql appendFormat:@" and %@='%@'",areaColumnName,areaId];
+        [sql appendFormat:@" and ADDRESS like '%%%@%%'",areaId];
     }
     [sql appendString:@" order by Name"];
     [sql appendFormat:@" limit %d offset %d",size,size*(page-1)];
@@ -96,13 +103,16 @@
         FMResultSet *rs = [db executeQuery:sql];
         while (rs.next) {
             BasicModel *entity=(BasicModel*)[[self.customSubclass alloc] init];
-            entity.ID=[rs stringForColumn:@"ID"];
-            entity.Name=[rs stringForColumn:@"Name"];
-            entity.Address=[rs stringForColumn:@"Address"];
-            entity.Tel=[rs stringForColumn:@"Tel"];
-            entity.CategoryGuid=[rs stringForColumn:categoryColumnName];
-            entity.AreaGuid=[rs stringForColumn:areaColumnName];
-            entity.WebSiteURL=[rs stringForColumn:@"WebSiteURL"];
+            entity.ID=[rs stringForColumn:@"_id"];
+            entity.Name=[rs stringForColumn:@"NAME"];
+            entity.Address=[rs stringForColumn:@"ADDRESS"];
+            entity.Tel=[rs stringForColumn:@"PHONE"];
+            entity.CategoryGuid=[rs stringForColumn:@"CATEGORY"];
+            entity.AreaGuid=[rs stringForColumn:@"TYPE"];
+            entity.WebSiteURL=[rs stringForColumn:@"SITE"];
+            entity.Lat=[rs stringForColumn:@"LAT"];
+            entity.Lng=[rs stringForColumn:@"LNG"];
+            entity.Distance=[rs stringForColumn:@"DISTANCE"];
             [self setColumnValueWithModel:entity resultSet:rs];
             [sources addObject:entity];
         }

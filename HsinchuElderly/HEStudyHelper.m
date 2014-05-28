@@ -12,8 +12,9 @@
 - (HEBasicTable)basicTable{
     return HEBasicStudy;
 }
+//休閒
 - (NSString*)tableName{
-    return @"Student";
+    return @"4";
 }
 - (NSString*)categoryTableName{
     return @"StudentCategory";
