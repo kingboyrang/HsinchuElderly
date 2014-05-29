@@ -35,7 +35,7 @@
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [btn setTitleColor:[UIColor colorFromHexRGB:@"fc680a"] forState:UIControlStateNormal];
-    btn.titleLabel.font=defaultSDeviceFont;
+    btn.titleLabel.font=defaultBDeviceFont;
     NSString *selectedImgName=index==0?@"seg_left_selected.png":@"seg_right_selected.png";
     UIImage *selectedImg=[UIImage imageNamed:selectedImgName];
     UIEdgeInsets edginset=UIEdgeInsetsMake(5, 10, 5, 10);

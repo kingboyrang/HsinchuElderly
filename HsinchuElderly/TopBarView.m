@@ -14,7 +14,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor=[UIColor colorFromHexRGB:@"fd980a"];
+        self.backgroundColor=[UIColor colorFromHexRGB:@"fc9a0a"];
         UIImage *img1=[UIImage imageNamed:@"btn_bg.png"];
         img1=[img1 stretchableImageWithLeftCapWidth:15 topCapHeight:0];
         _categoryButton=[UIButton barButtonWithTitle:@"所有類別" target:self action:nil forControlEvents:UIControlEventTouchUpInside];

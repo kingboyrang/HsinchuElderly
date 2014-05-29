@@ -22,12 +22,13 @@
 //Device
 #define DeviceIsPad UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad
 
+//Helvetica-Bold Courier-Bold
 //介面顏色設定
 #define defaultDeviceFontColorName @"e32600"
-#define defaultDeviceFontName @"Courier-Bold"
+#define defaultDeviceFontName @"Helvetica-Bold"
 #define defaultDeviceFontColor [UIColor colorFromHexRGB:defaultDeviceFontColorName]
-#define defaultBDeviceFont [UIFont fontWithName:defaultDeviceFontName size:16]
-#define defaultSDeviceFont [UIFont fontWithName:defaultDeviceFontName size:14]
+#define defaultBDeviceFont [UIFont fontWithName:defaultDeviceFontName size:19]
+#define defaultSDeviceFont [UIFont fontWithName:defaultDeviceFontName size:16]
 
 //資料庫設置路徑
 //#define HEDBPath [[NSBundle mainBundle] pathForResource:@"HsinchuElderly" ofType:@"sqlite"]

@@ -94,7 +94,8 @@
  * view生成圖片
  */
 +(UIImage *)getImageFromView:(UIView *)view;
-
+//
++ (UIImage*)imageMaskGradient:(NSArray*)colors imageSize:(CGSize)imageSize;
 /*
  * Masks the context with the image, then fills with the color
  */

@@ -60,6 +60,7 @@
         lab2.textAlignment=NSTextAlignmentCenter;
         [self addSubview:lab2];
         
+        
          w=w>size.width?w:size.width;
         
         r=self.frame;
@@ -78,9 +79,17 @@
                 item.frame=r;
             }
         }
+        UILabel *labline=[[UILabel alloc] initWithFrame:CGRectMake(0,self.frame.size.height-2,w, 2)];
+        labline.backgroundColor=[UIColor colorFromHexRGB:@"0498c7"];
+        [self addSubview:labline];
+        
+        _emailBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+        _emailBtn.frame=CGRectMake(0, self.frame.size.height-(size.height+2), self.frame.size.width,size.height+2);
+        [self addSubview:_emailBtn];
         
     }
     return self;
 }
+
 
 @end

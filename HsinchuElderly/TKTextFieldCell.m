@@ -1,14 +1,14 @@
 //
-//  TKLabelFieldCell.m
+//  TKTextFieldCell.m
 //  HsinchuElderly
 //
-//  Created by aJia on 2014/5/8.
+//  Created by aJia on 2014/5/29.
 //  Copyright (c) 2014年 lz. All rights reserved.
 //
 
-#import "TKLabelFieldCell.h"
+#import "TKTextFieldCell.h"
 #import <QuartzCore/QuartzCore.h>
-@implementation TKLabelFieldCell
+@implementation TKTextFieldCell
 
 - (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if(!(self=[super initWithStyle:style reuseIdentifier:reuseIdentifier])) return nil;
@@ -41,12 +41,7 @@
 }
 - (void)layoutSubviews{
     [super layoutSubviews];
-    CGRect r=self.label.frame;
-    r.origin.x+=r.size.width+2;
-    r.size.height=35;
-    r.origin.y=(self.frame.size.height-r.size.height)/2;
-    r.size.width=self.frame.size.width-10-r.origin.x;
-    
+    CGRect r=CGRectMake(10, (self.frame.size.height-35)/2, self.frame.size.width-10*2, 35);
     _field.frame=r;
 }
 @end

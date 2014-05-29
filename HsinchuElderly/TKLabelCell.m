@@ -42,7 +42,7 @@
     _label.textAlignment = NSTextAlignmentRight;
     _label.textColor = defaultDeviceFontColor;
 	_label.highlightedTextColor = [UIColor whiteColor];
-    _label.font = defaultSDeviceFont;
+    _label.font = defaultBDeviceFont;
     _label.adjustsFontSizeToFitWidth = YES;
     _label.baselineAdjustment = UIBaselineAdjustmentNone;
     _label.numberOfLines = 20;
@@ -65,7 +65,7 @@
     if ([_label.text length]==0) {
         r.size = CGSizeMake(72,27);
     }else{
-        CGSize size=[_label.text textSize:defaultSDeviceFont withWidth:r.size.width];
+        CGSize size=[_label.text textSize:_label.font withWidth:r.size.width];
         r.size=size;
         r.origin.y=(self.frame.size.height-size.height)/2;
     }

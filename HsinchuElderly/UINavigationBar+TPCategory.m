@@ -15,21 +15,23 @@ UIImageView *backgroundView;
  #pragma 第一種方法增加背景圖
  -(UIImage*)barBackground
  {
+     /***
      UIImage *image=[UIImage imageNamed:@"nav_bg.png"];
 #ifdef __IPHONE_7_0
      if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0) {
          image=[UIImage imageNamed:@"nav_bg_ios7.png"];
      }
 #endif
-     image=[image stretchableImageWithLeftCapWidth:4 topCapHeight:0];
-     /***
-     UIImage *image=[UIImage createImageWithColor:[UIColor colorFromHexRGB:@"fc680a"] imageSize:CGSizeMake(self.frame.size.width, 44)];
+       image=[image stretchableImageWithLeftCapWidth:4 topCapHeight:0];
+      ***/
+    
+
+     UIImage *image=[UIImage createImageWithColor:[UIColor colorFromHexRGB:@"fc690a"] imageSize:CGSizeMake(self.frame.size.width, 44)];
      #ifdef __IPHONE_7_0
      if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0) {
          image=[UIImage createImageWithColor:[UIColor colorFromHexRGB:@"fc680a"] imageSize:CGSizeMake(self.frame.size.width, 64)];
      }
      #endif
-      **/
      return image;
  }
  

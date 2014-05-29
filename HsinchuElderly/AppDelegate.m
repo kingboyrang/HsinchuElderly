@@ -16,12 +16,20 @@
     //控件颜色设置
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
-    shadow.shadowOffset = CGSizeMake(0, 1);
-    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                           [UIColor whiteColor], NSForegroundColorAttributeName,
-                                                           shadow, NSShadowAttributeName,
-                                                           [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:20.0], NSFontAttributeName, nil]];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTintColor:[UIColor whiteColor]];//ff5500
+    shadow.shadowOffset = CGSizeMake(0, 0);
+    
+    NSDictionary *dicAttrs=[NSDictionary dictionaryWithObjectsAndKeys:
+                            [UIColor whiteColor], NSForegroundColorAttributeName,
+                            shadow, NSShadowAttributeName,
+                            [UIFont fontWithName:@"Helvetica-Bold" size:20], NSFontAttributeName, nil];
+    [[UINavigationBar appearance] setTitleTextAttributes:dicAttrs];
+    
+    NSDictionary *dicAttrs1=[NSDictionary dictionaryWithObjectsAndKeys:
+                            [UIColor whiteColor], NSForegroundColorAttributeName,
+                            shadow, NSShadowAttributeName,
+                            defaultBDeviceFont, NSFontAttributeName, nil];
+    
+    [[UIBarButtonItem appearanceWhenContainedIn:[UIToolbar class], nil] setTitleTextAttributes:dicAttrs1 forState:UIControlStateNormal];//ff5500
     
     NSString *path=[[NSBundle mainBundle] pathForResource:@"remind" ofType:@"sqlite"];
     NSString *dbPath=[DocumentPath stringByAppendingPathComponent:@"remind.sqlite"];

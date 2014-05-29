@@ -250,11 +250,11 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 	
 }
 +(UIImage*)mergerImage:(UIImage*)img mergerImage:(UIImage*)merger position:(CGPoint)pos{
-    UIGraphicsBeginImageContext(merger.size);
+    UIGraphicsBeginImageContext(img.size);
     //Draw image2
-    [merger drawInRect:CGRectMake(0, 0, merger.size.width, merger.size.height)];
+    [merger drawInRect:CGRectMake(0, 0, img.size.width, img.size.height)];
     //Draw image1
-    [img drawInRect:CGRectMake(pos.x,pos.y, img.size.width, img.size.height)];
+    [img drawInRect:CGRectMake(pos.x,pos.y, merger.size.width, merger.size.height)];
     UIImage *resultImage=UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return resultImage;
@@ -519,7 +519,37 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 	return CGSizeMake(newWidth, newHeight);
 	
 }
-
++ (UIImage*)imageMaskGradient:(NSArray*)colors imageSize:(CGSize)imageSize{
+    //NSAssert([colors count]==2, @"an array containing two UIColor variables must be passed to drawInRect:withAlphaMaskGradient:");
+	
+    CGSize size = imageSize;
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    // Start color
+    const CGFloat *top = CGColorGetComponents(((UIColor*)[colors objectAtIndex:0]).CGColor);
+    // End color
+	const CGFloat *center = CGColorGetComponents(((UIColor*)[colors objectAtIndex:1]).CGColor);
+    //
+    const CGFloat *bottom = CGColorGetComponents(((UIColor*)[colors objectAtIndex:2]).CGColor);
+    
+    size_t gradientNumberOfLocations = 3;
+    CGFloat gradientLocations[3] = { 0.1,0.5,0.9 };
+    //CGFloat gradientLocations[3] = { 0.0,0.5,1.0 };
+    CGFloat gradientComponents[12] = { top[0], top[1], top[2], top[3],center[0], center[1], center[2], center[3],bottom[0], bottom[1], bottom[2], bottom[3],};
+    CGGradientRef gradient=CGGradientCreateWithColorComponents (colorspace, gradientComponents, gradientLocations, gradientNumberOfLocations);
+    
+    
+    CGContextDrawLinearGradient(context, gradient, CGPointMake(0, 0),CGPointMake(0, size.height), 0);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    CGGradientRelease(gradient);
+    CGColorSpaceRelease(colorspace);
+    UIGraphicsEndImageContext();
+    return image;
+    
+}
 - (void)drawInRect:(CGRect)rect withAlphaMaskColor:(UIColor*)aColor{
 	
 	CGContextRef context = UIGraphicsGetCurrentContext();

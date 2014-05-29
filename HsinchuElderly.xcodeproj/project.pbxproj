@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		01382B861935FB0E005AAD8E /* remind.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 01382B851935FB0E005AAD8E /* remind.sqlite */; };
+		01382B8A19370035005AAD8E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01382B8919370035005AAD8E /* MessageUI.framework */; };
+		01382B8D19371700005AAD8E /* TKTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382B8C19371700005AAD8E /* TKTextFieldCell.m */; };
+		01382B90193718BA005AAD8E /* TKSelectFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382B8F193718BA005AAD8E /* TKSelectFieldCell.m */; };
+		01382B9A19374859005AAD8E /* TKCalendarFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382B9919374859005AAD8E /* TKCalendarFieldCell.m */; };
 		0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01622222191CC6C500B4AD50 /* AnimateLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221F191CC6C500B4AD50 /* AnimateLoadView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01622223191CC6C500B4AD50 /* AnimateErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01622221191CC6C500B4AD50 /* AnimateErrorView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -155,6 +159,13 @@
 
 /* Begin PBXFileReference section */
 		01382B851935FB0E005AAD8E /* remind.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = remind.sqlite; sourceTree = "<group>"; };
+		01382B8919370035005AAD8E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		01382B8B19371700005AAD8E /* TKTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTextFieldCell.h; sourceTree = "<group>"; };
+		01382B8C19371700005AAD8E /* TKTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTextFieldCell.m; sourceTree = "<group>"; };
+		01382B8E193718BA005AAD8E /* TKSelectFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSelectFieldCell.h; sourceTree = "<group>"; };
+		01382B8F193718BA005AAD8E /* TKSelectFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSelectFieldCell.m; sourceTree = "<group>"; };
+		01382B9819374859005AAD8E /* TKCalendarFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCalendarFieldCell.h; sourceTree = "<group>"; };
+		01382B9919374859005AAD8E /* TKCalendarFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCalendarFieldCell.m; sourceTree = "<group>"; };
 		0162221B191CC57D00B4AD50 /* NSDate+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TPCategory.h"; sourceTree = "<group>"; };
 		0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TPCategory.m"; sourceTree = "<group>"; };
 		0162221E191CC6C500B4AD50 /* AnimateLoadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimateLoadView.h; sourceTree = "<group>"; };
@@ -410,6 +421,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01382B8A19370035005AAD8E /* MessageUI.framework in Frameworks */,
 				01A9757119236CA20073530F /* ImageIO.framework in Frameworks */,
 				01A9756F19236C700073530F /* SystemConfiguration.framework in Frameworks */,
 				01A9756319236A4A0073530F /* Security.framework in Frameworks */,
@@ -811,6 +823,12 @@
 				26A9F526191F76FF0018EE32 /* TKLabelLabelCell.m */,
 				01A974541921BEAB0073530F /* TKEmptyCell.h */,
 				01A974551921BEAB0073530F /* TKEmptyCell.m */,
+				01382B8B19371700005AAD8E /* TKTextFieldCell.h */,
+				01382B8C19371700005AAD8E /* TKTextFieldCell.m */,
+				01382B8E193718BA005AAD8E /* TKSelectFieldCell.h */,
+				01382B8F193718BA005AAD8E /* TKSelectFieldCell.m */,
+				01382B9819374859005AAD8E /* TKCalendarFieldCell.h */,
+				01382B9919374859005AAD8E /* TKCalendarFieldCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -938,6 +956,7 @@
 		01CDC1A3191A220A0002AE47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01382B8919370035005AAD8E /* MessageUI.framework */,
 				01A9757019236CA20073530F /* ImageIO.framework */,
 				01A9756E19236C700073530F /* SystemConfiguration.framework */,
 				01A9756219236A4A0073530F /* Security.framework */,
@@ -1198,6 +1217,7 @@
 				01A9737D191DCD690073530F /* CVUISelect.m in Sources */,
 				0189C434192E035B002ED63A /* VersionViewController.m in Sources */,
 				01BF7FD2191B6469002E34E9 /* TKLabelFieldCell.m in Sources */,
+				01382B90193718BA005AAD8E /* TKSelectFieldCell.m in Sources */,
 				01A97389191DFD870073530F /* Blood.m in Sources */,
 				01C9419B192CB5680044AA2B /* AppHelper.m in Sources */,
 				01BFE071191CADF900095A8A /* SystemUserHelper.m in Sources */,
@@ -1217,6 +1237,7 @@
 				01A974251920C50D0073530F /* HEService.m in Sources */,
 				26A9F524191F74060018EE32 /* HEItemDetailController.m in Sources */,
 				01A9755719236A060073530F /* NSData+MKBase64.m in Sources */,
+				01382B9A19374859005AAD8E /* TKCalendarFieldCell.m in Sources */,
 				01A9744F1921BB100073530F /* CallOutAnnotationVifew.m in Sources */,
 				01622222191CC6C500B4AD50 /* AnimateLoadView.m in Sources */,
 				01A974351920DD9D0073530F /* LeisureTimeController.m in Sources */,
@@ -1296,6 +1317,7 @@
 				01BF7FC5191B5D8F002E34E9 /* TKPhotoCell.m in Sources */,
 				01A9743C1920DEF60073530F /* HEServiceHelper.m in Sources */,
 				01BFE037191C782800095A8A /* UINavigationBar+TPCategory.m in Sources */,
+				01382B8D19371700005AAD8E /* TKTextFieldCell.m in Sources */,
 				26DEBA1B191F2C4D0007DB43 /* FMDatabaseQueue.m in Sources */,
 				01A9756B19236AF50073530F /* ServiceArgs.m in Sources */,
 				01A973CB192078410073530F /* BloodSugaModifyController.m in Sources */,

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface VersionView : UIView
-
+@property (nonatomic,strong) UIButton *emailBtn;
 @end

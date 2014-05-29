@@ -7,6 +7,7 @@
 //
 
 #import "CVUIPopoverView.h"
+#import "UIImage+TPCategory.h"
 #define screenRect [[UIScreen mainScreen] bounds]
 
 @interface CVUIPopoverView()
@@ -123,13 +124,28 @@
         //Tool Bar
         _toolBar=[[UIToolbar alloc] initWithFrame:CGRectMake(0, 0,frame.size.width, 44)];
         _toolBar.barStyle =UIBarStyleBlackTranslucent;
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] > 4.9) {
+        
+        //iOS 5
+        UIImage *toolBarIMG = [UIImage createImageWithColor:[UIColor colorFromHexRGB:@"fc690a"] imageSize:_toolBar.frame.size];
+        
+        if ([_toolBar respondsToSelector:@selector(setBackgroundImage:forToolbarPosition:barMetrics:)]) {
+            [_toolBar setBackgroundImage:toolBarIMG forToolbarPosition:0 barMetrics:0];
+        }
+        
+    } else {
+         UIImage *toolBarIMG = [UIImage createImageWithColor:[UIColor colorFromHexRGB:@"fc690a"] imageSize:_toolBar.frame.size];
+        //iOS 4
+        [_toolBar insertSubview:[[[UIImageView alloc] initWithImage:toolBarIMG] autorelease] atIndex:0];
+    }
         [self addSubview:_toolBar];
     
     NSString *memo=@"請選擇";
-    CGSize size=[self textSizeWithText:memo font:[UIFont boldSystemFontOfSize:14] withWidth:frame.size.width];
+    CGSize size=[self textSizeWithText:memo font:defaultBDeviceFont withWidth:frame.size.width];
     _labTitle=[[UILabel alloc] initWithFrame:CGRectMake((frame.size.width-size.width)/2,(44-size.height)/2, size.width, size.height)];
     _labTitle.text=memo;
-    _labTitle.font=[UIFont boldSystemFontOfSize:14];
+    _labTitle.font=defaultBDeviceFont;
     _labTitle.textColor=[UIColor whiteColor];
     _labTitle.backgroundColor=[UIColor clearColor];
     _labTitle.textAlignment=NSTextAlignmentCenter;
