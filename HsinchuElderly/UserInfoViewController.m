@@ -150,13 +150,18 @@
     TKLabelSegmentCell *cell3=self.cells[2];
     self.Entity.Name=cell2.field.text;
     self.Entity.Sex=cell3.segmented.selectedIndex;
+    
     SystemUserHelper *_helper=[[SystemUserHelper alloc] init];
+    [_helper addEditUserWithModel:self.Entity headImage:cell1.hasImage?cell1.photoImage.image:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+    /***
     NSString *memo=self.operType==1?@"新增":@"修改";
     [self showLoadingAnimatedWithTitle:[NSString stringWithFormat:@"正在%@...",memo]];
     [_helper addEditUserWithModel:self.Entity headImage:cell1.hasImage?cell1.photoImage.image:nil];
     [self hideLoadingSuccessWithTitle:[NSString stringWithFormat:@"%@成功！",memo] completed:^(AnimateErrorView *successView) {
         [self.navigationController popViewControllerAnimated:YES];
     }];
+     **/
 }
 - (void)didReceiveMemoryWarning
 {

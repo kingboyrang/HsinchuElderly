@@ -120,6 +120,44 @@
     }
     return sources;
 }
+- (NSMutableArray*)searchWithCategory:(NSString*)category
+                             aresGuid:(NSString*)areaId{
+    //防止出錯
+    if (![self.customSubclass isSubclassOfClass:[BasicModel class]]) {
+        [self registerBasicModelSubclass:[BasicModel class]];
+    }
+    NSMutableString *sql=[NSMutableString stringWithFormat:@"SELECT * FROM Information where TYPE='%@'",[self tableName]];
+    if (category&&[category length]>0) {
+        [sql appendFormat:@" and CATEGORY='%@'",category];
+    }
+    if (areaId&&[areaId length]>0) {
+        [sql appendFormat:@" and ADDRESS like '%%%@%%'",areaId];
+    }
+    [sql appendString:@" order by Name"];
+    NSMutableArray *sources=[NSMutableArray array];
+    FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
+    if ([db open]) {//表示打開
+        FMResultSet *rs = [db executeQuery:sql];
+        while (rs.next) {
+            BasicModel *entity=(BasicModel*)[[self.customSubclass alloc] init];
+            entity.ID=[rs stringForColumn:@"_id"];
+            entity.Name=[rs stringForColumn:@"NAME"];
+            entity.Address=[rs stringForColumn:@"ADDRESS"];
+            entity.Tel=[rs stringForColumn:@"PHONE"];
+            entity.CategoryGuid=[rs stringForColumn:@"CATEGORY"];
+            entity.AreaGuid=[rs stringForColumn:@"TYPE"];
+            entity.WebSiteURL=[rs stringForColumn:@"SITE"];
+            entity.Lat=[rs stringForColumn:@"LAT"];
+            entity.Lng=[rs stringForColumn:@"LNG"];
+            entity.Distance=[rs stringForColumn:@"DISTANCE"];
+            [self setColumnValueWithModel:entity resultSet:rs];
+            [sources addObject:entity];
+        }
+        [db close];
+    }
+    return sources;
+
+}
 - (void)setColumnValueWithModel:(BasicModel*)entity resultSet:(FMResultSet*)rs{
 }
 @end

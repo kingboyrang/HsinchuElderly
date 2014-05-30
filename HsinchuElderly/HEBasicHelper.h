@@ -33,6 +33,10 @@ typedef enum{
                              aresGuid:(NSString*)areaId
                                  size:(int)size
                                  page:(int)page;
+//非分頁查詢
+- (NSMutableArray*)searchWithCategory:(NSString*)category
+                             aresGuid:(NSString*)areaId;
+
 //註冊mode子類別
 -(void) registerBasicModelSubclass:(Class) aClass;
 //子類別重寫復值

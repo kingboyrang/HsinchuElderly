@@ -33,17 +33,19 @@
     
     
     UIImage *img1=[UIImage imageNamed:[self imageNameWithName:@"upalbum" forType:@"png"]];
+    CGFloat top=(self.view.bounds.size.height-[self topHeight]-img1.size.height*2)/3;
+    
     UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame=CGRectMake(10, 10, img1.size.width, img1.size.height);
+    btn.frame=CGRectMake(20, top, img1.size.width, img1.size.height);
     [btn setImage:img1 forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(buttonAlbumClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
     
     UIImage *img2=[UIImage imageNamed:[self imageNameWithName:@"upcamera" forType:@"png"]];
-    CGFloat topY=self.view.bounds.size.height-[self topHeight]-img2.size.height-10;
+    CGFloat topY=top*2+img1.size.height;
     UIButton *btn2=[UIButton buttonWithType:UIButtonTypeCustom];
-    btn2.frame=CGRectMake(self.view.bounds.size.width-img2.size.width-10, topY, img2.size.width, img2.size.height);
+    btn2.frame=CGRectMake(self.view.bounds.size.width-img2.size.width-20, topY, img2.size.width, img2.size.height);
     [btn2 setImage:img2 forState:UIControlStateNormal];
     [btn2 addTarget:self action:@selector(buttonCameraClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn2];

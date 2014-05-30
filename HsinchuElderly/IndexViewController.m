@@ -8,14 +8,14 @@
 
 #import "IndexViewController.h"
 #import "ClockViewController.h"
-#import "MedicalCareController.h"
-#import "LeisureTimeController.h"
-#import "HEServiceViewController.h"
 #import "HEWelfareViewController.h"
-#import "HEItemListController.h"
 #import "HEConsultationHelper.h"
 #import "LotteryViewController.h"
 #import "VersionViewController.h"
+#import "HEItemSearchController.h"
+#import "MedicalCareHelper.h"
+#import "HEStudyHelper.h"
+#import "HEServiceHelper.h"
 @interface IndexViewController ()
 - (void)addMenuItemWithFrame:(CGRect)frame tag:(NSInteger)tag image:(UIImage*)img;
 @end
@@ -93,15 +93,21 @@
         [self.navigationController pushViewController:clock animated:YES];
     }
     if (btn.tag==101) {//醫療
-        MedicalCareController *medicaCare=[[MedicalCareController alloc] init];
+        HEItemSearchController *medicaCare=[[HEItemSearchController alloc] init];
+         medicaCare.title=@"醫療";
+        medicaCare.dbHelper=[[MedicalCareHelper alloc] init];
         [self.navigationController pushViewController:medicaCare animated:YES];
     }
     if (btn.tag==102) {//服務
-        HEServiceViewController *HEService=[[HEServiceViewController alloc] init];
+        HEItemSearchController *HEService=[[HEItemSearchController alloc] init];
+        HEService.title=@"服務";
+        HEService.dbHelper=[[HEServiceHelper alloc] init];
         [self.navigationController pushViewController:HEService animated:YES];
     }
     if (btn.tag==103) {//休閒
-        LeisureTimeController *LeisureTime=[[LeisureTimeController alloc] init];
+        HEItemSearchController *LeisureTime=[[HEItemSearchController alloc] init];
+        LeisureTime.title=@"休閒";
+        LeisureTime.dbHelper=[[HEStudyHelper alloc] init];
         [self.navigationController pushViewController:LeisureTime animated:YES];
     }
     if (btn.tag==104) {//福利
@@ -109,7 +115,7 @@
         [self.navigationController pushViewController:HEWelfare animated:YES];
     }
     if (btn.tag==105) {//諮詢
-        HEItemListController *consulation=[[HEItemListController alloc] init];
+        HEItemSearchController *consulation=[[HEItemSearchController alloc] init];
         consulation.dbHelper=[[HEConsultationHelper alloc] init];
         consulation.title=@"諮詢";
         [self.navigationController pushViewController:consulation animated:YES];

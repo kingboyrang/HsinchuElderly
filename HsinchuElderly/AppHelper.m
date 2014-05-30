@@ -7,7 +7,7 @@
 //
 
 #import "AppHelper.h"
-
+#import "SendMailViewController.h"
 @implementation AppHelper
 //發送下載完成的通知
 + (void)sendLocationNotice:(NSString*)noticeKey message:(NSString*)msg noticeDate:(NSDate*)date repeatInterval:(NSCalendarUnit)repeat{
@@ -55,5 +55,28 @@
 //取消所有通知
 + (void)removeLocationNotice{
    [[UIApplication sharedApplication] cancelAllLocalNotifications]; // 撤銷所有的Notification
+}
++ (void)setNavigationBarTitleAttrsFontWhite:(BOOL)white{
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
+    shadow.shadowOffset = CGSizeMake(0, 0);
+
+  
+    //整體設置
+    UIColor *color=white?[UIColor whiteColor]:[UIColor blackColor];
+    
+    NSDictionary *dicAttrs=[NSDictionary dictionaryWithObjectsAndKeys:
+                            color, NSForegroundColorAttributeName,
+                            shadow, NSShadowAttributeName,
+                            [UIFont fontWithName:@"Helvetica-Bold" size:20], NSFontAttributeName, nil];
+    [[UINavigationBar appearance] setTitleTextAttributes:dicAttrs];
+    
+    
+    //郵件設置
+    NSDictionary *dicAttrs1=[NSDictionary dictionaryWithObjectsAndKeys:
+                             [UIColor blackColor], NSForegroundColorAttributeName,
+                             [UIFont fontWithName:@"Helvetica-Bold" size:20], NSFontAttributeName, nil];
+    [[UINavigationBar appearanceWhenContainedIn:[SendMailViewController class], nil] setTitleTextAttributes:dicAttrs1];
+    
 }
 @end

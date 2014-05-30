@@ -100,15 +100,13 @@
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         
         UIImage *img=[UIImage imageNamed:@"cell_bg.png"];
-        img=[img stretchableImageWithLeftCapWidth:10 topCapHeight:0];
+        img=[img stretchableImageWithLeftCapWidth:img.size.width*0.5f topCapHeight:img.size.height*0.5f];
+        //[img resizableImageWithCapInsets:UIEdgeInsetsMake(img.size.height*0.5f, img.size.width*0.5f, 0, 15) resizingMode:UIImageResizingModeStretch];
         CGRect r=cell.frame;
-        r.size.width=self.view.bounds.size.width;
-        UIView *bgView=[[UIView alloc] initWithFrame:r];
-        UIImageView *imageView=[[UIImageView alloc] initWithFrame:bgView.bounds];
+        r.size.width=DeviceWidth;
+        UIImageView *imageView=[[UIImageView alloc] initWithFrame:r];
         [imageView setImage:img];
-        [bgView addSubview:imageView];
-        
-        cell.backgroundView=bgView;
+        cell.backgroundView=imageView;
         
         UIButton *btn=[UIButton barButtonWithTitle:@"刪除" target:self action:@selector(buttonDeleteClick:) forControlEvents:UIControlEventTouchUpInside];
         cell.accessoryView=btn;
@@ -118,6 +116,9 @@
     cell.textLabel.textColor=[UIColor colorFromHexRGB:@"711200"];
     cell.textLabel.font=defaultBDeviceFont;
     return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60.0f;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

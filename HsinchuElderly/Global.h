@@ -29,6 +29,7 @@
 #define defaultDeviceFontColor [UIColor colorFromHexRGB:defaultDeviceFontColorName]
 #define defaultBDeviceFont [UIFont fontWithName:defaultDeviceFontName size:19]
 #define defaultSDeviceFont [UIFont fontWithName:defaultDeviceFontName size:16]
+#define default18DeviceFont [UIFont fontWithName:defaultDeviceFontName size:18]
 
 //資料庫設置路徑
 //#define HEDBPath [[NSBundle mainBundle] pathForResource:@"HsinchuElderly" ofType:@"sqlite"]
@@ -37,7 +38,7 @@
 //图片上传
 //http://60.251.51.217/Hchg_Elderly/WebService.asmx
 //#define DataWebserviceURL @"http://192.168.123.150:8080/WebService.asmx"
-#define DataWebserviceURL @"http://60.251.51.217/Hchg_Elderly/WebService.asmx"
+#define DataWebserviceURL @"http://data.hsinchu.gov.tw/hchggrandpa/WebService.asmx"
 #define DataWeserviceNameSpace @"http://tempuri.org/"
 
 #define PushBloodSugarMessage @"親愛的%@,該量血糖囉!"

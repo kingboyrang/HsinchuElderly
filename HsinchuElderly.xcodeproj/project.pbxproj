@@ -12,6 +12,13 @@
 		01382B8D19371700005AAD8E /* TKTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382B8C19371700005AAD8E /* TKTextFieldCell.m */; };
 		01382B90193718BA005AAD8E /* TKSelectFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382B8F193718BA005AAD8E /* TKSelectFieldCell.m */; };
 		01382B9A19374859005AAD8E /* TKCalendarFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382B9919374859005AAD8E /* TKCalendarFieldCell.m */; };
+		01382B9D19381CAE005AAD8E /* SendMailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382B9C19381CAE005AAD8E /* SendMailViewController.m */; };
+		01382BA019382678005AAD8E /* HEItemSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382B9F19382678005AAD8E /* HEItemSearchController.m */; };
+		01382BA319382895005AAD8E /* TKHEItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382BA219382895005AAD8E /* TKHEItemCell.m */; };
+		01382BA719382912005AAD8E /* LocationGPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382BA619382912005AAD8E /* LocationGPS.m */; };
+		01382BAA19383885005AAD8E /* ToolSearchShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382BA919383885005AAD8E /* ToolSearchShow.m */; };
+		01382BAE19386635005AAD8E /* TKWelfareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382BAD19386635005AAD8E /* TKWelfareCell.m */; };
+		01382BB1193868D3005AAD8E /* HEWelfareSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382BB0193868D3005AAD8E /* HEWelfareSearchController.m */; };
 		0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01622222191CC6C500B4AD50 /* AnimateLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221F191CC6C500B4AD50 /* AnimateLoadView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01622223191CC6C500B4AD50 /* AnimateErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01622221191CC6C500B4AD50 /* AnimateErrorView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -34,7 +41,6 @@
 		01A9738C191DFE2B0073530F /* BloodHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9738B191DFE2B0073530F /* BloodHelper.m */; };
 		01A97390191DFF000073530F /* BloodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9738F191DFF000073530F /* BloodViewController.m */; };
 		01A97393191DFF1F0073530F /* BloodModifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97392191DFF1F0073530F /* BloodModifyController.m */; };
-		01A97397191E06640073530F /* MedicalCareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97396191E06640073530F /* MedicalCareController.m */; };
 		01A973A1191E120F0073530F /* UIPopoverListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A973A0191E120F0073530F /* UIPopoverListView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01A973A4191E15490073530F /* TPMenuHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A973A3191E15490073530F /* TPMenuHelper.m */; };
 		01A973AD19205E810073530F /* ActionSheetHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A973AC19205E810073530F /* ActionSheetHelper.m */; };
@@ -53,8 +59,6 @@
 		01A9742C1920CA7F0073530F /* HEItemListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9742B1920CA7F0073530F /* HEItemListController.m */; };
 		01A9742F1920CABF0073530F /* HEBasicHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9742E1920CABF0073530F /* HEBasicHelper.m */; };
 		01A974311920D9300073530F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A974301920D9300073530F /* CoreLocation.framework */; };
-		01A974351920DD9D0073530F /* LeisureTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974341920DD9D0073530F /* LeisureTimeController.m */; };
-		01A974391920DE7B0073530F /* HEServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974381920DE7B0073530F /* HEServiceViewController.m */; };
 		01A9743C1920DEF60073530F /* HEServiceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9743B1920DEF60073530F /* HEServiceHelper.m */; };
 		01A9743F1920DF6E0073530F /* HEWelfare.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9743E1920DF6E0073530F /* HEWelfare.m */; };
 		01A974421920DF8D0073530F /* HEWelfareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974411920DF8D0073530F /* HEWelfareHelper.m */; };
@@ -166,6 +170,20 @@
 		01382B8F193718BA005AAD8E /* TKSelectFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSelectFieldCell.m; sourceTree = "<group>"; };
 		01382B9819374859005AAD8E /* TKCalendarFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCalendarFieldCell.h; sourceTree = "<group>"; };
 		01382B9919374859005AAD8E /* TKCalendarFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCalendarFieldCell.m; sourceTree = "<group>"; };
+		01382B9B19381CAE005AAD8E /* SendMailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMailViewController.h; sourceTree = "<group>"; };
+		01382B9C19381CAE005AAD8E /* SendMailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMailViewController.m; sourceTree = "<group>"; };
+		01382B9E19382678005AAD8E /* HEItemSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEItemSearchController.h; sourceTree = "<group>"; };
+		01382B9F19382678005AAD8E /* HEItemSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEItemSearchController.m; sourceTree = "<group>"; };
+		01382BA119382895005AAD8E /* TKHEItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKHEItemCell.h; sourceTree = "<group>"; };
+		01382BA219382895005AAD8E /* TKHEItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKHEItemCell.m; sourceTree = "<group>"; };
+		01382BA519382912005AAD8E /* LocationGPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationGPS.h; sourceTree = "<group>"; };
+		01382BA619382912005AAD8E /* LocationGPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationGPS.m; sourceTree = "<group>"; };
+		01382BA819383885005AAD8E /* ToolSearchShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolSearchShow.h; sourceTree = "<group>"; };
+		01382BA919383885005AAD8E /* ToolSearchShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolSearchShow.m; sourceTree = "<group>"; };
+		01382BAC19386635005AAD8E /* TKWelfareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKWelfareCell.h; sourceTree = "<group>"; };
+		01382BAD19386635005AAD8E /* TKWelfareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKWelfareCell.m; sourceTree = "<group>"; };
+		01382BAF193868D3005AAD8E /* HEWelfareSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEWelfareSearchController.h; sourceTree = "<group>"; };
+		01382BB0193868D3005AAD8E /* HEWelfareSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEWelfareSearchController.m; sourceTree = "<group>"; };
 		0162221B191CC57D00B4AD50 /* NSDate+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TPCategory.h"; sourceTree = "<group>"; };
 		0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TPCategory.m"; sourceTree = "<group>"; };
 		0162221E191CC6C500B4AD50 /* AnimateLoadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimateLoadView.h; sourceTree = "<group>"; };
@@ -208,8 +226,6 @@
 		01A9738F191DFF000073530F /* BloodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodViewController.m; sourceTree = "<group>"; };
 		01A97391191DFF1F0073530F /* BloodModifyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodModifyController.h; sourceTree = "<group>"; };
 		01A97392191DFF1F0073530F /* BloodModifyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodModifyController.m; sourceTree = "<group>"; };
-		01A97395191E06640073530F /* MedicalCareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalCareController.h; sourceTree = "<group>"; };
-		01A97396191E06640073530F /* MedicalCareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalCareController.m; sourceTree = "<group>"; };
 		01A9739F191E120F0073530F /* UIPopoverListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPopoverListView.h; sourceTree = "<group>"; };
 		01A973A0191E120F0073530F /* UIPopoverListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPopoverListView.m; sourceTree = "<group>"; };
 		01A973A2191E15490073530F /* TPMenuHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPMenuHelper.h; sourceTree = "<group>"; };
@@ -244,10 +260,6 @@
 		01A9742D1920CABF0073530F /* HEBasicHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEBasicHelper.h; sourceTree = "<group>"; };
 		01A9742E1920CABF0073530F /* HEBasicHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEBasicHelper.m; sourceTree = "<group>"; };
 		01A974301920D9300073530F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		01A974331920DD9D0073530F /* LeisureTimeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeisureTimeController.h; sourceTree = "<group>"; };
-		01A974341920DD9D0073530F /* LeisureTimeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeisureTimeController.m; sourceTree = "<group>"; };
-		01A974371920DE7B0073530F /* HEServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEServiceViewController.h; sourceTree = "<group>"; };
-		01A974381920DE7B0073530F /* HEServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEServiceViewController.m; sourceTree = "<group>"; };
 		01A9743A1920DEF60073530F /* HEServiceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEServiceHelper.h; sourceTree = "<group>"; };
 		01A9743B1920DEF60073530F /* HEServiceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEServiceHelper.m; sourceTree = "<group>"; };
 		01A9743D1920DF6E0073530F /* HEWelfare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEWelfare.h; sourceTree = "<group>"; };
@@ -449,6 +461,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01382BA4193828E8005AAD8E /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				01382BA519382912005AAD8E /* LocationGPS.h */,
+				01382BA619382912005AAD8E /* LocationGPS.m */,
+			);
+			name = Location;
+			sourceTree = "<group>";
+		};
+		01382BAB1938661B005AAD8E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				01382BAC19386635005AAD8E /* TKWelfareCell.h */,
+				01382BAD19386635005AAD8E /* TKWelfareCell.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		017FF270191B0FB600255E76 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,6 +498,8 @@
 				0189C435192E0386002ED63A /* UI */,
 				0189C432192E035B002ED63A /* VersionViewController.h */,
 				0189C433192E035B002ED63A /* VersionViewController.m */,
+				01382B9B19381CAE005AAD8E /* SendMailViewController.h */,
+				01382B9C19381CAE005AAD8E /* SendMailViewController.m */,
 			);
 			name = Version;
 			sourceTree = "<group>";
@@ -596,33 +628,20 @@
 				01A9742B1920CA7F0073530F /* HEItemListController.m */,
 				01A974471921AD910073530F /* HEItemListMapsController.h */,
 				01A974481921AD910073530F /* HEItemListMapsController.m */,
+				01382B9E19382678005AAD8E /* HEItemSearchController.h */,
+				01382B9F19382678005AAD8E /* HEItemSearchController.m */,
 			);
 			name = HECommon;
-			sourceTree = "<group>";
-		};
-		01A974321920DD600073530F /* LeisureTime */ = {
-			isa = PBXGroup;
-			children = (
-				01A974331920DD9D0073530F /* LeisureTimeController.h */,
-				01A974341920DD9D0073530F /* LeisureTimeController.m */,
-			);
-			name = LeisureTime;
-			sourceTree = "<group>";
-		};
-		01A974361920DE640073530F /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				01A974371920DE7B0073530F /* HEServiceViewController.h */,
-				01A974381920DE7B0073530F /* HEServiceViewController.m */,
-			);
-			name = Service;
 			sourceTree = "<group>";
 		};
 		01A974431920E0560073530F /* Welfare */ = {
 			isa = PBXGroup;
 			children = (
+				01382BAB1938661B005AAD8E /* UI */,
 				01A974441920E06B0073530F /* HEWelfareViewController.h */,
 				01A974451920E06B0073530F /* HEWelfareViewController.m */,
+				01382BAF193868D3005AAD8E /* HEWelfareSearchController.h */,
+				01382BB0193868D3005AAD8E /* HEWelfareSearchController.m */,
 			);
 			name = Welfare;
 			sourceTree = "<group>";
@@ -640,15 +659,12 @@
 				01A974521921BB8D0073530F /* PaoPaoView.m */,
 				01A9745A192203BB0073530F /* TKLineCell.h */,
 				01A9745B192203BB0073530F /* TKLineCell.m */,
+				01382BA119382895005AAD8E /* TKHEItemCell.h */,
+				01382BA219382895005AAD8E /* TKHEItemCell.m */,
+				01382BA819383885005AAD8E /* ToolSearchShow.h */,
+				01382BA919383885005AAD8E /* ToolSearchShow.m */,
 			);
 			name = UI;
-			sourceTree = "<group>";
-		};
-		01A9752719231F2E0073530F /* Consultation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Consultation;
 			sourceTree = "<group>";
 		};
 		01A975281923388A0073530F /* Lottery */ = {
@@ -846,8 +862,6 @@
 			isa = PBXGroup;
 			children = (
 				01BFE031191C744800095A8A /* UI */,
-				01A97395191E06640073530F /* MedicalCareController.h */,
-				01A97396191E06640073530F /* MedicalCareController.m */,
 			);
 			name = MedicalCare;
 			sourceTree = "<group>";
@@ -1020,6 +1034,7 @@
 		01CDC1DC191A24380002AE47 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				01382BA4193828E8005AAD8E /* Location */,
 				01A97572192376680073530F /* NetWork */,
 				01A9756419236AE70073530F /* WebService */,
 				26DEBA07191F2BDC0007DB43 /* lib */,
@@ -1038,10 +1053,7 @@
 			children = (
 				0189C431192E033E002ED63A /* Version */,
 				01A975281923388A0073530F /* Lottery */,
-				01A9752719231F2E0073530F /* Consultation */,
 				01A974431920E0560073530F /* Welfare */,
-				01A974361920DE640073530F /* Service */,
-				01A974321920DD600073530F /* LeisureTime */,
 				01A974291920C5E10073530F /* HECommon */,
 				01BFE02F191C743800095A8A /* MedicalCare */,
 				017FF270191B0FB600255E76 /* Clock */,
@@ -1230,21 +1242,24 @@
 				01A974591921FD4D0073530F /* BasicMapAnnotation.m in Sources */,
 				01A9755619236A060073530F /* NSAlert+MKNetworkKitAdditions.m in Sources */,
 				01A9738C191DFE2B0073530F /* BloodHelper.m in Sources */,
+				01382BAA19383885005AAD8E /* ToolSearchShow.m in Sources */,
 				01BF7FD7191B6D57002E34E9 /* TKLabelSegmentCell.m in Sources */,
 				01A97378191DCD560073530F /* CVUIPopoverView.m in Sources */,
+				01382BA019382678005AAD8E /* HEItemSearchController.m in Sources */,
 				01CDC1E6191A289A0002AE47 /* BasicNavigationController.m in Sources */,
 				01A974191920B8090073530F /* SVGeocoder.m in Sources */,
 				01A974251920C50D0073530F /* HEService.m in Sources */,
 				26A9F524191F74060018EE32 /* HEItemDetailController.m in Sources */,
 				01A9755719236A060073530F /* NSData+MKBase64.m in Sources */,
+				01382BB1193868D3005AAD8E /* HEWelfareSearchController.m in Sources */,
 				01382B9A19374859005AAD8E /* TKCalendarFieldCell.m in Sources */,
 				01A9744F1921BB100073530F /* CallOutAnnotationVifew.m in Sources */,
 				01622222191CC6C500B4AD50 /* AnimateLoadView.m in Sources */,
-				01A974351920DD9D0073530F /* LeisureTimeController.m in Sources */,
 				01CDC1B5191A220A0002AE47 /* AppDelegate.m in Sources */,
 				26DEBA38191F440F0007DB43 /* PullingRefreshTableView.m in Sources */,
 				01A9755819236A060073530F /* NSDate+RFC1123.m in Sources */,
 				01CDC1B1191A220A0002AE47 /* main.m in Sources */,
+				01382B9D19381CAE005AAD8E /* SendMailViewController.m in Sources */,
 				01A9755D19236A060073530F /* MKNetworkEngine.m in Sources */,
 				01A973B3192062040073530F /* ShowMapController.m in Sources */,
 				01CDC1E9191A2BD90002AE47 /* BasicViewController.m in Sources */,
@@ -1252,10 +1267,12 @@
 				01A97380191DCFC70073530F /* TKLabelCalendarCell.m in Sources */,
 				01A97367191DBBF50073530F /* MedicineDrugHelper.m in Sources */,
 				01BFE06D191CACE800095A8A /* SystemUser.m in Sources */,
+				01382BA719382912005AAD8E /* LocationGPS.m in Sources */,
 				01BFE02E191C682600095A8A /* HESegmentControl.m in Sources */,
 				26DEBA1C191F2C4D0007DB43 /* FMResultSet.m in Sources */,
 				01A973C2192075060073530F /* BloodSugarViewController.m in Sources */,
 				01A974531921BB8D0073530F /* PaoPaoView.m in Sources */,
+				01382BA319382895005AAD8E /* TKHEItemCell.m in Sources */,
 				01A974491921AD910073530F /* HEItemListMapsController.m in Sources */,
 				01A97390191DFF000073530F /* BloodViewController.m in Sources */,
 				01A973A4191E15490073530F /* TPMenuHelper.m in Sources */,
@@ -1279,6 +1296,7 @@
 				01A9755F19236A060073530F /* Reachability.m in Sources */,
 				0189C438192E039B002ED63A /* VersionView.m in Sources */,
 				01A973C51920753A0073530F /* BloodSugar.m in Sources */,
+				01382BAE19386635005AAD8E /* TKWelfareCell.m in Sources */,
 				0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */,
 				01A97364191CE31A0073530F /* MedicineDrug.m in Sources */,
 				01A97372191DCD3F0073530F /* CVUICalendar.m in Sources */,
@@ -1286,7 +1304,6 @@
 				26DEBA25191F2DC80007DB43 /* MedicalCare.m in Sources */,
 				01BFE064191CAAB100095A8A /* UIAlertView+Blocks.m in Sources */,
 				01BFE065191CAAB100095A8A /* RIButtonItem.m in Sources */,
-				01A97397191E06640073530F /* MedicalCareController.m in Sources */,
 				01A9745C192203BB0073530F /* TKLineCell.m in Sources */,
 				01A9752B192338BC0073530F /* LotteryViewController.m in Sources */,
 				01A973A1191E120F0073530F /* UIPopoverListView.m in Sources */,
@@ -1321,7 +1338,6 @@
 				26DEBA1B191F2C4D0007DB43 /* FMDatabaseQueue.m in Sources */,
 				01A9756B19236AF50073530F /* ServiceArgs.m in Sources */,
 				01A973CB192078410073530F /* BloodSugaModifyController.m in Sources */,
-				01A974391920DE7B0073530F /* HEServiceViewController.m in Sources */,
 				26DEBA28191F2E2F0007DB43 /* MedicalCareHelper.m in Sources */,
 				01A974221920C4DF0073530F /* HEStudy.m in Sources */,
 				01A974561921BEAB0073530F /* TKEmptyCell.m in Sources */,

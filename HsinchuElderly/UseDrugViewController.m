@@ -69,7 +69,7 @@
     if (mod) {
         return [NSString stringWithFormat:@"%@-%@",mod.Name,entity.Name];
     }
-    return entity.Name;
+    return  [NSString stringWithFormat:@"無特定對象-%@",entity.Name];
 }
 //删除
 - (void)buttonDeleteClick:(UIButton*)btn{
@@ -107,6 +107,20 @@
     cell.drugName.text=[self getShowName:entity];
     cell.timeText.text=entity.TimeSpanText;
     return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    MedicineDrug *entity=self.list[indexPath.row];
+    CGFloat leftX=10,topY=10,total=0;
+    CGFloat w=self.view.bounds.size.width-leftX-20-5-2;
+    NSString *title=[self getShowName:entity];
+    CGSize size=[title textSize:[UIFont fontWithName:defaultDeviceFontName size:18] withWidth:w];
+    total+=topY+size.height+5;
+    
+    
+    size=[entity.TimeSpanText textSize:[UIFont fontWithName:defaultDeviceFontName size:14] withWidth:w];
+    total+=size.height+topY;
+    
+    return total>60.0f?total:60.0f;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

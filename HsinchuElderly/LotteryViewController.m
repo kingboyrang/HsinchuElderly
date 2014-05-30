@@ -51,27 +51,29 @@
     [self.view addSubview:self.chkButton];
     
     NSString *title=@"本人同意將照片資料供作新竹縣政府宣導";
-    CGSize size=[title textSize:[UIFont fontWithName:defaultDeviceFontName size:15] withWidth:320];
-    UILabel *lab=[[UILabel alloc] initWithFrame:CGRectMake(10+img.size.width+2,topY+4, size.width, size.height)];
+    CGSize size=[title textSize:default18DeviceFont withWidth:self.view.bounds.size.width];
+    UILabel *lab=[[UILabel alloc] initWithFrame:CGRectMake(10+img.size.width+2,DeviceIsPad?topY+2:topY-7, size.width, size.height)];
     lab.backgroundColor=[UIColor clearColor];
     lab.textColor=[UIColor blackColor];
-    lab.font=[UIFont fontWithName:defaultDeviceFontName size:15];
+    lab.font=default18DeviceFont;
     lab.text=title;
     [self.view addSubview:lab];
     
+    
+    
     title=@"獲獎禮品由新竹縣政府提供，與蘋果官方無任何關係。";
-    size=[title textSize:[UIFont fontWithName:defaultDeviceFontName size:17] withWidth:self.view.frame.size.width-10*2];
+    size=[title textSize:default18DeviceFont withWidth:self.view.frame.size.width-10*2];
     
     UILabel *lab1=[[UILabel alloc] initWithFrame:CGRectMake(10,self.chkButton.frame.size.height+self.chkButton.frame.origin.y+10, size.width, size.height)];
     lab1.backgroundColor=[UIColor clearColor];
     lab1.textColor=[UIColor blackColor];
-    lab1.font=[UIFont fontWithName:defaultDeviceFontName size:17];
+    lab1.font=default18DeviceFont;
     lab1.text=title;
     lab1.numberOfLines=0;
     lab1.lineBreakMode=NSLineBreakByWordWrapping;
     [self.view addSubview:lab1];
     
-    topY=lab1.frame.origin.y+lab1.frame.size.height+5;
+    topY=lab1.frame.origin.y+lab1.frame.size.height+10;
     UIImage *img1=[UIImage imageNamed:@"btn_bg.png"];
     img1=[img1 stretchableImageWithLeftCapWidth:10 topCapHeight:10];
     //UIEdgeInsets edginset=UIEdgeInsetsMake(10, 10, 10, 10);
@@ -80,7 +82,7 @@
     [btn setBackgroundImage:img1 forState:UIControlStateNormal];
     [btn setTitle:@"下一步" forState:UIControlStateNormal];
     [btn setTitleColor:defaultDeviceFontColor forState:UIControlStateNormal];
-    btn.titleLabel.font=defaultBDeviceFont;
+    btn.titleLabel.font=default18DeviceFont;
     [btn addTarget:self action:@selector(buttonNextClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
 }

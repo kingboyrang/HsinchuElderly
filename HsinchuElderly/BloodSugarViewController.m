@@ -108,6 +108,20 @@
     cell.timeText.text=entity.TimeSpanText;
     return cell;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    BloodSugar *entity=self.list[indexPath.row];
+    CGFloat leftX=10,topY=10,total=0;
+    CGFloat w=self.view.bounds.size.width-leftX-20-5-2;
+    NSString *title=[self getShowName:entity];
+    CGSize size=[title textSize:[UIFont fontWithName:defaultDeviceFontName size:18] withWidth:w];
+    total+=topY+size.height+5;
+    
+    
+    size=[entity.TimeSpanText textSize:[UIFont fontWithName:defaultDeviceFontName size:14] withWidth:w];
+    total+=size.height+topY;
+    
+    return total>60.0f?total:60.0f;
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     BloodSugaModifyController *user=[[BloodSugaModifyController alloc] init];

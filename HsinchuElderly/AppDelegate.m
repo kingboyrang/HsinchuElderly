@@ -10,20 +10,15 @@
 #import "IndexViewController.h"
 #import "FileHelper.h"
 #import "AlertHelper.h"
+#import "AppHelper.h"
 @implementation AppDelegate
 
 - (void)dbInitLoad{
     //控件颜色设置
+    [AppHelper setNavigationBarTitleAttrsFontWhite:YES];
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
     shadow.shadowOffset = CGSizeMake(0, 0);
-    
-    NSDictionary *dicAttrs=[NSDictionary dictionaryWithObjectsAndKeys:
-                            [UIColor whiteColor], NSForegroundColorAttributeName,
-                            shadow, NSShadowAttributeName,
-                            [UIFont fontWithName:@"Helvetica-Bold" size:20], NSFontAttributeName, nil];
-    [[UINavigationBar appearance] setTitleTextAttributes:dicAttrs];
-    
     NSDictionary *dicAttrs1=[NSDictionary dictionaryWithObjectsAndKeys:
                             [UIColor whiteColor], NSForegroundColorAttributeName,
                             shadow, NSShadowAttributeName,
@@ -76,6 +71,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    application.applicationIconBadgeNumber =0;
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 

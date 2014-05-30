@@ -13,6 +13,9 @@
 #import "BloodSugarHelper.h"
 #import "TKLabelSelectCell.h"
 #import "TKLabelCalendarCell.h"
+#import "TKLabelCell.h"
+#import "TKSelectFieldCell.h"
+#import "TKCalendarFieldCell.h"
 @interface BloodSugaModifyController ()
 
 @end
@@ -45,33 +48,42 @@
     _userTable.bounces=NO;
     [self.view addSubview:_userTable];
     
-    TKLabelSelectCell *cell1=[[TKLabelSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell1.label.text=@"名字：";
-    cell1.select.popText.field.placeholder=@"請選擇名字";
+    TKLabelCell *cell1=[[TKLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell1.label.text=@"名字";
+    
+    TKSelectFieldCell *cell2=[[TKSelectFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell2.select.popText.field.placeholder=@"請選擇名字";
     if (self.systemUsers&&[self.systemUsers count]>0) {
-        [cell1.select setDataSourceForArray:self.systemUsers dataTextName:@"Name" dataValueName:@"ID"];
+        [cell2.select setDataSourceForArray:self.systemUsers dataTextName:@"Name" dataValueName:@"ID"];
+    }
+    if (self.operType==1) {
+        [cell2.select setIndex:0];
     }
     
+    TKLabelCell *cell3=[[TKLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell3.label.text=@"頻率";
+
     
-    TKLabelSelectCell *cell2=[[TKLabelSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell2.label.text=@"頻率：";
-    cell2.select.popText.field.placeholder=@"請選擇頻率";
+    TKSelectFieldCell *cell4=[[TKSelectFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell4.select.popText.field.placeholder=@"請選擇頻率";
     NSString *path=[[NSBundle mainBundle] pathForResource:@"Frequency" ofType:@"plist"];
-    [cell2.select setDataSourceForArray:[NSArray arrayWithContentsOfFile:path] dataTextName:@"Name" dataValueName:@"ID"];
+    [cell4.select setDataSourceForArray:[NSArray arrayWithContentsOfFile:path] dataTextName:@"Name" dataValueName:@"ID"];
     
-    TKLabelCalendarCell *cell3=[[TKLabelCalendarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell3.label.text=@"時間：";
-    cell3.calendar.popText.field.placeholder=@"請選擇時間";
-    cell3.calendar.datePicker.datePickerMode=UIDatePickerModeTime;
-    [cell3.calendar.dateForFormat setDateFormat:@"HH:mm"];
+    TKLabelCell *cell5=[[TKLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell5.label.text=@"時間";
+    
+    TKCalendarFieldCell *cell6=[[TKCalendarFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell6.calendar.popText.field.placeholder=@"請選擇時間";
+    cell6.calendar.datePicker.datePickerMode=UIDatePickerModeTime;
+    [cell6.calendar.dateForFormat setDateFormat:@"HH:mm"];
     
     if (self.operType==2) {
-        [cell1.select setSelectedValue:self.Entity.UserId];
-        [cell2.select setSelectedValue:self.Entity.Rate];
-        cell3.calendar.popText.field.text=self.Entity.TimeSpan;
+        [cell2.select setSelectedValue:self.Entity.UserId];
+        [cell4.select setSelectedValue:self.Entity.Rate];
+        cell6.calendar.popText.field.text=self.Entity.TimeSpan;
     }
     
-    self.cells=[NSMutableArray arrayWithObjects:cell1,cell2,cell3, nil];
+    self.cells=[NSMutableArray arrayWithObjects:cell1,cell2,cell3,cell4,cell5,cell6, nil];
     [_userTable reloadData];
 }
 
@@ -83,18 +95,18 @@
 
 //完成
 - (void)buttonSubmitClick:(UIButton*)btn{
-    TKLabelSelectCell *cell1=self.cells[0];
+    TKSelectFieldCell *cell1=self.cells[1];
     if ([cell1.select.value length]==0) {
         [AlertHelper initWithTitle:@"提示" message:@"請選擇名字"];
         return;
     }
     
-    TKLabelSelectCell *cell2=self.cells[1];
+    TKSelectFieldCell *cell2=self.cells[3];
     if ([cell2.select.value length]==0) {
         [AlertHelper initWithTitle:@"提示" message:@"請選擇頻率"];
         return;
     }
-    TKLabelCalendarCell *cell3=self.cells[2];
+    TKCalendarFieldCell *cell3=self.cells[5];
     if ([cell3.calendar.popText.field.text length]==0) {
         [AlertHelper initWithTitle:@"提示" message:@"請選擇時間"];
         return;
@@ -109,12 +121,16 @@
     self.Entity.TimeSpan=cell3.calendar.popText.field.text;
     
     BloodSugarHelper *_helper=[[BloodSugarHelper alloc] init];
+    [_helper addEditWithModel:self.Entity name:cell1.select.key];
+    [self.navigationController popViewControllerAnimated:YES];
+    /***
     NSString *memo=self.operType==1?@"新增":@"修改";
     [self showLoadingAnimatedWithTitle:[NSString stringWithFormat:@"正在%@...",memo]];
     [_helper addEditWithModel:self.Entity name:cell1.select.key];
     [self hideLoadingSuccessWithTitle:[NSString stringWithFormat:@"%@成功！",memo] completed:^(AnimateErrorView *successView) {
         [self.navigationController popViewControllerAnimated:YES];
     }];
+     ***/
 }
 #pragma mark UITextFieldDelegate Methods
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
@@ -137,6 +153,8 @@
     cell.backgroundColor=[UIColor clearColor];
     return cell;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 40.0f;
+}
 
 @end

@@ -19,7 +19,7 @@
         _field.placeholder=@"請選擇";
         _field.contentVerticalAlignment=UIControlContentVerticalAlignmentCenter;//設定垂直置中
         _field.enabled=NO;//設定不可以編輯
-        _field.font=defaultBDeviceFont;
+        _field.font=default18DeviceFont;
         
         UIImage *image=[UIImage imageNamed:@"arrow_down.png"];
         UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];

@@ -20,4 +20,5 @@
 @property (nonatomic,copy) NSString *Lng;//DISTANCE
 @property (nonatomic,copy) NSString *Distance;
 @property (nonatomic, strong) SVPlacemark *placemark;
+-(double)distanceWithLatitude:(double)lat longitude:(double)lng;
 @end

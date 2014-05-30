@@ -28,10 +28,12 @@
     UIEdgeInsets edginset=UIEdgeInsetsMake(10, 10, 10, 10);
     _albumBtn=[UIButton barButtonWithTitle:@"相簿" target:self action:nil forControlEvents:UIControlEventTouchUpInside];
     [_albumBtn setBackgroundImage:[img1 resizableImageWithCapInsets:edginset] forState:UIControlStateNormal];
+    _albumBtn.showsTouchWhenHighlighted=YES;
     [self.contentView addSubview:_albumBtn];
     
     _cameraBtn=[UIButton barButtonWithTitle:@"拍照" target:self action:nil forControlEvents:UIControlEventTouchUpInside];
     [_cameraBtn setBackgroundImage:[img1 resizableImageWithCapInsets:edginset] forState:UIControlStateNormal];
+    _cameraBtn.showsTouchWhenHighlighted=YES;
 	[self.contentView addSubview:_cameraBtn];
     
     _lineView=[[UIImageView alloc] initWithFrame:CGRectMake(0,200, self.bounds.size.width, 5)];

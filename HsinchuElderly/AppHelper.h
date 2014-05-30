@@ -12,4 +12,5 @@
 + (void)sendLocationNotice:(NSString*)noticeKey message:(NSString*)msg noticeDate:(NSDate*)date repeatInterval:(NSCalendarUnit)repeat;
 + (void)removeLocationNoticeWithName:(NSString*)name;
 + (void)removeLocationNotice;
++ (void)setNavigationBarTitleAttrsFontWhite:(BOOL)white;
 @end

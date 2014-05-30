@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MedicineDrug.h"
-#import "TKLabelSelectCell.h"
-#import "TKLabelCalendarCell.h"
+#import "TKSelectFieldCell.h"
+#import "TKCalendarFieldCell.h"
 @interface UseDrugModifyController : BasicViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,CVUICalendarDelegate,CVUISelectDelegate>
 @property (nonatomic,strong) UITableView *userTable;
 @property (nonatomic,strong) NSMutableArray *cells;

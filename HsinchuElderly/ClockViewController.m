@@ -11,6 +11,7 @@
 #import "UseDrugViewController.h"
 #import "BloodViewController.h"
 #import "BloodSugarViewController.h"
+#import "UIImage+TPCategory.h"
 @interface ClockViewController ()
 - (void)addMenuItemWithFrame:(CGRect)frame title:(NSString*)title tag:(NSInteger)tag;
 - (void)buttonMenuItemClick:(UIButton*)btn;
@@ -44,15 +45,24 @@
     // Do any additional setup after loading the view.
 }
 - (void)addMenuItemWithFrame:(CGRect)frame title:(NSString*)title tag:(NSInteger)tag{
-    UIImage *img1=[UIImage imageNamed:@"btn_bg.png"];
-    //UIEdgeInsets edginset=UIEdgeInsetsMake(13, 10, 10, 10);
-    img1=[img1 stretchableImageWithLeftCapWidth:15 topCapHeight:12];
-    UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *img1=[UIImage imageNamed:@"btn_bg_cor.png"];
+    
+
+    CGFloat normalLeftCap = img1.size.width * 0.5f;
+    CGFloat normalTopCap = img1.size.height * 0.5f;
+    // 13 * 34
+    // 指定不需要拉伸的区域
+    UIEdgeInsets insets = UIEdgeInsetsMake(normalTopCap, normalLeftCap, normalTopCap - 1, normalLeftCap - 1);
+    // ios6.0的拉伸方式只不过比iOS5.0多了一个拉伸模式参数
+    img1=[img1 resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+
+    UIButton *btn=[UIButton buttonWithType:UIButtonTypeSystem];
     btn.frame=frame;
     btn.tag=tag;
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setTitleColor:defaultDeviceFontColor forState:UIControlStateNormal];
     btn.titleLabel.font=defaultBDeviceFont;//Courier-Bold Helvetica-Bold
+    //btn.contentMode=UIViewContentModeScaleAspectFill;
     [btn addTarget:self action:@selector(buttonMenuItemClick:) forControlEvents:UIControlEventTouchUpInside];
     [btn setBackgroundImage:img1 forState:UIControlStateNormal];
     [self.view addSubview:btn];

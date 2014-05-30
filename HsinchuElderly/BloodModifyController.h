@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Blood.h"
-#import "TKLabelSelectCell.h"
-#import "TKLabelCalendarCell.h"
 @interface BloodModifyController : BasicViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 @property (nonatomic,strong) UITableView *userTable;
 @property (nonatomic,strong) NSMutableArray *cells;

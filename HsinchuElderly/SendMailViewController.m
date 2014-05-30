@@ -1,18 +1,18 @@
 //
-//  HEServiceViewController.m
+//  SendMailViewController.m
 //  HsinchuElderly
 //
-//  Created by aJia on 2014/5/12.
+//  Created by aJia on 2014/5/30.
 //  Copyright (c) 2014年 lz. All rights reserved.
 //
 
-#import "HEServiceViewController.h"
-#import "HEServiceHelper.h"
-@interface HEServiceViewController ()
+#import "SendMailViewController.h"
+
+@interface SendMailViewController ()
 
 @end
 
-@implementation HEServiceViewController
+@implementation SendMailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,12 +26,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title=@"服務";
-    // Do any additional setup after loading the view.
+    /***
+    NSString *title=@"郵件發送";
+    CGSize size=[title textSize:[UIFont fontWithName:defaultDeviceFontName size:20] withWidth:320];
+    UILabel *labTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    labTitle.backgroundColor=[UIColor clearColor];
+    labTitle.text=title;
+    labTitle.textColor=[UIColor redColor];
+    labTitle.font=[UIFont fontWithName:defaultDeviceFontName size:20];
+    self.navigationItem.titleView=labTitle;
+     ***/
 }
-- (void)defaultPageInit{
-    self.dbHelper=[[HEServiceHelper alloc] init];
-}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

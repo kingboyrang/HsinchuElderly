@@ -20,7 +20,7 @@
     _field.layer.borderWidth=2.0;
     _field.layer.cornerRadius=8.0;
     _field.layer.masksToBounds=YES;
-    _field.font=defaultBDeviceFont;
+    _field.font=[UIFont fontWithName:defaultDeviceFontName size:18];
     _field.delegate=self;
     [self.contentView addSubview:_field];
     return self;

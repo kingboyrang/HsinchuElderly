@@ -29,9 +29,9 @@
 }
 - (void)layoutSubviews{
     [super layoutSubviews];
-    CGFloat leftx=10,topY=5;
+    CGFloat leftx=10;
     CGFloat w=(self.frame.size.width-leftx*2-20)/2;
-    _categoryButton.frame=CGRectMake(leftx, topY, w, self.frame.size.height-topY*2);
+    _categoryButton.frame=CGRectMake(leftx,(self.frame.size.height-35)/2, w, 35);
     
     CGRect r=_categoryButton.frame;
     r.origin.x+=r.size.width+20;

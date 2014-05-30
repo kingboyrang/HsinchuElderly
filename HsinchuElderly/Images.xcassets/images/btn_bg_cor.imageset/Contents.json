@@ -1,9 +1,24 @@
 {
   "images" : [
     {
+      "resizing" : {
+        "mode" : "3-part-vertical",
+        "center" : {
+          "mode" : "fill",
+          "height" : 9
+        },
+        "capInsets" : {
+          "top" : 0,
+          "bottom" : 7
+        }
+      },
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "btn_bg_cor.png"
+      "filename" : "btn_bg_cor.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
     }
   ],
   "info" : {
