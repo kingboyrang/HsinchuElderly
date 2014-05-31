@@ -34,7 +34,7 @@
         self.backgroundColor = [UIColor clearColor];
         self.canShowCallout = NO;
         self.centerOffset = CGPointMake(0, -55);
-        self.frame = CGRectMake(0, 0, 240, 80);
+        self.frame = CGRectMake(0, 0, 280, 80);
         
         UIView *_contentView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - Arror_height)] autorelease];
         _contentView.backgroundColor   = [UIColor clearColor];
@@ -46,7 +46,7 @@
 }
 - (void)addCustomView:(UIView*)view{
     CGRect r=self.contentView.frame;
-    r.size.height=view.frame.size.height;
+    r.size=view.frame.size;
     [self.contentView addSubview:view];
     self.contentView.frame=r;
     

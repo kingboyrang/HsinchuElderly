@@ -16,7 +16,7 @@
 @property (nonatomic,strong) TPMenuHelper *menuHelper;
 @property (nonatomic,strong) TopBarView *topBarView;
 @property (nonatomic,strong) HEBasicHelper *dbHelper;
-@property (nonatomic, retain) MKMapView *map;
+@property (nonatomic,retain) MKMapView *map;
 @property (nonatomic,strong) NSMutableArray *list;
 @property (nonatomic,strong) NSMutableArray *annotationList;
 @property (nonatomic,strong) NSMutableArray *medicalCategorys;

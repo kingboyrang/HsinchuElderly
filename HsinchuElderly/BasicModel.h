@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 @class SVPlacemark;
 @interface BasicModel : NSObject
 @property (nonatomic,copy) NSString *ID;
@@ -20,5 +21,6 @@
 @property (nonatomic,copy) NSString *Lng;//DISTANCE
 @property (nonatomic,copy) NSString *Distance;
 @property (nonatomic, strong) SVPlacemark *placemark;
+@property (nonatomic,readonly) CLLocationCoordinate2D coordinate;
 -(double)distanceWithLatitude:(double)lat longitude:(double)lng;
 @end

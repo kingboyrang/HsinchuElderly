@@ -39,13 +39,13 @@
         [self addSubview:_activityIndicatorView];
     }
     if (!_labelTitle) {
-        NSString *title=@"loading...";
-        CGSize size=[self CalculateStringSize:title font:[UIFont boldSystemFontOfSize:14] with:self.bounds.size.width-40];
+        NSString *title=@"正在加載...";
+        CGSize size=[self CalculateStringSize:title font:default18DeviceFont with:self.bounds.size.width-40];
         
         _labelTitle=[[UILabel alloc] initWithFrame:CGRectMake(40,(40-size.height)/2.0, size.width, size.height)];
         _labelTitle.backgroundColor=[UIColor clearColor];
         _labelTitle.textColor=[UIColor whiteColor];
-        _labelTitle.font=[UIFont boldSystemFontOfSize:14];
+        _labelTitle.font=default18DeviceFont;
         _labelTitle.text=title;
         
         [self addSubview:_labelTitle];

@@ -125,6 +125,7 @@
     maps.medicalAreas=self.medicalAreas;
     maps.medicalCategorys=self.medicalCategorys;
     maps.dbHelper=self.dbHelper;
+    maps.annotationList=self.list;
     [self.navigationController pushViewController:maps animated:YES];
 }
 //類別
@@ -172,16 +173,12 @@
         [_topBarView.categoryButton setTitle:[dic objectForKey:@"Name"] forState:UIControlStateNormal];
         if (![self.categoryGuid isEqualToString:[dic objectForKey:@"ID"]]) {
             self.categoryGuid=[dic objectForKey:@"ID"];
-            //[self defaultInitParams];
-            //[_refreshTable launchRefreshing];
             [self loadDataSource];
         }
     }else{//區域
         [_topBarView.areaButton setTitle:[dic objectForKey:@"Name"] forState:UIControlStateNormal];
         if (![self.areaGuid isEqualToString:[dic objectForKey:@"ID"]]) {
             self.areaGuid=[dic objectForKey:@"ID"];
-            //[self defaultInitParams];
-            //[_refreshTable launchRefreshing];
              [self loadDataSource];
         }
     }

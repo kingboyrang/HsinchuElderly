@@ -38,7 +38,7 @@
         NSString *sql=@"SELECT * FROM InformationArea order by Sort ASC";
         FMResultSet *rs = [db executeQuery:sql];
         while (rs.next) {
-            [sources addObject:[NSDictionary dictionaryWithObjectsAndKeys:[rs stringForColumn:@"Name"],@"Name",[rs stringForColumn:@"ID"],@"ID", nil]];
+            [sources addObject:[NSDictionary dictionaryWithObjectsAndKeys:[rs stringForColumn:@"Name"],@"Name",[rs stringForColumn:@"Name"],@"ID", nil]];
         }
         [db close];
     }
@@ -134,6 +134,7 @@
         [sql appendFormat:@" and ADDRESS like '%%%@%%'",areaId];
     }
     [sql appendString:@" order by Name"];
+    //NSLog(@"sql=%@",sql);
     NSMutableArray *sources=[NSMutableArray array];
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
     if ([db open]) {//表示打開

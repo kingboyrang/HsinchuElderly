@@ -41,14 +41,7 @@
     self.map.delegate=self;
     [self.view addSubview:self.map];
     
-    CLLocationCoordinate2D coordinate;
-    coordinate.latitude=[self.Entity.Lat doubleValue];
-    coordinate.longitude=[self.Entity.Lng doubleValue];
-    
-    //MKCoordinateRegion region=MKCoordinateRegionMakeWithDistance(coordinate,40000 ,40000);
-    //MKCoordinateRegion adjustedRegion = [self.map regionThatFits:region];
-    //[self.map setRegion:adjustedRegion animated:YES];
-    
+    CLLocationCoordinate2D coordinate=self.Entity.coordinate;
     BasicMapAnnotation *ann=[[BasicMapAnnotation alloc] initWithLatitude:coordinate.latitude andLongitude:coordinate.longitude];
     ann.Entity=self.Entity;
     [self.map addAnnotation:ann];
@@ -136,7 +129,7 @@
         if (!annotationView) {
             annotationView = [[CallOutAnnotationVifew alloc] initWithAnnotation:annotation reuseIdentifier:ann.Entity.ID];
             //添加自定View
-            PaoPaoView *paoView=[[PaoPaoView alloc] initWithFrame:CGRectMake(0, 0, 240, 100)];
+            PaoPaoView *paoView=[[PaoPaoView alloc] initWithFrame:CGRectMake(0, 0, 280, 100)];
             [paoView setViewDataSource:ann.Entity];
             [annotationView addCustomView:paoView];
         }

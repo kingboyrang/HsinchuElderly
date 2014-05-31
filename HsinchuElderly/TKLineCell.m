@@ -17,7 +17,7 @@
 - (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if(!(self=[super initWithStyle:style reuseIdentifier:reuseIdentifier])) return nil;
     self.textLabel.textColor=defaultDeviceFontColor;
-    self.textLabel.font=defaultSDeviceFont;
+    self.textLabel.font=default18DeviceFont;
     
     UIImage *image=[UIImage createImageWithColor:[UIColor colorFromHexRGB:@"fec75a"] imageSize:CGSizeMake(self.frame.size.width, 2)];
     _lineImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];

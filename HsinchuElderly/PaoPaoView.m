@@ -42,7 +42,7 @@
         cell3.labName.text=@"電話:";
         TKEmptyCell *cell4=[[TKEmptyCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
         cell4.detailTextLabel.textColor=defaultDeviceFontColor;
-        cell4.detailTextLabel.font=defaultSDeviceFont;
+        cell4.detailTextLabel.font=default18DeviceFont;
         cell4.detailTextLabel.text=@"導航";
         self.cells=[NSMutableArray arrayWithObjects:cell1,cell2,cell3,cell4, nil];
     }
@@ -68,6 +68,7 @@
 - (void)setViewDataSource:(BasicModel*)entity{
     self.Entity=entity;
     TKEmptyCell *cell1=self.cells[0];
+    cell1.textLabel.font=default18DeviceFont;
     cell1.textLabel.text=entity.Name;
     TKLabelLabelCell *cell2=self.cells[1];
     cell2.labDetail.text=entity.Address;
@@ -102,8 +103,8 @@
      //http://maps.apple.com/?q=Ray%27s%20Pizza&ll=32.715000,-117.162500
     //http://maps.google.com/maps?daddr=Lat,Lng
     
-    NSString *latlng=[NSString stringWithFormat:@"%f,%f",self.Entity.placemark.coordinate.latitude,self.Entity.placemark.coordinate.longitude];
-    NSString *skipURL=[NSString stringWithFormat:@"http://maps.apple.com/?q=%@&ll=%@",self.Entity.placemark.formattedAddress,latlng];
+    NSString *latlng=[NSString stringWithFormat:@"%@,%@",self.Entity.Lat,self.Entity.Lng];
+    NSString *skipURL=[NSString stringWithFormat:@"http://maps.apple.com/?q=%@&ll=%@",self.Entity.Address,latlng];
     
     
     NSString * encodedString=(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
@@ -119,7 +120,7 @@
         //NSURL *url=[NSURL URLWithString:encodedString];
         [[UIApplication sharedApplication] openURL:url];//使用瀏覽器打開
     }else{
-       NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"http://maps.google.com/maps?daddr=%f,%f",self.Entity.placemark.coordinate.latitude, self.Entity.placemark.coordinate.longitude]];
+       NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"http://maps.google.com/maps?daddr=%@,%@",self.Entity.Lat, self.Entity.Lng]];
         [[UIApplication sharedApplication] openURL:url];//使用瀏覽器打開
     }
 
@@ -127,8 +128,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.cells[indexPath.row] isKindOfClass:[TKLabelLabelCell class]]) {
         TKLabelLabelCell *cell=self.cells[indexPath.row];
-        CGFloat w=240-cell.labName.frame.size.width-cell.labName.frame.origin.x-2-5;
-        CGSize size=[cell.labDetail.text textSize:defaultSDeviceFont withWidth:w];
+        CGFloat w=280-cell.labName.frame.size.width-cell.labName.frame.origin.x-2-5;
+        CGSize size=[cell.labDetail.text textSize:cell.labDetail.font withWidth:w];
         if (size.height+20>44.0f) {
             return size.height+20;
         }

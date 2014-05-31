@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem=[UIBarButtonItem barButtonWithTitle:@"地圖" target:self action:@selector(buttonMapClick:) forControlEvents:UIControlEventTouchUpInside];
+    //self.navigationItem.rightBarButtonItem=[UIBarButtonItem barButtonWithTitle:@"地圖" target:self action:@selector(buttonMapClick:) forControlEvents:UIControlEventTouchUpInside];
     self.dbHelper=[[HEWelfareHelper alloc] init];
     
     _toolSearch=[[ToolSearchShow alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
@@ -57,6 +57,8 @@
     HEItemListMapsController *maps=[[HEItemListMapsController alloc] init];
     maps.title=self.title;
     maps.dbHelper=self.dbHelper;
+    maps.medicalCategorys=self.list;
+    maps.medicalAreas=[self.dbHelper areas];
     [self.navigationController pushViewController:maps animated:YES];
 }
 //定位並加載數據

@@ -13,6 +13,7 @@
 #import "CallOutAnnotationVifew.h"
 #import "PaoPaoView.h"
 #import "BasicMapAnnotation.h"
+#import <QuartzCore/QuartzCore.h>
 @interface HEItemListMapsController (){
     CalloutMapAnnotation *_calloutAnnotation;
 	//CalloutMapAnnotation *_previousdAnnotation;
@@ -37,13 +38,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _topBarView=[[TopBarView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
+    _topBarView=[[TopBarView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 50)];
     [_topBarView.categoryButton addTarget:self action:@selector(buttonCategoryClick:) forControlEvents:UIControlEventTouchUpInside];
     [_topBarView.areaButton addTarget:self action:@selector(buttonAreaClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_topBarView];
     
     CGRect r=self.view.bounds;
-    r.origin.y=44;
+    r.origin.y=_topBarView.frame.size.height;
     r.size.height-=[self topHeight]+r.origin.y;
     self.map = [[MKMapView alloc]initWithFrame:r];
     self.map.mapType = MKMapTypeStandard;
@@ -68,26 +69,140 @@
             }
         }
         if (i==2) {
-            if ([self.list count]==0) {
-                self.list=[self.dbHelper tableDataList];
-            }
-             //載入標註
-            if (self.list&&[self.list count]>0) {
-                //預設載入10筆資料
-                self.annotationList=[NSMutableArray array];
-                for (int i=0; i<10; i++) {
-                    [self.annotationList addObject:self.list[i]];
-                }
+            //載入標註
+            if ([self.annotationList count]>0) {
                 [self loadAnnotationWithSource:self.annotationList];
+            }else{
+                [self loadData];
             }
         }
     });
 }
 - (void)cleanMap{
-    [self.map removeAnnotations:self.map.annotations];
+     NSArray* array=[NSArray arrayWithArray:self.map.annotations];
+    [self.map removeAnnotations:array];
+}
+//載入數據
+- (void)loadData{
+    if (!self.categoryGuid) {
+        self.categoryGuid=@"";
+    }
+    if (!self.areaGuid) {
+        self.areaGuid=@"";
+    }
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        // 處理耗時操作的block...
+        NSMutableArray *arr=[self.dbHelper searchWithCategory:self.categoryGuid aresGuid:self.areaGuid];
+        if (arr&&[arr count]>0) {
+            //通知MainThread更新
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.annotationList=arr;
+                [self cleanMap];
+                [self loadAnnotationWithSource:self.annotationList];
+            });
+        }else{
+            //通知MainThread更新
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.annotationList removeAllObjects];
+                [self cleanMap];
+            });
+        }
+    });
+}
+- (UIView*)loadMessageView{
+    CGRect r=self.view.bounds;
+    UIView *bg=[[UIView alloc] initWithFrame:r];
+    bg.backgroundColor=[UIColor grayColor];
+    bg.tag=300;
+    bg.alpha=0.3;
+    
+    /***
+    UIView *showView=[[UIView alloc] initWithFrame:CGRectZero];
+    showView.backgroundColor=[UIColor whiteColor];
+    showView.layer.cornerRadius=5.0;
+    showView.layer.masksToBounds=YES;
+    showView.layer.borderWidth=2.0;
+    showView.layer.borderColor=[UIColor whiteColor].CGColor;
+    
+    UIActivityIndicatorView *indircatorView=[[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(10, 10, 37, 37)];
+    indircatorView.activityIndicatorViewStyle=
+     ***/
+    
+   
+    
+    return bg;
 }
 - (void)loadAnnotationWithSource:(NSArray*)source{
-    // 獲得全域開發queue
+    if ([source count]==0) {
+        return;
+    }
+    __block  UIView *bg=nil;
+    if (!bg) {
+        bg=[self loadMessageView];
+        [self.view addSubview:bg];
+    }
+    __block AnimateLoadView *load=nil;
+    if (!load) {
+        CGFloat topY=(self.view.bounds.size.height-[self topHeight]-40)/2;
+        load=[[AnimateLoadView alloc] initWithFrame:CGRectMake((bg.frame.size.width-200)/2,topY,200, 40)];
+        load.tag=301;
+        load.backgroundColor=[UIColor colorFromHexRGB:@"fc9a08"];
+        [load.activityIndicatorView startAnimating];
+        [self.view addSubview:load];
+    }
+    // 風騷寫法三
+     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        dispatch_apply([source count], queue, ^(size_t index){
+            BasicModel *entity=source[index];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                static int total=0;
+                CLLocationCoordinate2D coor=entity.coordinate;
+                MKCoordinateRegion region=MKCoordinateRegionMakeWithDistance(coor,40000 ,40000);
+                MKCoordinateRegion adjustedRegion = [self.map regionThatFits:region];
+                [self.map setRegion:adjustedRegion animated:YES];
+                BasicMapAnnotation *ann=[[BasicMapAnnotation alloc] initWithLatitude:coor.latitude andLongitude:coor.longitude];
+                ann.Entity=entity;
+                [self.map addAnnotation:ann];
+                if (total==[source count]-1||[source count]==1) {
+                    [load removeFromSuperview];
+                    [bg removeFromSuperview];
+                    if ([self.view viewWithTag:300]) {
+                        [[self.view viewWithTag:300] removeFromSuperview];
+                    }
+                    if ([self.view viewWithTag:301]) {
+                        [[self.view viewWithTag:301] removeFromSuperview];
+                    }
+                    total=0;
+                    return;
+                }
+                total++;
+            });
+        });
+        
+    });
+    
+    /***
+    // 風騷寫法一
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    size_t count = [source count];
+    dispatch_apply(count, queue, ^(size_t i) {
+        BasicModel *entity=source[i];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            CLLocationCoordinate2D coor=entity.coordinate;
+            MKCoordinateRegion region=MKCoordinateRegionMakeWithDistance(coor,40000 ,40000);
+            MKCoordinateRegion adjustedRegion = [self.map regionThatFits:region];
+            [self.map setRegion:adjustedRegion animated:YES];
+            
+            BasicMapAnnotation *ann=[[BasicMapAnnotation alloc] initWithLatitude:coor.latitude andLongitude:coor.longitude];
+            ann.Entity=entity;
+            [self.map addAnnotation:ann];
+        });
+    });
+     ***/
+     
+    /***
+    // 風騷寫法二
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     size_t count = [source count];
     dispatch_apply(count, queue, ^(size_t i) {
@@ -130,6 +245,7 @@
     });
     // 銷毀隊列
     //dispatch_release(queue);
+     ***/
 }
 //類別
 - (void)buttonCategoryClick:(UIButton*)btn{
@@ -161,28 +277,6 @@
     self.menuHelper.delegate=self;
     [self.menuHelper showMenuWithTitle:@"請選擇區域" frame:CGRectMake(10, yOffset, xWidth, yHeight)];
 }
-- (NSArray*)filterSource{
-    if ([self.list count]==0) {
-        return nil;
-    }
-    NSMutableString *sql=[NSMutableString stringWithString:@""];
-    if (self.categoryGuid&&[self.categoryGuid length]>0) {
-        [sql appendFormat:@"SELF.CategoryGuid =='%@'",self.categoryGuid];
-    }
-    if (self.areaGuid&&[self.areaGuid length]>0) {
-        NSString *memo=[sql length]>0?@" and ":@"";
-        [sql appendFormat:@"%@SELF.AreaGuid =='%@'",memo,self.areaGuid];
-    }
-    if ([sql length]>0) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:sql];
-        return  [self.list filteredArrayUsingPredicate:predicate];
-    }
-    NSMutableArray *arr=[NSMutableArray array];
-    for (int i=0; i<10; i++) {
-        [arr addObject:[self.list objectAtIndex:i]];
-    }
-    return arr;
-}
 #pragma mark TPMenuHelperDelegate Methods
 - (void)chooseMenuItem:(id)item index:(NSInteger)index{
     BOOL boo=NO;
@@ -201,20 +295,32 @@
         }
     }
     if (boo) {
-        //清空
-        NSArray *source=[self filterSource];
-        if (source&&[source count]>0) {
-            [self cleanMap];
-            [self.annotationList removeAllObjects];
-            [self.annotationList addObjectsFromArray:source];
-            [self loadAnnotationWithSource:source];//載入標註
-        }
+        [self loadData];
     }
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (NSString*)getAnnotationImageName:(BasicModel*)entity{
+    if ([entity.AreaGuid isEqualToString:@"1"]) {//咨詢
+        return [NSString stringWithFormat:@"d%@.png",entity.CategoryGuid];
+        
+    }else  if ([entity.AreaGuid isEqualToString:@"2"]) {//醫療
+       return [NSString stringWithFormat:@"a%@.png",entity.CategoryGuid];
+    }
+    else  if ([entity.AreaGuid isEqualToString:@"3"]) {//服務
+        return [NSString stringWithFormat:@"b%@.png",entity.CategoryGuid];
+    }
+    else  if ([entity.AreaGuid isEqualToString:@"4"]) {//休閒
+        if ([entity.CategoryGuid intValue]<3) {
+             return [NSString stringWithFormat:@"c%@.png",entity.CategoryGuid];
+        }
+    }else{//福利
+    
+    }
+   return @"pin_green.png";
 }
 #pragma mark -MKMapViewDelegate Methods
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
@@ -247,25 +353,26 @@
     }
 }
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
-    // NSString *identifterCell=[NSString createGUID];
     if ([annotation isKindOfClass:[CalloutMapAnnotation class]]) {
          CalloutMapAnnotation *ann=(CalloutMapAnnotation*)annotation;
         CallOutAnnotationVifew *annotationView = (CallOutAnnotationVifew *)[mapView dequeueReusableAnnotationViewWithIdentifier:ann.Entity.ID];
         if (!annotationView) {
             annotationView = [[CallOutAnnotationVifew alloc] initWithAnnotation:annotation reuseIdentifier:ann.Entity.ID];
             //添加自定View
-            PaoPaoView *paoView=[[PaoPaoView alloc] initWithFrame:CGRectMake(0, 0, 240, 100)];
+            PaoPaoView *paoView=[[PaoPaoView alloc] initWithFrame:CGRectMake(0, 0, 280, 100)];
             [paoView setViewDataSource:ann.Entity];
             [annotationView addCustomView:paoView];
         }
         return annotationView;
 	} else if ([annotation isKindOfClass:[BasicMapAnnotation class]]) {
-        MKAnnotationView *annotationView =[self.map dequeueReusableAnnotationViewWithIdentifier:@"CustomAnnotation"];
+         BasicMapAnnotation *basicMap=(BasicMapAnnotation*)annotation;
+        MKAnnotationView *annotationView =[self.map dequeueReusableAnnotationViewWithIdentifier:basicMap.Entity.ID];
         if (!annotationView) {
+           
             annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation
-                                                           reuseIdentifier:@"CustomAnnotation"];
+                                                           reuseIdentifier:basicMap.Entity.ID];
             annotationView.canShowCallout = NO;
-            annotationView.image = [UIImage imageNamed:@"pin_green.png"];
+            annotationView.image = [UIImage imageNamed:[self getAnnotationImageName:basicMap.Entity]];
         }
 		
 		return annotationView;
