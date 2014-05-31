@@ -28,6 +28,7 @@
     
     int row = indexPath.row;
     NSDictionary *item=self.sources[row];
+    cell.textLabel.font=default18DeviceFont;
     cell.textLabel.text = [item objectForKey:self.bindKey];
     return cell;
 }

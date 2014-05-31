@@ -15,6 +15,19 @@
 @end
 
 @implementation MedicineDrugHelper
+
++ (BOOL)existsDrugs{
+    NSString *path=[DocumentPath stringByAppendingPathComponent:@"medicineDrug.db"];
+    NSMutableArray *source=[NSMutableArray array];
+    if([FileHelper existsFilePath:path]){ //如果不存在
+        [source addObjectsFromArray:[NSKeyedUnarchiver unarchiveObjectWithFile: path]];
+    }
+    if (source&&[source count]>0) {
+        return YES;
+    }
+    return NO;
+}
+
 - (void)loadDataSource{
     NSString *path=[DocumentPath stringByAppendingPathComponent:@"medicineDrug.db"];
     NSMutableArray *source=[NSMutableArray array];

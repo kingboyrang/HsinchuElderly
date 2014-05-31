@@ -42,18 +42,18 @@
     CGFloat topY=self.view.bounds.size.height-[self topHeight]-10-40;
     UIImage *img1=[UIImage imageNamed:@"btn_bg.png"];
     img1=[img1 stretchableImageWithLeftCapWidth:10 topCapHeight:10];
-    UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame=CGRectMake((self.view.bounds.size.width-150)/2, topY, 150, 40);
-    [btn setBackgroundImage:img1 forState:UIControlStateNormal];
-    [btn setTitle:@"上傳" forState:UIControlStateNormal];
-    [btn setTitleColor:defaultDeviceFontColor forState:UIControlStateNormal];
-    btn.titleLabel.font=defaultBDeviceFont;
-    [btn addTarget:self action:@selector(buttonUploadClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
+    _uploadBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    _uploadBtn.frame=CGRectMake((self.view.bounds.size.width-150)/2, topY, 150, 40);
+    [_uploadBtn setBackgroundImage:img1 forState:UIControlStateNormal];
+    [_uploadBtn setTitle:@"上傳" forState:UIControlStateNormal];
+    [_uploadBtn setTitleColor:defaultDeviceFontColor forState:UIControlStateNormal];
+    _uploadBtn.titleLabel.font=defaultBDeviceFont;
+    [_uploadBtn addTarget:self action:@selector(buttonUploadClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_uploadBtn];
     
     //底部圖片
     UIImage *bottomImg=[UIImage imageNamed:@"u_bottom"];
-    UIImageView *imageView2=[[UIImageView alloc] initWithFrame:CGRectMake(0,btn.frame.origin.y-bottomImg.size.height-10, bottomImg.size.width, bottomImg.size.height)];
+    UIImageView *imageView2=[[UIImageView alloc] initWithFrame:CGRectMake(0,_uploadBtn.frame.origin.y-bottomImg.size.height-10, bottomImg.size.width, bottomImg.size.height)];
     [imageView2 setImage:bottomImg];
     [self.view addSubview:imageView2];
     
@@ -71,10 +71,10 @@
     topY=imageView2.frame.origin.y+imageView2.frame.size.height;
     h=self.view.bounds.size.height-[self topHeight]-topY;
     UIView *bgView1=[[UIView alloc] initWithFrame:CGRectMake(0, topY, self.view.bounds.size.height, h)];
-    //bgView1.backgroundColor=[UIColor colorFromHexRGB:@"ff9800"];
-    bgView1.backgroundColor=[UIColor clearColor];
+    bgView1.backgroundColor=[UIColor colorFromHexRGB:@"ff9800"];
+    //bgView1.backgroundColor=[UIColor clearColor];
     [self.view addSubview:bgView1];
-    [self.view bringSubviewToFront:btn];
+    [self.view bringSubviewToFront:_uploadBtn];
     
     //顯示圖片
     CGSize imgSize=[self autoImageSize:self.uploadImage.size];
@@ -112,24 +112,20 @@
     }
     return saveSize;
 }
-//上傳圖片
-- (void)buttonUploadClick:(UIButton*)btn{
-    
-    [_alertView show];
-    return;
-    
+#pragma mark -UploadAlertViewDelegate Methods
+- (void)startUploadImage{
     if (![self hasNewWork]) {
         [self showErrorNetWorkNotice:nil];
         return;
     }
     
-    btn.enabled=NO;
+    _uploadBtn.enabled=NO;
     [self showLoadingAnimatedWithTitle:@"上傳中，請稍後..."];
     
     NSMutableArray *params=[NSMutableArray array];
     [params addObject:[NSDictionary dictionaryWithObjectsAndKeys:[self.uploadImage imageBase64String],@"imgBase64String", nil]];
-    [params addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSString createGUID],@"title", nil]];
-    
+    [params addObject:[NSDictionary dictionaryWithObjectsAndKeys:_alertView.fieldTitle.text,@"title", nil]];
+    [params addObject:[NSDictionary dictionaryWithObjectsAndKeys:_alertView.fieldEmail.text,@"email", nil]];
     ServiceArgs *args=[[ServiceArgs alloc] init];
     args.methodName=@"UploadImg";//要調用的webservice方法
     args.soapParams=params;//傳遞方法參數
@@ -138,14 +134,19 @@
     SRMNetworkEngine *engine=[[SRMNetworkEngine alloc] initWithHostName:args.hostName];
     [engine requestWithArgs:args success:^(MKNetworkOperation *completedOperation) {
         //NSLog(@"xml=%@",completedOperation.responseString);
-        btn.enabled=YES;
+        _uploadBtn.enabled=YES;
         [self hideLoadingSuccessWithTitle:@"上傳成功！" completed:^(AnimateErrorView *successView) {
             [self.navigationController popToRootViewControllerAnimated:YES];
         }];
     } failure:^(MKNetworkOperation *completedOperation, NSError *error) {
-        btn.enabled=YES;
+        _uploadBtn.enabled=YES;
         [self hideLoadingFailedWithTitle:@"上傳失敗！" completed:nil];
     }];
+}
+//上傳圖片
+- (void)buttonUploadClick:(UIButton*)btn{
+    
+    [_alertView show];
 }
 - (void)didReceiveMemoryWarning
 {

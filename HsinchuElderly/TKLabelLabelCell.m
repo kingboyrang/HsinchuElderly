@@ -22,14 +22,14 @@
 	_labName.backgroundColor = [UIColor clearColor];
     _labName.textAlignment = NSTextAlignmentRight;
     _labName.textColor = [UIColor blackColor];
-    _labName.font = defaultSDeviceFont;
+    _labName.font = default18DeviceFont;
 	[self.contentView addSubview:_labName];
     
     _labDetail = [[UILabel alloc] initWithFrame:CGRectZero];
 	_labDetail.backgroundColor = [UIColor clearColor];
     _labDetail.textAlignment = NSTextAlignmentLeft;
     _labDetail.textColor = [UIColor blackColor];
-    _labDetail.font = defaultSDeviceFont;
+    _labDetail.font = default18DeviceFont;
     _labDetail.numberOfLines=0;
     _labDetail.lineBreakMode=NSLineBreakByWordWrapping;
 	[self.contentView addSubview:_labDetail];
@@ -52,14 +52,14 @@
 	
 	CGRect r = CGRectInset(self.contentView.bounds, 10, 10);
     r.size = CGSizeMake(72,27);
-    CGSize size=[_labName.text textSize:defaultSDeviceFont withWidth:r.size.width];
+    CGSize size=[_labName.text textSize:_labName.font withWidth:r.size.width];
     r.size=size;
     r.origin.y=(self.frame.size.height-size.height)/2;
 	_labName.frame = r;
     
     CGFloat leftX=r.origin.x+r.size.width+2;
-    CGFloat w=self.frame.size.width-leftX-5;
-    size=[_labDetail.text textSize:defaultSDeviceFont withWidth:w];
+    CGFloat w=self.frame.size.width-leftX-18;
+    size=[_labDetail.text textSize:_labDetail.font withWidth:w];
     _labDetail.frame=CGRectMake(leftX,(self.frame.size.height-size.height)/2, size.width, size.height);
     
     r=_lineImageView.frame;

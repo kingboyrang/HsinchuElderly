@@ -130,23 +130,8 @@
     }
     if (indexPath.row==2) {//地址
         ShowMapController *map=[[ShowMapController alloc] init];
-        map.Address=self.Entity.Address;
+        map.Entity=self.Entity;
         [self.navigationController pushViewController:map animated:YES];
-        /***
-        if (DeviceIsPad) {
-            [AlertHelper initWithTitle:@"提示" message:@"是否觀看地圖？" cancelTitle:@"取消" cancelAction:nil confirmTitle:@"確認" confirmAction:^{
-                ShowMapController *map=[[ShowMapController alloc] init];
-                map.Address=self.Entity.Address;
-                [self.navigationController pushViewController:map animated:YES];
-            }];
-        }else{
-            [ActionSheetHelper showSheetInView:self.view cancelTitle:@"取消" cancelAction:nil confirmTitle:@"觀看地圖" confirmAction:^{
-                ShowMapController *map=[[ShowMapController alloc] init];
-                map.Address=self.Entity.Address;
-                [self.navigationController pushViewController:map animated:YES];
-            }];
-        }
-         ***/
     }
     if (indexPath.row==3&&self.Entity.WebSiteURL&&[self.Entity.WebSiteURL length]>0) {//網址
         NSString * encodedString=(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
@@ -156,36 +141,12 @@
                                                                                                        kCFStringEncodingUTF8));
         NSURL *url=[NSURL URLWithString:encodedString];
         [[UIApplication sharedApplication] openURL:url];//使用瀏覽器打開
-        /****
-        if (DeviceIsPad) {
-            [AlertHelper initWithTitle:@"提示" message:@"是否前往瀏覽？" cancelTitle:@"取消" cancelAction:nil confirmTitle:@"確認" confirmAction:^{
-                NSString * encodedString=(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                                                               (CFStringRef)self.Entity.WebSiteURL,
-                                                                                                               NULL,
-                                                                                                               NULL,
-                                                                                                               kCFStringEncodingUTF8));
-                NSURL *url=[NSURL URLWithString:encodedString];
-                [[UIApplication sharedApplication] openURL:url];//使用瀏覽器打開
-            }];
-        }else{
-        
-        [ActionSheetHelper showSheetInView:self.view confirmTitle:@"前往瀏覽" confirmAction:^{
-            NSString * encodedString=(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                                           (CFStringRef)self.Entity.WebSiteURL,
-                                                                                           NULL,
-                                                                                           NULL,
-                                                                                           kCFStringEncodingUTF8));
-            NSURL *url=[NSURL URLWithString:encodedString];
-            [[UIApplication sharedApplication] openURL:url];//使用瀏覽器打開
-        }];
-        }
-          ***/
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     TKLabelLabelCell *cell=self.cells[indexPath.row];
-    CGFloat w=self.view.bounds.size.width-5-72-10-2;
-    CGSize size=[cell.labDetail.text textSize:defaultSDeviceFont withWidth:w];
+    CGFloat w=self.view.bounds.size.width-18-72-10-2;
+    CGSize size=[cell.labDetail.text textSize:default18DeviceFont withWidth:w];
     if (size.height+20>44.0f) {
         return size.height+20;
     }

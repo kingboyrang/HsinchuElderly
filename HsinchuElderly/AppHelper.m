@@ -19,13 +19,13 @@
         notification.repeatInterval=repeat;//循环次数，kCFCalendarUnitWeekday一周一次
         notification.repeatCalendar=[NSCalendar currentCalendar];
         notification.timeZone=[NSTimeZone defaultTimeZone];
-        notification.applicationIconBadgeNumber=1; //應用的红色數字
+        //notification.applicationIconBadgeNumber=1; //應用的红色數字
         notification.soundName= UILocalNotificationDefaultSoundName;//声音，可以換成alarm.soundName = @"myMusic.caf"
         //去掉下面2行就不會彈出提示框
         notification.alertBody=msg;//提示訊息 彈出提示框
-        //notification.alertAction = @"是";  //提示框按钮
+        notification.alertAction = @"確定";  //提示框按钮
         //notification.hasAction=YES;
-        //notification.hasAction = NO; //是否顯示額外的按钮，為no時alertAction消失
+        notification.hasAction = NO; //是否顯示額外的按钮，為no時alertAction消失
         NSDictionary *infoDict = [NSDictionary dictionaryWithObject:noticeKey forKey:@"guid"];
         notification.userInfo = infoDict; //增加額外的訊息
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];

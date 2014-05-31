@@ -14,6 +14,17 @@
 - (BOOL)findById:(NSString*)sysId position:(NSInteger*)index;
 @end
 @implementation BloodHelper
++ (BOOL)existsBloods{
+    NSString *path=[DocumentPath stringByAppendingPathComponent:@"blood.db"];
+    NSMutableArray *source=[NSMutableArray array];
+    if([FileHelper existsFilePath:path]){ //如果不存在
+        [source addObjectsFromArray:[NSKeyedUnarchiver unarchiveObjectWithFile: path]];
+    }
+    if (source&&[source count]>0) {
+        return YES;
+    }
+    return NO;
+}
 - (void)loadDataSource{
     NSString *path=[DocumentPath stringByAppendingPathComponent:@"blood.db"];
     NSMutableArray *source=[NSMutableArray array];

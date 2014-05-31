@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Blood.h"
 @interface BloodHelper : NSObject
++ (BOOL)existsBloods;
 //列表
 - (NSMutableArray*)pressureBloods;
 //新增與修改

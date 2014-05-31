@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "BasicModel.h"
 @interface ShowMapController : BasicViewController<MKMapViewDelegate>
 @property (nonatomic, retain) MKMapView *map;
-@property (nonatomic,copy) NSString *Address;
+@property (nonatomic,retain) BasicModel *Entity;
 @end

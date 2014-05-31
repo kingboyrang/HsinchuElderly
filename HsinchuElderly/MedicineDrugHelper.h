@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MedicineDrug.h"
 @interface MedicineDrugHelper : NSObject
++ (BOOL)existsDrugs;
 //列表
 - (NSMutableArray*)medicineDrugs;
 //新增與修改

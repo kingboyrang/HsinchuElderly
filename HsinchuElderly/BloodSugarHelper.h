@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BloodSugar.h"
 @interface BloodSugarHelper : NSObject
++ (BOOL)existsBloodSugars;
 //列表
 - (NSMutableArray*)pressureBloodSugars;
 //新增與修改

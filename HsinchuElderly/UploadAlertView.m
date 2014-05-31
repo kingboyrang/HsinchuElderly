@@ -9,6 +9,11 @@
 #import "UploadAlertView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AlertHelper.h"
+
+@interface UploadAlertView ()
+- (void)showWithUploadHide:(void(^)())completed;
+@end
+
 @implementation UploadAlertView
 
 - (id)initWithFrame:(CGRect)frame
@@ -105,7 +110,7 @@
         
         _winBgView=[[UIView alloc] initWithFrame:DeviceRect];
         _winBgView.backgroundColor=[UIColor grayColor];
-        _winBgView.alpha=0.85;
+        _winBgView.alpha=0.5;
     }
     return self;
 }
@@ -176,24 +181,49 @@
         [AlertHelper initWithTitle:@"提示" message:@"電子郵件格式錯誤!"];
         return;
     }
+    [self showWithUploadHide:^{
+        if (self.delegate&&[self.delegate respondsToSelector:@selector(startUploadImage)]) {
+            [self.delegate startUploadImage];
+        }
+    }];
+    
+}
+- (void)showWithUploadHide:(void(^)())completed{
+    CGRect r=self.frame;
+    r.origin.y=-r.size.height;
+    [UIView animateWithDuration:0.5f animations:^{
+        self.frame=r;
+    } completion:^(BOOL finished) {
+        if (finished) {
+            [self removeFromSuperview];
+            [_winBgView removeFromSuperview];
+            if (completed) {
+                completed();
+            }
+        }
+    }];
 }
 - (void)show{
     CGRect r=self.frame;
     r.origin.y=-r.size.height;
     r.origin.x=(_winBgView.frame.size.width-r.size.width)/2;
-    [_winBgView addSubview:self];
+    
     
     UIApplication *app=[UIApplication sharedApplication];
     UIWindow *window=[app keyWindow];
     [window addSubview:_winBgView];
+    [window addSubview:self];
     
     r.origin.y=(_winBgView.frame.size.height-r.size.height)/2;
     [UIView animateWithDuration:0.5f animations:^{
         self.frame=r;
     }];
-    
 }
 - (void)hide{
+    [self showWithUploadHide:nil];
+    _fieldTitle.text=@"";
+    _fieldEmail.text=@"";
+    /***
     CGRect r=self.frame;
     r.origin.y=-r.size.height;
     [UIView animateWithDuration:0.5f animations:^{
@@ -204,6 +234,7 @@
             [_winBgView removeFromSuperview];
         }
     }];
+     ***/
 }
 - (void)drawRect:(CGRect)rect{
     UIColor *lineColor=[UIColor colorFromHexRGB:@"b6b6b6"];

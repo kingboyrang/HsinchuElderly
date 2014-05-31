@@ -40,6 +40,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+   
+    NSDate *date = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *comp = [calendar components:(NSWeekdayCalendarUnit| NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:date];
+    int weekDay=[comp weekday];
+    NSLog(@"weekDay=%d",weekDay);
+    
+    
     application.applicationIconBadgeNumber =0;
     [self dbInitLoad];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -87,6 +95,7 @@
     UIApplicationState state = application.applicationState;
     //    NSLog(@"%@,%d",notification,state);
     if (state == UIApplicationStateActive) {
+        //[AlertHelper initWithTitle:@"提醒" message:notification.alertBody];
         /***
         [AlterMessage initWithTip:[NSString stringWithFormat:@"%@,是否直接開啟?",notification.alertBody] confirmMessage:@"是" cancelMessage:@"否" confirmAction:^(){
             //處理確認
