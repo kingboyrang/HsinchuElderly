@@ -3,11 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "u_top_ipad.png"
+      "filename" : "logo2.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "logo2@2x.png"
+    },
+    {
+      "idiom" : "ipad",
+      "scale" : "1x",
+      "filename" : "logo2~ipad.png"
     }
   ],
   "info" : {

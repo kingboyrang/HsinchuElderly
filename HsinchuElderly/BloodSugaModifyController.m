@@ -35,6 +35,13 @@
 {
     [super viewDidLoad];
     
+    UIImage *img=[UIImage imageNamed:@"logo2"];
+    CGFloat topY=self.view.bounds.size.height-[self topHeight]-img.size.height-10;
+    UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake((self.view.bounds.size.width-img.size.width)/2, topY, img.size.width, img.size.height)];
+    [imageView setImage:img];
+    [self.view addSubview:imageView];
+    
+    
     self.title=@"血糖測量";
     self.navigationItem.rightBarButtonItem=[UIBarButtonItem barButtonWithTitle:@"完成" target:self action:@selector(buttonSubmitClick:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -47,6 +54,8 @@
     _userTable.separatorStyle=UITableViewCellSeparatorStyleNone;
     _userTable.bounces=NO;
     [self.view addSubview:_userTable];
+    
+  
     
     TKLabelCell *cell1=[[TKLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     cell1.label.text=@"名字";

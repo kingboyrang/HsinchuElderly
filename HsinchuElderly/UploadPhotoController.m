@@ -27,9 +27,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _alertView=[[UploadAlertView alloc] initWithFrame:CGRectMake((self.view.bounds.size.width-300)/2, 0, 300, 0)];
+    
+    //self.view.backgroundColor=[UIColor colorFromHexRGB:@"fffbbe"];
     self.title=@"分享照片";
     //頂部圖片
-    UIImage *topImg=[UIImage imageNamed:[self imageNameWithName:@"u_top" forType:@"png"]];
+    UIImage *topImg=[UIImage imageNamed:@"u_top"];
     UIImageView *imageView1=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, topImg.size.width, topImg.size.height)];
     [imageView1 setImage:topImg];
     [self.view addSubview:imageView1];
@@ -48,7 +52,7 @@
     [self.view addSubview:btn];
     
     //底部圖片
-    UIImage *bottomImg=[UIImage imageNamed:[self imageNameWithName:@"u_bottom" forType:@"png"]];
+    UIImage *bottomImg=[UIImage imageNamed:@"u_bottom"];
     UIImageView *imageView2=[[UIImageView alloc] initWithFrame:CGRectMake(0,btn.frame.origin.y-bottomImg.size.height-10, bottomImg.size.width, bottomImg.size.height)];
     [imageView2 setImage:bottomImg];
     [self.view addSubview:imageView2];
@@ -59,14 +63,16 @@
     CGRect r=CGRectMake(0, topY, self.view.bounds.size.width, h);
     self.maxRect=r;
     UIView *bgView=[[UIView alloc] initWithFrame:r];
-    bgView.backgroundColor=[UIColor colorFromHexRGB:@"b4ec39"];
+    //bgView.backgroundColor=[UIColor colorFromHexRGB:@"b4ec39"];
+    bgView.backgroundColor=[UIColor clearColor];
     [self.view addSubview:bgView];
     
     //最底部
     topY=imageView2.frame.origin.y+imageView2.frame.size.height;
     h=self.view.bounds.size.height-[self topHeight]-topY;
     UIView *bgView1=[[UIView alloc] initWithFrame:CGRectMake(0, topY, self.view.bounds.size.height, h)];
-    bgView1.backgroundColor=[UIColor colorFromHexRGB:@"ff9800"];
+    //bgView1.backgroundColor=[UIColor colorFromHexRGB:@"ff9800"];
+    bgView1.backgroundColor=[UIColor clearColor];
     [self.view addSubview:bgView1];
     [self.view bringSubviewToFront:btn];
     
@@ -108,6 +114,10 @@
 }
 //上傳圖片
 - (void)buttonUploadClick:(UIButton*)btn{
+    
+    [_alertView show];
+    return;
+    
     if (![self hasNewWork]) {
         [self showErrorNetWorkNotice:nil];
         return;

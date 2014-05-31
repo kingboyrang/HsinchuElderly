@@ -9,6 +9,7 @@
 #import "BasicViewController.h"
 #import "UIButton+TPCategory.h"
 #import "NetWorkConnection.h"
+#import "UIImage+TPCategory.h"
 @interface BasicViewController (){
     AnimateLoadView *_loadView;
     AnimateErrorView *_errorView;
@@ -45,11 +46,18 @@
             [self.view addSubview:imageView];
         }else{
             UIImage *img=[UIImage imageNamed:[self imageNameWithName:@"bg" forType:@"png"]];
+            UIImage *result=[img imageAtRect:CGRectMake(0, 0, img.size.width, img.size.height-92)];
+            result=[result stretchableImageWithLeftCapWidth:result.size.width/2 topCapHeight:result.size.height/2];
+            /***
             CGRect r=self.view.bounds;
             r.size.height-=[self topHeight];
             UIImageView *imageView=[[UIImageView alloc] initWithFrame:r];
             [imageView setImage:img];
             [self.view addSubview:imageView];
+             ***/
+            
+            self.view.backgroundColor=[UIColor colorWithPatternImage:result];
+            
             [self setBarBackButtonItem];//返回按钮
         }
     }

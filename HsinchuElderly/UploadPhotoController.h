@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UploadAlertView.h"
 @interface UploadPhotoController : BasicViewController
 @property (nonatomic,strong) UIImage *uploadImage;
 @property (nonatomic,strong) UIImageView *previewImageView;
+@property (nonatomic,strong) UploadAlertView *alertView;
 @property (nonatomic,assign) CGRect maxRect;
 @end

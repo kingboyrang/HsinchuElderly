@@ -19,6 +19,7 @@
 		01382BAA19383885005AAD8E /* ToolSearchShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382BA919383885005AAD8E /* ToolSearchShow.m */; };
 		01382BAE19386635005AAD8E /* TKWelfareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382BAD19386635005AAD8E /* TKWelfareCell.m */; };
 		01382BB1193868D3005AAD8E /* HEWelfareSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382BB0193868D3005AAD8E /* HEWelfareSearchController.m */; };
+		01565F8E1939795500873B3E /* UploadAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01565F8D1939795500873B3E /* UploadAlertView.m */; };
 		0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01622222191CC6C500B4AD50 /* AnimateLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221F191CC6C500B4AD50 /* AnimateLoadView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01622223191CC6C500B4AD50 /* AnimateErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01622221191CC6C500B4AD50 /* AnimateErrorView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -184,6 +185,8 @@
 		01382BAD19386635005AAD8E /* TKWelfareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKWelfareCell.m; sourceTree = "<group>"; };
 		01382BAF193868D3005AAD8E /* HEWelfareSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEWelfareSearchController.h; sourceTree = "<group>"; };
 		01382BB0193868D3005AAD8E /* HEWelfareSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEWelfareSearchController.m; sourceTree = "<group>"; };
+		01565F8C1939795500873B3E /* UploadAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadAlertView.h; sourceTree = "<group>"; };
+		01565F8D1939795500873B3E /* UploadAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadAlertView.m; sourceTree = "<group>"; };
 		0162221B191CC57D00B4AD50 /* NSDate+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TPCategory.h"; sourceTree = "<group>"; };
 		0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TPCategory.m"; sourceTree = "<group>"; };
 		0162221E191CC6C500B4AD50 /* AnimateLoadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimateLoadView.h; sourceTree = "<group>"; };
@@ -686,6 +689,8 @@
 			children = (
 				01A9752D19233B9E0073530F /* ActivityView.h */,
 				01A9752E19233B9E0073530F /* ActivityView.m */,
+				01565F8C1939795500873B3E /* UploadAlertView.h */,
+				01565F8D1939795500873B3E /* UploadAlertView.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1258,6 +1263,7 @@
 				01CDC1B5191A220A0002AE47 /* AppDelegate.m in Sources */,
 				26DEBA38191F440F0007DB43 /* PullingRefreshTableView.m in Sources */,
 				01A9755819236A060073530F /* NSDate+RFC1123.m in Sources */,
+				01565F8E1939795500873B3E /* UploadAlertView.m in Sources */,
 				01CDC1B1191A220A0002AE47 /* main.m in Sources */,
 				01382B9D19381CAE005AAD8E /* SendMailViewController.m in Sources */,
 				01A9755D19236A060073530F /* MKNetworkEngine.m in Sources */,
