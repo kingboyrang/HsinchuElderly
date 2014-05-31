@@ -40,13 +40,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-   
-    NSDate *date = [NSDate date];
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *comp = [calendar components:(NSWeekdayCalendarUnit| NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:date];
-    int weekDay=[comp weekday];
-    NSLog(@"weekDay=%d",weekDay);
-    
+    NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
+    if (![userDefaults objectForKey:@"flags"]) {
+        [userDefaults setValue:@"1" forKey:@"flags"];
+        [userDefaults synchronize];
+        [AppHelper removeLocationNotice];
+    }
     
     application.applicationIconBadgeNumber =0;
     [self dbInitLoad];
