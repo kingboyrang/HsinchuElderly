@@ -135,8 +135,8 @@
     [engine requestWithArgs:args success:^(MKNetworkOperation *completedOperation) {
         //NSLog(@"xml=%@",completedOperation.responseString);
         _uploadBtn.enabled=YES;
-        [self hideLoadingSuccessWithTitle:@"上傳成功！" completed:^(AnimateErrorView *successView) {
-            [self.navigationController popToRootViewControllerAnimated:YES];
+        [self hideLoadingViewAnimated:^(AnimateLoadView *hideView) {
+             [self.navigationController popToRootViewControllerAnimated:YES];
         }];
     } failure:^(MKNetworkOperation *completedOperation, NSError *error) {
         _uploadBtn.enabled=YES;
