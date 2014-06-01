@@ -11,6 +11,7 @@
 #import "FileHelper.h"
 #import "AlertHelper.h"
 #import "AppHelper.h"
+#import "NSDate+TPCategory.h"
 @implementation AppDelegate
 
 - (void)dbInitLoad{
@@ -40,6 +41,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  
+    
     NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
     if (![userDefaults objectForKey:@"flags"]) {
         [userDefaults setValue:@"1" forKey:@"flags"];

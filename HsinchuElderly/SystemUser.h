@@ -15,3 +15,5 @@
 @property (nonatomic,assign) NSInteger Sex;
 @property (nonatomic,copy) NSString *CreateDate;
 @end
+
+// static char *sql = "create table if not exists clockTable(ID INTEGER PRIMARY KEY AUTOINCREMENT, clockID int, clockValue text, repeatValue int, labelValue text)";

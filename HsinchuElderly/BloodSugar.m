@@ -36,56 +36,62 @@
     return 0;
 }
 - (NSDate*)repeatDate{
+    NSDate* now = [NSDate date];
+	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *comps = [[NSDateComponents alloc] init];
+	NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit |
+	NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+	comps = [calendar components:unitFlags fromDate:now];
+    int weekDay=[comps weekday];//1表示週日 2:表示週一
+	int hour = [comps hour];
+	int min = [comps minute];
+	int sec = [comps second];
+	
+    NSArray *arr=[_TimeSpan componentsSeparatedByString:@":"];
+    //當前鬧鐘設置的小時
+	int htime1=[arr[0] intValue];
+    //當前鬧鐘設置的分鐘
+	int mtime1=[arr[1] intValue];
     
-    NSDate *date = [NSDate date];
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *comp = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:date];
-    int hour = [comp hour];
-    int min = [comp minute];
-    int sec = [comp second];
-    if (self.repeatInterval==NSDayCalendarUnit) {//每天鬧鐘提醒
-        NSArray *arr=[_TimeSpan componentsSeparatedByString:@":"];
-        int minute=[arr[1] integerValue];
-        int h=[arr[0] integerValue];
-        long int delayTime;
-        
-        if (hour < h){//時間還沒到
-            delayTime = (h-1-hour) * 60 * 60 - min * 60 - sec+minute*60;
-        }else {
-            delayTime = (24-hour+h) * 60 * 60 - min * 60 - sec + 24 * 60 * 60-minute*60;
-        }
-        NSDate *dates = [date dateByAddingTimeInterval:delayTime];
-        return dates;
-    }else{//某一天提醒
-        NSArray *arr=[_TimeSpan componentsSeparatedByString:@":"];
-        int minute=[arr[1] integerValue];
-        int h=[arr[0] integerValue];
-        
-        int weekDay=[comp weekday];
-        long int delayTime;
-        BOOL figure=NO;
-        delayTime = (24 -hour+10) * 60 * 60 - min * 60 - sec + 24 * 60 * 60;
-        if (weekDay==[self.Rate intValue]) {//為相同的天
-            if (hour<=h) {//时间没到十点
-                delayTime = (h-1-hour) * 60 * 60 - min * 60 - sec+minute*60;
-                figure=YES;
-            }
-        }
-        if (!figure) {
-            delayTime=(weekDay-1)*24*60*60+hour*60*60+min*60+sec+minute*60;
-        }
-        //用一周时间 -已经度过时间+将要发生时间
-        delayTime=7*24*60*60-delayTime+10*60*60;
-        NSDate *dates = [date dateByAddingTimeInterval:delayTime];
-        return dates;
+	int hs=htime1-hour;
+	int ms=mtime1-min;
+	
+	if(ms<0)
+	{
+		ms=ms+60;
+		hs=hs-1;
+	}
+	if(hs<0)
+	{
+		hs=hs+24;
+		hs=hs-1;
+	}
+	if (ms<=0&&hs<=0) {
+		hs=24;
+		ms=0;
+	}
+    if (self.repeatInterval==NSCalendarUnitDay) {//每天鬧鐘提醒
+	    int hm=(hs*3600)+(ms*60)-sec;
+        return [now dateByAddingTimeInterval:hm];
     }
-    /***
-     
-     NSDate *now=[NSDate date];
-     NSString *str=[NSDate stringFromDate:now withFormat:@"yyyy-MM-dd"];
-     str=[NSString stringWithFormat:@"%@ %@",str,[self TimeSpan]];
-     return [NSDate dateFromString:str withFormat:@"yyyy-MM-dd HH:mm"];
-     ***/
+    
+    long int delayTime;
+    BOOL figure=NO;
+    delayTime = (24 -hour+htime1-12) * 60 * 60 - min * 60 - sec + 24 * 60 * 60;
+    
+    int wd=weekDay==1?7:weekDay-1;
+    if (wd==[self.Rate intValue]) {//表示同一天
+        if (hour<=htime1-12) {//时间没到十点
+            delayTime = (htime1-hour) * 60 * 60 - min * 60 - sec;
+            figure=YES;
+        }
+    }
+    if (!figure) {
+        delayTime=(weekDay-1)*24*60*60+hour*60*60+min*60+sec;
+    }
+    //用一周时间 -已经度过时间+将要发生时间
+    delayTime=7*24*60*60-delayTime+(htime1-12)*60*60+mtime1*60;
+    return  [now dateByAddingTimeInterval:delayTime];
 }
 - (NSString*)TimeSpanText{
     if (_TimeSpan&&[_TimeSpan length]>0) {

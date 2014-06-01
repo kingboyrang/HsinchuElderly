@@ -71,8 +71,8 @@
     topY=imageView2.frame.origin.y+imageView2.frame.size.height;
     h=self.view.bounds.size.height-[self topHeight]-topY;
     UIView *bgView1=[[UIView alloc] initWithFrame:CGRectMake(0, topY, self.view.bounds.size.height, h)];
-    bgView1.backgroundColor=[UIColor colorFromHexRGB:@"ff9800"];
-    //bgView1.backgroundColor=[UIColor clearColor];
+    //bgView1.backgroundColor=[UIColor colorFromHexRGB:@"ff9800"];
+    bgView1.backgroundColor=[UIColor clearColor];
     [self.view addSubview:bgView1];
     [self.view bringSubviewToFront:_uploadBtn];
     
