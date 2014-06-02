@@ -48,7 +48,7 @@
     _refreshTable.separatorStyle=UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_refreshTable];
     
-    //加載數據
+    //載入數據
     [self loadDataSource];
     
 }
@@ -61,9 +61,9 @@
     maps.medicalAreas=[self.dbHelper areas];
     [self.navigationController pushViewController:maps animated:YES];
 }
-//定位並加載數據
+//定位並載入數據
 - (void)loadDataSource{
-    //取得当前位置
+    //取得目前位置
     LocationGPS *gps=[LocationGPS sharedInstance];
     [gps startCurrentLocation:^(CLLocationCoordinate2D coor2D) {
         self.Latitude=coor2D.latitude;

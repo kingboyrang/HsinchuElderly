@@ -20,7 +20,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        //資加text
+        //增加text
         _popText=[[CVUIPopoverText alloc] initWithFrame:frame];
         [_popText.button addTarget:self action:@selector(show) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_popText];

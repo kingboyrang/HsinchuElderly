@@ -51,9 +51,9 @@
    CGFloat normalLeftCap = img1.size.width * 0.5f;
    CGFloat normalTopCap = img1.size.height * 0.5f;
     // 13 * 34
-    // 指定不需要拉伸的区域
+    // 指定不需要延伸的區域
     UIEdgeInsets insets = UIEdgeInsetsMake(normalTopCap, normalLeftCap, normalTopCap - 1, normalLeftCap - 1);
-    // ios6.0的拉伸方式只不过比iOS5.0多了一个拉伸模式参数
+    // ios6.0的延伸方式只不過比iOS5.0多了一個延伸模式參數
     img1=[img1 resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
     
     //UIImage *sliderImgName = [img1     resizableImageWithCapInsets:UIEdgeInsetsMake(img1.size.height/2-2, img1.size.width/2-2, img1.size.height/2-2, img1.size.width/2-2)];

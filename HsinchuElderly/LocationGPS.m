@@ -9,7 +9,7 @@
 #import "LocationGPS.h"
 
 @interface LocationGPS()//私有方法
-//获取当前位置
+//取得目前位置
 -(void) loadCurrentLocation:(CLLocationCoordinate2D)coor2D;
 -(void) start;
 -(void) stop;

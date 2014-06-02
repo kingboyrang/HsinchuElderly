@@ -608,10 +608,10 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
  * save image local
  */
 -(BOOL)saveImage:(NSString*)path{
-   return  [UIImagePNGRepresentation(self) writeToFile:path atomically:YES]; // 保存成功会返回YES
+   return  [UIImagePNGRepresentation(self) writeToFile:path atomically:YES]; // 保存成功會返回YES
 }
 -(BOOL)saveImage:(NSString*)path withName:(NSString*)fileName{
-    NSString *filePath = [path stringByAppendingPathComponent:fileName];   // 保存文件的名称
+    NSString *filePath = [path stringByAppendingPathComponent:fileName];   // 保存文件的名稱
     return  [self saveImage:filePath];
 }
 @end

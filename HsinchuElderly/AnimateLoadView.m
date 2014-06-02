@@ -39,7 +39,7 @@
         [self addSubview:_activityIndicatorView];
     }
     if (!_labelTitle) {
-        NSString *title=@"正在加載...";
+        NSString *title=@"正在載入...";
         CGSize size=[self CalculateStringSize:title font:default18DeviceFont with:self.bounds.size.width-40];
         
         _labelTitle=[[UILabel alloc] initWithFrame:CGRectMake(40,(40-size.height)/2.0, size.width, size.height)];

@@ -59,7 +59,7 @@
         //[self.navigationController pushViewController:emailer animated:YES];
         [self presentViewController:emailer animated:YES completion:nil];
     }else{
-       [AlertHelper initWithTitle:@"提示" message:@"當前設備未設置郵件帳號,無法發送!"];
+       [AlertHelper initWithTitle:@"提示" message:@"未設置郵件帳號，無法發送郵件！"];
     }
     /***
     NSString *title=@"新郵件";
@@ -76,7 +76,7 @@
     //[[emailer navigationBar] setBackgroundColor:[UIColor colorFromHexRGB:@"fc690a"]];
     //emailer.navigationItem.titleView=labTitle;
     emailer.mailComposeDelegate = self;
-    // 添加发送者
+    // 增加發送者
     NSArray *toRecipients = [NSArray arrayWithObject: @"hchgL301@hchg.gov.tw"];
     [emailer setToRecipients: toRecipients];
     //[emailer addAttachmentData:UIImagePNGRepresentation(image) mimeType:@"png" fileName:@"Photo.png"];
@@ -104,10 +104,10 @@
     switch (result)
     {
         case MFMailComposeResultCancelled:
-            //msg = @"邮件发送取消";
+            //msg = @"郵件發送取消";
             break;
         case MFMailComposeResultSaved:
-            //msg = @"邮件保存成功";
+            //msg = @"郵件儲存成功";
             //[self alertWithTitle:nil msg:msg];
             break;
         case MFMailComposeResultSent:
@@ -115,7 +115,7 @@
             //[self alertWithTitle:nil msg:msg];
             break;
         case MFMailComposeResultFailed:
-            //msg = @"邮件发送失败";
+            //msg = @"郵件發送失敗";
             //[self alertWithTitle:nil msg:msg];
             //[AlertHelper initWithTitle:@"提示" message:@"郵件發送失敗!"];
             break;

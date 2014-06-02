@@ -21,6 +21,6 @@
     
     return [orig distanceFromLocation:dist]/1000;
     //CLLocationDistance kilometers=[orig distanceFromLocation:dist]/1000;
-   // NSLog(@"距离:",kilometers);
+   // NSLog(@"距離:",kilometers);
 }
 @end

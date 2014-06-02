@@ -38,7 +38,7 @@
 - (NSDate*)repeatDate{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"HH:mm:ss"];
-    //触发通知的时间
+    //觸發通知的時間
     //NSDate *now = [formatter dateFromString:@"15:00:00"];
     return [formatter dateFromString:[NSString stringWithFormat:@"%@:00",[self TimeSpan]]];
     
@@ -54,9 +54,9 @@
 	int sec = [comps second];
 	
     NSArray *arr=[_TimeSpan componentsSeparatedByString:@":"];
-    //當前鬧鐘設置的小時
+    //目前鬧鐘設置的小時
 	int htime1=[arr[0] intValue];
-    //當前鬧鐘設置的分鐘
+    //目前鬧鐘設置的分鐘
 	int mtime1=[arr[1] intValue];
     
 	int hs=htime1-hour;
@@ -87,7 +87,7 @@
     
     int wd=weekDay==1?7:weekDay-1;
     if (wd==[self.Rate intValue]) {//表示同一天
-        if (hour<=htime1-12) {//时间没到十点
+        if (hour<=htime1-12) {//時間沒到十點
             delayTime = (htime1-hour) * 60 * 60 - min * 60 - sec;
             figure=YES;
         }
@@ -95,7 +95,7 @@
     if (!figure) {
         delayTime=(weekDay-1)*24*60*60+hour*60*60+min*60+sec;
     }
-    //用一周时间 -已经度过时间+将要发生时间
+    //用一周時間 -已經度過時間+將要發生時間
     delayTime=7*24*60*60-delayTime+(htime1-12)*60*60+mtime1*60;
     return  [now dateByAddingTimeInterval:delayTime];
 }

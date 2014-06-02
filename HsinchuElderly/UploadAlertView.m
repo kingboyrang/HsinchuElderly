@@ -118,9 +118,9 @@
 - (void)handleKeyboardWillShowHideNotification:(NSNotification *)notification
 {
     NSDictionary *info = [notification userInfo];
-    //取得键盘的大小
+    //取得鍵盤的大小
     CGRect kbFrame = [[info valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    if ([notification.name isEqualToString:UIKeyboardWillShowNotification]) {//显示键盘
+    if ([notification.name isEqualToString:UIKeyboardWillShowNotification]) {//顯示鍵盤
        
         if (!DeviceIsPad) {
             CGRect r=self.frame;
@@ -128,7 +128,7 @@
             
             NSNumber *curve = [info objectForKey:UIKeyboardAnimationCurveUserInfoKey];
             NSNumber *duration = [info objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-            // 添加移动动画，使视图跟随键盘移动
+            // 增加移動動畫，使View跟隨鍵盤移動
             [UIView animateWithDuration:duration.doubleValue animations:^{
                 [UIView setAnimationBeginsFromCurrentState:YES];
                 [UIView setAnimationCurve:[curve intValue]];
@@ -136,7 +136,7 @@
             }];
         }
     }
-    else  {//隐藏键盘
+    else  {//隱藏鍵盤
         CGRect r=self.frame;
         r.origin.y=(DeviceRect.size.height-r.size.height)/2;
         [UIView animateWithDuration:[[info valueForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue] animations:^{
@@ -170,15 +170,15 @@
 //上傳
 - (void)buttonUploadClick:(UIButton*)btn{
     if ([[_fieldTitle.text Trim] length]==0) {
-        [AlertHelper initWithTitle:@"提示" message:@"圖片標題不為空!"];
+        [AlertHelper initWithTitle:@"提示" message:@"請輸入圖片標題！"];
         return;
     }
     if ([[_fieldEmail.text Trim] length]==0) {
-        [AlertHelper initWithTitle:@"提示" message:@"電子郵件不為空!"];
+        [AlertHelper initWithTitle:@"提示" message:@"請輸入電子郵件！"];
         return;
     }
     if (![_fieldEmail.text isEmail]) {
-        [AlertHelper initWithTitle:@"提示" message:@"電子郵件格式錯誤!"];
+        [AlertHelper initWithTitle:@"提示" message:@"電子郵件格式錯誤，請重新輸入！"];
         return;
     }
     [self showWithUploadHide:^{

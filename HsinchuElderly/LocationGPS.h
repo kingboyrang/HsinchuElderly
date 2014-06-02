@@ -19,11 +19,11 @@ typedef void (^finishCurrentLoactionBlock)(CLLocationCoordinate2D coor2D);
 @property (readwrite, nonatomic, copy) finishCurrentLoactionBlock currentLocationBlock;
 @property (readwrite, nonatomic, copy) finishLocationBlock finishlocationBlock;
 @property (readwrite, nonatomic, copy) failedLocationBlock failedlocationBlock;
-//单一实例
+//單一實例
 + (LocationGPS*)sharedInstance;
-//当前定位
+//目前定位
 - (void)startCurrentLocation:(void(^)(CLLocationCoordinate2D coor2D))completed failed:(void(^)(NSError *error))failed;
-//开始定位
+//開始定位
 -(void)startLocation:(void(^)(SVPlacemark *place))finish failed:(void(^)(NSError *error))failed;
 -(void)startLocation:(void(^)())progress completed:(void(^)(SVPlacemark *place))finish failed:(void(^)(NSError *error))failed;
 

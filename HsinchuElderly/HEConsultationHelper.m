@@ -12,7 +12,7 @@
 - (HEBasicTable)basicTable{
     return HEBasicWelfare;
 }
-//咨詢
+//諮詢
 - (NSString*)tableName{
     return @"1";
 }

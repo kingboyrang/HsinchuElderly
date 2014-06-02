@@ -65,13 +65,13 @@
             self.medicalAreas=[self.dbHelper areas];
         }
     });
-    //定位並加載數據
+    //定位並載入數據
     [self loadDataSource];
     
 }
 //定位並加載數據
 - (void)loadDataSource{
-    //取得当前位置
+    //取得目前位置
     LocationGPS *gps=[LocationGPS sharedInstance];
     [gps startCurrentLocation:^(CLLocationCoordinate2D coor2D) {
         self.Latitude=coor2D.latitude;
