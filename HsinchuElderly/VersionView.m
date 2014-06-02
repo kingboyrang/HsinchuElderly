@@ -7,7 +7,7 @@
 //
 
 #import "VersionView.h"
-
+#import "UIImage+TPCategory.h"
 @implementation VersionView
 
 - (id)initWithFrame:(CGRect)frame
@@ -47,7 +47,7 @@
         lab1.textAlignment=NSTextAlignmentCenter;
         [self addSubview:lab1];
         
-         w=w>size.width?w:size.width;
+        w=w>size.width?w:size.width;
         
         topY=lab1.frame.origin.y+lab1.frame.size.height+10;
         title=@"hchgL301@hchg.gov.tw";
@@ -61,7 +61,7 @@
         [self addSubview:lab2];
         
         
-         w=w>size.width?w:size.width;
+        w=w>size.width?w:size.width;
         
         r=self.frame;
         r.size.height=topY+size.height;
@@ -87,9 +87,32 @@
         _emailBtn.frame=CGRectMake(0, self.frame.size.height-(size.height+2), self.frame.size.width,size.height+2);
         [self addSubview:_emailBtn];
         
+     
+        
     }
     return self;
 }
-
+- (UIImage*)emailToImage{
+    UIView *bgView=[[UIView alloc] initWithFrame:CGRectZero];
+    
+  NSString* title=@"hchgL301@hchg.gov.tw";
+  CGSize  size=[title textSize:[UIFont fontWithName:defaultDeviceFontName size:20] withWidth:self.bounds.size.width];
+    UILabel *lab2=[[UILabel alloc] initWithFrame:CGRectMake(0, 0,size.width, size.height)];
+    lab2.backgroundColor=[UIColor clearColor];
+    lab2.textColor=[UIColor colorFromHexRGB:@"0498c7"];
+    lab2.font=[UIFont fontWithName:defaultDeviceFontName size:20];
+    lab2.text=title;
+    lab2.textAlignment=NSTextAlignmentCenter;
+    [bgView addSubview:lab2];
+    
+    UILabel *labline=[[UILabel alloc] initWithFrame:CGRectMake(0,size.height,size.width, 2)];
+    labline.backgroundColor=[UIColor colorFromHexRGB:@"0498c7"];
+    [bgView addSubview:labline];
+    bgView.frame=CGRectMake(0, 0, size.width, labline.frame.origin.y+labline.frame.size.height);
+    
+    UIImage *img=[UIImage getImageFromView:bgView];
+    return img;
+    
+}
 
 @end

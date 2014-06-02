@@ -36,6 +36,12 @@
     return 0;
 }
 - (NSDate*)repeatDate{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:mm:ss"];
+    //触发通知的时间
+    //NSDate *now = [formatter dateFromString:@"15:00:00"];
+    return [formatter dateFromString:[NSString stringWithFormat:@"%@:00",[self TimeSpan]]];
+    
     NSDate* now = [NSDate date];
 	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	NSDateComponents *comps = [[NSDateComponents alloc] init];

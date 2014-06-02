@@ -35,9 +35,16 @@
         }
         return NSCalendarUnitWeekday;
     }
-    return 0;
+    return NSCalendarUnitWeekday;
 }
 - (NSDate*)repeatDate{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:mm:ss"];
+    //触发通知的时间
+    //NSDate *now = [formatter dateFromString:@"15:00:00"];
+    return [formatter dateFromString:[NSString stringWithFormat:@"%@:00",[self TimeSpan]]];
+    
+    
     NSDate* now = [NSDate date];
 	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	NSDateComponents *comps = [[NSDateComponents alloc] init];
@@ -76,14 +83,18 @@
 	    int hm=(hs*3600)+(ms*60)-sec;
         return [now dateByAddingTimeInterval:hm];
     }
-    
+    NSString *str=[NSDate stringFromDate:now withFormat:@"yyyy-MM-dd"];
+    str=[NSString stringWithFormat:@"%@ %@",str,[self TimeSpan]];
+    NSLog(@"str=%@",str);
+    return [NSDate dateFromString:str withFormat:@"yyyy-MM-dd HH:mm"];
+    /***
     long int delayTime;
     BOOL figure=NO;
-    delayTime = (24 -hour+htime1-12) * 60 * 60 - min * 60 - sec + 24 * 60 * 60;
+    delayTime = (24 -hour+htime1) * 60 * 60 - min * 60 - sec + 24 * 60 * 60;
     
     int wd=weekDay==1?7:weekDay-1;
     if (wd==[self.Rate intValue]) {//表示同一天
-        if (hour<=htime1-12) {//时间没到十点
+        if (hour<=htime1) {//时间没到十点
             delayTime = (htime1-hour) * 60 * 60 - min * 60 - sec;
             figure=YES;
         }
@@ -92,8 +103,10 @@
         delayTime=(weekDay-1)*24*60*60+hour*60*60+min*60+sec;
     }
     //用一周时间 -已经度过时间+将要发生时间
-    delayTime=7*24*60*60-delayTime+(htime1-12)*60*60+mtime1*60;
+    delayTime=7*24*60*60-delayTime+htime1*60*60+mtime1*60;
     return  [now dateByAddingTimeInterval:delayTime];
+     ***/
+     
     /***
     NSDate *date = [NSDate date];
     NSCalendar *calendar = [NSCalendar currentCalendar];
