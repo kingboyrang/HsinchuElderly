@@ -3,12 +3,7 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "u_top.png"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "u_top@2x.png"
+      "filename" : "u_bottom_ipad.png"
     }
   ],
   "info" : {

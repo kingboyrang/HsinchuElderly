@@ -34,7 +34,7 @@
     //self.view.backgroundColor=[UIColor colorFromHexRGB:@"fffbbe"];
     self.title=@"分享照片";
     //頂部圖片
-    UIImage *topImg=[UIImage imageNamed:@"u_top"];
+    UIImage *topImg=[UIImage imageNamed:[self imageNameWithName:@"u_top" forType:@"png"]];
     UIImageView *imageView1=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, topImg.size.width, topImg.size.height)];
     [imageView1 setImage:topImg];
     [self.view addSubview:imageView1];
@@ -53,7 +53,7 @@
     [self.view addSubview:_uploadBtn];
     
     //底部圖片
-    UIImage *bottomImg=[UIImage imageNamed:@"u_bottom"];
+    UIImage *bottomImg=[UIImage imageNamed:[self imageNameWithName:@"u_bottom" forType:@"png"]];
     UIImageView *imageView2=[[UIImageView alloc] initWithFrame:CGRectMake(0,_uploadBtn.frame.origin.y-bottomImg.size.height-10, bottomImg.size.width, bottomImg.size.height)];
     [imageView2 setImage:bottomImg];
     [self.view addSubview:imageView2];
