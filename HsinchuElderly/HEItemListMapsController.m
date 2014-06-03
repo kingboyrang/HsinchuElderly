@@ -137,6 +137,35 @@
     
     return bg;
 }
+//開始當前定位
+- (void)startCurrentLocation{
+    LocationGPS *gps=[LocationGPS sharedInstance];
+    [gps startCurrentLocation:^(CLLocationCoordinate2D coor2D) {
+        
+        MKPointAnnotation *ann = [[MKPointAnnotation alloc] init];
+        ann.coordinate = coor2D;
+        [ann setTitle:@"當前位置"];
+        //[ann setSubtitle:self.Address];
+        //觸發viewForAnnotation
+        [self.map addAnnotation:ann];
+        
+        MKCoordinateRegion region;
+        MKCoordinateSpan span;
+        span.latitudeDelta=0.1; //zoom level
+        span.longitudeDelta=0.1; //zoom level
+        region.span=span;
+        region.center=coor2D;
+        // 設置顯示位置(動畫)
+        [self.map setRegion:region animated:YES];
+        // 設置地圖顯示的類型及根據範圍進行顯示
+        [self.map regionThatFits:region];
+        //預設選中
+        [self.map selectAnnotation:ann animated:YES];
+        
+    } failed:^(NSError *error) {
+        
+    }];
+}
 - (void)loadAnnotationWithSource:(NSArray*)source{
     
     if ([source count]==0) {
@@ -162,6 +191,7 @@
         dispatch_apply([source count], queue, ^(size_t index){
             BasicModel *entity=source[index];
             dispatch_async(dispatch_get_main_queue(), ^{
+               
                 static int total=0;
                 CLLocationCoordinate2D coor=entity.coordinate;
                 MKCoordinateRegion region=MKCoordinateRegionMakeWithDistance(coor,40000 ,40000);
@@ -180,33 +210,7 @@
                         [[self.view viewWithTag:301] removeFromSuperview];
                     }
                     total=0;
-                    
-                    LocationGPS *gps=[LocationGPS sharedInstance];
-                    [gps startCurrentLocation:^(CLLocationCoordinate2D coor2D) {
-                        
-                        MKPointAnnotation *ann = [[MKPointAnnotation alloc] init];
-                        ann.coordinate = coor2D;
-                        [ann setTitle:@"當前位置"];
-                        //[ann setSubtitle:self.Address];
-                        //觸發viewForAnnotation
-                        [self.map addAnnotation:ann];
-                        
-                        MKCoordinateRegion region;
-                        MKCoordinateSpan span;
-                        span.latitudeDelta=0.1; //zoom level
-                        span.longitudeDelta=0.1; //zoom level
-                        region.span=span;
-                        region.center=coor2D;
-                        // 設置顯示位置(動畫)
-                        [self.map setRegion:region animated:YES];
-                        // 設置地圖顯示的類型及根據範圍進行顯示
-                        [self.map regionThatFits:region];
-                        //預設選中
-                        [self.map selectAnnotation:ann animated:YES];
-                       
-                    } failed:^(NSError *error) {
-                       
-                    }];
+                    [self startCurrentLocation];
                     return;
                 }
                 total++;
