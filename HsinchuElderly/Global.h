@@ -37,7 +37,6 @@
 
 //图片上传
 //http://60.251.51.217/Hchg_Elderly/WebService.asmx
-//#define DataWebserviceURL @"http://192.168.123.150:8080/WebService.asmx"
 #define DataWebserviceURL @"http://data.hsinchu.gov.tw/hchggrandpa/WebService.asmx"
 #define DataWeserviceNameSpace @"http://tempuri.org/"
 

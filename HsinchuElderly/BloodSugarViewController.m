@@ -105,7 +105,7 @@
     }
     BloodSugar *entity=self.list[indexPath.row];
     cell.drugName.text=[self getShowName:entity];
-    cell.timeText.text=entity.TimeSpanText;
+    cell.timeText.text=entity.TimeSpan;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -120,7 +120,7 @@
     size=[entity.TimeSpanText textSize:[UIFont fontWithName:defaultDeviceFontName size:14] withWidth:w];
     total+=size.height+topY;
     
-    return total>60.0f?total:60.0f;
+    return total>70.0f?total:70.0f;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

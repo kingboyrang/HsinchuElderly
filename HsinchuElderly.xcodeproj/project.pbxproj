@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01382B861935FB0E005AAD8E /* remind.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 01382B851935FB0E005AAD8E /* remind.sqlite */; };
 		01382B8A19370035005AAD8E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01382B8919370035005AAD8E /* MessageUI.framework */; };
 		01382B8D19371700005AAD8E /* TKTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382B8C19371700005AAD8E /* TKTextFieldCell.m */; };
 		01382B90193718BA005AAD8E /* TKSelectFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382B8F193718BA005AAD8E /* TKSelectFieldCell.m */; };
@@ -20,6 +19,7 @@
 		01382BAE19386635005AAD8E /* TKWelfareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382BAD19386635005AAD8E /* TKWelfareCell.m */; };
 		01382BB1193868D3005AAD8E /* HEWelfareSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382BB0193868D3005AAD8E /* HEWelfareSearchController.m */; };
 		01565F8E1939795500873B3E /* UploadAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01565F8D1939795500873B3E /* UploadAlertView.m */; };
+		01565FFF193D740200873B3E /* remind.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 01565FFE193D740200873B3E /* remind.sqlite */; };
 		0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01622222191CC6C500B4AD50 /* AnimateLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221F191CC6C500B4AD50 /* AnimateLoadView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01622223191CC6C500B4AD50 /* AnimateErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01622221191CC6C500B4AD50 /* AnimateErrorView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -71,7 +71,6 @@
 		01A974561921BEAB0073530F /* TKEmptyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974551921BEAB0073530F /* TKEmptyCell.m */; };
 		01A974591921FD4D0073530F /* BasicMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974581921FD4D0073530F /* BasicMapAnnotation.m */; };
 		01A9745C192203BB0073530F /* TKLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9745B192203BB0073530F /* TKLineCell.m */; };
-		01A9752019231DC90073530F /* HsinchuElderly.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 01A9751F19231DC90073530F /* HsinchuElderly.sqlite */; };
 		01A9752319231E730073530F /* HEConsultation.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9752219231E730073530F /* HEConsultation.m */; };
 		01A9752619231E980073530F /* HEConsultationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9752519231E980073530F /* HEConsultationHelper.m */; };
 		01A9752B192338BC0073530F /* LotteryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9752A192338BC0073530F /* LotteryViewController.m */; };
@@ -163,7 +162,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01382B851935FB0E005AAD8E /* remind.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = remind.sqlite; sourceTree = "<group>"; };
 		01382B8919370035005AAD8E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		01382B8B19371700005AAD8E /* TKTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTextFieldCell.h; sourceTree = "<group>"; };
 		01382B8C19371700005AAD8E /* TKTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTextFieldCell.m; sourceTree = "<group>"; };
@@ -187,6 +185,7 @@
 		01382BB0193868D3005AAD8E /* HEWelfareSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEWelfareSearchController.m; sourceTree = "<group>"; };
 		01565F8C1939795500873B3E /* UploadAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadAlertView.h; sourceTree = "<group>"; };
 		01565F8D1939795500873B3E /* UploadAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadAlertView.m; sourceTree = "<group>"; };
+		01565FFE193D740200873B3E /* remind.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = remind.sqlite; sourceTree = "<group>"; };
 		0162221B191CC57D00B4AD50 /* NSDate+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TPCategory.h"; sourceTree = "<group>"; };
 		0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TPCategory.m"; sourceTree = "<group>"; };
 		0162221E191CC6C500B4AD50 /* AnimateLoadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimateLoadView.h; sourceTree = "<group>"; };
@@ -285,7 +284,6 @@
 		01A974581921FD4D0073530F /* BasicMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMapAnnotation.m; sourceTree = "<group>"; };
 		01A9745A192203BB0073530F /* TKLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLineCell.h; sourceTree = "<group>"; };
 		01A9745B192203BB0073530F /* TKLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLineCell.m; sourceTree = "<group>"; };
-		01A9751F19231DC90073530F /* HsinchuElderly.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = HsinchuElderly.sqlite; sourceTree = "<group>"; };
 		01A9752119231E730073530F /* HEConsultation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEConsultation.h; sourceTree = "<group>"; };
 		01A9752219231E730073530F /* HEConsultation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEConsultation.m; sourceTree = "<group>"; };
 		01A9752419231E980073530F /* HEConsultationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEConsultationHelper.h; sourceTree = "<group>"; };
@@ -570,8 +568,7 @@
 		01A97384191DEFD20073530F /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				01382B851935FB0E005AAD8E /* remind.sqlite */,
-				01A9751F19231DC90073530F /* HsinchuElderly.sqlite */,
+				01565FFE193D740200873B3E /* remind.sqlite */,
 				01A97385191DF0120073530F /* Frequency.plist */,
 			);
 			name = Source;
@@ -1203,7 +1200,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01A9752019231DC90073530F /* HsinchuElderly.sqlite in Resources */,
 				26DEBA35191F440F0007DB43 /* blueArrow@2x.png in Resources */,
 				01CDC1C0191A220A0002AE47 /* Images.xcassets in Resources */,
 				26DEBA37191F440F0007DB43 /* blueArrowDown@2x.png in Resources */,
@@ -1211,7 +1207,7 @@
 				26DEBA34191F440F0007DB43 /* blueArrow.png in Resources */,
 				0189C52819343E3B002ED63A /* iTunesArtwork in Resources */,
 				26DEBA36191F440F0007DB43 /* blueArrowDown.png in Resources */,
-				01382B861935FB0E005AAD8E /* remind.sqlite in Resources */,
+				01565FFF193D740200873B3E /* remind.sqlite in Resources */,
 				01A97386191DF0120073530F /* Frequency.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

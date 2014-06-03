@@ -33,9 +33,8 @@
     [sources addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"所有區域",@"Name",@"",@"ID", nil]];
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
     if ([db open]) {
-        //InformationArea
-        //NSString *sql=[NSString stringWithFormat:@"SELECT * FROM %@ order by Sort ASC",[self areaTableName]];
-        NSString *sql=@"SELECT * FROM InformationArea order by Sort ASC";
+        NSString *sql=[NSString stringWithFormat:@"SELECT * FROM InformationArea where exists(select 1 from  Information where  TYPE='%@' and ADDRESS like '%%' || InformationArea.Name || '%%') order by Sort ASC",[self tableName]];
+        //NSLog(@"sql=%@",sql);
         FMResultSet *rs = [db executeQuery:sql];
         while (rs.next) {
             [sources addObject:[NSDictionary dictionaryWithObjectsAndKeys:[rs stringForColumn:@"Name"],@"Name",[rs stringForColumn:@"Name"],@"ID", nil]];

@@ -58,14 +58,13 @@
     [self.view addSubview:imageView2];
     
     //圖片預覽部分背景
-    topY=imageView1.frame.origin.y+imageView1.frame.size.height;
-    CGFloat h=imageView2.frame.origin.y-topY;
+    topY=imageView1.frame.origin.y+imageView1.frame.size.height-(DeviceIsPad?30:13);
+    CGFloat h=imageView2.frame.origin.y-topY+(DeviceIsPad?85:34);
     CGRect r=CGRectMake(0, topY, self.view.bounds.size.width, h);
     self.maxRect=r;
-    UIView *bgView=[[UIView alloc] initWithFrame:r];
-    //bgView.backgroundColor=[UIColor colorFromHexRGB:@"b4ec39"];
-    bgView.backgroundColor=[UIColor clearColor];
-    [self.view addSubview:bgView];
+    //UIView *bgView=[[UIView alloc] initWithFrame:r];
+    //bgView.backgroundColor=[UIColor clearColor];
+    //[self.view addSubview:bgView];
     
     //最底部
     topY=imageView2.frame.origin.y+imageView2.frame.size.height;
@@ -82,6 +81,7 @@
     _previewImageView=[[UIImageView alloc] initWithFrame:CGRectMake((self.view.bounds.size.width-imgSize.width)/2, topY, imgSize.width, imgSize.height)];
     [_previewImageView setImage:self.uploadImage];
     [self.view addSubview:_previewImageView];
+    [self.view sendSubviewToBack:_previewImageView];
     
 }
 //圖片等比例顯示
@@ -120,7 +120,7 @@
     }
     
     _uploadBtn.enabled=NO;
-    [self showLoadingAnimatedWithTitle:@"上傳中，請稍後..."];
+    [self showLoadingAnimatedWithTitle:@"正在上傳圖片..."];
     
     NSMutableArray *params=[NSMutableArray array];
     [params addObject:[NSDictionary dictionaryWithObjectsAndKeys:[self.uploadImage imageBase64String],@"imgBase64String", nil]];
@@ -135,8 +135,8 @@
     [engine requestWithArgs:args success:^(MKNetworkOperation *completedOperation) {
         //NSLog(@"xml=%@",completedOperation.responseString);
         _uploadBtn.enabled=YES;
-        [self hideLoadingViewAnimated:^(AnimateLoadView *hideView) {
-             [self.navigationController popToRootViewControllerAnimated:YES];
+        [self hideLoadingSuccessWithTitle:@"照片上傳完成" completed:^(AnimateErrorView *successView) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }];
     } failure:^(MKNetworkOperation *completedOperation, NSError *error) {
         _uploadBtn.enabled=YES;

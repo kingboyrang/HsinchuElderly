@@ -50,7 +50,7 @@
     _titleView.backgroundColor=[UIColor clearColor];
     
     _titleView.textAlignment = NSTextAlignmentLeft;
-    _titleView.textColor = [UIColor colorFromHexRGB:@"2da6de"];
+    _titleView.textColor = [UIColor colorFromHexRGB:@"fc9a08"];
     CGFloat xWidth = self.bounds.size.width;
     _titleView.lineBreakMode = UILineBreakModeTailTruncation;
     _titleView.frame = CGRectMake(5, 0, xWidth, 32.0f);
@@ -58,7 +58,7 @@
     
     //新增一條橫線
     UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 32, xWidth, 5)];
-    [imageView setImage:[UIImage createImageWithColor:[UIColor colorFromHexRGB:@"2da6de"] imageSize:CGSizeMake(xWidth, 5)]];
+    [imageView setImage:[UIImage createImageWithColor:[UIColor colorFromHexRGB:@"fc9a08"] imageSize:CGSizeMake(xWidth, 5)]];
     [self addSubview:imageView];
     
     

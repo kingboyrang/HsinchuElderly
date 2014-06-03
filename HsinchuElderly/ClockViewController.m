@@ -45,7 +45,7 @@
     // Do any additional setup after loading the view.
 }
 - (void)addMenuItemWithFrame:(CGRect)frame title:(NSString*)title tag:(NSInteger)tag{
-    UIImage *img1=[UIImage imageNamed:@"btn_bg_cor.png"];
+    UIImage *img1=[UIImage imageNamed:@"btn_bg.png"];
     
 
    CGFloat normalLeftCap = img1.size.width * 0.5f;
@@ -55,8 +55,6 @@
     UIEdgeInsets insets = UIEdgeInsetsMake(normalTopCap, normalLeftCap, normalTopCap - 1, normalLeftCap - 1);
     // ios6.0的延伸方式只不過比iOS5.0多了一個延伸模式參數
     img1=[img1 resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
-    
-    //UIImage *sliderImgName = [img1     resizableImageWithCapInsets:UIEdgeInsetsMake(img1.size.height/2-2, img1.size.width/2-2, img1.size.height/2-2, img1.size.width/2-2)];
 
     UIButton *btn=[UIButton buttonWithType:UIButtonTypeSystem];
     btn.frame=frame;
@@ -64,7 +62,6 @@
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setTitleColor:defaultDeviceFontColor forState:UIControlStateNormal];
     btn.titleLabel.font=defaultBDeviceFont;//Courier-Bold Helvetica-Bold
-    //btn.contentMode=UIViewContentModeScaleAspectFill;
     [btn addTarget:self action:@selector(buttonMenuItemClick:) forControlEvents:UIControlEventTouchUpInside];
     [btn setBackgroundImage:img1 forState:UIControlStateNormal];
     [self.view addSubview:btn];

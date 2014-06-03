@@ -59,5 +59,13 @@
     r.origin.x=self.frame.size.width-r.size.width-25;
     _deleteButton.frame=r;
     
+    r=_drugName.frame;
+    r.origin.y=(self.frame.size.height-r.size.height-5-_timeText.frame.size.height)/2;
+    _drugName.frame=r;
+    
+    r=_timeText.frame;
+    r.origin.y=_drugName.frame.origin.y+size.height+5;
+    _timeText.frame=r;
+    
 }
 @end

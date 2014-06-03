@@ -314,9 +314,7 @@
         return [NSString stringWithFormat:@"b%@.png",entity.CategoryGuid];
     }
     else  if ([entity.AreaGuid isEqualToString:@"4"]) {//休閒
-        if ([entity.CategoryGuid intValue]<3) {
-             return [NSString stringWithFormat:@"c%@.png",entity.CategoryGuid];
-        }
+        return [NSString stringWithFormat:@"c%@.png",entity.CategoryGuid];
     }else{//福利
     
     }
