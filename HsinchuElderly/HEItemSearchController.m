@@ -62,7 +62,7 @@
             self.medicalCategorys=[self.dbHelper categorys];
         }
         if ([self.medicalAreas count]==0) {
-            self.medicalAreas=[self.dbHelper areas];
+            self.medicalAreas=[self.dbHelper areasWithCategory:@""];
         }
     });
     //定位並載入數據
@@ -92,6 +92,7 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         // 處理耗時操作的block...
         NSMutableArray *arr=[self.dbHelper searchWithCategory:self.categoryGuid aresGuid:self.areaGuid];
+        //self.medicalAreas=[self.dbHelper searchAreaWithCategory:self.categoryGuid areaGuid:self.areaGuid source:nil];
             //通知MainThread更新
             dispatch_async(dispatch_get_main_queue(), ^{
                NSArray *sortArray=[arr sortedArrayUsingComparator: ^(id obj1, id obj2) {
@@ -173,6 +174,9 @@
         [_topBarView.categoryButton setTitle:[dic objectForKey:@"Name"] forState:UIControlStateNormal];
         if (![self.categoryGuid isEqualToString:[dic objectForKey:@"ID"]]) {
             self.categoryGuid=[dic objectForKey:@"ID"];
+            self.areaGuid=@"";
+            self.medicalAreas=[self.dbHelper areasWithCategory:self.categoryGuid];
+            [_topBarView.areaButton setTitle:@"所有區域" forState:UIControlStateNormal];
             [self loadDataSource];
         }
     }else{//區域

@@ -16,6 +16,16 @@
     poplistview.listView.scrollEnabled = YES;
     [poplistview setTitle:title];
     [poplistview show];
+    [poplistview reloadSource];
+    
+}
+- (void)reloadSourceWithArray:(NSArray*)source{
+    NSMutableArray *arr=[NSMutableArray array];
+    if (source&&[self.sources count]>0) {
+        [arr addObjectsFromArray:source];
+    }
+    self.sources=arr;
+    //[];
 }
 #pragma mark - UIPopoverListViewDataSource
 

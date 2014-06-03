@@ -20,6 +20,8 @@
 @property (nonatomic,copy) NSString *Lat;
 @property (nonatomic,copy) NSString *Lng;//DISTANCE
 @property (nonatomic,copy) NSString *Distance;
+@property (nonatomic,copy) NSString *Detial;
+@property (nonatomic,copy) NSString *Register;
 @property (nonatomic, strong) SVPlacemark *placemark;
 @property (nonatomic,readonly) CLLocationCoordinate2D coordinate;
 -(double)distanceWithLatitude:(double)lat longitude:(double)lng;

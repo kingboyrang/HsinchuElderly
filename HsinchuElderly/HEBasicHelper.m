@@ -13,6 +13,44 @@
 @end
 
 @implementation HEBasicHelper
+- (id)init{
+    if (self=[super init]) {
+        self.allAreas=[self areas];
+    }
+    return self;
+}
+- (NSMutableArray*)searchAreaWithCategory:(NSString*)guid areaGuid:(NSString*)areaGuid source:(NSArray*)source{
+    if (source==nil) {
+        source=[self searchWithCategory:guid aresGuid:@""];
+    }
+    NSLog(@"len=%d",[source count]);
+    NSMutableArray *result=[NSMutableArray array];
+    [result addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"所有區域",@"Name",@"",@"ID", nil]];
+    if (source&&[source count]>0&&self.allAreas&&[self.allAreas count]>0) {
+       
+        for (NSDictionary *item in self.allAreas) {
+            if ([[item objectForKey:@"Name"] isEqualToString:@"所有區域"]) {
+                continue;
+            }
+            NSString *memo=areaGuid&&[areaGuid length]>0?[NSString stringWithFormat:@" AND self.CategoryGuid=='%@'",guid]:@"";
+            NSString *match=[NSString stringWithFormat:@"SELF.Address CONTAINS[cd] '%@'%@",[item objectForKey:@"Name"],memo];
+            NSLog(@"match=%@",match);
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:match];
+            NSArray *arr=[source filteredArrayUsingPredicate:predicate];
+            if (arr&&[arr count]>0) {
+                
+                 NSString *match1=[NSString stringWithFormat:@"SELF.Name=='%@'",[item objectForKey:@"Name"]];
+                 NSPredicate *predicate1 = [NSPredicate predicateWithFormat:match1];
+                 NSArray *arr1=[result filteredArrayUsingPredicate:predicate1];
+                if ([arr1 count]==0) {
+                    [result addObject:item];
+                }
+                
+            }
+        }
+    }
+    return result;
+}
 - (NSMutableArray*)categorys{
     NSMutableArray *sources=[NSMutableArray array];
     [sources addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"所有類別",@"Name",@"",@"ID", nil]];
@@ -34,8 +72,35 @@
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
     if ([db open]) {
         NSString *sql=[NSString stringWithFormat:@"SELECT * FROM InformationArea where exists(select 1 from  Information where  TYPE='%@' and ADDRESS like '%%' || InformationArea.Name || '%%') order by Sort ASC",[self tableName]];
+        //NSString *sql=@"SELECT * FROM InformationArea";
+
         //NSLog(@"sql=%@",sql);
         FMResultSet *rs = [db executeQuery:sql];
+        while (rs.next) {
+            [sources addObject:[NSDictionary dictionaryWithObjectsAndKeys:[rs stringForColumn:@"Name"],@"Name",[rs stringForColumn:@"Name"],@"ID", nil]];
+        }
+        [db close];
+    }
+    return sources;
+}
+- (NSMutableArray*)areasWithCategory:(NSString*)guid{
+    NSMutableArray *sources=[NSMutableArray array];
+    [sources addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"所有區域",@"Name",@"",@"ID", nil]];
+    FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
+    if ([db open]) {
+        /***
+         select * from InformationArea,Information
+         where Information.TYPE='1';
+         ***/
+        NSMutableString *cmdText=[NSMutableString stringWithFormat:@"SELECT * FROM InformationArea where exists"];
+        [cmdText appendFormat:@"(select 1 from  Information where  TYPE='%@' and ADDRESS like '%%' || InformationArea.Name || '%%'",[self tableName]];
+        if (guid&&[guid length]>0) {
+            [cmdText appendFormat:@" and CATEGORY='%@')",guid];
+        }else{
+            [cmdText appendString:@")"];
+        }
+        [cmdText appendString:@" order by Sort ASC"];
+        FMResultSet *rs = [db executeQuery:cmdText];
         while (rs.next) {
             [sources addObject:[NSDictionary dictionaryWithObjectsAndKeys:[rs stringForColumn:@"Name"],@"Name",[rs stringForColumn:@"Name"],@"ID", nil]];
         }
@@ -65,6 +130,8 @@
             entity.Lat=[rs stringForColumn:@"LAT"];
             entity.Lng=[rs stringForColumn:@"LNG"];
             entity.Distance=[rs stringForColumn:@"DISTANCE"];
+            entity.Detial=[rs stringForColumn:@"DETIAL"];
+            entity.Register=[rs stringForColumn:@"REGISTER"];
             [self setColumnValueWithModel:entity resultSet:rs];
             [sources addObject:entity];
         }
@@ -112,6 +179,8 @@
             entity.Lat=[rs stringForColumn:@"LAT"];
             entity.Lng=[rs stringForColumn:@"LNG"];
             entity.Distance=[rs stringForColumn:@"DISTANCE"];
+            entity.Detial=[rs stringForColumn:@"DETIAL"];
+            entity.Register=[rs stringForColumn:@"REGISTER"];
             [self setColumnValueWithModel:entity resultSet:rs];
             [sources addObject:entity];
         }
@@ -150,6 +219,8 @@
             entity.Lat=[rs stringForColumn:@"LAT"];
             entity.Lng=[rs stringForColumn:@"LNG"];
             entity.Distance=[rs stringForColumn:@"DISTANCE"];
+            entity.Detial=[rs stringForColumn:@"DETIAL"];
+            entity.Register=[rs stringForColumn:@"REGISTER"];
             [self setColumnValueWithModel:entity resultSet:rs];
             [sources addObject:entity];
         }

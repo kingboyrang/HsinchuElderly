@@ -19,7 +19,8 @@
 		01382BAE19386635005AAD8E /* TKWelfareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382BAD19386635005AAD8E /* TKWelfareCell.m */; };
 		01382BB1193868D3005AAD8E /* HEWelfareSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382BB0193868D3005AAD8E /* HEWelfareSearchController.m */; };
 		01565F8E1939795500873B3E /* UploadAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01565F8D1939795500873B3E /* UploadAlertView.m */; };
-		01566009193DEF5B00873B3E /* remind.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 01566008193DEF5B00873B3E /* remind.sqlite */; };
+		01566010193E1B4B00873B3E /* TKDetailDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0156600F193E1B4B00873B3E /* TKDetailDataCell.m */; };
+		01566012193E2D2A00873B3E /* remind.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 01566011193E2D2A00873B3E /* remind.sqlite */; };
 		0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01622222191CC6C500B4AD50 /* AnimateLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221F191CC6C500B4AD50 /* AnimateLoadView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01622223191CC6C500B4AD50 /* AnimateErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01622221191CC6C500B4AD50 /* AnimateErrorView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -185,7 +186,9 @@
 		01382BB0193868D3005AAD8E /* HEWelfareSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEWelfareSearchController.m; sourceTree = "<group>"; };
 		01565F8C1939795500873B3E /* UploadAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadAlertView.h; sourceTree = "<group>"; };
 		01565F8D1939795500873B3E /* UploadAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadAlertView.m; sourceTree = "<group>"; };
-		01566008193DEF5B00873B3E /* remind.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = remind.sqlite; sourceTree = "<group>"; };
+		0156600E193E1B4B00873B3E /* TKDetailDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDetailDataCell.h; sourceTree = "<group>"; };
+		0156600F193E1B4B00873B3E /* TKDetailDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDetailDataCell.m; sourceTree = "<group>"; };
+		01566011193E2D2A00873B3E /* remind.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = remind.sqlite; sourceTree = "<group>"; };
 		0162221B191CC57D00B4AD50 /* NSDate+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TPCategory.h"; sourceTree = "<group>"; };
 		0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TPCategory.m"; sourceTree = "<group>"; };
 		0162221E191CC6C500B4AD50 /* AnimateLoadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimateLoadView.h; sourceTree = "<group>"; };
@@ -568,7 +571,7 @@
 		01A97384191DEFD20073530F /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				01566008193DEF5B00873B3E /* remind.sqlite */,
+				01566011193E2D2A00873B3E /* remind.sqlite */,
 				01A97385191DF0120073530F /* Frequency.plist */,
 			);
 			name = Source;
@@ -663,6 +666,8 @@
 				01382BA219382895005AAD8E /* TKHEItemCell.m */,
 				01382BA819383885005AAD8E /* ToolSearchShow.h */,
 				01382BA919383885005AAD8E /* ToolSearchShow.m */,
+				0156600E193E1B4B00873B3E /* TKDetailDataCell.h */,
+				0156600F193E1B4B00873B3E /* TKDetailDataCell.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1207,7 +1212,7 @@
 				26DEBA34191F440F0007DB43 /* blueArrow.png in Resources */,
 				0189C52819343E3B002ED63A /* iTunesArtwork in Resources */,
 				26DEBA36191F440F0007DB43 /* blueArrowDown.png in Resources */,
-				01566009193DEF5B00873B3E /* remind.sqlite in Resources */,
+				01566012193E2D2A00873B3E /* remind.sqlite in Resources */,
 				01A97386191DF0120073530F /* Frequency.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1318,6 +1323,7 @@
 				01BFE053191C896A00095A8A /* UIBarButtonItem+TPCategory.m in Sources */,
 				01A9755A19236A060073530F /* NSString+MKNetworkKitAdditions.m in Sources */,
 				01A9752F19233B9E0073530F /* ActivityView.m in Sources */,
+				01566010193E1B4B00873B3E /* TKDetailDataCell.m in Sources */,
 				01622223191CC6C500B4AD50 /* AnimateErrorView.m in Sources */,
 				01A97383191DD1C10073530F /* TKLabelSelectCell.m in Sources */,
 				01A9741F1920C4460073530F /* BasicModel.m in Sources */,

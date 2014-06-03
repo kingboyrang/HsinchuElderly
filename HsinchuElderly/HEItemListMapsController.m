@@ -65,10 +65,11 @@
             if ([self.medicalCategorys count]==0) {
                 self.medicalCategorys=[self.dbHelper categorys];
             }
+           
         }
         if (i==1) {
             if ([self.medicalAreas count]==0) {
-                self.medicalAreas=[self.dbHelper areas];
+                self.medicalAreas=[self.dbHelper areasWithCategory:@""];
             }
         }
         if (i==2) {
@@ -329,6 +330,9 @@
         [_topBarView.categoryButton setTitle:[dic objectForKey:@"Name"] forState:UIControlStateNormal];
         if (![self.categoryGuid isEqualToString:[dic objectForKey:@"ID"]]) {
             self.categoryGuid=[dic objectForKey:@"ID"];
+            self.areaGuid=@"";
+            self.medicalAreas=[self.dbHelper areasWithCategory:self.categoryGuid];
+            [_topBarView.areaButton setTitle:@"所有區域" forState:UIControlStateNormal];
             boo=YES;
         }
     }else{//區域

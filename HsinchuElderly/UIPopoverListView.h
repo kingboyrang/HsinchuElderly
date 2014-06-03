@@ -53,5 +53,6 @@
 
 - (void)show;
 - (void)dismiss;
+- (void)reloadSource;
 
 @end

@@ -169,6 +169,9 @@
                               keywindow.bounds.size.height/2.0f);
     [self fadeIn];
 }
+- (void)reloadSource{
+    [_listView reloadData];
+}
 
 - (void)dismiss
 {

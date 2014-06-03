@@ -13,6 +13,7 @@
 #import "ShowMapController.h"
 #import "ShowMapController.h"
 #import "AlertHelper.h"
+#import "TKDetailDataCell.h"
 @interface HEItemDetailController ()
 
 @end
@@ -45,31 +46,50 @@
     _detailTable.separatorStyle=UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_detailTable];
     
-    TKLabelLabelCell *cell1=[[TKLabelLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell1.labName.text=@"名稱：";
-    cell1.labDetail.text=self.Entity.Name;
-    
-    TKLabelLabelCell *cell2=[[TKLabelLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell2.labName.text=@"電話：";
-    cell2.labDetail.text=self.Entity.Tel;
-    
-    TKLabelLabelCell *cell3=[[TKLabelLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell3.labName.text=@"地址：";
-    cell3.labDetail.text=self.Entity.Address;
-    
-    if(self.Entity.WebSiteURL&&[self.Entity.WebSiteURL length]>0){
-        TKLabelLabelCell *cell4=[[TKLabelLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-        cell4.labName.text=@"網址：";
-        cell4.labDetail.text=self.Entity.WebSiteURL;
-        self.cells=[NSMutableArray arrayWithObjects:cell1,cell2,cell3,cell4, nil];
-    }else{
-        self.cells=[NSMutableArray arrayWithObjects:cell1,cell2,cell3, nil];
-    }
-    
+    self.cells=[self getTableSource];
+    [_detailTable reloadData];
     
     
 }
-
+- (NSMutableArray*)getTableSource{
+  
+    
+    TKDetailDataCell *cell1=[[TKDetailDataCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell1.labName.text=@"名稱：";
+    cell1.labDetail.text=self.Entity.Name;
+    
+    TKDetailDataCell *cell2=[[TKDetailDataCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell2.labName.text=@"電話：";
+    cell2.labDetail.text=self.Entity.Tel;
+    
+    TKDetailDataCell *cell3=[[TKDetailDataCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell3.labName.text=@"地址：";
+    cell3.labDetail.text=self.Entity.Address;
+    
+    NSMutableArray *source=[NSMutableArray arrayWithObjects:cell1,cell2,cell3, nil];
+    
+    if(self.Entity.WebSiteURL&&[self.Entity.WebSiteURL length]>0){
+        TKDetailDataCell *cell4=[[TKDetailDataCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell4.labName.text=@"網址：";
+        cell4.labDetail.text=self.Entity.WebSiteURL;
+        [source addObject:cell4];
+    }
+    //詳細資訊網址
+    if (self.Entity.Detial&&[self.Entity.Detial length]>0) {
+        TKDetailDataCell *cell5=[[TKDetailDataCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell5.labName.text=@"詳細資訊網址：";
+        cell5.labDetail.text=self.Entity.Detial;
+        [source addObject:cell5];
+    }
+    //掛號網址
+    if (self.Entity.Register&&[self.Entity.Register length]>0) {
+        TKDetailDataCell *cell6=[[TKDetailDataCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell6.labName.text=@"掛號網址：";
+        cell6.labDetail.text=self.Entity.Register;
+        [source addObject:cell6];
+    }
+    return source;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -133,9 +153,10 @@
         map.Entity=self.Entity;
         [self.navigationController pushViewController:map animated:YES];
     }
-    if (indexPath.row==3&&self.Entity.WebSiteURL&&[self.Entity.WebSiteURL length]>0) {//網址
+    if (indexPath.row>=3) {//網址
+        TKDetailDataCell *cell1=self.cells[indexPath.row];
         NSString * encodedString=(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                                                       (CFStringRef)self.Entity.WebSiteURL,
+                                                                                                       (CFStringRef)[cell1.labDetail.text Trim],
                                                                                                        NULL,
                                                                                                        NULL,
                                                                                                        kCFStringEncodingUTF8));
@@ -144,8 +165,9 @@
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TKLabelLabelCell *cell=self.cells[indexPath.row];
-    CGFloat w=self.view.bounds.size.width-18-72-10-2;
+    TKDetailDataCell *cell=self.cells[indexPath.row];
+    CGSize size1=[cell.labName.text textSize:cell.labName.font withWidth:self.view.bounds.size.width];
+    CGFloat w=self.view.bounds.size.width-18-(size1.width+2+10);
     CGSize size=[cell.labDetail.text textSize:default18DeviceFont withWidth:w];
     if (size.height+20>44.0f) {
         return size.height+20;

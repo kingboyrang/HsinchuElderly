@@ -22,10 +22,14 @@ typedef enum{
 @property (nonatomic,copy) NSString *tableName;
 @property (nonatomic,copy) NSString *categoryTableName;
 @property (nonatomic,copy) NSString *areaTableName;
+@property (nonatomic,retain) NSArray *allAreas;
+- (NSMutableArray*)searchAreaWithCategory:(NSString*)guid areaGuid:(NSString*)areaGuid source:(NSArray*)source;
 //類別
 - (NSMutableArray*)categorys;
 //區域
 - (NSMutableArray*)areas;
+//區域
+- (NSMutableArray*)areasWithCategory:(NSString*)guid;
 //取得所有數據
 - (NSMutableArray*)tableDataList;
 //分頁查詢

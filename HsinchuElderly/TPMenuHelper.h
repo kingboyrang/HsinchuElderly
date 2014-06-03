@@ -20,4 +20,5 @@
 @property (nonatomic,assign) NSInteger operType;
 @property (nonatomic,assign) id<TPMenuHelperDelegate> delegate;
 - (void)showMenuWithTitle:(NSString*)title frame:(CGRect)frame;
+- (void)reloadSourceWithArray:(NSArray*)source;
 @end
