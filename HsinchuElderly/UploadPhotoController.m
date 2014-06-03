@@ -29,6 +29,7 @@
     [super viewDidLoad];
     
     _alertView=[[UploadAlertView alloc] initWithFrame:CGRectMake((self.view.bounds.size.width-300)/2, 0, 300, 0)];
+    _alertView.delegate=self;
     
     //self.view.backgroundColor=[UIColor colorFromHexRGB:@"fffbbe"];
     self.title=@"分享照片";
@@ -130,7 +131,6 @@
     args.methodName=@"UploadImg";//要調用的webservice方法
     args.soapParams=params;//傳遞方法參數
     args.httpWay=ServiceHttpSoap12;
-    
     SRMNetworkEngine *engine=[[SRMNetworkEngine alloc] initWithHostName:args.hostName];
     [engine requestWithArgs:args success:^(MKNetworkOperation *completedOperation) {
         //NSLog(@"xml=%@",completedOperation.responseString);
