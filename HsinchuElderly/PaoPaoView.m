@@ -71,7 +71,7 @@
     cell1.textLabel.font=default18DeviceFont;
     cell1.textLabel.text=entity.Name;
     TKLabelLabelCell *cell2=self.cells[1];
-    cell2.labDetail.text=entity.Address;
+    cell2.labDetail.text=[entity.Address Trim];
     TKLabelLabelCell *cell3=self.cells[2];
     cell3.labDetail.text=entity.Tel;
     
@@ -128,7 +128,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.cells[indexPath.row] isKindOfClass:[TKLabelLabelCell class]]) {
         TKLabelLabelCell *cell=self.cells[indexPath.row];
-        CGFloat w=280-cell.labName.frame.size.width-cell.labName.frame.origin.x-2-5;
+        CGFloat w=280-cell.labName.frame.size.width-cell.labName.frame.origin.x-18;
         CGSize size=[cell.labDetail.text textSize:cell.labDetail.font withWidth:w];
         if (size.height+20>44.0f) {
             return size.height+20;

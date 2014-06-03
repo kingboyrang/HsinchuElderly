@@ -18,6 +18,7 @@
 @interface HEItemListMapsController (){
     CalloutMapAnnotation *_calloutAnnotation;
 	//CalloutMapAnnotation *_previousdAnnotation;
+    BOOL isFirstCurrentLocation;
 }
 - (void)buttonCategoryClick:(UIButton*)btn;
 - (void)buttonAreaClick:(UIButton*)btn;
@@ -39,6 +40,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    isFirstCurrentLocation=YES;
     _topBarView=[[TopBarView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 50)];
     [_topBarView.categoryButton addTarget:self action:@selector(buttonCategoryClick:) forControlEvents:UIControlEventTouchUpInside];
     [_topBarView.areaButton addTarget:self action:@selector(buttonAreaClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -144,23 +146,28 @@
         
         MKPointAnnotation *ann = [[MKPointAnnotation alloc] init];
         ann.coordinate = coor2D;
-        [ann setTitle:@"當前位置"];
+        //[ann setTitle:@"當前位置"];
         //[ann setSubtitle:self.Address];
         //觸發viewForAnnotation
         [self.map addAnnotation:ann];
         
-        MKCoordinateRegion region;
-        MKCoordinateSpan span;
-        span.latitudeDelta=0.1; //zoom level
-        span.longitudeDelta=0.1; //zoom level
-        region.span=span;
-        region.center=coor2D;
-        // 設置顯示位置(動畫)
-        [self.map setRegion:region animated:YES];
-        // 設置地圖顯示的類型及根據範圍進行顯示
-        [self.map regionThatFits:region];
+        if (isFirstCurrentLocation) {
+            isFirstCurrentLocation=NO;
+            MKCoordinateRegion region;
+            MKCoordinateSpan span;
+            span.latitudeDelta=0.1; //zoom level
+            span.longitudeDelta=0.1; //zoom level
+            region.span=span;
+            region.center=coor2D;
+            // 設置顯示位置(動畫)
+            [self.map setRegion:region animated:YES];
+            // 設置地圖顯示的類型及根據範圍進行顯示
+            [self.map regionThatFits:region];
+        }
+       
         //預設選中
-        [self.map selectAnnotation:ann animated:YES];
+        //[self.map selectAnnotation:ann animated:YES];
+       
         
     } failed:^(NSError *error) {
         
@@ -416,7 +423,7 @@
         if (!annotationView) {
             annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation
                                                           reuseIdentifier:@"CustomAnnotation"];
-            annotationView.canShowCallout =YES;
+            annotationView.canShowCallout =NO;
             annotationView.image = [UIImage imageNamed:@"pin_green.png"];
         }
 		
