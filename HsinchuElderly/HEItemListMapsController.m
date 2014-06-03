@@ -13,6 +13,7 @@
 #import "CallOutAnnotationVifew.h"
 #import "PaoPaoView.h"
 #import "BasicMapAnnotation.h"
+#import "LocationGPS.h"
 #import <QuartzCore/QuartzCore.h>
 @interface HEItemListMapsController (){
     CalloutMapAnnotation *_calloutAnnotation;
@@ -160,7 +161,6 @@
     dispatch_async(queue, ^{
         dispatch_apply([source count], queue, ^(size_t index){
             BasicModel *entity=source[index];
-            NSLog(@"lat=%@,lng=%@",entity.Lat,entity.Lng);
             dispatch_async(dispatch_get_main_queue(), ^{
                 static int total=0;
                 CLLocationCoordinate2D coor=entity.coordinate;
@@ -180,6 +180,33 @@
                         [[self.view viewWithTag:301] removeFromSuperview];
                     }
                     total=0;
+                    
+                    LocationGPS *gps=[LocationGPS sharedInstance];
+                    [gps startCurrentLocation:^(CLLocationCoordinate2D coor2D) {
+                        
+                        MKPointAnnotation *ann = [[MKPointAnnotation alloc] init];
+                        ann.coordinate = coor2D;
+                        [ann setTitle:@"當前位置"];
+                        //[ann setSubtitle:self.Address];
+                        //觸發viewForAnnotation
+                        [self.map addAnnotation:ann];
+                        
+                        MKCoordinateRegion region;
+                        MKCoordinateSpan span;
+                        span.latitudeDelta=0.1; //zoom level
+                        span.longitudeDelta=0.1; //zoom level
+                        region.span=span;
+                        region.center=coor2D;
+                        // 設置顯示位置(動畫)
+                        [self.map setRegion:region animated:YES];
+                        // 設置地圖顯示的類型及根據範圍進行顯示
+                        [self.map regionThatFits:region];
+                        //預設選中
+                        [self.map selectAnnotation:ann animated:YES];
+                       
+                    } failed:^(NSError *error) {
+                       
+                    }];
                     return;
                 }
                 total++;
@@ -377,6 +404,16 @@
                                                            reuseIdentifier:basicMap.Entity.ID];
             annotationView.canShowCallout = NO;
             annotationView.image = [UIImage imageNamed:[self getAnnotationImageName:basicMap.Entity]];
+        }
+		
+		return annotationView;
+    }else if([annotation isKindOfClass:[MKPointAnnotation class]]){//MKPointAnnotation
+        MKAnnotationView *annotationView =[self.map dequeueReusableAnnotationViewWithIdentifier:@"CustomAnnotation"];
+        if (!annotationView) {
+            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation
+                                                          reuseIdentifier:@"CustomAnnotation"];
+            annotationView.canShowCallout =YES;
+            annotationView.image = [UIImage imageNamed:@"pin_green.png"];
         }
 		
 		return annotationView;
