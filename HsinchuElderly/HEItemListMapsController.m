@@ -70,11 +70,15 @@
         }
         if (i==2) {
             //載入標註
+            [self loadData];
+            /***
             if ([self.annotationList count]>0) {
+                [self cleanMap];
                 [self loadAnnotationWithSource:self.annotationList];
             }else{
-                [self loadData];
+               [self loadData];
             }
+             ***/
         }
     });
 }
@@ -133,6 +137,7 @@
     return bg;
 }
 - (void)loadAnnotationWithSource:(NSArray*)source{
+    
     if ([source count]==0) {
         return;
     }
@@ -155,6 +160,7 @@
     dispatch_async(queue, ^{
         dispatch_apply([source count], queue, ^(size_t index){
             BasicModel *entity=source[index];
+            NSLog(@"lat=%@,lng=%@",entity.Lat,entity.Lng);
             dispatch_async(dispatch_get_main_queue(), ^{
                 static int total=0;
                 CLLocationCoordinate2D coor=entity.coordinate;

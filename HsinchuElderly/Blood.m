@@ -36,6 +36,11 @@
     return 0;
 }
 - (NSDate*)repeatDate{
+    NSDate *nowT=[NSDate date];
+    NSString *str=[NSDate stringFromDate:nowT withFormat:@"yyyy-MM-dd"];
+    str=[NSString stringWithFormat:@"%@ %@",str,[self TimeSpan]];
+    return [NSDate dateFromString:str withFormat:@"yyyy-MM-dd HH:mm"];
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"HH:mm:ss"];
     //觸發通知的時間

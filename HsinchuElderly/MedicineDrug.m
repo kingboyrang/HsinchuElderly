@@ -38,11 +38,16 @@
     return NSCalendarUnitWeekday;
 }
 - (NSDate*)repeatDate{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:mm:ss"];
+    NSDate *nowT=[NSDate date];
+    NSString *str1=[NSDate stringFromDate:nowT withFormat:@"yyyy-MM-dd"];
+    str1=[NSString stringWithFormat:@"%@ %@",str1,[self TimeSpan]];
+    return [NSDate dateFromString:str1 withFormat:@"yyyy-MM-dd HH:mm"];
+   
+   // NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+   // [formatter setDateFormat:@"HH:mm:ss"];
     //觸發通知的時間
     //NSDate *now = [formatter dateFromString:@"15:00:00"];
-    return [formatter dateFromString:[NSString stringWithFormat:@"%@:00",[self TimeSpan]]];
+    //return [formatter dateFromString:[NSString stringWithFormat:@"%@:00",[self TimeSpan]]];
     
     
     NSDate* now = [NSDate date];
