@@ -21,6 +21,8 @@
     _labName.textAlignment = NSTextAlignmentRight;
     _labName.textColor = [UIColor blackColor];
     _labName.font = default18DeviceFont;
+    _labName.numberOfLines=0;
+    _labName.lineBreakMode=NSLineBreakByWordWrapping;
 	[self.contentView addSubview:_labName];
     
     _labDetail = [[UILabel alloc] initWithFrame:CGRectZero];

@@ -77,7 +77,12 @@
     //詳細資訊網址
     if (self.Entity.Detial&&[self.Entity.Detial length]>0) {
         TKDetailDataCell *cell5=[[TKDetailDataCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-        cell5.labName.text=@"詳細資訊網址：";
+        if (DeviceIsPad) {
+            cell5.labName.text=@"詳細資訊網址：";
+        }else{
+           cell5.labName.text=@"詳細資\n訊網址：";
+           cell5.labName.textAlignment=NSTextAlignmentLeft;
+        }
         cell5.labDetail.text=self.Entity.Detial;
         [source addObject:cell5];
     }
