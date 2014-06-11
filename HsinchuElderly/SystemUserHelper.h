@@ -14,6 +14,10 @@
 - (NSMutableArray*)dictonaryUsers;
 //新增與修改
 - (void)addEditUserWithModel:(SystemUser*)entity headImage:(UIImage*)image;
+//sqlite的新增與修改
+- (BOOL)addWithModel:(SystemUser*)entity headImage:(UIImage*)image;
+- (BOOL)editWithModel:(SystemUser*)entity headImage:(UIImage*)image;
+- (BOOL)removeWithModel:(SystemUser*)entity;
 //删除
 - (void)removeUserWithModel:(SystemUser*)entity;
 - (void)removeUserPhotoWithId:(NSString*)userId;

@@ -23,6 +23,9 @@ typedef enum{
 @property (nonatomic,copy) NSString *categoryTableName;
 @property (nonatomic,copy) NSString *areaTableName;
 @property (nonatomic,retain) NSArray *allAreas;
+
++ (void)createTables;
+
 - (NSMutableArray*)searchAreaWithCategory:(NSString*)guid areaGuid:(NSString*)areaGuid source:(NSArray*)source;
 //類別
 - (NSMutableArray*)categorys;

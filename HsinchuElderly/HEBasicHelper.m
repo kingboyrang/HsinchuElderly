@@ -19,6 +19,24 @@
     }
     return self;
 }
+//創建表
++ (void)createTables{
+    FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
+    if ([db open]) {
+        [db beginTransaction];
+        //帳號
+        [db executeUpdate:@"CREATE TABLE if not exists \"SystemUser\" (\"ID\" CHAR(36) PRIMARY KEY  NOT NULL  UNIQUE , \"Name\" CHAR(100), \"PhotoURL\" TEXT, \"Sex\" INTEGER, \"CreateDate\" DATETIME DEFAULT CURRENT_TIMESTAMP);"];
+        //藥物提醒
+        [db executeUpdate:@"CREATE TABLE if not exists \"MedicineDrug\" (\"ID\" CHAR(36) PRIMARY KEY  NOT NULL  UNIQUE , \"UserId\" CHAR(36), \"Name\" TEXT, \"Rate\" CHAR(50), \"TimeSpan\" CHAR(50), \"CreateDate\" DATETIME DEFAULT CURRENT_TIMESTAMP);"];
+        //血壓測量
+         [db executeUpdate:@"CREATE TABLE if not exists \"Blood\" (\"ID\" CHAR(36) PRIMARY KEY  NOT NULL  UNIQUE , \"UserId\" CHAR(36), \"Rate\" CHAR(50), \"TimeSpan\" CHAR(50), \"CreateDate\" DATETIME DEFAULT CURRENT_TIMESTAMP);"];
+        //血糖測量
+        [db executeUpdate:@"CREATE TABLE if not exists \"BloodSugar\" (\"ID\" CHAR(36) PRIMARY KEY  NOT NULL  UNIQUE , \"UserId\" CHAR(36), \"Rate\" CHAR(50), \"TimeSpan\" CHAR(50), \"CreateDate\" DATETIME DEFAULT CURRENT_TIMESTAMP);"];
+        [db commit];
+        [db close];
+    }
+
+}
 - (NSMutableArray*)searchAreaWithCategory:(NSString*)guid areaGuid:(NSString*)areaGuid source:(NSArray*)source{
     if (source==nil) {
         source=[self searchWithCategory:guid aresGuid:@""];

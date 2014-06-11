@@ -12,6 +12,7 @@
 #import "MedicineDrugHelper.h"
 #import "BloodHelper.h"
 #import "BloodSugarHelper.h"
+#import "FMDatabase.h"
 #define saveImageFilePath [DocumentPath stringByAppendingPathComponent:@"SystemUserImage"]
 
 @interface SystemUserHelper ()
@@ -77,6 +78,51 @@
         [source addObject:entity];
     }
     [self saveWithSources:source];
+}
+//sqlite的新增與修改
+- (BOOL)addWithModel:(SystemUser*)entity headImage:(UIImage*)image{
+    BOOL boo=NO;
+    if (image) {//儲存圖片
+        NSString *path=[saveImageFilePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",entity.ID]];
+        [image saveImage:path];
+        entity.PhotoURL=path;
+    }
+    FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
+    if ([db open]) {
+        NSString *sql2=@"insert into SystemUser(ID,Name,PhotoURL,Sex) values(?,?,?)";
+        boo=[db executeUpdate:sql2,entity.ID,entity.Name,entity.PhotoURL,entity.Sex];
+        [db close];
+    }
+    return boo;
+}
+- (BOOL)editWithModel:(SystemUser*)entity headImage:(UIImage*)image{
+    BOOL boo=NO;
+    if (image) {//儲存圖片
+        NSString *path=[saveImageFilePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",entity.ID]];
+        [image saveImage:path];
+        entity.PhotoURL=path;
+    }
+    FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
+    if ([db open]) {
+        NSString *sql2=@"update SystemUser set Name=?,PhotoURL=?,Sex=? where ID=?";
+        boo=[db executeUpdate:sql2,entity.Name,entity.PhotoURL,entity.Sex,entity.ID];
+        [db close];
+    }
+    return boo;
+}
+- (BOOL)removeWithModel:(SystemUser*)entity{
+    BOOL boo=NO;
+    FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
+    if ([db open]) {
+        NSString *sql2=@"delete SystemUser where ID=?";
+        boo=[db executeUpdate:sql2,entity.ID];
+        [db close];
+    }
+    //删除头像
+    if (entity.PhotoURL&&[entity.PhotoURL length]>0) {
+        [FileHelper deleteFileWithPath:entity.PhotoURL];
+    }
+    return boo;
 }
 - (void)removeUserWithModel:(SystemUser*)entity{
     NSMutableArray *arr=[self systemUsers];

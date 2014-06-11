@@ -12,6 +12,7 @@
 #import "AlertHelper.h"
 #import "AppHelper.h"
 #import "NSDate+TPCategory.h"
+#import "HEBasicHelper.h"
 @implementation AppDelegate
 
 - (void)dbInitLoad{
@@ -34,6 +35,8 @@
         [[NSFileManager defaultManager] createFileAtPath:dbPath
                                                 contents:mainBundleFile
                                               attributes:nil];
+        
+        [HEBasicHelper createTables];//新建表
     }
     //NSLog(@"path=%@",dbPath);
     [FileHelper createDocumentDirectoryWithName:@"SystemUserImage"];
