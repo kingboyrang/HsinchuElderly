@@ -12,6 +12,7 @@
 #import "BloodViewController.h"
 #import "BloodSugarViewController.h"
 #import "UIImage+TPCategory.h"
+#import "RecordViewController.h"
 @interface ClockViewController ()
 - (void)addMenuItemWithFrame:(CGRect)frame title:(NSString*)title tag:(NSInteger)tag;
 - (void)buttonMenuItemClick:(UIButton*)btn;
@@ -32,8 +33,8 @@
 {
     [super viewDidLoad];
     self.title=@"小鬧鐘";
-    CGFloat maxH=(self.view.bounds.size.height-[self topHeight])/4;
-    CGFloat h=maxH-40,leftX=50,topY=(maxH-h)/2;
+    CGFloat maxH=(self.view.bounds.size.height-[self topHeight])/5;
+    CGFloat h=maxH-30,leftX=50,topY=(maxH-h)/2;
     CGFloat origY=topY;
     [self addMenuItemWithFrame:CGRectMake(leftX, topY, self.view.bounds.size.width-leftX*2, h) title:@"基本資料" tag:100];
     topY+=h+origY;
@@ -42,6 +43,8 @@
     [self addMenuItemWithFrame:CGRectMake(leftX, topY, self.view.bounds.size.width-leftX*2, h) title:@"血壓測量" tag:102];
     topY+=h+origY;
     [self addMenuItemWithFrame:CGRectMake(leftX, topY, self.view.bounds.size.width-leftX*2, h) title:@"血糖測量" tag:103];
+    topY+=h+origY;
+    [self addMenuItemWithFrame:CGRectMake(leftX, topY, self.view.bounds.size.width-leftX*2, h) title:@"記錄" tag:104];
     // Do any additional setup after loading the view.
 }
 - (void)addMenuItemWithFrame:(CGRect)frame title:(NSString*)title tag:(NSInteger)tag{
@@ -82,6 +85,10 @@
     if (btn.tag==103) {//血糖測量
         BloodSugarViewController *bloodSugar=[[BloodSugarViewController alloc] init];
         [self.navigationController pushViewController:bloodSugar animated:YES];
+    }
+    if (btn.tag==104) {//記錄
+        RecordViewController *record=[[RecordViewController alloc] init];
+        [self.navigationController pushViewController:record animated:YES];
     }
 }
 - (void)didReceiveMemoryWarning

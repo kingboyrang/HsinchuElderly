@@ -93,6 +93,8 @@
 		01A9756F19236C700073530F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A9756E19236C700073530F /* SystemConfiguration.framework */; };
 		01A9757119236CA20073530F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A9757019236CA20073530F /* ImageIO.framework */; };
 		01A97575192376720073530F /* NetWorkConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97574192376720073530F /* NetWorkConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01BE57A7194AA4670040A8F5 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE57A6194AA4670040A8F5 /* RecordViewController.m */; };
+		01BE57AB194AA6730040A8F5 /* RecordTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE57AA194AA6730040A8F5 /* RecordTopView.m */; };
 		01BF7FA8191B186C002E34E9 /* UIColor+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */; };
 		01BF7FAF191B1C30002E34E9 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FAE191B1C30002E34E9 /* ClockViewController.m */; };
 		01BF7FB4191B1DB9002E34E9 /* UIButton+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FB3191B1DB9002E34E9 /* UIButton+TPCategory.m */; };
@@ -327,6 +329,10 @@
 		01A9757019236CA20073530F /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		01A97573192376720073530F /* NetWorkConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkConnection.h; sourceTree = "<group>"; };
 		01A97574192376720073530F /* NetWorkConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkConnection.m; sourceTree = "<group>"; };
+		01BE57A5194AA4670040A8F5 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
+		01BE57A6194AA4670040A8F5 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
+		01BE57A9194AA6730040A8F5 /* RecordTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordTopView.h; sourceTree = "<group>"; };
+		01BE57AA194AA6730040A8F5 /* RecordTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordTopView.m; sourceTree = "<group>"; };
 		01BF7FA6191B186C002E34E9 /* UIColor+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TPCategory.h"; sourceTree = "<group>"; };
 		01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TPCategory.m"; sourceTree = "<group>"; };
 		01BF7FAA191B188C002E34E9 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
@@ -486,6 +492,7 @@
 		017FF270191B0FB600255E76 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
+				01BE57A4194AA2480040A8F5 /* Record */,
 				01BF7FBE191B53B9002E34E9 /* Account */,
 				01A97394191E03EC0073530F /* BloodSugar */,
 				01A9738D191DFEE90073530F /* Blood */,
@@ -757,6 +764,25 @@
 				01A97574192376720073530F /* NetWorkConnection.m */,
 			);
 			name = NetWork;
+			sourceTree = "<group>";
+		};
+		01BE57A4194AA2480040A8F5 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				01BE57A8194AA5C10040A8F5 /* UI */,
+				01BE57A5194AA4670040A8F5 /* RecordViewController.h */,
+				01BE57A6194AA4670040A8F5 /* RecordViewController.m */,
+			);
+			name = Record;
+			sourceTree = "<group>";
+		};
+		01BE57A8194AA5C10040A8F5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				01BE57A9194AA6730040A8F5 /* RecordTopView.h */,
+				01BE57AA194AA6730040A8F5 /* RecordTopView.m */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		01BF7FA5191B1820002E34E9 /* Category */ = {
@@ -1243,6 +1269,7 @@
 				01A973AD19205E810073530F /* ActionSheetHelper.m in Sources */,
 				01A9755E19236A060073530F /* MKNetworkOperation.m in Sources */,
 				01A9755C19236A060073530F /* UIImageView+MKNetworkKitAdditions.m in Sources */,
+				01BE57A7194AA4670040A8F5 /* RecordViewController.m in Sources */,
 				01A974461920E06B0073530F /* HEWelfareViewController.m in Sources */,
 				01BFE059191CA4BF00095A8A /* AlbumCameraImage.m in Sources */,
 				01A974591921FD4D0073530F /* BasicMapAnnotation.m in Sources */,
@@ -1269,6 +1296,7 @@
 				01382B9D19381CAE005AAD8E /* SendMailViewController.m in Sources */,
 				01A9755D19236A060073530F /* MKNetworkEngine.m in Sources */,
 				01A973B3192062040073530F /* ShowMapController.m in Sources */,
+				01BE57AB194AA6730040A8F5 /* RecordTopView.m in Sources */,
 				01CDC1E9191A2BD90002AE47 /* BasicViewController.m in Sources */,
 				01BFE063191CAAB100095A8A /* UIActionSheet+Blocks.m in Sources */,
 				01A97380191DCFC70073530F /* TKLabelCalendarCell.m in Sources */,
