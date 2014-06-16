@@ -8,6 +8,7 @@
 
 #import "RecordViewController.h"
 #import "RecordTopView.h"
+#import "BloodPopoverView.h"
 @interface RecordViewController ()<RecordTopViewDelegate>
 
 @end
@@ -30,6 +31,10 @@
     RecordTopView *topView=[[RecordTopView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 50)];
     topView.delegate=self;
     [self.view addSubview:topView];
+    
+    BloodPopoverView *popover=[[BloodPopoverView alloc] initWithFrame:CGRectMake(10, 50+10, 300, 20)];
+    [popover setMessage:@"親愛的王大明請輸入您的血壓值:"];
+    [self.view addSubview:popover];
 }
 #pragma mark - RecordTopViewDelegate Methods
 - (void)selectedButton:(UIButton*)btn type:(NSInteger)type{

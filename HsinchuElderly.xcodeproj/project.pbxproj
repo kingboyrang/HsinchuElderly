@@ -95,6 +95,8 @@
 		01A97575192376720073530F /* NetWorkConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97574192376720073530F /* NetWorkConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01BE57A7194AA4670040A8F5 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE57A6194AA4670040A8F5 /* RecordViewController.m */; };
 		01BE57AB194AA6730040A8F5 /* RecordTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE57AA194AA6730040A8F5 /* RecordTopView.m */; };
+		01BE58E2194E8D280040A8F5 /* BasicPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58E1194E8D280040A8F5 /* BasicPopoverView.m */; };
+		01BE58E5194E97840040A8F5 /* BloodPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58E4194E97840040A8F5 /* BloodPopoverView.m */; };
 		01BF7FA8191B186C002E34E9 /* UIColor+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */; };
 		01BF7FAF191B1C30002E34E9 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FAE191B1C30002E34E9 /* ClockViewController.m */; };
 		01BF7FB4191B1DB9002E34E9 /* UIButton+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FB3191B1DB9002E34E9 /* UIButton+TPCategory.m */; };
@@ -333,6 +335,10 @@
 		01BE57A6194AA4670040A8F5 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		01BE57A9194AA6730040A8F5 /* RecordTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordTopView.h; sourceTree = "<group>"; };
 		01BE57AA194AA6730040A8F5 /* RecordTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordTopView.m; sourceTree = "<group>"; };
+		01BE58E0194E8D280040A8F5 /* BasicPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicPopoverView.h; sourceTree = "<group>"; };
+		01BE58E1194E8D280040A8F5 /* BasicPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicPopoverView.m; sourceTree = "<group>"; };
+		01BE58E3194E97840040A8F5 /* BloodPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodPopoverView.h; sourceTree = "<group>"; };
+		01BE58E4194E97840040A8F5 /* BloodPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodPopoverView.m; sourceTree = "<group>"; };
 		01BF7FA6191B186C002E34E9 /* UIColor+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TPCategory.h"; sourceTree = "<group>"; };
 		01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TPCategory.m"; sourceTree = "<group>"; };
 		01BF7FAA191B188C002E34E9 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
@@ -781,6 +787,10 @@
 			children = (
 				01BE57A9194AA6730040A8F5 /* RecordTopView.h */,
 				01BE57AA194AA6730040A8F5 /* RecordTopView.m */,
+				01BE58E0194E8D280040A8F5 /* BasicPopoverView.h */,
+				01BE58E1194E8D280040A8F5 /* BasicPopoverView.m */,
+				01BE58E3194E97840040A8F5 /* BloodPopoverView.h */,
+				01BE58E4194E97840040A8F5 /* BloodPopoverView.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1343,8 +1353,10 @@
 				01A9752B192338BC0073530F /* LotteryViewController.m in Sources */,
 				01A973A1191E120F0073530F /* UIPopoverListView.m in Sources */,
 				01BF7FB7191B1DC7002E34E9 /* UIImage+TPCategory.m in Sources */,
+				01BE58E2194E8D280040A8F5 /* BasicPopoverView.m in Sources */,
 				01A9752319231E730073530F /* HEConsultation.m in Sources */,
 				01A9742C1920CA7F0073530F /* HEItemListController.m in Sources */,
+				01BE58E5194E97840040A8F5 /* BloodPopoverView.m in Sources */,
 				01A9742F1920CABF0073530F /* HEBasicHelper.m in Sources */,
 				01CDC1E2191A28460002AE47 /* IndexViewController.m in Sources */,
 				01BF7FA8191B186C002E34E9 /* UIColor+TPCategory.m in Sources */,
