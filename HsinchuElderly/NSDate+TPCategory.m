@@ -44,6 +44,20 @@
     }
     return 31;
 }
+//取得当前月第一天
+- (NSDate *)monthFirstDay{
+    TKDateInformation info=[self dateInformation];
+    if (info.day==1) {
+        return self;
+    }
+    return [self dateByAddingDays:-(info.day-1)];
+}
+//取得当前月最后一天
+- (NSDate *)monthLastDay{
+    TKDateInformation info=[self dateInformation];
+    NSInteger total=[self monthOfDay]-info.day;
+    return [self dateByAddingDays:total];
+}
 //本周開始時間
 -(NSDate*)beginningOfWeek{
     NSInteger weekday=[self dayOfWeek];
@@ -56,6 +70,16 @@
         return self;
     }
     return [self dateByAddingDays:7-weekday];
+}
+//日期增加幾月
+-(NSDate*)dateByAddingMonths:(NSInteger)month{
+    NSDateComponents *c = [[NSDateComponents alloc] init];
+	c.month = month;
+    
+    NSDate *resultDate=[[NSCalendar currentCalendar] dateByAddingComponents:c toDate:self options:0];
+    [c release];
+    
+    return resultDate;
 }
 //日期增加幾天
 -(NSDate*)dateByAddingDays:(NSInteger)days{

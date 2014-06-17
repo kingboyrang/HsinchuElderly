@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecordViewController : BasicViewController
-
+@interface RecordViewController : BasicViewController<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic,strong) UITableView *userTable;
+@property (nonatomic,strong) NSMutableArray *cells;
 @end

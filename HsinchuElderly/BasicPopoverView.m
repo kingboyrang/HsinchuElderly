@@ -35,7 +35,7 @@
         [self addSubview:labTitle];
         
         UILabel *labLine=[[UILabel alloc] initWithFrame:CGRectMake(0, 40, frame.size.width, 2)];
-        labLine.backgroundColor=defaultDeviceFontColor;
+        labLine.backgroundColor=[UIColor colorFromHexRGB:@"fc8600"];
         [self addSubview:labLine];
         
         CGFloat topY=labLine.frame.origin.y+labLine.frame.size.height+10;
@@ -133,10 +133,11 @@
 }
 //確認
 - (void)buttonConfirmClick:(UIButton*)btn{
-    [self hide];
-    if (self.delegate&&[self.delegate respondsToSelector:@selector(confirmPopoverWithTarget:)]) {
-        [self.delegate confirmPopoverWithTarget:self];
-    }
+    [self showWithUploadHide:^{
+        if (self.delegate&&[self.delegate respondsToSelector:@selector(confirmPopoverWithTarget:)]) {
+            [self.delegate confirmPopoverWithTarget:self];
+        }
+    }];
 }
 #pragma mark - show/hide
 - (void)showWithUploadHide:(void(^)())completed{

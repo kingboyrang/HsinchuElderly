@@ -44,8 +44,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  
-    
     NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
     if (![userDefaults objectForKey:@"flags"]) {
         [userDefaults setValue:@"1" forKey:@"flags"];

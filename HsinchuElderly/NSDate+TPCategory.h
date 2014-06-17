@@ -55,10 +55,16 @@ typedef struct TKDateInformation TKDateInformation;
 -(NSInteger)dayOfWeek;
 //取得每月有多少天
 -(NSInteger)monthOfDay;
+//取得当前月第一天
+- (NSDate *)monthFirstDay;
+//取得当前月最后一天
+- (NSDate *)monthLastDay;
 //本周開始時間
 -(NSDate*)beginningOfWeek;
 //本周结束時間
 - (NSDate *)endOfWeek;
+//日期增加幾月
+-(NSDate*)dateByAddingMonths:(NSInteger)month;
 //日期增加幾天
 -(NSDate*)dateByAddingDays:(NSInteger)day;
 //日期增加幾分鐘

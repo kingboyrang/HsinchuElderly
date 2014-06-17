@@ -97,6 +97,16 @@
 		01BE57AB194AA6730040A8F5 /* RecordTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE57AA194AA6730040A8F5 /* RecordTopView.m */; };
 		01BE58E2194E8D280040A8F5 /* BasicPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58E1194E8D280040A8F5 /* BasicPopoverView.m */; };
 		01BE58E5194E97840040A8F5 /* BloodPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58E4194E97840040A8F5 /* BloodPopoverView.m */; };
+		01BE58E8194FC76A0040A8F5 /* BloodSugarPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58E7194FC76A0040A8F5 /* BloodSugarPopoverView.m */; };
+		01BE58EC194FD3550040A8F5 /* RecordCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58EB194FD3550040A8F5 /* RecordCalendar.m */; };
+		01BE58F0194FD38C0040A8F5 /* CalendarYearMonth.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58EF194FD38C0040A8F5 /* CalendarYearMonth.m */; };
+		01BE58FD195036E20040A8F5 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58F4195036E20040A8F5 /* VRGCalendarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01BE58FE195036E20040A8F5 /* UIView+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58F6195036E20040A8F5 /* UIView+convenience.m */; };
+		01BE58FF195036E20040A8F5 /* NSMutableArray+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58F8195036E20040A8F5 /* NSMutableArray+convenience.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01BE5900195036E20040A8F5 /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58FA195036E20040A8F5 /* NSDate+convenience.m */; };
+		01BE5901195036E20040A8F5 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58FC195036E20040A8F5 /* UIColor+expanded.m */; };
+		01BE590419503D360040A8F5 /* TKRecordCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE590319503D360040A8F5 /* TKRecordCalendarCell.m */; };
+		01BE590719503E9E0040A8F5 /* TKRecordDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE590619503E9E0040A8F5 /* TKRecordDetailCell.m */; };
 		01BF7FA8191B186C002E34E9 /* UIColor+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */; };
 		01BF7FAF191B1C30002E34E9 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FAE191B1C30002E34E9 /* ClockViewController.m */; };
 		01BF7FB4191B1DB9002E34E9 /* UIButton+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FB3191B1DB9002E34E9 /* UIButton+TPCategory.m */; };
@@ -339,6 +349,26 @@
 		01BE58E1194E8D280040A8F5 /* BasicPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicPopoverView.m; sourceTree = "<group>"; };
 		01BE58E3194E97840040A8F5 /* BloodPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodPopoverView.h; sourceTree = "<group>"; };
 		01BE58E4194E97840040A8F5 /* BloodPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodPopoverView.m; sourceTree = "<group>"; };
+		01BE58E6194FC76A0040A8F5 /* BloodSugarPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodSugarPopoverView.h; sourceTree = "<group>"; };
+		01BE58E7194FC76A0040A8F5 /* BloodSugarPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodSugarPopoverView.m; sourceTree = "<group>"; };
+		01BE58EA194FD3550040A8F5 /* RecordCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordCalendar.h; sourceTree = "<group>"; };
+		01BE58EB194FD3550040A8F5 /* RecordCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordCalendar.m; sourceTree = "<group>"; };
+		01BE58EE194FD38C0040A8F5 /* CalendarYearMonth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarYearMonth.h; sourceTree = "<group>"; };
+		01BE58EF194FD38C0040A8F5 /* CalendarYearMonth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarYearMonth.m; sourceTree = "<group>"; };
+		01BE58F3195036E20040A8F5 /* VRGCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGCalendarView.h; sourceTree = "<group>"; };
+		01BE58F4195036E20040A8F5 /* VRGCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGCalendarView.m; sourceTree = "<group>"; };
+		01BE58F5195036E20040A8F5 /* UIView+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+convenience.h"; sourceTree = "<group>"; };
+		01BE58F6195036E20040A8F5 /* UIView+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+convenience.m"; sourceTree = "<group>"; };
+		01BE58F7195036E20040A8F5 /* NSMutableArray+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+convenience.h"; sourceTree = "<group>"; };
+		01BE58F8195036E20040A8F5 /* NSMutableArray+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+convenience.m"; sourceTree = "<group>"; };
+		01BE58F9195036E20040A8F5 /* NSDate+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+convenience.h"; sourceTree = "<group>"; };
+		01BE58FA195036E20040A8F5 /* NSDate+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+convenience.m"; sourceTree = "<group>"; };
+		01BE58FB195036E20040A8F5 /* UIColor+expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+expanded.h"; sourceTree = "<group>"; };
+		01BE58FC195036E20040A8F5 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
+		01BE590219503D360040A8F5 /* TKRecordCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRecordCalendarCell.h; sourceTree = "<group>"; };
+		01BE590319503D360040A8F5 /* TKRecordCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRecordCalendarCell.m; sourceTree = "<group>"; };
+		01BE590519503E9E0040A8F5 /* TKRecordDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRecordDetailCell.h; sourceTree = "<group>"; };
+		01BE590619503E9E0040A8F5 /* TKRecordDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRecordDetailCell.m; sourceTree = "<group>"; };
 		01BF7FA6191B186C002E34E9 /* UIColor+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TPCategory.h"; sourceTree = "<group>"; };
 		01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TPCategory.m"; sourceTree = "<group>"; };
 		01BF7FAA191B188C002E34E9 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
@@ -785,14 +815,50 @@
 		01BE57A8194AA5C10040A8F5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				01BE58F2195036D60040A8F5 /* CalendarUI */,
+				01BE58ED194FD3600040A8F5 /* Calendar */,
 				01BE57A9194AA6730040A8F5 /* RecordTopView.h */,
 				01BE57AA194AA6730040A8F5 /* RecordTopView.m */,
 				01BE58E0194E8D280040A8F5 /* BasicPopoverView.h */,
 				01BE58E1194E8D280040A8F5 /* BasicPopoverView.m */,
 				01BE58E3194E97840040A8F5 /* BloodPopoverView.h */,
 				01BE58E4194E97840040A8F5 /* BloodPopoverView.m */,
+				01BE58E6194FC76A0040A8F5 /* BloodSugarPopoverView.h */,
+				01BE58E7194FC76A0040A8F5 /* BloodSugarPopoverView.m */,
+				01BE590219503D360040A8F5 /* TKRecordCalendarCell.h */,
+				01BE590319503D360040A8F5 /* TKRecordCalendarCell.m */,
+				01BE590519503E9E0040A8F5 /* TKRecordDetailCell.h */,
+				01BE590619503E9E0040A8F5 /* TKRecordDetailCell.m */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		01BE58ED194FD3600040A8F5 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				01BE58EA194FD3550040A8F5 /* RecordCalendar.h */,
+				01BE58EB194FD3550040A8F5 /* RecordCalendar.m */,
+				01BE58EE194FD38C0040A8F5 /* CalendarYearMonth.h */,
+				01BE58EF194FD38C0040A8F5 /* CalendarYearMonth.m */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		01BE58F2195036D60040A8F5 /* CalendarUI */ = {
+			isa = PBXGroup;
+			children = (
+				01BE58F3195036E20040A8F5 /* VRGCalendarView.h */,
+				01BE58F4195036E20040A8F5 /* VRGCalendarView.m */,
+				01BE58F5195036E20040A8F5 /* UIView+convenience.h */,
+				01BE58F6195036E20040A8F5 /* UIView+convenience.m */,
+				01BE58F7195036E20040A8F5 /* NSMutableArray+convenience.h */,
+				01BE58F8195036E20040A8F5 /* NSMutableArray+convenience.m */,
+				01BE58F9195036E20040A8F5 /* NSDate+convenience.h */,
+				01BE58FA195036E20040A8F5 /* NSDate+convenience.m */,
+				01BE58FB195036E20040A8F5 /* UIColor+expanded.h */,
+				01BE58FC195036E20040A8F5 /* UIColor+expanded.m */,
+			);
+			name = CalendarUI;
 			sourceTree = "<group>";
 		};
 		01BF7FA5191B1820002E34E9 /* Category */ = {
@@ -1274,11 +1340,13 @@
 				01382B90193718BA005AAD8E /* TKSelectFieldCell.m in Sources */,
 				01A97389191DFD870073530F /* Blood.m in Sources */,
 				01C9419B192CB5680044AA2B /* AppHelper.m in Sources */,
+				01BE5900195036E20040A8F5 /* NSDate+convenience.m in Sources */,
 				01BFE071191CADF900095A8A /* SystemUserHelper.m in Sources */,
 				01BFE066191CAAB100095A8A /* AlertHelper.m in Sources */,
 				01A973AD19205E810073530F /* ActionSheetHelper.m in Sources */,
 				01A9755E19236A060073530F /* MKNetworkOperation.m in Sources */,
 				01A9755C19236A060073530F /* UIImageView+MKNetworkKitAdditions.m in Sources */,
+				01BE58F0194FD38C0040A8F5 /* CalendarYearMonth.m in Sources */,
 				01BE57A7194AA4670040A8F5 /* RecordViewController.m in Sources */,
 				01A974461920E06B0073530F /* HEWelfareViewController.m in Sources */,
 				01BFE059191CA4BF00095A8A /* AlbumCameraImage.m in Sources */,
@@ -1295,6 +1363,7 @@
 				26A9F524191F74060018EE32 /* HEItemDetailController.m in Sources */,
 				01A9755719236A060073530F /* NSData+MKBase64.m in Sources */,
 				01382BB1193868D3005AAD8E /* HEWelfareSearchController.m in Sources */,
+				01BE590419503D360040A8F5 /* TKRecordCalendarCell.m in Sources */,
 				01382B9A19374859005AAD8E /* TKCalendarFieldCell.m in Sources */,
 				01A9744F1921BB100073530F /* CallOutAnnotationVifew.m in Sources */,
 				01622222191CC6C500B4AD50 /* AnimateLoadView.m in Sources */,
@@ -1307,6 +1376,7 @@
 				01A9755D19236A060073530F /* MKNetworkEngine.m in Sources */,
 				01A973B3192062040073530F /* ShowMapController.m in Sources */,
 				01BE57AB194AA6730040A8F5 /* RecordTopView.m in Sources */,
+				01BE58FE195036E20040A8F5 /* UIView+convenience.m in Sources */,
 				01CDC1E9191A2BD90002AE47 /* BasicViewController.m in Sources */,
 				01BFE063191CAAB100095A8A /* UIActionSheet+Blocks.m in Sources */,
 				01A97380191DCFC70073530F /* TKLabelCalendarCell.m in Sources */,
@@ -1322,6 +1392,7 @@
 				01A97390191DFF000073530F /* BloodViewController.m in Sources */,
 				01A973A4191E15490073530F /* TPMenuHelper.m in Sources */,
 				26DEBA18191F2C4D0007DB43 /* FMDatabase.m in Sources */,
+				01BE58E8194FC76A0040A8F5 /* BloodSugarPopoverView.m in Sources */,
 				01A9736E191DC6300073530F /* TKDrugCell.m in Sources */,
 				01A97539192357F40073530F /* UploadPhotoController.m in Sources */,
 				01A97393191DFF1F0073530F /* BloodModifyController.m in Sources */,
@@ -1335,15 +1406,20 @@
 				01A974501921BB100073530F /* CalloutMapAnnotation.m in Sources */,
 				01A97532192352B30073530F /* ChoosePhotoController.m in Sources */,
 				01A9741A1920B8090073530F /* SVPlacemark.m in Sources */,
+				01BE5901195036E20040A8F5 /* UIColor+expanded.m in Sources */,
+				01BE58FF195036E20040A8F5 /* NSMutableArray+convenience.m in Sources */,
 				01A97379191DCD560073530F /* CVUIPopoverText.m in Sources */,
 				01A9756C19236AF50073530F /* SRMNetworkEngine.m in Sources */,
+				01BE58EC194FD3550040A8F5 /* RecordCalendar.m in Sources */,
 				01A973C8192075730073530F /* BloodSugarHelper.m in Sources */,
 				01A9755F19236A060073530F /* Reachability.m in Sources */,
+				01BE58FD195036E20040A8F5 /* VRGCalendarView.m in Sources */,
 				0189C438192E039B002ED63A /* VersionView.m in Sources */,
 				01A973C51920753A0073530F /* BloodSugar.m in Sources */,
 				01382BAE19386635005AAD8E /* TKWelfareCell.m in Sources */,
 				0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */,
 				01A97364191CE31A0073530F /* MedicineDrug.m in Sources */,
+				01BE590719503E9E0040A8F5 /* TKRecordDetailCell.m in Sources */,
 				01A97372191DCD3F0073530F /* CVUICalendar.m in Sources */,
 				01BFE034191C746700095A8A /* TopBarView.m in Sources */,
 				26DEBA25191F2DC80007DB43 /* MedicalCare.m in Sources */,

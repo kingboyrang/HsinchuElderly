@@ -29,13 +29,13 @@
         
         UILabel *labTitle=[[UILabel alloc] initWithFrame:CGRectMake(10, 5, frame.size.width-10, 30)];
         labTitle.backgroundColor=[UIColor clearColor];
-        labTitle.textColor=[UIColor colorFromHexRGB:@"2da6de"];
+        labTitle.textColor=defaultDeviceFontColor;
         labTitle.font=default18DeviceFont;
         labTitle.text=@"填寫抽獎資料";
         [self addSubview:labTitle];
         
         UILabel *labLine=[[UILabel alloc] initWithFrame:CGRectMake(0, 40, frame.size.width, 2)];
-        labLine.backgroundColor=[UIColor colorFromHexRGB:@"2da6de"];
+        labLine.backgroundColor=[UIColor colorFromHexRGB:@"fc8600"];
         [self addSubview:labLine];
         
         CGFloat topY=labLine.frame.origin.y+labLine.frame.size.height+5;
@@ -59,7 +59,7 @@
         
         topY+=_fieldTitle.frame.size.height+1;
         UILabel *labLine1=[[UILabel alloc] initWithFrame:CGRectMake(10, topY, _fieldTitle.frame.size.width, 1)];
-        labLine1.backgroundColor=[UIColor colorFromHexRGB:@"2da6de"];
+        labLine1.backgroundColor=[UIColor colorFromHexRGB:@"fc8600"];
         [self addSubview:labLine1];
         
         
@@ -72,14 +72,14 @@
         
         topY+=_fieldEmail.frame.size.height+1;
         UILabel *labLine2=[[UILabel alloc] initWithFrame:CGRectMake(10, topY, _fieldEmail.frame.size.width, 1)];
-        labLine2.backgroundColor=[UIColor colorFromHexRGB:@"2da6de"];
+        labLine2.backgroundColor=[UIColor colorFromHexRGB:@"fc8600"];
         [self addSubview:labLine2];
         
         topY+=labLine2.frame.size.height+10;
         _cancelButton=[UIButton buttonWithType:UIButtonTypeCustom];
         _cancelButton.frame=CGRectMake(0, topY, frame.size.width/2, 40);
         [_cancelButton setTitle:@"取消" forState:UIControlStateNormal];
-        [_cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_cancelButton setTitleColor:defaultDeviceFontColor forState:UIControlStateNormal];
         _cancelButton.titleLabel.font=default18DeviceFont;
         [_cancelButton addTarget:self action:@selector(buttonHideClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_cancelButton];
@@ -87,7 +87,7 @@
         _confirmButton=[UIButton buttonWithType:UIButtonTypeCustom];
         _confirmButton.frame=CGRectMake(frame.size.width/2, topY, frame.size.width/2, 40);
         [_confirmButton setTitle:@"上傳" forState:UIControlStateNormal];
-        [_confirmButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_confirmButton setTitleColor:defaultDeviceFontColor forState:UIControlStateNormal];
         _confirmButton.titleLabel.font=default18DeviceFont;
         [_confirmButton addTarget:self action:@selector(buttonUploadClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_confirmButton];
