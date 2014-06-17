@@ -55,7 +55,7 @@
     }else{//新增
         [source addObject:entity];
     }
-    [AppHelper sendLocationNotice:entity.ID message:msg noticeDate:entity.repeatDate repeatInterval:entity.repeatInterval];
+    [AppHelper sendLocationNotice:entity.ID sendType:@"1" message:msg noticeDate:entity.repeatDate repeatInterval:entity.repeatInterval];
     [self saveWithSources:source];
 }
 - (BOOL)findById:(NSString*)sysId position:(NSInteger*)index{

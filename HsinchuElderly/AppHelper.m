@@ -10,7 +10,7 @@
 #import "SendMailViewController.h"
 @implementation AppHelper
 //發送下載完成的通知
-+ (void)sendLocationNotice:(NSString*)noticeKey message:(NSString*)msg noticeDate:(NSDate*)date repeatInterval:(NSCalendarUnit)repeat{
++ (void)sendLocationNotice:(NSString*)noticeKey sendType:(NSString*)type message:(NSString*)msg noticeDate:(NSDate*)date repeatInterval:(NSCalendarUnit)repeat{
     UILocalNotification *notification=[[UILocalNotification alloc] init];
     if (notification!=nil) {
        // NSDate *now=[NSDate new];
@@ -26,7 +26,7 @@
         notification.alertAction = @"確定";  //提示框按钮
         //notification.hasAction=YES;
         notification.hasAction = NO; //是否顯示額外的按钮，為no時alertAction消失
-        NSDictionary *infoDict = [NSDictionary dictionaryWithObject:noticeKey forKey:@"guid"];
+        NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:noticeKey,@"guid",type,@"type", nil];
         notification.userInfo = infoDict; //增加額外的訊息
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
