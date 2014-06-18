@@ -99,6 +99,10 @@
     [self addRowWithTitle:@"舒張壓" top:0 withInnerView:view];
     [self addRowWithTitle:@"收縮壓" top:45 withInnerView:view];
     [self addCustomView:view];
+    
+    CGRect r=self.frame;
+    r.origin.y=-r.size.height;
+    self.frame=r;
 }
 //添加輸入
 - (void)addRowWithTitle:(NSString*)title top:(CGFloat)topY withInnerView:(UIView*)view{

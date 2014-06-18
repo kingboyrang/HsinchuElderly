@@ -12,6 +12,7 @@
 - (void)encodeWithCoder:(NSCoder *)encoder{
     [encoder encodeObject:self.ID forKey:@"ID"];
     [encoder encodeObject:self.UserId forKey:@"UserId"];
+    [encoder encodeObject:self.UserName forKey:@"UserName"];
     [encoder encodeObject:self.Rate forKey:@"Rate"];
     [encoder encodeObject:self.TimeSpan forKey:@"TimeSpan"];
     [encoder encodeObject:self.CreateDate forKey:@"CreateDate"];
@@ -20,11 +21,23 @@
     if (self=[super init]) {
         self.ID=[aDecoder decodeObjectForKey:@"ID"];
         self.UserId=[aDecoder decodeObjectForKey:@"UserId"];
+        self.UserName=[aDecoder decodeObjectForKey:@"UserName"];
         self.Rate=[aDecoder decodeObjectForKey:@"Rate"];
         self.TimeSpan=[aDecoder decodeObjectForKey:@"TimeSpan"];
         self.CreateDate=[aDecoder decodeObjectForKey:@"CreateDate"];
     }
     return self;
+}
+- (id)copyWithZone:(NSZone *)zone
+{
+    BloodSugar *result = [[[self class] allocWithZone:zone] init];
+    result.ID=self.ID;
+    result.UserId=self.UserId;
+    result.UserName=self.UserName;
+    result.Rate=self.Rate;
+    result.TimeSpan=self.TimeSpan;
+    result.CreateDate=self.CreateDate;
+    return result;
 }
 - (NSCalendarUnit)repeatInterval{
     if (_Rate&&[_Rate length]>0) {

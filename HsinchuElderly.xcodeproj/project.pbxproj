@@ -107,6 +107,8 @@
 		01BE5901195036E20040A8F5 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58FC195036E20040A8F5 /* UIColor+expanded.m */; };
 		01BE590419503D360040A8F5 /* TKRecordCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE590319503D360040A8F5 /* TKRecordCalendarCell.m */; };
 		01BE590719503E9E0040A8F5 /* TKRecordDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE590619503E9E0040A8F5 /* TKRecordDetailCell.m */; };
+		01BE590A19511BD30040A8F5 /* RecordRemind.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE590919511BD30040A8F5 /* RecordRemind.m */; };
+		01BE590D19511F3C0040A8F5 /* RecordRemindHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE590C19511F3C0040A8F5 /* RecordRemindHelper.m */; };
 		01BF7FA8191B186C002E34E9 /* UIColor+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */; };
 		01BF7FAF191B1C30002E34E9 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FAE191B1C30002E34E9 /* ClockViewController.m */; };
 		01BF7FB4191B1DB9002E34E9 /* UIButton+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FB3191B1DB9002E34E9 /* UIButton+TPCategory.m */; };
@@ -369,6 +371,10 @@
 		01BE590319503D360040A8F5 /* TKRecordCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRecordCalendarCell.m; sourceTree = "<group>"; };
 		01BE590519503E9E0040A8F5 /* TKRecordDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRecordDetailCell.h; sourceTree = "<group>"; };
 		01BE590619503E9E0040A8F5 /* TKRecordDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRecordDetailCell.m; sourceTree = "<group>"; };
+		01BE590819511BD30040A8F5 /* RecordRemind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordRemind.h; sourceTree = "<group>"; };
+		01BE590919511BD30040A8F5 /* RecordRemind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordRemind.m; sourceTree = "<group>"; };
+		01BE590B19511F3C0040A8F5 /* RecordRemindHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordRemindHelper.h; sourceTree = "<group>"; };
+		01BE590C19511F3C0040A8F5 /* RecordRemindHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordRemindHelper.m; sourceTree = "<group>"; };
 		01BF7FA6191B186C002E34E9 /* UIColor+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TPCategory.h"; sourceTree = "<group>"; };
 		01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TPCategory.m"; sourceTree = "<group>"; };
 		01BF7FAA191B188C002E34E9 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
@@ -1026,6 +1032,8 @@
 				01A9743E1920DF6E0073530F /* HEWelfare.m */,
 				01A9752119231E730073530F /* HEConsultation.h */,
 				01A9752219231E730073530F /* HEConsultation.m */,
+				01BE590819511BD30040A8F5 /* RecordRemind.h */,
+				01BE590919511BD30040A8F5 /* RecordRemind.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1053,6 +1061,8 @@
 				01A974411920DF8D0073530F /* HEWelfareHelper.m */,
 				01A9752419231E980073530F /* HEConsultationHelper.h */,
 				01A9752519231E980073530F /* HEConsultationHelper.m */,
+				01BE590B19511F3C0040A8F5 /* RecordRemindHelper.h */,
+				01BE590C19511F3C0040A8F5 /* RecordRemindHelper.m */,
 			);
 			name = DAL;
 			sourceTree = "<group>";
@@ -1366,6 +1376,7 @@
 				01BE590419503D360040A8F5 /* TKRecordCalendarCell.m in Sources */,
 				01382B9A19374859005AAD8E /* TKCalendarFieldCell.m in Sources */,
 				01A9744F1921BB100073530F /* CallOutAnnotationVifew.m in Sources */,
+				01BE590D19511F3C0040A8F5 /* RecordRemindHelper.m in Sources */,
 				01622222191CC6C500B4AD50 /* AnimateLoadView.m in Sources */,
 				01CDC1B5191A220A0002AE47 /* AppDelegate.m in Sources */,
 				26DEBA38191F440F0007DB43 /* PullingRefreshTableView.m in Sources */,
@@ -1409,6 +1420,7 @@
 				01BE5901195036E20040A8F5 /* UIColor+expanded.m in Sources */,
 				01BE58FF195036E20040A8F5 /* NSMutableArray+convenience.m in Sources */,
 				01A97379191DCD560073530F /* CVUIPopoverText.m in Sources */,
+				01BE590A19511BD30040A8F5 /* RecordRemind.m in Sources */,
 				01A9756C19236AF50073530F /* SRMNetworkEngine.m in Sources */,
 				01BE58EC194FD3550040A8F5 /* RecordCalendar.m in Sources */,
 				01A973C8192075730073530F /* BloodSugarHelper.m in Sources */,

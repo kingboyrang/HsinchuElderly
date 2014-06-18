@@ -32,6 +32,12 @@
          [db executeUpdate:@"CREATE TABLE if not exists \"Blood\" (\"ID\" CHAR(36) PRIMARY KEY  NOT NULL  UNIQUE , \"UserId\" CHAR(36), \"Rate\" CHAR(50), \"TimeSpan\" CHAR(50), \"CreateDate\" DATETIME DEFAULT CURRENT_TIMESTAMP);"];
         //血糖測量
         [db executeUpdate:@"CREATE TABLE if not exists \"BloodSugar\" (\"ID\" CHAR(36) PRIMARY KEY  NOT NULL  UNIQUE , \"UserId\" CHAR(36), \"Rate\" CHAR(50), \"TimeSpan\" CHAR(50), \"CreateDate\" DATETIME DEFAULT CURRENT_TIMESTAMP);"];
+        //藥物記錄
+        [db executeUpdate:@"CREATE TABLE if not exists \"RecordDrug\" (\"ID\" CHAR(36) PRIMARY KEY  NOT NULL  UNIQUE,\"DrugGuid\" CHAR(36),\"Name\" CHAR(100), \"DrugName\" CHAR(200),\"TimeSpan\" CHAR(50), \"RecordDate\" DATETIME, \"CreateDate\" DATETIME DEFAULT CURRENT_TIMESTAMP);"];
+        //血壓記錄
+        [db executeUpdate:@"CREATE TABLE if not exists \"RecordBlood\" (\"ID\" CHAR(36) PRIMARY KEY  NOT NULL  UNIQUE,\"BloodGuid\" CHAR(36), \"Name\" CHAR(100), \"Shrink\" CHAR(50),\"Diastolic\" CHAR(50),\"TimeSpan\" CHAR(50),\"RecordDate\" DATETIME,\"CreateDate\" DATETIME DEFAULT CURRENT_TIMESTAMP);"];
+        //血糖記錄
+        [db executeUpdate:@"CREATE TABLE if not exists \"RecordBloodSugar\" (\"ID\" CHAR(36) PRIMARY KEY  NOT NULL  UNIQUE,\"BloodSugarGuid\" CHAR(36),\"Name\" CHAR(100), \"BloodSugar\" CHAR(50),\"TimeSpan\" CHAR(50),\"RecordDate\" DATETIME, \"CreateDate\" DATETIME DEFAULT CURRENT_TIMESTAMP);"];
         [db commit];
         [db close];
     }

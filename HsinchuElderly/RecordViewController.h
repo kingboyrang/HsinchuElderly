@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface RecordViewController : BasicViewController<UITableViewDataSource,UITableViewDelegate>
+#import "RecordRemindHelper.h"
+#import "VRGCalendarView.h"
+@interface RecordViewController : BasicViewController<UITableViewDataSource,UITableViewDelegate,VRGCalendarViewDelegate>
 @property (nonatomic,strong) UITableView *userTable;
 @property (nonatomic,strong) NSMutableArray *cells;
+@property (nonatomic,strong) RecordRemindHelper *recordHelper;
+@property (nonatomic,strong) VRGCalendarView *recordCalendarView;
+@property (nonatomic,copy)   NSString *recordType;
 @end

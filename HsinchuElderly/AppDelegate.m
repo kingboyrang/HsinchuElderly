@@ -13,6 +13,7 @@
 #import "AppHelper.h"
 #import "NSDate+TPCategory.h"
 #import "HEBasicHelper.h"
+#import "RecordRemindHelper.h"
 @implementation AppDelegate
 
 - (void)dbInitLoad{
@@ -49,9 +50,10 @@
         [userDefaults setValue:@"1" forKey:@"flags"];
         [userDefaults synchronize];
         [AppHelper removeLocationNotice];
+        application.applicationIconBadgeNumber=0;
     }
     
-    application.applicationIconBadgeNumber =0;
+    
     [self dbInitLoad];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
@@ -61,6 +63,14 @@
     UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:index];
     self.window.rootViewController=nav;
     [self.window makeKeyAndVisible];
+    
+    //处理本地通知
+    UILocalNotification *localNotif=[launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (localNotif) {
+         application.applicationIconBadgeNumber =application.applicationIconBadgeNumber-1;
+        [self handlerNotificeWithUseInfo:localNotif.userInfo];
+         
+    }
     return YES;
 }
 							
@@ -82,7 +92,6 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    application.applicationIconBadgeNumber =0;
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
@@ -90,37 +99,66 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-#pragma mark -
+#pragma mark - PopoverViewDelegate
+- (void)confirmPopoverWithTarget:(id)sender{
+    BasicPopoverView *basic=(BasicPopoverView*)sender;
+    NSDictionary *dic=[basic userInfo];
+    NSString *type=[dic objectForKey:@"type"];
+    if ([type isEqualToString:@"1"]) {//藥物
+        //MedicineDrug *mod=(MedicineDrug*)[dic objectForKey:@"entity"];
+        BOOL boo=[RecordRemindHelper insertRecordDrug:dic];
+        NSString *msg=[NSString stringWithFormat:@"藥物記錄%@",boo?@"成功":@"失敗"];
+        [AlertHelper initWithTitle:@"提示" message:msg];
+    }
+    if ([type isEqualToString:@"2"]) {//血壓
+        BloodPopoverView *bloodView=(BloodPopoverView*)sender;
+        
+        BOOL boo=[RecordRemindHelper insertRecordBlood:dic shrink:bloodView.field1.text diastolic:bloodView.field2.text];
+        NSString *msg=[NSString stringWithFormat:@"血壓記錄%@",boo?@"成功":@"失敗"];
+        [AlertHelper initWithTitle:@"提示" message:msg];
+    }
+    if ([type isEqualToString:@"3"]) {//血糖
+        BloodSugarPopoverView *bloodView=(BloodSugarPopoverView*)sender;
+        BOOL boo=[RecordRemindHelper insertRecordBloodSugar:dic sugar:bloodView.field.text];
+        NSString *msg=[NSString stringWithFormat:@"血糖記錄%@",boo?@"成功":@"失敗"];
+        [AlertHelper initWithTitle:@"提示" message:msg];
+    }
+}
+#pragma mark -(当应用程序处理活动状态会执行delegate,处理本地通知)
 #pragma mark 本地通知
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    notification.applicationIconBadgeNumber=notification.applicationIconBadgeNumber-1;
     //點選提示框的打開
-    application.applicationIconBadgeNumber = notification.applicationIconBadgeNumber-1;
     UIApplicationState state = application.applicationState;
-    //    NSLog(@"%@,%d",notification,state);
     if (state == UIApplicationStateActive) {
-        //[AlertHelper initWithTitle:@"提醒" message:notification.alertBody];
-        /***
-        [AlterMessage initWithTip:[NSString stringWithFormat:@"%@,是否直接開啟?",notification.alertBody] confirmMessage:@"是" cancelMessage:@"否" confirmAction:^(){
-            //處理確認
-            UITabBarController *rootController=(UITabBarController*)self.window.rootViewController;
-            NSArray *arr=rootController.viewControllers;
-            UINavigationController *nav=(UINavigationController*)[arr objectAtIndex:rootController.selectedIndex];
-            
-            NSString *filePath=[[notification userInfo] objectForKey:@"path"];
-            NSString *name=[[filePath lastPathComponent] stringByDeletingPathExtension];
-            QLPreviewController *previewoCntroller = [[[QLPreviewController alloc] init] autorelease];
-            
-            
-            
-            PreviewDataSource *dataSource = [[[PreviewDataSource alloc]init] autorelease];
-            dataSource.path=[[NSString alloc] initWithString:filePath];
-            previewoCntroller.dataSource=dataSource;
-            [nav pushViewController: previewoCntroller animated:YES];
-            [previewoCntroller setTitle:name];
-            previewoCntroller.navigationItem.rightBarButtonItem=nil;
-        }];
-         ***/
+        NSDictionary *dic=[notification userInfo];
+        [self handlerNotificeWithUseInfo:dic];
     }
     
+}
+- (void)handlerNotificeWithUseInfo:(NSDictionary*)dic{
+    NSString *type=[dic objectForKey:@"type"];
+    if ([type isEqualToString:@"1"]) {//藥物
+        BasicPopoverView *basic=[[BasicPopoverView alloc] initWithFrame:CGRectMake((DeviceWidth-300)/2, 0, 300, 20)];
+        basic.userInfo=dic;
+        basic.delegate=self;
+        [basic setMessage:[NSString stringWithFormat:@"親愛的%@,吃%@了嗎?",[dic objectForKey:@"UserName"],[dic objectForKey:@"Name"]]];
+        [basic show];
+    }
+    if ([type isEqualToString:@"2"]) {//血壓
+        
+        BloodPopoverView *basic=[[BloodPopoverView alloc] initWithFrame:CGRectMake((DeviceWidth-300)/2, 0, 300, 20)];
+        basic.userInfo=dic;
+        basic.delegate=self;
+        [basic setMessage:[NSString stringWithFormat:@"親愛的%@,請輸入您的血壓值:",[dic objectForKey:@"UserName"]]];
+        [basic show];
+    }
+    if ([type isEqualToString:@"3"]) {//血糖
+        BloodSugarPopoverView *basic=[[BloodSugarPopoverView alloc] initWithFrame:CGRectMake((DeviceWidth-300)/2, 0, 300, 20)];
+        basic.userInfo=dic;
+        basic.delegate=self;
+        [basic setMessage:[NSString stringWithFormat:@"親愛的%@,請輸入您的血糖值:",[dic objectForKey:@"UserName"]]];
+        [basic show];
+    }
 }
 @end

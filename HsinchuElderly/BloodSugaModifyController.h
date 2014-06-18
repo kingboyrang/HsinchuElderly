@@ -14,5 +14,4 @@
 @property (nonatomic,strong) NSMutableArray *systemUsers;
 @property (nonatomic,strong) BloodSugar *Entity;
 @property (nonatomic,assign) NSInteger operType;//1:表示新增 2:表示修改
-
 @end

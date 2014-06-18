@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+#import "BasicPopoverView.h"
+#import "BloodPopoverView.h"
+#import "BloodSugarPopoverView.h"
+@interface AppDelegate : UIResponder <UIApplicationDelegate,PopoverViewDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 - (void)dbInitLoad;
+- (void)handlerNotificeWithUseInfo:(NSDictionary*)userInfo;
 @end

@@ -9,10 +9,10 @@
 #import "RecordViewController.h"
 #import "RecordTopView.h"
 #import "RecordCalendar.h"
-#import "VRGCalendarView.h"
 #import "TKRecordCalendarCell.h"
 #import "TKRecordDetailCell.h"
-@interface RecordViewController ()<RecordTopViewDelegate,VRGCalendarViewDelegate>
+#import "NSDate+TPCategory.h"
+@interface RecordViewController ()<RecordTopViewDelegate>
 
 @end
 
@@ -30,10 +30,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.recordHelper=[[RecordRemindHelper alloc] init];
+    self.recordType=@"1";
+    
     self.title=@"記錄";
     RecordTopView *topView=[[RecordTopView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 50)];
     topView.delegate=self;
     [self.view addSubview:topView];
+    
+    /***
+    _recordCalendarView=[[VRGCalendarView alloc] initWithFrame:CGRectMake(0, 50,320, 291)];
+    _recordCalendarView.delegate=self;
+    [self.view addSubview:_recordCalendarView];
+     ***/
     
     CGRect r=self.view.bounds;
     r.origin.y=50;
@@ -48,19 +57,70 @@
     
     TKRecordCalendarCell *cell1=[[TKRecordCalendarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     cell1.calendarView.delegate=self;
-    TKRecordDetailCell *cell2=[[TKRecordDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    [cell2 setTime:@"18:00" name:@"王大明" detail:@"吃  腸胃藥"];
-    self.cells=[NSMutableArray arrayWithObjects:cell1,cell2, nil];
+    //cell1.calendarView.currentMonth=[NSDate date];
+    self.cells=[NSMutableArray arrayWithObjects:cell1,nil];
     
-//    RecordCalendar *calendar=[[RecordCalendar alloc] initWithFrame:CGRectMake(10, 60, 300, 200)];
-//    [self.view addSubview:calendar];
+}
+- (void)updateSourceWithDate:(NSString*)str{
+    NSArray *arr=[self.recordHelper searchRecordWithType:self.recordType searchDate:str];
+    [self.cells removeObjectsInRange:NSMakeRange(1, self.cells.count-1)];
+    if (arr&&[arr count]>0) {
+        for (RecordRemind *item in arr) {
+            TKRecordDetailCell *cell2=[[TKRecordDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+            if ([item.Type isEqualToString:@"2"]) {
+                [cell2 setTime:item.TimeSpan name:item.Name value1:item.DetailValue1 value2:item.DetailValue2];
+            }else{
+                [cell2 setTime:item.TimeSpan name:item.Name detail:item.Description];
+            }
+            [self.cells addObject:cell2];
+        }
+    }
+    [_userTable reloadData];
 }
 #pragma mark -VRGCalendarViewDelegate Methods
+//切换月份处理
 -(void)calendarView:(VRGCalendarView *)calendarView switchedToMonth:(int)month targetHeight:(float)targetHeight animated:(BOOL)animated{
-
-}
--(void)calendarView:(VRGCalendarView *)calendarView dateSelected:(NSDate *)date{
+    NSDate *date=calendarView.currentMonth;
+    NSDate *sdate=[date monthFirstDay];
+    NSDate *edate=[date monthLastDay];
+    NSString *time1=[sdate stringWithFormat:@"yyyy-MM-dd"];
+    NSString *time2=[edate stringWithFormat:@"yyyy-MM-dd"];
+    NSArray *arr=[self.recordHelper searchRecordWithType:self.recordType startDate:time1 endDate:time2];
+    if (arr&&[arr count]>0) {
+         [calendarView markDates:arr];
+    }else{
+         [calendarView markDates:nil];
+    }
     
+    NSString *time=[self.recordHelper searchMaxDateWithType:self.recordType startDate:time1 endDate:time2];
+    if (time&&[time length]>0) {
+        TKRecordCalendarCell *cell1=self.cells[0];
+        NSDate *date3=[NSDate dateFromString:time withFormat:@"yyyy-MM-dd"];
+        TKDateInformation info=[date3 dateInformation];
+        [cell1.calendarView selectDate:info.day];
+    }else{
+        [self.cells removeObjectsInRange:NSMakeRange(1, self.cells.count-1)];
+        [_userTable reloadData];
+    }
+    
+}
+//选中某天处理
+-(void)calendarView:(VRGCalendarView *)calendarView dateSelected:(NSDate *)date{
+    NSString *str=[date stringWithFormat:@"yyyy-MM-dd"];
+    NSArray *arr=[self.recordHelper searchRecordWithType:self.recordType searchDate:str];
+    [self.cells removeObjectsInRange:NSMakeRange(1, self.cells.count-1)];
+    if (arr&&[arr count]>0) {
+        for (RecordRemind *item in arr) {
+           TKRecordDetailCell *cell2=[[TKRecordDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+            if ([item.Type isEqualToString:@"2"]) {
+                [cell2 setTime:item.TimeSpan name:item.Name value1:item.DetailValue1 value2:item.DetailValue2];
+            }else{
+                [cell2 setTime:item.TimeSpan name:item.Name detail:item.Description];
+            }
+            [self.cells addObject:cell2];
+        }
+    }
+    [_userTable reloadData];
 }
 -(void)calendarView:(VRGCalendarView *)calendarView changeCalendarHeight:(CGFloat)height{
     id v=[calendarView superview];
@@ -69,21 +129,18 @@
     }
     TKRecordCalendarCell *cell=(TKRecordCalendarCell*)v;
     cell.cellHeight=height+5;
-    //NSIndexPath *indexPath=[_userTable indexPathForCell:cell];
-    
-    //[self tableView:_userTable heightForRowAtIndexPath:indexPath];
     [_userTable reloadData];
-    //[_userTable reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
 }
 #pragma mark - RecordTopViewDelegate Methods
 - (void)selectedButton:(UIButton*)btn type:(NSInteger)type{
-    if (type==1) {//用藥
-        
-    }else if(type==2)//血壓
-    {
-        
-    }else{//血糖
-    
+    BOOL boo=NO;
+    if ([self.recordType integerValue]!=type) {
+        boo=YES;
+    }
+    self.recordType=[NSString stringWithFormat:@"%d",type];
+    if (boo) {//表示发生改变
+        TKRecordCalendarCell *cell=self.cells[0];
+        [cell.calendarView reset];
     }
 }
 #pragma mark UITableViewDataSource Methods

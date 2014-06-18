@@ -17,6 +17,7 @@
 @property (nonatomic,strong) UILabel *labMessage;
 @property (nonatomic,strong) UIButton *cancelButton;
 @property (nonatomic,strong) UIButton *confirmButton;
+@property (nonatomic,retain) NSDictionary *userInfo;
 @property (nonatomic,assign) id<PopoverViewDelegate> delegate;
 - (void)setMessage:(NSString*)message;
 - (void)addCustomView:(UIView*)view;

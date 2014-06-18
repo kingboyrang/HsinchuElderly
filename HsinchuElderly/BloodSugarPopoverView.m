@@ -89,6 +89,10 @@
     lab2.font=default18DeviceFont;
     [view addSubview:lab2];
     [self addCustomView:view];
+    
+    CGRect r=self.frame;
+    r.origin.y=-r.size.height;
+    self.frame=r;
 }
 //重寫取消事件
 - (void)buttonHideClick:(UIButton *)btn{

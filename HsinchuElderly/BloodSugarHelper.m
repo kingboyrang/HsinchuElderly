@@ -52,7 +52,9 @@
     }else{//新增
         [source addObject:entity];
     }
-    [AppHelper sendLocationNotice:entity.ID sendType:@"3" message:msg noticeDate:entity.repeatDate repeatInterval:entity.repeatInterval];
+    NSDictionary *userInfo=[NSDictionary dictionaryWithObjectsAndKeys:entity.ID,@"guid",@"3",@"type",entity.UserName,@"UserName",entity.TimeSpan,@"TimeSpan", nil];
+    [AppHelper sendLocationNotice:userInfo message:msg noticeDate:entity.repeatDate repeatInterval:entity.repeatInterval];
+    //[AppHelper sendLocationNotice:entity.ID sendType:@"3" message:msg noticeDate:entity.repeatDate repeatInterval:entity.repeatInterval];
     [self saveWithSources:source];
 }
 - (BOOL)findById:(NSString*)sysId position:(NSInteger*)index{

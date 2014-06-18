@@ -10,6 +10,7 @@
 
 @interface AppHelper : NSObject
 + (void)sendLocationNotice:(NSString*)noticeKey sendType:(NSString*)type message:(NSString*)msg noticeDate:(NSDate*)date repeatInterval:(NSCalendarUnit)repeat;
++ (void)sendLocationNotice:(NSDictionary*)userInfo message:(NSString*)msg noticeDate:(NSDate*)date repeatInterval:(NSCalendarUnit)repeat;
 + (void)removeLocationNoticeWithName:(NSString*)name;
 + (void)removeLocationNotice;
 + (void)setNavigationBarTitleAttrsFontWhite:(BOOL)white;

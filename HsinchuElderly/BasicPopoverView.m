@@ -95,6 +95,7 @@
     
     r=self.frame;
     r.size.height=_confirmButton.frame.origin.y+_confirmButton.frame.size.height;
+    r.origin.y=-r.size.height;
     self.frame=r;
     //setNeedsDisplay方便绘图，而layoutSubViews方便出来数据。
     [self setNeedsDisplay];

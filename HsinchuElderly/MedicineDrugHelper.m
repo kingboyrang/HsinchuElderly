@@ -55,7 +55,12 @@
     }else{//新增
         [source addObject:entity];
     }
-    [AppHelper sendLocationNotice:entity.ID sendType:@"1" message:msg noticeDate:entity.repeatDate repeatInterval:entity.repeatInterval];
+    //entity.ID,entity.UserName,entity.Name,entity.TimeSpan
+    
+    NSDictionary *userInfo=[NSDictionary dictionaryWithObjectsAndKeys:entity.ID,@"guid",@"1",@"type",entity.UserName,@"UserName",
+                            entity.Name,@"Name",entity.TimeSpan,@"TimeSpan",nil];
+    [AppHelper sendLocationNotice:userInfo message:msg noticeDate:entity.repeatDate repeatInterval:entity.repeatInterval];
+    //[AppHelper sendLocationNotice:entity.ID sendType:@"1" message:msg noticeDate:entity.repeatDate repeatInterval:entity.repeatInterval];
     [self saveWithSources:source];
 }
 - (BOOL)findById:(NSString*)sysId position:(NSInteger*)index{

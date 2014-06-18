@@ -121,6 +121,7 @@
         self.Entity.CreateDate=[NSDate stringFromDate:[NSDate date] withFormat:@"yyyy/MM/dd HH:mm:ss"];
     }
     self.Entity.UserId=cell1.select.value;
+    self.Entity.UserName=cell1.select.key;
     self.Entity.Rate=cell2.select.value;
     self.Entity.TimeSpan=cell3.calendar.popText.field.text;
     
