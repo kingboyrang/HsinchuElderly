@@ -85,8 +85,12 @@
     CGSize size=[_labTime.text textSize:_labTime.font withWidth:self.frame.size.width];
     _labTime.frame=CGRectMake(10, (self.frame.size.height-size.height)/2, size.width, size.height);
     
+   
+    
     size=[_labName.text textSize:_labName.font withWidth:self.frame.size.width];
-    _labName.frame=CGRectMake(_labTime.frame.origin.x+_labName.frame.size.width+10, (self.frame.size.height-size.height)/2, size.width, size.height);
+    _labName.frame=CGRectMake(_labTime.frame.origin.x+_labTime.frame.size.width+10, (self.frame.size.height-size.height)/2, size.width, size.height);
+    
+    
     
     CGFloat leftX=_labName.frame.size.width+_labName.frame.origin.x+10;
     CGFloat w=self.frame.size.width-5-leftX;
@@ -111,8 +115,10 @@
 - (void)setTime:(NSString*)time name:(NSString*)user value1:(NSString*)msg1 value2:(NSString*)msg2{
     _labTime.text=time;
     _labName.text=user;
-    _labValue1.text=msg1;
-    _labValue2.text=msg2;
+    _labValue1.text=[NSString stringWithFormat:@"收縮壓 %@ mmHg",msg1];
+    _labValue2.text=[NSString stringWithFormat:@"舒張壓 %@ mmHg",msg2];
+    _labValue1.textAlignment=NSTextAlignmentRight;
+    _labValue2.textAlignment=NSTextAlignmentRight;
     self.showValue1=NO;
     [self relayoutValue2];
     

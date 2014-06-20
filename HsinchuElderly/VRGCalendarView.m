@@ -43,14 +43,15 @@
     if ([delegate respondsToSelector:@selector(calendarView:dateSelected:)]) [delegate calendarView:self dateSelected:self.selectedDate];
 }
 
-#pragma mark - Mark Dates
+#pragma mark - Mark Dates(選到的日期)
 //NSArray can either contain NSDate objects or NSNumber objects with an int of the day.
 -(void)markDates:(NSArray *)dates {
     self.markedDates = dates;
     NSMutableArray *colors = [[NSMutableArray alloc] init];
     
     for (int i = 0; i<[dates count]; i++) {
-        [colors addObject:[UIColor colorWithHexString:@"0x383838"]];
+        //[colors addObject:[UIColor colorWithHexString:@"0x383838"]];
+        [colors addObject:[UIColor colorFromHexRGB:@"fc9a0a"]];
     }
     
     self.markedColors = [NSArray arrayWithArray:colors];
@@ -289,7 +290,8 @@
     
     CGRect rectangle = CGRectMake(0,0,self.frame.size.width,kVRGCalendarViewTopBarHeight);
     CGContextAddRect(context, rectangle);
-    CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+    //CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+    CGContextSetFillColorWithColor(context, [UIColor colorFromHexRGB:@"fc4010"].CGColor);
     CGContextFillPath(context);
     
     //Arrows
@@ -305,7 +307,7 @@
     CGContextAddLineToPoint(context,xmargin+arrowSize/1.5, ymargin);
     
     CGContextSetFillColorWithColor(context, 
-                                   [UIColor blackColor].CGColor);
+                                   [UIColor whiteColor].CGColor);
     CGContextFillPath(context);
     
     //Arrow right
@@ -316,7 +318,7 @@
     CGContextAddLineToPoint(context,self.frame.size.width-(xmargin+arrowSize/1.5), ymargin);
     
     CGContextSetFillColorWithColor(context, 
-                                   [UIColor blackColor].CGColor);
+                                   [UIColor whiteColor].CGColor);
     CGContextFillPath(context);
     
     //Weekdays
@@ -328,10 +330,16 @@
     
     CGContextSetFillColorWithColor(context, 
                                    [UIColor colorWithHexString:@"0x383838"].CGColor);
+    
+    CGFloat w=kVRGCalendarViewWidth/7;
     for (int i =0; i<[weekdays count]; i++) {
         NSString *weekdayValue = (NSString *)[weekdays objectAtIndex:i];
-        UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:12];
-        [weekdayValue drawInRect:CGRectMake(i*(kVRGCalendarViewDayWidth+2), 40, kVRGCalendarViewDayWidth+2, 20) withFont:font lineBreakMode:UILineBreakModeClip alignment:NSTextAlignmentCenter];
+        UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:14];
+        CGSize size=[weekdayValue textSize:font withWidth:kVRGCalendarViewDayWidth];
+        NSDictionary *attrs=[NSDictionary dictionaryWithObjectsAndKeys:
+                             [UIColor whiteColor], NSForegroundColorAttributeName,
+                             font, NSFontAttributeName, nil];
+        [weekdayValue drawInRect:CGRectMake(i*w+(w-size.width)/2, 40, size.width, size.height) withAttributes:attrs];
     }
     
     int numRows = [self numRows];
@@ -342,8 +350,7 @@
     float gridHeight = numRows*(kVRGCalendarViewDayHeight+2)+1;
     CGRect rectangleGrid = CGRectMake(0,kVRGCalendarViewTopBarHeight,self.frame.size.width,gridHeight);
     CGContextAddRect(context, rectangleGrid);
-    CGContextSetFillColorWithColor(context, [UIColor colorWithHexString:@"0xf3f3f3"].CGColor);
-    //CGContextSetFillColorWithColor(context, [UIColor colorWithHexString:@"0xff0000"].CGColor);
+    CGContextSetFillColorWithColor(context, [UIColor colorFromHexRGB:@"fee5da"].CGColor);
     CGContextFillPath(context);
     
     //Grid white lines
@@ -463,7 +470,9 @@
         if (selectedDate && i==selectedDateBlock) {
             CGRect rectangleGrid = CGRectMake(targetX,targetY,kVRGCalendarViewDayWidth+2,kVRGCalendarViewDayHeight+2);
             CGContextAddRect(context, rectangleGrid);
-            CGContextSetFillColorWithColor(context, [UIColor colorWithHexString:@"0x006dbc"].CGColor);
+            //CGContextSetFillColorWithColor(context, [UIColor colorWithHexString:@"0x006dbc"].CGColor);
+            //按下的日期顏色
+            CGContextSetFillColorWithColor(context, [UIColor colorFromHexRGB:@"ff5a00"].CGColor);
             CGContextFillPath(context);
             
             CGContextSetFillColorWithColor(context, 
@@ -471,14 +480,16 @@
         } else if (todayBlock==i) {
             CGRect rectangleGrid = CGRectMake(targetX,targetY,kVRGCalendarViewDayWidth+2,kVRGCalendarViewDayHeight+2);
             CGContextAddRect(context, rectangleGrid);
-            CGContextSetFillColorWithColor(context, [UIColor colorWithHexString:@"0x383838"].CGColor);
+            //CGContextSetFillColorWithColor(context, [UIColor colorWithHexString:@"0x383838"].CGColor);
+            //当前天的日期顏色
+            CGContextSetFillColorWithColor(context, [UIColor colorFromHexRGB:@"9b9b9b"].CGColor);
             CGContextFillPath(context);
             
             CGContextSetFillColorWithColor(context, 
                                            [UIColor whiteColor].CGColor);
         }
-        
-        [date drawInRect:CGRectMake(targetX+2, targetY+10, kVRGCalendarViewDayWidth, kVRGCalendarViewDayHeight) withFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:17] lineBreakMode:UILineBreakModeClip alignment:NSTextAlignmentCenter];
+        UIFont *font=DeviceIsPad?[UIFont fontWithName:@"HelveticaNeue-Bold" size:17*2]:[UIFont fontWithName:@"HelveticaNeue-Bold" size:17];
+        [date drawInRect:CGRectMake(targetX+2, targetY+10, kVRGCalendarViewDayWidth, kVRGCalendarViewDayHeight) withFont:font lineBreakMode:UILineBreakModeClip alignment:NSTextAlignmentCenter];
     }
     
     //    CGContextClosePath(context);
@@ -507,9 +518,9 @@
         int targetRow = targetBlock/7;
         
         int targetX = targetColumn * (kVRGCalendarViewDayWidth+2) + 7;
-        int targetY = kVRGCalendarViewTopBarHeight + targetRow * (kVRGCalendarViewDayHeight+2) + 38;
+        int targetY = kVRGCalendarViewTopBarHeight + targetRow * (kVRGCalendarViewDayHeight+2) + kVRGCalendarViewDayHeight-6;
         
-        CGRect rectangle = CGRectMake(targetX,targetY,32,2);
+        CGRect rectangle = CGRectMake(targetX,targetY,kVRGCalendarViewDayWidth-12,2);
         CGContextAddRect(context, rectangle);
         
         UIColor *color;
@@ -550,9 +561,9 @@
         isAnimating=NO;
         self.labelCurrentMonth = [[UILabel alloc] initWithFrame:CGRectMake(34, 0, kVRGCalendarViewWidth-68, 40)];
         [self addSubview:labelCurrentMonth];
-        labelCurrentMonth.backgroundColor=[UIColor whiteColor];
+        labelCurrentMonth.backgroundColor=[UIColor clearColor];
         labelCurrentMonth.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:17];
-        labelCurrentMonth.textColor = [UIColor colorWithHexString:@"0x383838"];
+        labelCurrentMonth.textColor = [UIColor whiteColor];
         labelCurrentMonth.textAlignment = NSTextAlignmentCenter;
         
         [self performSelector:@selector(reset) withObject:nil afterDelay:0.1]; //so delegate can be set after init and still get called on init

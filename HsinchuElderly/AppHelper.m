@@ -40,7 +40,7 @@
         notification.repeatInterval=repeat;//循环次数，kCFCalendarUnitWeekday一周一次
         notification.repeatCalendar=[NSCalendar currentCalendar];
         notification.timeZone=[NSTimeZone defaultTimeZone];
-        notification.applicationIconBadgeNumber=1; //應用的红色數字
+        notification.applicationIconBadgeNumber=[[[UIApplication sharedApplication] scheduledLocalNotifications] count]+1; //應用的红色數字
         notification.soundName= UILocalNotificationDefaultSoundName;//声音，可以換成alarm.soundName = @"myMusic.caf"
         //去掉下面2行就不會彈出提示框
         notification.alertBody=msg;//提示訊息 彈出提示框

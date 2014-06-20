@@ -126,6 +126,7 @@
     _field.layer.masksToBounds=YES;
     _field.font=default18DeviceFont;
     _field.delegate=self;
+   // _field.keyboardType=UIKeyboardTypeNumberPad;
     [view addSubview:_field];
     if (topY==0) {
         _field.placeholder=@"請輸入舒張壓";

@@ -52,8 +52,6 @@
         [AppHelper removeLocationNotice];
         application.applicationIconBadgeNumber=0;
     }
-    
-    
     [self dbInitLoad];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
@@ -93,6 +91,8 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    application.applicationIconBadgeNumber=0;
+    //[self resetBageNumber];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -131,10 +131,30 @@
     //點選提示框的打開
     UIApplicationState state = application.applicationState;
     if (state == UIApplicationStateActive) {
+        
         NSDictionary *dic=[notification userInfo];
         [self handlerNotificeWithUseInfo:dic];
     }
-    
+    //[self resetBageNumber];
+}
+- (void)resetBageNumber{
+    int count =[[[UIApplication sharedApplication] scheduledLocalNotifications] count];
+    if(count>0)
+    {
+        NSMutableArray *newarry= [NSMutableArray arrayWithCapacity:0];
+        for (int i=0; i<count; i++) {
+            UILocalNotification *notif=[[[UIApplication sharedApplication] scheduledLocalNotifications] objectAtIndex:i];
+            notif.applicationIconBadgeNumber=i+1;
+            [newarry addObject:notif];
+        }
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        if (newarry.count>0) {
+            for (int i=0; i<newarry.count; i++) {
+                UILocalNotification *notif = [newarry objectAtIndex:i];
+                [[UIApplication sharedApplication] scheduleLocalNotification:notif];
+            }
+        }
+    }
 }
 - (void)handlerNotificeWithUseInfo:(NSDictionary*)dic{
     NSString *type=[dic objectForKey:@"type"];

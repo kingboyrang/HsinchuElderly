@@ -14,5 +14,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 - (void)dbInitLoad;
+- (void)resetBageNumber;
 - (void)handlerNotificeWithUseInfo:(NSDictionary*)userInfo;
 @end
