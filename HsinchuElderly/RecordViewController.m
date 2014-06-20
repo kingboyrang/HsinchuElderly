@@ -164,6 +164,9 @@
     if (cell.showValue1) {
         
         CGFloat h=cell.cellHeight+20;
+        if (DeviceIsPad) {
+            return h<90.0f?90.0f:h;
+        }
         return h<70.0f?70.0f:h;
     }else{
         CGFloat h=cell.cellHeight+20;
