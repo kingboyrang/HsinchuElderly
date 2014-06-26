@@ -109,6 +109,7 @@
 		01BE590719503E9E0040A8F5 /* TKRecordDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE590619503E9E0040A8F5 /* TKRecordDetailCell.m */; };
 		01BE590A19511BD30040A8F5 /* RecordRemind.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE590919511BD30040A8F5 /* RecordRemind.m */; };
 		01BE590D19511F3C0040A8F5 /* RecordRemindHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE590C19511F3C0040A8F5 /* RecordRemindHelper.m */; };
+		01BE5921195BBF8D0040A8F5 /* remind.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 01BE5920195BBF8D0040A8F5 /* remind.sqlite */; };
 		01BF7FA8191B186C002E34E9 /* UIColor+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */; };
 		01BF7FAF191B1C30002E34E9 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FAE191B1C30002E34E9 /* ClockViewController.m */; };
 		01BF7FB4191B1DB9002E34E9 /* UIButton+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FB3191B1DB9002E34E9 /* UIButton+TPCategory.m */; };
@@ -121,7 +122,6 @@
 		01BF7FD2191B6469002E34E9 /* TKLabelFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FD1191B6469002E34E9 /* TKLabelFieldCell.m */; };
 		01BF7FD4191B6503002E34E9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BF7FD3191B6503002E34E9 /* QuartzCore.framework */; };
 		01BF7FD7191B6D57002E34E9 /* TKLabelSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FD6191B6D57002E34E9 /* TKLabelSegmentCell.m */; };
-		01BFABCC193F70B000786BBE /* remind.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 01BFABCB193F70B000786BBE /* remind.sqlite */; };
 		01BFE02E191C682600095A8A /* HESegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BFE02D191C682600095A8A /* HESegmentControl.m */; };
 		01BFE034191C746700095A8A /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BFE033191C746700095A8A /* TopBarView.m */; };
 		01BFE037191C782800095A8A /* UINavigationBar+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BFE036191C782800095A8A /* UINavigationBar+TPCategory.m */; };
@@ -375,6 +375,7 @@
 		01BE590919511BD30040A8F5 /* RecordRemind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordRemind.m; sourceTree = "<group>"; };
 		01BE590B19511F3C0040A8F5 /* RecordRemindHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordRemindHelper.h; sourceTree = "<group>"; };
 		01BE590C19511F3C0040A8F5 /* RecordRemindHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordRemindHelper.m; sourceTree = "<group>"; };
+		01BE5920195BBF8D0040A8F5 /* remind.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = remind.sqlite; sourceTree = "<group>"; };
 		01BF7FA6191B186C002E34E9 /* UIColor+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TPCategory.h"; sourceTree = "<group>"; };
 		01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TPCategory.m"; sourceTree = "<group>"; };
 		01BF7FAA191B188C002E34E9 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
@@ -399,7 +400,6 @@
 		01BF7FD3191B6503002E34E9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		01BF7FD5191B6D57002E34E9 /* TKLabelSegmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelSegmentCell.h; sourceTree = "<group>"; };
 		01BF7FD6191B6D57002E34E9 /* TKLabelSegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLabelSegmentCell.m; sourceTree = "<group>"; };
-		01BFABCB193F70B000786BBE /* remind.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = remind.sqlite; sourceTree = "<group>"; };
 		01BFE02C191C682600095A8A /* HESegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HESegmentControl.h; sourceTree = "<group>"; };
 		01BFE02D191C682600095A8A /* HESegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HESegmentControl.m; sourceTree = "<group>"; };
 		01BFE032191C746700095A8A /* TopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarView.h; sourceTree = "<group>"; };
@@ -620,7 +620,7 @@
 		01A97384191DEFD20073530F /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				01BFABCB193F70B000786BBE /* remind.sqlite */,
+				01BE5920195BBF8D0040A8F5 /* remind.sqlite */,
 				01A97385191DF0120073530F /* Frequency.plist */,
 			);
 			name = Source;
@@ -1324,7 +1324,7 @@
 				26DEBA34191F440F0007DB43 /* blueArrow.png in Resources */,
 				0189C52819343E3B002ED63A /* iTunesArtwork in Resources */,
 				26DEBA36191F440F0007DB43 /* blueArrowDown.png in Resources */,
-				01BFABCC193F70B000786BBE /* remind.sqlite in Resources */,
+				01BE5921195BBF8D0040A8F5 /* remind.sqlite in Resources */,
 				01A97386191DF0120073530F /* Frequency.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
