@@ -52,7 +52,7 @@
     
     NSString *title=@"本人同意將照片資料供作新竹縣政府宣導";
     CGSize size=[title textSize:default18DeviceFont withWidth:self.view.bounds.size.width];
-    UILabel *lab=[[UILabel alloc] initWithFrame:CGRectMake(10+img.size.width+2,DeviceIsPad?topY+2:topY-7, size.width, size.height)];
+    UILabel *lab=[[UILabel alloc] initWithFrame:CGRectMake(10+img.size.width+2,DeviceIsPad?topY-2:topY-12, size.width, size.height)];
     lab.backgroundColor=[UIColor clearColor];
     lab.textColor=[UIColor blackColor];
     lab.font=default18DeviceFont;

@@ -54,7 +54,6 @@
     self.window.rootViewController=nav;
     [self.window makeKeyAndVisible];
     
-    application.applicationIconBadgeNumber=0;
     //处理本地通知
     UILocalNotification *localNotif=[launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (localNotif) {
