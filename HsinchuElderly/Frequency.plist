@@ -4,9 +4,9 @@
 <array>
 	<dict>
 		<key>Name</key>
-		<string>星期日</string>
+		<string>每天</string>
 		<key>ID</key>
-		<string>7</string>
+		<string>8</string>
 	</dict>
 	<dict>
 		<key>Name</key>
@@ -46,9 +46,9 @@
 	</dict>
 	<dict>
 		<key>Name</key>
-		<string>每天</string>
+		<string>星期日</string>
 		<key>ID</key>
-		<string>8</string>
+		<string>7</string>
 	</dict>
 </array>
 </plist>

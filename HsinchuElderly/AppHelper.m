@@ -40,7 +40,7 @@
         notification.repeatInterval=repeat;//循环次数，kCFCalendarUnitWeekday一周一次
         notification.repeatCalendar=[NSCalendar currentCalendar];
         notification.timeZone=[NSTimeZone defaultTimeZone];
-        notification.applicationIconBadgeNumber=[[[UIApplication sharedApplication] scheduledLocalNotifications] count]+1; //應用的红色數字
+        //notification.applicationIconBadgeNumber=[[[UIApplication sharedApplication] scheduledLocalNotifications] count]+1; //應用的红色數字
         notification.soundName= UILocalNotificationDefaultSoundName;//声音，可以換成alarm.soundName = @"myMusic.caf"
         //去掉下面2行就不會彈出提示框
         notification.alertBody=msg;//提示訊息 彈出提示框
@@ -90,14 +90,18 @@
                             color, NSForegroundColorAttributeName,
                             shadow, NSShadowAttributeName,
                             [UIFont fontWithName:@"Helvetica-Bold" size:20], NSFontAttributeName, nil];
-    [[UINavigationBar appearance] setTitleTextAttributes:dicAttrs];
-    
     
     //郵件設置
-    NSDictionary *dicAttrs1=[NSDictionary dictionaryWithObjectsAndKeys:
+     if (IOSVersion>=7.0) {
+        [[UIBarButtonItem appearanceWhenContainedIn:[UIToolbar class], nil] setTitleTextAttributes:dicAttrs forState:UIControlStateNormal];
+        [[UINavigationBar appearance] setTitleTextAttributes:dicAttrs];
+        NSDictionary *dicAttrs1=[NSDictionary dictionaryWithObjectsAndKeys:
                              [UIColor blackColor], NSForegroundColorAttributeName,
                              [UIFont fontWithName:@"Helvetica-Bold" size:20], NSFontAttributeName, nil];
-    [[UINavigationBar appearanceWhenContainedIn:[SendMailViewController class], nil] setTitleTextAttributes:dicAttrs1];
+   
+        [[UINavigationBar appearanceWhenContainedIn:[MFMailComposeViewController class], nil] setTitleTextAttributes:dicAttrs1];
+    }
+    
     
 }
 @end

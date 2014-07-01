@@ -43,53 +43,20 @@
 //發送email
 - (void)buttonEmailClick:(UIButton*)btn{
    
-    if ([SendMailViewController canSendMail]) {
-        SendMailViewController *emailer = [[SendMailViewController alloc] init];
-        //[[emailer navigationBar] setBackgroundColor:[UIColor colorFromHexRGB:@"fc690a"]];
-        //emailer.navigationItem.titleView=labTitle;
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *emailer = [[MFMailComposeViewController alloc] init];
         emailer.mailComposeDelegate = self;
         // 添加发送者
         NSArray *toRecipients = [NSArray arrayWithObject: @"hchgL301@hchg.gov.tw"];
         [emailer setToRecipients: toRecipients];
-        //[emailer addAttachmentData:UIImagePNGRepresentation(image) mimeType:@"png" fileName:@"Photo.png"];
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             emailer.modalPresentationStyle = UIModalPresentationPageSheet;
         }
-        
-        //[self.navigationController pushViewController:emailer animated:YES];
         [self presentViewController:emailer animated:YES completion:nil];
     }else{
        [AlertHelper initWithTitle:@"提示" message:@"未設置郵件帳號，無法發送郵件！"];
     }
-    /***
-    NSString *title=@"新郵件";
-    CGSize size=[title textSize:[UIFont fontWithName:defaultDeviceFontName size:20] withWidth:320];
-    UILabel *labTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 42)];
-    labTitle.backgroundColor=[UIColor clearColor];
-    labTitle.text=title;
-    labTitle.textColor=[UIColor redColor];
-    labTitle.font=[UIFont fontWithName:defaultDeviceFontName size:20];
-    
-    //[UINavigationBar appearanceWhenContainedIn:[MFMailComposeViewController class], nil];
-    
-    MFMailComposeViewController *emailer = [[MFMailComposeViewController alloc] init];
-    //[[emailer navigationBar] setBackgroundColor:[UIColor colorFromHexRGB:@"fc690a"]];
-    //emailer.navigationItem.titleView=labTitle;
-    emailer.mailComposeDelegate = self;
-    // 增加發送者
-    NSArray *toRecipients = [NSArray arrayWithObject: @"hchgL301@hchg.gov.tw"];
-    [emailer setToRecipients: toRecipients];
-    //[emailer addAttachmentData:UIImagePNGRepresentation(image) mimeType:@"png" fileName:@"Photo.png"];
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        emailer.modalPresentationStyle = UIModalPresentationPageSheet;
-    }
-
-    //[self.navigationController pushViewController:emailer animated:YES];
-    [self presentViewController:emailer animated:YES completion:nil];
-    [[emailer navigationBar] setTintColor:[UIColor greenColor]];
-    [[[emailer viewControllers] lastObject] navigationItem].titleView = labTitle;
-    [[emailer navigationBar] sendSubviewToBack:labTitle];
-     ***/
+   
 }
 - (void)didReceiveMemoryWarning
 {

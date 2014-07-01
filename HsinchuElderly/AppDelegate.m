@@ -19,15 +19,7 @@
 - (void)dbInitLoad{
     //控件颜色设置
     [AppHelper setNavigationBarTitleAttrsFontWhite:YES];
-    NSShadow *shadow = [[NSShadow alloc] init];
-    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
-    shadow.shadowOffset = CGSizeMake(0, 0);
-    NSDictionary *dicAttrs1=[NSDictionary dictionaryWithObjectsAndKeys:
-                            [UIColor whiteColor], NSForegroundColorAttributeName,
-                            shadow, NSShadowAttributeName,
-                            defaultBDeviceFont, NSFontAttributeName, nil];
-    
-    [[UIBarButtonItem appearanceWhenContainedIn:[UIToolbar class], nil] setTitleTextAttributes:dicAttrs1 forState:UIControlStateNormal];//ff5500
+   
     
     NSString *path=[[NSBundle mainBundle] pathForResource:@"remind" ofType:@"sqlite"];
     NSString *dbPath=[DocumentPath stringByAppendingPathComponent:@"remind.sqlite"];
@@ -62,6 +54,7 @@
     self.window.rootViewController=nav;
     [self.window makeKeyAndVisible];
     
+    application.applicationIconBadgeNumber=0;
     //处理本地通知
     UILocalNotification *localNotif=[launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (localNotif) {
@@ -91,7 +84,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    application.applicationIconBadgeNumber=0;
+    
     //[self resetBageNumber];
 }
 
@@ -126,8 +119,12 @@
 }
 #pragma mark -(当应用程序处理活动状态会执行delegate,处理本地通知)
 #pragma mark 本地通知
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    //UILocalNotification *localNotif=[userInfo objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    //[AlertHelper initWithTitle:@"提示" message:[NSString stringWithFormat:@"%@",localNotif.userInfo]];
+}
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    notification.applicationIconBadgeNumber=notification.applicationIconBadgeNumber-1;
+    notification.applicationIconBadgeNumber=0;
     //點選提示框的打開
     UIApplicationState state = application.applicationState;
     if (state == UIApplicationStateActive) {

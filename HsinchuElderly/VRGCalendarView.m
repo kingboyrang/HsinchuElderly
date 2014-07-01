@@ -339,7 +339,11 @@
         NSDictionary *attrs=[NSDictionary dictionaryWithObjectsAndKeys:
                              [UIColor whiteColor], NSForegroundColorAttributeName,
                              font, NSFontAttributeName, nil];
-        [weekdayValue drawInRect:CGRectMake(i*w+(w-size.width)/2, 40, size.width, size.height) withAttributes:attrs];
+        if (IOSVersion>=7.0) {
+            [weekdayValue drawInRect:CGRectMake(i*w+(w-size.width)/2, 40, size.width, size.height) withAttributes:attrs];
+        }else{
+        [weekdayValue drawInRect:CGRectMake(i*w+(w-size.width)/2, 40, size.width, size.height) withFont:font lineBreakMode:NSLineBreakByClipping alignment:NSTextAlignmentCenter];
+        }
     }
     
     int numRows = [self numRows];
