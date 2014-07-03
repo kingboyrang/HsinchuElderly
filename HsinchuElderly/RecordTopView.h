@@ -15,8 +15,9 @@
 @interface RecordTopView : UIView{
     NSInteger _prevTag;
 }
-@property (nonatomic,strong) UIButton *drugButton;//用藥
+//@property (nonatomic,strong) UIButton *drugButton;//用藥
 @property (nonatomic,strong) UIButton *bloodButton;//血壓
 @property (nonatomic,strong) UIButton *bloodSugarButton;//血糖
+@property (nonatomic,assign) NSInteger selectedIndex;//选中的值
 @property (nonatomic,assign) id<RecordTopViewDelegate> delegate;
 @end

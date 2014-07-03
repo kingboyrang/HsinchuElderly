@@ -15,6 +15,17 @@
     [alter show];
     //[alter release];
 }
++(void)showMessage:(NSString *)message{
+    [self initWithTitle:@"提示" message:message];
+}
++(void)showMessage:(NSString *)message confirmAction:(void (^)(void))confirmAction{
+    RIButtonItem *delBtn=[RIButtonItem item];
+    delBtn.label=@"確認";
+    delBtn.action=confirmAction;
+    UIAlertView *alter=[[UIAlertView alloc] initWithTitle:@"提示" message:message cancelButtonItem:nil otherButtonItems:delBtn, nil];
+    [alter show];
+    
+}
 +(void)initWithTitle:(NSString *)inTitle message:(NSString *)inMessage{
     RIButtonItem *button=[RIButtonItem item];
     button.label=@"確認";

@@ -44,6 +44,8 @@
 #define PushBloodMessage @"親愛的%@,該量血壓囉!"
 #define PushDrugMessage @"親愛的%@,該吃藥囉!"
 
+#define SugarSource [NSArray arrayWithObjects:@"早餐前血糖",@"早餐後血糖",@"午餐前血糖",@"午餐後血糖",@"晚餐前血糖",@"晚餐後血糖", nil]
+
 
 
 

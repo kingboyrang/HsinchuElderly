@@ -71,7 +71,7 @@
     if (mod) {
         return mod.Name;
     }
-    return @"無特定對象";
+    return @"";
 }
 //删除
 - (void)buttonDeleteClick:(UIButton*)btn{

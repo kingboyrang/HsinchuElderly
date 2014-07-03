@@ -7,13 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BasicPopoverView.h"
-#import "BloodPopoverView.h"
-#import "BloodSugarPopoverView.h"
-@interface AppDelegate : UIResponder <UIApplicationDelegate,PopoverViewDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 - (void)dbInitLoad;
-- (void)resetBageNumber;
 - (void)handlerNotificeWithUseInfo:(NSDictionary*)userInfo;
 @end

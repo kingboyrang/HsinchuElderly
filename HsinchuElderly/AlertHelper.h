@@ -11,6 +11,8 @@
 #import "UIActionSheet+Blocks.h"
 @interface AlertHelper : NSObject
 +(void)initWithTitle:(NSString *)inTitle message:(NSString *)inMessage cancelButtonItem:(RIButtonItem *)inCancelButtonItem otherButtonItems:(RIButtonItem *)inOtherButtonItems, ...;
++(void)showMessage:(NSString *)message;
++(void)showMessage:(NSString *)message confirmAction:(void (^)(void))confirmAction;
 +(void)initWithTitle:(NSString *)inTitle message:(NSString *)inMessage;
 +(void)initWithTitle:(NSString *)inTitle message:(NSString *)inMessage cancelTitle:(NSString*)cancelTitle cancelAction:(void (^)(void))cancelAction confirmTitle:(NSString*)confirmTitle confirmAction:(void (^)(void))confirmAction;
 

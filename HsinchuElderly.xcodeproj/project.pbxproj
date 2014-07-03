@@ -18,6 +18,20 @@
 		01382BAA19383885005AAD8E /* ToolSearchShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382BA919383885005AAD8E /* ToolSearchShow.m */; };
 		01382BAE19386635005AAD8E /* TKWelfareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382BAD19386635005AAD8E /* TKWelfareCell.m */; };
 		01382BB1193868D3005AAD8E /* HEWelfareSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01382BB0193868D3005AAD8E /* HEWelfareSearchController.m */; };
+		014CA93219653F310033AF2D /* RecordBloodController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA93119653F310033AF2D /* RecordBloodController.m */; };
+		014CA938196541E70033AF2D /* ShrinkPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA937196541E70033AF2D /* ShrinkPickerView.m */; };
+		014CA93D19654FA70033AF2D /* RecordTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA93C19654FA70033AF2D /* RecordTimeView.m */; };
+		014CA93F1965551A0033AF2D /* RecordTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014CA93E1965551A0033AF2D /* RecordTimeView.xib */; };
+		014CA941196555FE0033AF2D /* ShrinkPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014CA940196555FE0033AF2D /* ShrinkPickerView.xib */; };
+		014CA94419655B190033AF2D /* RecordBloodSugarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA94319655B190033AF2D /* RecordBloodSugarController.m */; };
+		014CA94819655DB70033AF2D /* RecordBloodSugarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA94719655DB70033AF2D /* RecordBloodSugarView.m */; };
+		014CA94A19655DC70033AF2D /* RecordBloodSugarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014CA94919655DC70033AF2D /* RecordBloodSugarView.xib */; };
+		014CA94D19656EAB0033AF2D /* RecordBlood.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA94C19656EAB0033AF2D /* RecordBlood.m */; };
+		014CA95019656F230033AF2D /* RecordBloodSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA94F19656F230033AF2D /* RecordBloodSugar.m */; };
+		014CA95319656F790033AF2D /* RecordBloodHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA95219656F790033AF2D /* RecordBloodHelper.m */; };
+		014CA958196577830033AF2D /* RecordBloodListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA957196577830033AF2D /* RecordBloodListController.m */; };
+		014CA95B19657FB60033AF2D /* TKRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA95A19657FB60033AF2D /* TKRecordCell.m */; };
+		014CA95E1965836F0033AF2D /* RecordBloodSugarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA95D1965836F0033AF2D /* RecordBloodSugarHelper.m */; };
 		01565F8E1939795500873B3E /* UploadAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01565F8D1939795500873B3E /* UploadAlertView.m */; };
 		01566010193E1B4B00873B3E /* TKDetailDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0156600F193E1B4B00873B3E /* TKDetailDataCell.m */; };
 		0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -26,6 +40,7 @@
 		0189C434192E035B002ED63A /* VersionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0189C433192E035B002ED63A /* VersionViewController.m */; };
 		0189C438192E039B002ED63A /* VersionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0189C437192E039B002ED63A /* VersionView.m */; };
 		0189C52819343E3B002ED63A /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 0189C52719343E3B002ED63A /* iTunesArtwork */; };
+		019D83791964057100831B66 /* PolygonalScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 019D83781964057100831B66 /* PolygonalScrollView.m */; };
 		01A97361191CE1EB0073530F /* UseDrugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97360191CE1EB0073530F /* UseDrugViewController.m */; };
 		01A97364191CE31A0073530F /* MedicineDrug.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97363191CE31A0073530F /* MedicineDrug.m */; };
 		01A97367191DBBF50073530F /* MedicineDrugHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97366191DBBF50073530F /* MedicineDrugHelper.m */; };
@@ -57,7 +72,6 @@
 		01A974221920C4DF0073530F /* HEStudy.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974211920C4DF0073530F /* HEStudy.m */; };
 		01A974251920C50D0073530F /* HEService.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974241920C50D0073530F /* HEService.m */; };
 		01A974281920C5730073530F /* HEStudyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974271920C5730073530F /* HEStudyHelper.m */; };
-		01A9742C1920CA7F0073530F /* HEItemListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9742B1920CA7F0073530F /* HEItemListController.m */; };
 		01A9742F1920CABF0073530F /* HEBasicHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9742E1920CABF0073530F /* HEBasicHelper.m */; };
 		01A974311920D9300073530F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A974301920D9300073530F /* CoreLocation.framework */; };
 		01A9743C1920DEF60073530F /* HEServiceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9743B1920DEF60073530F /* HEServiceHelper.m */; };
@@ -98,8 +112,6 @@
 		01BE58E2194E8D280040A8F5 /* BasicPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58E1194E8D280040A8F5 /* BasicPopoverView.m */; };
 		01BE58E5194E97840040A8F5 /* BloodPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58E4194E97840040A8F5 /* BloodPopoverView.m */; };
 		01BE58E8194FC76A0040A8F5 /* BloodSugarPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58E7194FC76A0040A8F5 /* BloodSugarPopoverView.m */; };
-		01BE58EC194FD3550040A8F5 /* RecordCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58EB194FD3550040A8F5 /* RecordCalendar.m */; };
-		01BE58F0194FD38C0040A8F5 /* CalendarYearMonth.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58EF194FD38C0040A8F5 /* CalendarYearMonth.m */; };
 		01BE58FD195036E20040A8F5 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58F4195036E20040A8F5 /* VRGCalendarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01BE58FE195036E20040A8F5 /* UIView+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58F6195036E20040A8F5 /* UIView+convenience.m */; };
 		01BE58FF195036E20040A8F5 /* NSMutableArray+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58F8195036E20040A8F5 /* NSMutableArray+convenience.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -200,6 +212,31 @@
 		01382BAD19386635005AAD8E /* TKWelfareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKWelfareCell.m; sourceTree = "<group>"; };
 		01382BAF193868D3005AAD8E /* HEWelfareSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEWelfareSearchController.h; sourceTree = "<group>"; };
 		01382BB0193868D3005AAD8E /* HEWelfareSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEWelfareSearchController.m; sourceTree = "<group>"; };
+		014CA93019653F310033AF2D /* RecordBloodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordBloodController.h; sourceTree = "<group>"; };
+		014CA93119653F310033AF2D /* RecordBloodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordBloodController.m; sourceTree = "<group>"; };
+		014CA936196541E70033AF2D /* ShrinkPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShrinkPickerView.h; sourceTree = "<group>"; };
+		014CA937196541E70033AF2D /* ShrinkPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShrinkPickerView.m; sourceTree = "<group>"; };
+		014CA93B19654FA70033AF2D /* RecordTimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordTimeView.h; sourceTree = "<group>"; };
+		014CA93C19654FA70033AF2D /* RecordTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordTimeView.m; sourceTree = "<group>"; };
+		014CA93E1965551A0033AF2D /* RecordTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordTimeView.xib; sourceTree = "<group>"; };
+		014CA940196555FE0033AF2D /* ShrinkPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShrinkPickerView.xib; sourceTree = "<group>"; };
+		014CA94219655B190033AF2D /* RecordBloodSugarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordBloodSugarController.h; sourceTree = "<group>"; };
+		014CA94319655B190033AF2D /* RecordBloodSugarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordBloodSugarController.m; sourceTree = "<group>"; };
+		014CA94619655DB70033AF2D /* RecordBloodSugarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordBloodSugarView.h; sourceTree = "<group>"; };
+		014CA94719655DB70033AF2D /* RecordBloodSugarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordBloodSugarView.m; sourceTree = "<group>"; };
+		014CA94919655DC70033AF2D /* RecordBloodSugarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordBloodSugarView.xib; sourceTree = "<group>"; };
+		014CA94B19656EAB0033AF2D /* RecordBlood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordBlood.h; sourceTree = "<group>"; };
+		014CA94C19656EAB0033AF2D /* RecordBlood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordBlood.m; sourceTree = "<group>"; };
+		014CA94E19656F230033AF2D /* RecordBloodSugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordBloodSugar.h; sourceTree = "<group>"; };
+		014CA94F19656F230033AF2D /* RecordBloodSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordBloodSugar.m; sourceTree = "<group>"; };
+		014CA95119656F790033AF2D /* RecordBloodHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordBloodHelper.h; sourceTree = "<group>"; };
+		014CA95219656F790033AF2D /* RecordBloodHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordBloodHelper.m; sourceTree = "<group>"; };
+		014CA956196577830033AF2D /* RecordBloodListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordBloodListController.h; sourceTree = "<group>"; };
+		014CA957196577830033AF2D /* RecordBloodListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordBloodListController.m; sourceTree = "<group>"; };
+		014CA95919657FB60033AF2D /* TKRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRecordCell.h; sourceTree = "<group>"; };
+		014CA95A19657FB60033AF2D /* TKRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRecordCell.m; sourceTree = "<group>"; };
+		014CA95C1965836F0033AF2D /* RecordBloodSugarHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordBloodSugarHelper.h; sourceTree = "<group>"; };
+		014CA95D1965836F0033AF2D /* RecordBloodSugarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordBloodSugarHelper.m; sourceTree = "<group>"; };
 		01565F8C1939795500873B3E /* UploadAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadAlertView.h; sourceTree = "<group>"; };
 		01565F8D1939795500873B3E /* UploadAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadAlertView.m; sourceTree = "<group>"; };
 		0156600E193E1B4B00873B3E /* TKDetailDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDetailDataCell.h; sourceTree = "<group>"; };
@@ -215,6 +252,8 @@
 		0189C436192E039B002ED63A /* VersionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionView.h; sourceTree = "<group>"; };
 		0189C437192E039B002ED63A /* VersionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionView.m; sourceTree = "<group>"; };
 		0189C52719343E3B002ED63A /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		019D83771964057100831B66 /* PolygonalScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonalScrollView.h; sourceTree = "<group>"; };
+		019D83781964057100831B66 /* PolygonalScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolygonalScrollView.m; sourceTree = "<group>"; };
 		01A9735F191CE1EB0073530F /* UseDrugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseDrugViewController.h; sourceTree = "<group>"; };
 		01A97360191CE1EB0073530F /* UseDrugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseDrugViewController.m; sourceTree = "<group>"; };
 		01A97362191CE31A0073530F /* MedicineDrug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicineDrug.h; sourceTree = "<group>"; };
@@ -275,8 +314,6 @@
 		01A974241920C50D0073530F /* HEService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEService.m; sourceTree = "<group>"; };
 		01A974261920C5730073530F /* HEStudyHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEStudyHelper.h; sourceTree = "<group>"; };
 		01A974271920C5730073530F /* HEStudyHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEStudyHelper.m; sourceTree = "<group>"; };
-		01A9742A1920CA7F0073530F /* HEItemListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEItemListController.h; sourceTree = "<group>"; };
-		01A9742B1920CA7F0073530F /* HEItemListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEItemListController.m; sourceTree = "<group>"; };
 		01A9742D1920CABF0073530F /* HEBasicHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEBasicHelper.h; sourceTree = "<group>"; };
 		01A9742E1920CABF0073530F /* HEBasicHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEBasicHelper.m; sourceTree = "<group>"; };
 		01A974301920D9300073530F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -353,10 +390,6 @@
 		01BE58E4194E97840040A8F5 /* BloodPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodPopoverView.m; sourceTree = "<group>"; };
 		01BE58E6194FC76A0040A8F5 /* BloodSugarPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodSugarPopoverView.h; sourceTree = "<group>"; };
 		01BE58E7194FC76A0040A8F5 /* BloodSugarPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodSugarPopoverView.m; sourceTree = "<group>"; };
-		01BE58EA194FD3550040A8F5 /* RecordCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordCalendar.h; sourceTree = "<group>"; };
-		01BE58EB194FD3550040A8F5 /* RecordCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordCalendar.m; sourceTree = "<group>"; };
-		01BE58EE194FD38C0040A8F5 /* CalendarYearMonth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarYearMonth.h; sourceTree = "<group>"; };
-		01BE58EF194FD38C0040A8F5 /* CalendarYearMonth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarYearMonth.m; sourceTree = "<group>"; };
 		01BE58F3195036E20040A8F5 /* VRGCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGCalendarView.h; sourceTree = "<group>"; };
 		01BE58F4195036E20040A8F5 /* VRGCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGCalendarView.m; sourceTree = "<group>"; };
 		01BE58F5195036E20040A8F5 /* UIView+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+convenience.h"; sourceTree = "<group>"; };
@@ -531,6 +564,53 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		014CA933196541130033AF2D /* RecordBlood */ = {
+			isa = PBXGroup;
+			children = (
+				014CA955196577490033AF2D /* UI */,
+				014CA956196577830033AF2D /* RecordBloodListController.h */,
+				014CA957196577830033AF2D /* RecordBloodListController.m */,
+				014CA93019653F310033AF2D /* RecordBloodController.h */,
+				014CA93119653F310033AF2D /* RecordBloodController.m */,
+			);
+			name = RecordBlood;
+			sourceTree = "<group>";
+		};
+		014CA94519655B250033AF2D /* RecordBloodSugar */ = {
+			isa = PBXGroup;
+			children = (
+				014CA94219655B190033AF2D /* RecordBloodSugarController.h */,
+				014CA94319655B190033AF2D /* RecordBloodSugarController.m */,
+				014CA954196577370033AF2D /* UI */,
+			);
+			name = RecordBloodSugar;
+			sourceTree = "<group>";
+		};
+		014CA954196577370033AF2D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				014CA94619655DB70033AF2D /* RecordBloodSugarView.h */,
+				014CA94719655DB70033AF2D /* RecordBloodSugarView.m */,
+				014CA94919655DC70033AF2D /* RecordBloodSugarView.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		014CA955196577490033AF2D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				014CA936196541E70033AF2D /* ShrinkPickerView.h */,
+				014CA937196541E70033AF2D /* ShrinkPickerView.m */,
+				014CA940196555FE0033AF2D /* ShrinkPickerView.xib */,
+				014CA93B19654FA70033AF2D /* RecordTimeView.h */,
+				014CA93C19654FA70033AF2D /* RecordTimeView.m */,
+				014CA93E1965551A0033AF2D /* RecordTimeView.xib */,
+				014CA95919657FB60033AF2D /* TKRecordCell.h */,
+				014CA95A19657FB60033AF2D /* TKRecordCell.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		017FF270191B0FB600255E76 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
@@ -676,8 +756,6 @@
 				26A9F523191F74060018EE32 /* HEItemDetailController.m */,
 				01A973B1192062040073530F /* ShowMapController.h */,
 				01A973B2192062040073530F /* ShowMapController.m */,
-				01A9742A1920CA7F0073530F /* HEItemListController.h */,
-				01A9742B1920CA7F0073530F /* HEItemListController.m */,
 				01A974471921AD910073530F /* HEItemListMapsController.h */,
 				01A974481921AD910073530F /* HEItemListMapsController.m */,
 				01382B9E19382678005AAD8E /* HEItemSearchController.h */,
@@ -811,6 +889,8 @@
 		01BE57A4194AA2480040A8F5 /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				014CA94519655B250033AF2D /* RecordBloodSugar */,
+				014CA933196541130033AF2D /* RecordBlood */,
 				01BE57A8194AA5C10040A8F5 /* UI */,
 				01BE57A5194AA4670040A8F5 /* RecordViewController.h */,
 				01BE57A6194AA4670040A8F5 /* RecordViewController.m */,
@@ -822,7 +902,6 @@
 			isa = PBXGroup;
 			children = (
 				01BE58F2195036D60040A8F5 /* CalendarUI */,
-				01BE58ED194FD3600040A8F5 /* Calendar */,
 				01BE57A9194AA6730040A8F5 /* RecordTopView.h */,
 				01BE57AA194AA6730040A8F5 /* RecordTopView.m */,
 				01BE58E0194E8D280040A8F5 /* BasicPopoverView.h */,
@@ -835,19 +914,10 @@
 				01BE590319503D360040A8F5 /* TKRecordCalendarCell.m */,
 				01BE590519503E9E0040A8F5 /* TKRecordDetailCell.h */,
 				01BE590619503E9E0040A8F5 /* TKRecordDetailCell.m */,
+				019D83771964057100831B66 /* PolygonalScrollView.h */,
+				019D83781964057100831B66 /* PolygonalScrollView.m */,
 			);
 			name = UI;
-			sourceTree = "<group>";
-		};
-		01BE58ED194FD3600040A8F5 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				01BE58EA194FD3550040A8F5 /* RecordCalendar.h */,
-				01BE58EB194FD3550040A8F5 /* RecordCalendar.m */,
-				01BE58EE194FD38C0040A8F5 /* CalendarYearMonth.h */,
-				01BE58EF194FD38C0040A8F5 /* CalendarYearMonth.m */,
-			);
-			name = Calendar;
 			sourceTree = "<group>";
 		};
 		01BE58F2195036D60040A8F5 /* CalendarUI */ = {
@@ -1034,6 +1104,10 @@
 				01A9752219231E730073530F /* HEConsultation.m */,
 				01BE590819511BD30040A8F5 /* RecordRemind.h */,
 				01BE590919511BD30040A8F5 /* RecordRemind.m */,
+				014CA94B19656EAB0033AF2D /* RecordBlood.h */,
+				014CA94C19656EAB0033AF2D /* RecordBlood.m */,
+				014CA94E19656F230033AF2D /* RecordBloodSugar.h */,
+				014CA94F19656F230033AF2D /* RecordBloodSugar.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1063,6 +1137,10 @@
 				01A9752519231E980073530F /* HEConsultationHelper.m */,
 				01BE590B19511F3C0040A8F5 /* RecordRemindHelper.h */,
 				01BE590C19511F3C0040A8F5 /* RecordRemindHelper.m */,
+				014CA95119656F790033AF2D /* RecordBloodHelper.h */,
+				014CA95219656F790033AF2D /* RecordBloodHelper.m */,
+				014CA95C1965836F0033AF2D /* RecordBloodSugarHelper.h */,
+				014CA95D1965836F0033AF2D /* RecordBloodSugarHelper.m */,
 			);
 			name = DAL;
 			sourceTree = "<group>";
@@ -1318,11 +1396,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				26DEBA35191F440F0007DB43 /* blueArrow@2x.png in Resources */,
+				014CA94A19655DC70033AF2D /* RecordBloodSugarView.xib in Resources */,
 				01CDC1C0191A220A0002AE47 /* Images.xcassets in Resources */,
+				014CA941196555FE0033AF2D /* ShrinkPickerView.xib in Resources */,
 				26DEBA37191F440F0007DB43 /* blueArrowDown@2x.png in Resources */,
 				01CDC1AF191A220A0002AE47 /* InfoPlist.strings in Resources */,
 				26DEBA34191F440F0007DB43 /* blueArrow.png in Resources */,
 				0189C52819343E3B002ED63A /* iTunesArtwork in Resources */,
+				014CA93F1965551A0033AF2D /* RecordTimeView.xib in Resources */,
 				26DEBA36191F440F0007DB43 /* blueArrowDown.png in Resources */,
 				01BE5921195BBF8D0040A8F5 /* remind.sqlite in Resources */,
 				01A97386191DF0120073530F /* Frequency.plist in Resources */,
@@ -1356,7 +1437,7 @@
 				01A973AD19205E810073530F /* ActionSheetHelper.m in Sources */,
 				01A9755E19236A060073530F /* MKNetworkOperation.m in Sources */,
 				01A9755C19236A060073530F /* UIImageView+MKNetworkKitAdditions.m in Sources */,
-				01BE58F0194FD38C0040A8F5 /* CalendarYearMonth.m in Sources */,
+				019D83791964057100831B66 /* PolygonalScrollView.m in Sources */,
 				01BE57A7194AA4670040A8F5 /* RecordViewController.m in Sources */,
 				01A974461920E06B0073530F /* HEWelfareViewController.m in Sources */,
 				01BFE059191CA4BF00095A8A /* AlbumCameraImage.m in Sources */,
@@ -1370,6 +1451,7 @@
 				01CDC1E6191A289A0002AE47 /* BasicNavigationController.m in Sources */,
 				01A974191920B8090073530F /* SVGeocoder.m in Sources */,
 				01A974251920C50D0073530F /* HEService.m in Sources */,
+				014CA94419655B190033AF2D /* RecordBloodSugarController.m in Sources */,
 				26A9F524191F74060018EE32 /* HEItemDetailController.m in Sources */,
 				01A9755719236A060073530F /* NSData+MKBase64.m in Sources */,
 				01382BB1193868D3005AAD8E /* HEWelfareSearchController.m in Sources */,
@@ -1389,9 +1471,11 @@
 				01BE57AB194AA6730040A8F5 /* RecordTopView.m in Sources */,
 				01BE58FE195036E20040A8F5 /* UIView+convenience.m in Sources */,
 				01CDC1E9191A2BD90002AE47 /* BasicViewController.m in Sources */,
+				014CA94D19656EAB0033AF2D /* RecordBlood.m in Sources */,
 				01BFE063191CAAB100095A8A /* UIActionSheet+Blocks.m in Sources */,
 				01A97380191DCFC70073530F /* TKLabelCalendarCell.m in Sources */,
 				01A97367191DBBF50073530F /* MedicineDrugHelper.m in Sources */,
+				014CA95E1965836F0033AF2D /* RecordBloodSugarHelper.m in Sources */,
 				01BFE06D191CACE800095A8A /* SystemUser.m in Sources */,
 				01382BA719382912005AAD8E /* LocationGPS.m in Sources */,
 				01BFE02E191C682600095A8A /* HESegmentControl.m in Sources */,
@@ -1399,14 +1483,17 @@
 				01A973C2192075060073530F /* BloodSugarViewController.m in Sources */,
 				01A974531921BB8D0073530F /* PaoPaoView.m in Sources */,
 				01382BA319382895005AAD8E /* TKHEItemCell.m in Sources */,
+				014CA958196577830033AF2D /* RecordBloodListController.m in Sources */,
 				01A974491921AD910073530F /* HEItemListMapsController.m in Sources */,
 				01A97390191DFF000073530F /* BloodViewController.m in Sources */,
 				01A973A4191E15490073530F /* TPMenuHelper.m in Sources */,
 				26DEBA18191F2C4D0007DB43 /* FMDatabase.m in Sources */,
 				01BE58E8194FC76A0040A8F5 /* BloodSugarPopoverView.m in Sources */,
+				014CA94819655DB70033AF2D /* RecordBloodSugarView.m in Sources */,
 				01A9736E191DC6300073530F /* TKDrugCell.m in Sources */,
 				01A97539192357F40073530F /* UploadPhotoController.m in Sources */,
 				01A97393191DFF1F0073530F /* BloodModifyController.m in Sources */,
+				014CA938196541E70033AF2D /* ShrinkPickerView.m in Sources */,
 				01A9752619231E980073530F /* HEConsultationHelper.m in Sources */,
 				01A9743F1920DF6E0073530F /* HEWelfare.m in Sources */,
 				01A974281920C5730073530F /* HEStudyHelper.m in Sources */,
@@ -1422,8 +1509,8 @@
 				01A97379191DCD560073530F /* CVUIPopoverText.m in Sources */,
 				01BE590A19511BD30040A8F5 /* RecordRemind.m in Sources */,
 				01A9756C19236AF50073530F /* SRMNetworkEngine.m in Sources */,
-				01BE58EC194FD3550040A8F5 /* RecordCalendar.m in Sources */,
 				01A973C8192075730073530F /* BloodSugarHelper.m in Sources */,
+				014CA95319656F790033AF2D /* RecordBloodHelper.m in Sources */,
 				01A9755F19236A060073530F /* Reachability.m in Sources */,
 				01BE58FD195036E20040A8F5 /* VRGCalendarView.m in Sources */,
 				0189C438192E039B002ED63A /* VersionView.m in Sources */,
@@ -1443,7 +1530,6 @@
 				01BF7FB7191B1DC7002E34E9 /* UIImage+TPCategory.m in Sources */,
 				01BE58E2194E8D280040A8F5 /* BasicPopoverView.m in Sources */,
 				01A9752319231E730073530F /* HEConsultation.m in Sources */,
-				01A9742C1920CA7F0073530F /* HEItemListController.m in Sources */,
 				01BE58E5194E97840040A8F5 /* BloodPopoverView.m in Sources */,
 				01A9742F1920CABF0073530F /* HEBasicHelper.m in Sources */,
 				01CDC1E2191A28460002AE47 /* IndexViewController.m in Sources */,
@@ -1456,18 +1542,22 @@
 				01A97383191DD1C10073530F /* TKLabelSelectCell.m in Sources */,
 				01A9741F1920C4460073530F /* BasicModel.m in Sources */,
 				01BF7FBD191B1DF0002E34E9 /* NSString+TPCategory.m in Sources */,
+				014CA95019656F230033AF2D /* RecordBloodSugar.m in Sources */,
 				01A97361191CE1EB0073530F /* UseDrugViewController.m in Sources */,
+				014CA93D19654FA70033AF2D /* RecordTimeView.m in Sources */,
 				01A9736A191DC27A0073530F /* UseDrugModifyController.m in Sources */,
 				01BFE056191CA25900095A8A /* UserManagerController.m in Sources */,
 				01BF7FAF191B1C30002E34E9 /* ClockViewController.m in Sources */,
 				26DEBA19191F2C4D0007DB43 /* FMDatabaseAdditions.m in Sources */,
 				01BF7FCF191B63F9002E34E9 /* TKLabelCell.m in Sources */,
 				26DEBA1A191F2C4D0007DB43 /* FMDatabasePool.m in Sources */,
+				014CA93219653F310033AF2D /* RecordBloodController.m in Sources */,
 				01A9755919236A060073530F /* NSDictionary+RequestEncoding.m in Sources */,
 				26A9F527191F76FF0018EE32 /* TKLabelLabelCell.m in Sources */,
 				01A974421920DF8D0073530F /* HEWelfareHelper.m in Sources */,
 				01BF7FB4191B1DB9002E34E9 /* UIButton+TPCategory.m in Sources */,
 				01BF7FC5191B5D8F002E34E9 /* TKPhotoCell.m in Sources */,
+				014CA95B19657FB60033AF2D /* TKRecordCell.m in Sources */,
 				01A9743C1920DEF60073530F /* HEServiceHelper.m in Sources */,
 				01BFE037191C782800095A8A /* UINavigationBar+TPCategory.m in Sources */,
 				01382B8D19371700005AAD8E /* TKTextFieldCell.m in Sources */,

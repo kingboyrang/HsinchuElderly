@@ -69,7 +69,7 @@
     if (mod) {
         return [NSString stringWithFormat:@"%@ %@",mod.Name,entity.Name];
     }
-    return  [NSString stringWithFormat:@"無特定對象 %@",entity.Name];
+    return  entity.Name;
 }
 //删除
 - (void)buttonDeleteClick:(UIButton*)btn{

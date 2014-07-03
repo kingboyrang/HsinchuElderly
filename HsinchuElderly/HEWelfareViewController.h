@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HEItemListController.h"
 @interface HEWelfareViewController : BasicViewController<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *refreshTable;
 @property (nonatomic,strong) NSMutableArray *list;

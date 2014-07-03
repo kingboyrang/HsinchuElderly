@@ -43,7 +43,9 @@
     }
     self.userDataSource=source;
 }
-
+- (NSMutableArray*)sysUsers{
+    return self.userDataSource;
+}
 - (NSMutableArray*)systemUsers{
     if (self.userDataSource&&[self.userDataSource count]>0) {
        return self.userDataSource;
@@ -54,11 +56,11 @@
 }
 - (NSMutableArray*)dictonaryUsers{
     NSMutableArray *source=[NSMutableArray array];
-    [source addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"無特定對象",@"Name",@"A001",@"ID", nil]];
+    //[source addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"無特定對象",@"Name",@"A001",@"ID", nil]];
     if (self.userDataSource&&[self.userDataSource count]>0) {
-    for (SystemUser *item in self.userDataSource) {
-        [source addObject:[NSDictionary dictionaryWithObjectsAndKeys:item.Name,@"Name",item.ID,@"ID", nil]];
-    }
+        for (SystemUser *item in self.userDataSource) {
+            [source addObject:[NSDictionary dictionaryWithObjectsAndKeys:item.Name,@"Name",item.ID,@"ID", nil]];
+        }
     }
     return source;
 }

@@ -82,12 +82,13 @@
     }
     return boo;
 }
+//血壓記錄
 + (BOOL)insertRecordBlood:(NSDictionary*)dic shrink:(NSString*)value1 diastolic:(NSString*)value2{
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
     BOOL boo=NO;
     if ([db open]) {
         NSString *time=[[NSDate date] stringWithFormat:@"yyyy-MM-dd"];
-        NSString *sql=@"insert into RecordBlood(ID,BloodGuid,Name,Shrink,Diastolic,TimeSpan,RecordDate) values(?,?,?,?,?,?,?)";
+        NSString *sql=@"insert into RecordBlood(ID,BloodGuid,Name,Shrink,Diastolic,TimeSpan,RecordDate,Pulse) values(?,?,?,?,?,?,?,?)";
         boo=[db executeUpdate:sql,[NSString createGUID],[dic objectForKey:@"guid"],[dic objectForKey:@"UserName"],value1,value2,[dic objectForKey:@"TimeSpan"],time];
         [db close];
     }

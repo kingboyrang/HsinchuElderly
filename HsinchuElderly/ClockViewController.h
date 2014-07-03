@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ClockViewController : BasicViewController
-
+#import "TPMenuHelper.h"
+@class SystemUserHelper;
+@interface ClockViewController : BasicViewController<TPMenuHelperDelegate>
+@property (nonatomic,strong) SystemUserHelper *userHelper;
+@property (nonatomic,strong) TPMenuHelper *menuHelper;
+@property (nonatomic,strong) NSDictionary *notificeUserInfo;
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SystemUser.h"
 @interface SystemUserHelper : NSObject
+@property (nonatomic,readonly) NSMutableArray *sysUsers;
 //列表
 - (NSMutableArray*)systemUsers;
 - (NSMutableArray*)dictonaryUsers;
