@@ -1,30 +1,27 @@
 //
-//  PolygonalScrollView.m
+//  ChartView.m
 //  HsinchuElderly
 //
-//  Created by aJia on 2014/7/2.
+//  Created by aJia on 2014/7/4.
 //  Copyright (c) 2014年 lz. All rights reserved.
 //
 
-#import "PolygonalScrollView.h"
+#import "ChartView.h"
 #import "ChartRecord.h"
-@implementation PolygonalScrollView
+@implementation ChartView
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        //初始化
-        self.pagingEnabled=YES;
-        self.showsVerticalScrollIndicator=YES;
-        self.showsHorizontalScrollIndicator=YES;
         self.backgroundColor=[UIColor clearColor];
         
-       
+        
         self.radius=3.0f;
         self.radiusWidth=1.0f;
         self.maxHeight=270.0f;
         self.rowHeight=10.0f;
+        self.rate=1.0f;
         
         UIFont *font=[UIFont systemFontOfSize:10.0f];
         NSString *str=@"07/02 17:48";
@@ -34,28 +31,41 @@
         self.dateFont=font;
         self.valueFont=[UIFont systemFontOfSize:12.0f];
         self.chartColor=[UIColor redColor];
-        
     }
     return self;
 }
-
 - (void)drawChartWithSource:(NSArray*)source otherSource:(NSArray*)arr{
-    NSInteger total=self.Entitys.count==0?7:self.Entitys.count;
-    self.contentSize=CGSizeMake(total*self.columnWidth, self.bounds.size.height);
+    if (source&&[source count]>0) {
+        CGRect r=self.frame;
+        r.size.width=[source count]*self.columnWidth;
+        if (r.size.width>self.frame.size.width) {
+            self.frame=r;
+        }
+    }
     self.Entitys=source;
     self.EntityValue1=arr;
     [self setNeedsDisplay];//重绘图像
 }
 //画血压图表
 - (void)drawChartWithSource:(NSArray*)source{
-    NSInteger total=self.Entitys.count==0?7:self.Entitys.count;
-    self.contentSize=CGSizeMake(total*self.columnWidth, self.bounds.size.height);
+    if (source&&[source count]>0) {
+        CGRect r=self.frame;
+        r.size.width=[source count]*self.columnWidth;
+        if (r.size.width>self.frame.size.width) {
+            self.frame=r;
+        }
+    }
     self.Entitys=source;
     [self setNeedsDisplay];//重绘图像
 }
 - (void)drawChartWithSource:(NSArray*)source chartHeight:(CGFloat)height lineColor:(UIColor*)color{
     CGRect r=self.frame;
     r.size.height=height+20;
+    if (source&&[source count]>0) {
+        if (self.frame.size.width<[source count]*self.columnWidth) {
+             r.size.width=[source count]*self.columnWidth;
+        }
+    }
     self.frame=r;
     self.maxHeight=height;
     self.Entitys=source;
@@ -64,8 +74,6 @@
     }else{
         self.chartColor=[UIColor redColor];
     }
-    NSInteger total=self.Entitys.count==0?7:self.Entitys.count;
-    self.contentSize=CGSizeMake(total*self.columnWidth, self.bounds.size.height);
     [self setNeedsDisplay];//重绘图像
 }
 #pragma mark - 画图部份
@@ -80,7 +88,7 @@
         CGContextMoveToPoint(ctx, 0,(a+1)*h);
         CGContextAddLineToPoint(ctx, self.bounds.size.width,(a+1)*h);
     }
-    NSInteger total=self.Entitys.count==0?7:self.Entitys.count;
+    NSInteger total=self.bounds.size.width*1.0f/self.columnWidth+1;
     for (NSInteger b=0; b<total; b++) {
         //畫書線
         CGContextMoveToPoint(ctx, self.columnWidth*b,0);
@@ -124,7 +132,7 @@
 }
 //画日期文字
 - (void)drawTextWithContext:(CGContextRef)ctx point:(CGPoint)point value:(NSString*)val{
-   
+    
     CGContextSetLineWidth(ctx, self.radiusWidth);//线的宽度
     CGSize size=[val textSize:self.dateFont withWidth:self.bounds.size.width];
     //画文字
@@ -134,7 +142,7 @@
 - (void)drawLineWithContext:(CGContextRef)ctx start:(CGPoint)spoint end:(CGPoint)epoint lineColor:(UIColor*)color{
     CGContextSetStrokeColorWithColor(ctx, color.CGColor);
     CGContextSetLineWidth(ctx, self.radiusWidth);//线的宽度
-
+    
     CGContextMoveToPoint(ctx, spoint.x,spoint.y);
     CGContextAddLineToPoint(ctx, epoint.x,epoint.y);
     CGContextStrokePath(ctx);//绘画路径
@@ -164,7 +172,7 @@
         for (NSInteger i=0;i<source.count;i++) {
             ChartRecord *item=source[i];
             CGFloat leftX=i==0?self.radius+self.radiusWidth:self.columnWidth*i;
-            NSInteger v=[item.chartValue integerValue];
+            CGFloat v=[item.chartValue floatValue]*self.rate;
             if (i==0) {
                 prePoint.x=leftX;
                 prePoint.y=self.maxHeight-v;
@@ -179,17 +187,17 @@
             }
         }
     }
-
+    
 }
 //乡亲们我要画图了,求鉴赏~~~
 /**
-  1.有几行数据画几列，先画表格
-  2.再画日期文字
-  3.画连接线
-  **/
+ 1.有几行数据画几列，先画表格
+ 2.再画日期文字
+ 3.画连接线
+ **/
 - (void)drawRect:(CGRect)rect{
     CGContextRef ctx =UIGraphicsGetCurrentContext();
-     //画日期
+    //画日期
     if (self.Entitys&&[self.Entitys count]>0) {
         for (NSInteger i=0;i<self.Entitys.count;i++) {
             ChartRecord *item=self.Entitys[i];
@@ -204,5 +212,4 @@
     //画圆与连接线(数据源2)
     [self drawChartWithContext:ctx drawSource:self.EntityValue1 lineColor:[UIColor colorFromHexRGB:@"1a64a6"]];
 }
-
 @end

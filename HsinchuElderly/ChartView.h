@@ -1,13 +1,14 @@
 //
-//  PolygonalScrollView.h
+//  ChartView.h
 //  HsinchuElderly
 //
-//  Created by aJia on 2014/7/2.
+//  Created by aJia on 2014/7/4.
 //  Copyright (c) 2014年 lz. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-@interface PolygonalScrollView : UIScrollView
+
+@interface ChartView : UIView
 @property (nonatomic,assign) CGFloat radius;//圆的半径
 @property (nonatomic,assign) CGFloat radiusWidth;//圆的宽度
 @property (nonatomic,assign) CGFloat maxHeight;//最大高度
@@ -18,6 +19,7 @@
 @property (nonatomic,strong) UIColor *chartColor;//线条颜色
 @property (nonatomic,strong) NSArray *Entitys;//数据源1
 @property (nonatomic,strong) NSArray *EntityValue1;//数据源2
+@property (nonatomic,assign) CGFloat rate;//比例值
 //画图表
 - (void)drawChartWithSource:(NSArray*)source;
 - (void)drawChartWithSource:(NSArray*)source otherSource:(NSArray*)arr;

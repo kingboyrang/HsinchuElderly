@@ -9,6 +9,7 @@
 #import "RecordBloodSugarHelper.h"
 #import "NSDate+TPCategory.h"
 #import "FMDatabase.h"
+#import "ChartRecord.h"
 @implementation RecordBloodSugarHelper
 - (BOOL)addRecord:(RecordBloodSugar*)entity{
     NSString *time=[[NSDate date] stringWithFormat:@"yyyy-MM-dd"];
@@ -63,5 +64,37 @@
         [db close];
     }
     return sources;
+}
+//取得饭前资图表资料
+- (NSMutableArray*)beforeMealsWithSource:(NSArray*)source{
+    NSMutableArray *results=[NSMutableArray array];
+    if (source&&[source count]>0) {
+        for (RecordBloodSugar *item in source) {
+            if([item.Measure isEqualToString:@"0"]||[item.Measure isEqualToString:@"2"]||[item.Measure isEqualToString:@"4"])
+            {
+                ChartRecord *entity=[[ChartRecord alloc] init];
+                entity.chartDate=item.chartDateText;
+                entity.chartValue=item.BloodSugar;
+                [results addObject:entity];
+            }
+        }
+    }
+    return results;
+}
+//取得饭后资图表资料
+- (NSMutableArray*)afterMealsWithSource:(NSArray*)source{
+    NSMutableArray *results=[NSMutableArray array];
+    if (source&&[source count]>0) {
+        for (RecordBloodSugar *item in source) {
+            if([item.Measure isEqualToString:@"1"]||[item.Measure isEqualToString:@"3"]||[item.Measure isEqualToString:@"5"])
+            {
+                ChartRecord *entity=[[ChartRecord alloc] init];
+                entity.chartDate=item.chartDateText;
+                entity.chartValue=item.BloodSugar;
+                [results addObject:entity];
+            }
+        }
+    }
+    return results;
 }
 @end

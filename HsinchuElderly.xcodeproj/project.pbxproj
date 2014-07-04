@@ -34,6 +34,8 @@
 		014CA95E1965836F0033AF2D /* RecordBloodSugarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA95D1965836F0033AF2D /* RecordBloodSugarHelper.m */; };
 		014CA96119663EA10033AF2D /* ChartRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA96019663EA10033AF2D /* ChartRecord.m */; };
 		014CA96319664A8A0033AF2D /* RecordBloodSugarView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014CA96219664A8A0033AF2D /* RecordBloodSugarView~ipad.xib */; };
+		014CA9661966791D0033AF2D /* TKChartRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA9651966791D0033AF2D /* TKChartRecordCell.m */; };
+		014CA96919669EB70033AF2D /* ChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA96819669EB70033AF2D /* ChartView.m */; };
 		01565F8E1939795500873B3E /* UploadAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01565F8D1939795500873B3E /* UploadAlertView.m */; };
 		01566010193E1B4B00873B3E /* TKDetailDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0156600F193E1B4B00873B3E /* TKDetailDataCell.m */; };
 		0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -111,16 +113,11 @@
 		01A97575192376720073530F /* NetWorkConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97574192376720073530F /* NetWorkConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01BE57A7194AA4670040A8F5 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE57A6194AA4670040A8F5 /* RecordViewController.m */; };
 		01BE57AB194AA6730040A8F5 /* RecordTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE57AA194AA6730040A8F5 /* RecordTopView.m */; };
-		01BE58E2194E8D280040A8F5 /* BasicPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58E1194E8D280040A8F5 /* BasicPopoverView.m */; };
-		01BE58E5194E97840040A8F5 /* BloodPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58E4194E97840040A8F5 /* BloodPopoverView.m */; };
-		01BE58E8194FC76A0040A8F5 /* BloodSugarPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58E7194FC76A0040A8F5 /* BloodSugarPopoverView.m */; };
 		01BE58FD195036E20040A8F5 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58F4195036E20040A8F5 /* VRGCalendarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01BE58FE195036E20040A8F5 /* UIView+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58F6195036E20040A8F5 /* UIView+convenience.m */; };
 		01BE58FF195036E20040A8F5 /* NSMutableArray+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58F8195036E20040A8F5 /* NSMutableArray+convenience.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01BE5900195036E20040A8F5 /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58FA195036E20040A8F5 /* NSDate+convenience.m */; };
 		01BE5901195036E20040A8F5 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58FC195036E20040A8F5 /* UIColor+expanded.m */; };
-		01BE590419503D360040A8F5 /* TKRecordCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE590319503D360040A8F5 /* TKRecordCalendarCell.m */; };
-		01BE590719503E9E0040A8F5 /* TKRecordDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE590619503E9E0040A8F5 /* TKRecordDetailCell.m */; };
 		01BE5921195BBF8D0040A8F5 /* remind.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 01BE5920195BBF8D0040A8F5 /* remind.sqlite */; };
 		01BF7FA8191B186C002E34E9 /* UIColor+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */; };
 		01BF7FAF191B1C30002E34E9 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FAE191B1C30002E34E9 /* ClockViewController.m */; };
@@ -240,6 +237,10 @@
 		014CA95F19663EA10033AF2D /* ChartRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartRecord.h; sourceTree = "<group>"; };
 		014CA96019663EA10033AF2D /* ChartRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartRecord.m; sourceTree = "<group>"; };
 		014CA96219664A8A0033AF2D /* RecordBloodSugarView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "RecordBloodSugarView~ipad.xib"; sourceTree = "<group>"; };
+		014CA9641966791D0033AF2D /* TKChartRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKChartRecordCell.h; sourceTree = "<group>"; };
+		014CA9651966791D0033AF2D /* TKChartRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKChartRecordCell.m; sourceTree = "<group>"; };
+		014CA96719669EB70033AF2D /* ChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartView.h; sourceTree = "<group>"; };
+		014CA96819669EB70033AF2D /* ChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartView.m; sourceTree = "<group>"; };
 		01565F8C1939795500873B3E /* UploadAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadAlertView.h; sourceTree = "<group>"; };
 		01565F8D1939795500873B3E /* UploadAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadAlertView.m; sourceTree = "<group>"; };
 		0156600E193E1B4B00873B3E /* TKDetailDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDetailDataCell.h; sourceTree = "<group>"; };
@@ -387,12 +388,6 @@
 		01BE57A6194AA4670040A8F5 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		01BE57A9194AA6730040A8F5 /* RecordTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordTopView.h; sourceTree = "<group>"; };
 		01BE57AA194AA6730040A8F5 /* RecordTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordTopView.m; sourceTree = "<group>"; };
-		01BE58E0194E8D280040A8F5 /* BasicPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicPopoverView.h; sourceTree = "<group>"; };
-		01BE58E1194E8D280040A8F5 /* BasicPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicPopoverView.m; sourceTree = "<group>"; };
-		01BE58E3194E97840040A8F5 /* BloodPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodPopoverView.h; sourceTree = "<group>"; };
-		01BE58E4194E97840040A8F5 /* BloodPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodPopoverView.m; sourceTree = "<group>"; };
-		01BE58E6194FC76A0040A8F5 /* BloodSugarPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodSugarPopoverView.h; sourceTree = "<group>"; };
-		01BE58E7194FC76A0040A8F5 /* BloodSugarPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodSugarPopoverView.m; sourceTree = "<group>"; };
 		01BE58F3195036E20040A8F5 /* VRGCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGCalendarView.h; sourceTree = "<group>"; };
 		01BE58F4195036E20040A8F5 /* VRGCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGCalendarView.m; sourceTree = "<group>"; };
 		01BE58F5195036E20040A8F5 /* UIView+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+convenience.h"; sourceTree = "<group>"; };
@@ -403,10 +398,6 @@
 		01BE58FA195036E20040A8F5 /* NSDate+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+convenience.m"; sourceTree = "<group>"; };
 		01BE58FB195036E20040A8F5 /* UIColor+expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+expanded.h"; sourceTree = "<group>"; };
 		01BE58FC195036E20040A8F5 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
-		01BE590219503D360040A8F5 /* TKRecordCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRecordCalendarCell.h; sourceTree = "<group>"; };
-		01BE590319503D360040A8F5 /* TKRecordCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRecordCalendarCell.m; sourceTree = "<group>"; };
-		01BE590519503E9E0040A8F5 /* TKRecordDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRecordDetailCell.h; sourceTree = "<group>"; };
-		01BE590619503E9E0040A8F5 /* TKRecordDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRecordDetailCell.m; sourceTree = "<group>"; };
 		01BE5920195BBF8D0040A8F5 /* remind.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = remind.sqlite; sourceTree = "<group>"; };
 		01BF7FA6191B186C002E34E9 /* UIColor+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TPCategory.h"; sourceTree = "<group>"; };
 		01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TPCategory.m"; sourceTree = "<group>"; };
@@ -904,18 +895,12 @@
 				01BE58F2195036D60040A8F5 /* CalendarUI */,
 				01BE57A9194AA6730040A8F5 /* RecordTopView.h */,
 				01BE57AA194AA6730040A8F5 /* RecordTopView.m */,
-				01BE58E0194E8D280040A8F5 /* BasicPopoverView.h */,
-				01BE58E1194E8D280040A8F5 /* BasicPopoverView.m */,
-				01BE58E3194E97840040A8F5 /* BloodPopoverView.h */,
-				01BE58E4194E97840040A8F5 /* BloodPopoverView.m */,
-				01BE58E6194FC76A0040A8F5 /* BloodSugarPopoverView.h */,
-				01BE58E7194FC76A0040A8F5 /* BloodSugarPopoverView.m */,
-				01BE590219503D360040A8F5 /* TKRecordCalendarCell.h */,
-				01BE590319503D360040A8F5 /* TKRecordCalendarCell.m */,
-				01BE590519503E9E0040A8F5 /* TKRecordDetailCell.h */,
-				01BE590619503E9E0040A8F5 /* TKRecordDetailCell.m */,
 				019D83771964057100831B66 /* PolygonalScrollView.h */,
 				019D83781964057100831B66 /* PolygonalScrollView.m */,
+				014CA9641966791D0033AF2D /* TKChartRecordCell.h */,
+				014CA9651966791D0033AF2D /* TKChartRecordCell.m */,
+				014CA96719669EB70033AF2D /* ChartView.h */,
+				014CA96819669EB70033AF2D /* ChartView.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1455,7 +1440,6 @@
 				26A9F524191F74060018EE32 /* HEItemDetailController.m in Sources */,
 				01A9755719236A060073530F /* NSData+MKBase64.m in Sources */,
 				01382BB1193868D3005AAD8E /* HEWelfareSearchController.m in Sources */,
-				01BE590419503D360040A8F5 /* TKRecordCalendarCell.m in Sources */,
 				01382B9A19374859005AAD8E /* TKCalendarFieldCell.m in Sources */,
 				01A9744F1921BB100073530F /* CallOutAnnotationVifew.m in Sources */,
 				01622222191CC6C500B4AD50 /* AnimateLoadView.m in Sources */,
@@ -1487,7 +1471,6 @@
 				01A97390191DFF000073530F /* BloodViewController.m in Sources */,
 				01A973A4191E15490073530F /* TPMenuHelper.m in Sources */,
 				26DEBA18191F2C4D0007DB43 /* FMDatabase.m in Sources */,
-				01BE58E8194FC76A0040A8F5 /* BloodSugarPopoverView.m in Sources */,
 				014CA94819655DB70033AF2D /* RecordBloodSugarView.m in Sources */,
 				01A9736E191DC6300073530F /* TKDrugCell.m in Sources */,
 				01A97539192357F40073530F /* UploadPhotoController.m in Sources */,
@@ -1505,6 +1488,7 @@
 				01A9741A1920B8090073530F /* SVPlacemark.m in Sources */,
 				01BE5901195036E20040A8F5 /* UIColor+expanded.m in Sources */,
 				01BE58FF195036E20040A8F5 /* NSMutableArray+convenience.m in Sources */,
+				014CA9661966791D0033AF2D /* TKChartRecordCell.m in Sources */,
 				01A97379191DCD560073530F /* CVUIPopoverText.m in Sources */,
 				01A9756C19236AF50073530F /* SRMNetworkEngine.m in Sources */,
 				01A973C8192075730073530F /* BloodSugarHelper.m in Sources */,
@@ -1514,9 +1498,9 @@
 				0189C438192E039B002ED63A /* VersionView.m in Sources */,
 				01A973C51920753A0073530F /* BloodSugar.m in Sources */,
 				01382BAE19386635005AAD8E /* TKWelfareCell.m in Sources */,
+				014CA96919669EB70033AF2D /* ChartView.m in Sources */,
 				0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */,
 				01A97364191CE31A0073530F /* MedicineDrug.m in Sources */,
-				01BE590719503E9E0040A8F5 /* TKRecordDetailCell.m in Sources */,
 				01A97372191DCD3F0073530F /* CVUICalendar.m in Sources */,
 				01BFE034191C746700095A8A /* TopBarView.m in Sources */,
 				26DEBA25191F2DC80007DB43 /* MedicalCare.m in Sources */,
@@ -1526,9 +1510,7 @@
 				01A9752B192338BC0073530F /* LotteryViewController.m in Sources */,
 				01A973A1191E120F0073530F /* UIPopoverListView.m in Sources */,
 				01BF7FB7191B1DC7002E34E9 /* UIImage+TPCategory.m in Sources */,
-				01BE58E2194E8D280040A8F5 /* BasicPopoverView.m in Sources */,
 				01A9752319231E730073530F /* HEConsultation.m in Sources */,
-				01BE58E5194E97840040A8F5 /* BloodPopoverView.m in Sources */,
 				01A9742F1920CABF0073530F /* HEBasicHelper.m in Sources */,
 				01CDC1E2191A28460002AE47 /* IndexViewController.m in Sources */,
 				01BF7FA8191B186C002E34E9 /* UIColor+TPCategory.m in Sources */,

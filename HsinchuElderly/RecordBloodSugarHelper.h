@@ -13,4 +13,8 @@
 - (BOOL)editRecord:(RecordBloodSugar*)entity;
 - (BOOL)deleteWithGuid:(NSString*)guid;
 - (NSMutableArray*)findByUser:(NSString*)guid;
+//取得饭前资图表资料
+- (NSMutableArray*)beforeMealsWithSource:(NSArray*)source;
+//取得饭后资图表资料
+- (NSMutableArray*)afterMealsWithSource:(NSArray*)source;
 @end

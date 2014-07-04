@@ -8,10 +8,11 @@
 
 #import "RecordViewController.h"
 #import "UIBarButtonItem+TPCategory.h"
-#import "PolygonalScrollView.h"
 #import "RecordBloodController.h"
 #import "RecordBloodSugarController.h"
 #import "RecordBloodListController.h"
+#import "TKChartRecordCell.h"
+#import "ChartView.h"
 @interface RecordViewController ()<RecordTopViewDelegate>
 - (void)switchLoadSource;
 @end
@@ -46,13 +47,17 @@
   
     //图表内容
     CGRect r=self.view.bounds;
-    r.origin.y=50;
-    r.origin.x=10;
-    r.size.width-=r.origin.x*2;
+    r.origin.y=self.topView.frame.size.height;
     r.size.height-=[self topHeight]+r.origin.y;
     
-    PolygonalScrollView *scrollView=[[PolygonalScrollView alloc] initWithFrame:r];
-    [self.view addSubview:scrollView];
+    _chartTable=[[UITableView alloc] initWithFrame:r style:UITableViewStylePlain];
+    _chartTable.dataSource=self;
+    _chartTable.delegate=self;
+    _chartTable.backgroundColor=[UIColor clearColor];
+    _chartTable.separatorStyle=UITableViewCellSeparatorStyleNone;
+    _chartTable.bounces=NO;
+    [self.view addSubview:_chartTable];
+    
 }
 //视图将出现时加载不同的图表资料
 - (void)viewWillAppear:(BOOL)animated{
@@ -61,18 +66,102 @@
 }
 //切换显示不同的图表
 - (void)switchLoadSource{
+    if (self.cells&&[self.cells count]>0) {
+        [self.cells removeAllObjects];
+        [self.chartTable reloadData];
+    }
     if (self.topView.selectedIndex==1) {//血压记录
         if (self.bloodList&&[self.bloodList count]>0) {
             [self.bloodList removeAllObjects];
         }
         self.bloodList=[self.bloodHelper findByUser:self.userId];
-        
+        //加载图表
+        [self loadBloodChart];
     }else{//血糖记录
         if (self.sugarList&&[self.sugarList count]>0) {
             [self.sugarList removeAllObjects];
         }
         self.sugarList=[self.bloodSugarHelper findByUser:self.userId];
+        [self loadBloodSugarChart];
     }
+}
+//血压记录图表加载
+- (void)loadBloodChart{
+    if (!self.cellHeights) {
+        self.cellHeights=[NSMutableArray array];
+    }
+    if (self.cells&&[self.cells count]>0) {
+        [self.cells removeAllObjects];
+    }
+    if (self.cellHeights&&[self.cellHeights count]>0) {
+        [self.cellHeights removeAllObjects];
+    }
+    //表示有值
+    if (self.bloodList&&[self.bloodList count]>0) {
+        NSMutableArray *results=[NSMutableArray array];
+        //舒张压与收缩压
+        //舒张压
+        NSMutableArray  *diastoles=[self.bloodHelper charDiastolesWithSource:self.bloodList];
+        //收缩压
+        NSMutableArray  *shrinks=[self.bloodHelper charShrinksWithSource:self.bloodList];
+        if ([diastoles count]>0||[shrinks count]>0) {
+            TKChartRecordCell *cell1=[[TKChartRecordCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+            cell1.labTitle.text=@"血壓折線圖";
+            [cell1.chart drawChartWithSource:diastoles otherSource:shrinks];
+            [results addObject:cell1];
+            [self.cellHeights addObject:[NSNumber numberWithFloat:270+80]];
+            
+        }
+        //脉搏
+        NSMutableArray *pulues=[self.bloodHelper charPulsesWithSource:self.bloodList];
+        if ([pulues count]>0) {
+            TKChartRecordCell *cell1=[[TKChartRecordCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+            cell1.labTitle.text=@"脈搏折線圖";
+            [cell1.chart drawChartWithSource:pulues chartHeight:240 lineColor:nil];
+            [results addObject:cell1];
+            [self.cellHeights addObject:[NSNumber numberWithFloat:240+80]];
+        }
+        self.cells=results;
+    }
+    [self.chartTable reloadData];
+}
+//血糖记录图表加载
+- (void)loadBloodSugarChart{
+    if (!self.cellHeights) {
+        self.cellHeights=[NSMutableArray array];
+    }
+    if (self.cells&&[self.cells count]>0) {
+        [self.cells removeAllObjects];
+    }
+    if (self.cellHeights&&[self.cellHeights count]>0) {
+        [self.cellHeights removeAllObjects];
+    }
+    //表示有值
+    if (self.sugarList&&[self.sugarList count]>0) {
+        NSMutableArray *results=[NSMutableArray array];
+        //飯前血糖
+         NSMutableArray *beforeMelas=[self.bloodSugarHelper beforeMealsWithSource:self.sugarList];
+        if ([beforeMelas count]>0) {
+            TKChartRecordCell *cell1=[[TKChartRecordCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+            cell1.labTitle.text=@"飯前血糖折線圖";
+            cell1.chart.rate=270.0f/999.0f;
+            [cell1.chart drawChartWithSource:beforeMelas];
+            [results addObject:cell1];
+            [self.cellHeights addObject:[NSNumber numberWithFloat:270+80]];
+        }
+        //飯後血糖
+        NSMutableArray *afterMelas=[self.bloodSugarHelper afterMealsWithSource:self.sugarList];
+        if ([afterMelas count]>0) {
+            TKChartRecordCell *cell1=[[TKChartRecordCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+            cell1.labTitle.text=@"飯後血糖折線圖";
+            cell1.chart.rate=270.0f/999.0f;
+            [cell1.chart drawChartWithSource:afterMelas];
+            [results addObject:cell1];
+            [self.cellHeights addObject:[NSNumber numberWithFloat:270+80]];
+        }
+        self.cells=results;
+    }
+    [self.chartTable reloadData];
 }
 //列表
 - (void)buttonListClick:(UIButton*)btn{
@@ -97,6 +186,23 @@
 #pragma mark - RecordTopViewDelegate Methods
 - (void)selectedButton:(UIButton*)btn type:(NSInteger)type{
     [self switchLoadSource];
+}
+#pragma mark UITableViewDataSource Methods
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+       return [self.cells count];
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell=self.cells[indexPath.row];
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSNumber *num=self.cellHeights[indexPath.row];
+    return [num floatValue];
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 - (void)didReceiveMemoryWarning
 {
