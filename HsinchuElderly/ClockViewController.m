@@ -52,7 +52,7 @@
     topY+=h+origY;
     [self addMenuItemWithFrame:CGRectMake(leftX, topY, self.view.bounds.size.width-leftX*2, h) title:@"血糖測量" tag:103];
     topY+=h+origY;
-    [self addMenuItemWithFrame:CGRectMake(leftX, topY, self.view.bounds.size.width-leftX*2, h) title:@"記錄" tag:104];
+    [self addMenuItemWithFrame:CGRectMake(leftX, topY, self.view.bounds.size.width-leftX*2, h) title:@"您的記錄" tag:104];
     // Do any additional setup after loading the view.
 }
 - (void)viewWillAppear:(BOOL)animated{
