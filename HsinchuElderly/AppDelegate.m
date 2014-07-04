@@ -13,7 +13,6 @@
 #import "AppHelper.h"
 #import "NSDate+TPCategory.h"
 #import "HEBasicHelper.h"
-#import "RecordRemindHelper.h"
 #import "ClockViewController.h"
 @implementation AppDelegate
 

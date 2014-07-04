@@ -13,7 +13,12 @@
 #import "TKRecordCell.h"
 #import "AlertHelper.h"
 @interface RecordBloodListController ()
-
+- (void)switchLoadSource;
+- (void)buttonPicClick:(UIButton*)btn;
+- (void)buttonRecordClick:(UIButton*)btn;
+- (void)buttonEditClick:(UIButton*)btn;
+- (void)buttonDeleteClick:(UIButton*)btn;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @implementation RecordBloodListController
@@ -39,10 +44,12 @@
     NSArray *actionButtonItems = [NSArray arrayWithObjects:btn2,btn1, nil];
     self.navigationItem.rightBarButtonItems = actionButtonItems;
     
+    //顶部
     self.topView=[[RecordTopView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 50)];
     self.topView.delegate=self;
     [self.view addSubview:self.topView];
     
+    //标题
     self.labTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, self.topView.frame.size.height, self.view.bounds.size.width,44)];
     self.labTitle.backgroundColor=[UIColor clearColor];
     self.labTitle.textColor=[UIColor blackColor];
@@ -51,7 +58,7 @@
     self.labTitle.font=defaultBDeviceFont;
     [self.view addSubview:self.labTitle];
     
-    
+    //资料显示table
     CGRect r=self.view.bounds;
     r.origin.y=self.labTitle.frame.origin.y+self.labTitle.frame.size.height;
     r.size.height-=[self topHeight]+r.origin.y;
@@ -79,9 +86,11 @@
 //初始化加载
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-    
-    if (self.topView.bloodButton.selected) {//血壓
+    [self switchLoadSource];
+}
+//根据选中不同的对象加载资料
+- (void)switchLoadSource{
+    if (self.topView.selectedIndex==1) {//血壓
         if (self.list&&[self.list count]>0) {
             [self.list removeAllObjects];
         }
@@ -100,7 +109,6 @@
         self.recordlist=[self.bloodSugarHelper findByUser:self.userId];
         [self.recordTable reloadData];
     }
-   
 }
 //圖表
 - (void)buttonPicClick:(UIButton*)btn{
@@ -161,11 +169,17 @@
             RecordBloodSugar *entity=self.list[indexPath.row];
             boo=[self.bloodSugarHelper deleteWithGuid:entity.ID];
         }
-        if (boo) {
+        if (boo&&self.topView.selectedIndex==1) {
             [self.list removeObjectAtIndex:indexPath.row];
             [self.userTable beginUpdates];
             [self.userTable deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
             [self.userTable endUpdates];
+        }
+        if (boo&&self.topView.selectedIndex==2) {
+            [self.recordlist removeObjectAtIndex:indexPath.row];
+            [self.recordTable beginUpdates];
+            [self.recordTable deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
+            [self.recordTable endUpdates];
         }
         [AlertHelper showMessage:[NSString stringWithFormat:@"刪除%@!",boo?@"成功":@"失敗"]];
     }];
@@ -175,27 +189,7 @@
     NSString *msg=type==1?@"血壓記錄列表":@"血糖記錄列表";
     self.labTitle.text=msg;
     
-    if (type==1) {//血壓
-        if (self.list&&[self.list count]>0) {
-            [self.list removeAllObjects];
-        }
-        self.recordTable.hidden=YES;
-        self.userTable.hidden=NO;
-        [self.view bringSubviewToFront:self.userTable];
-        self.list=[self.bloodHelper findByUser:self.userId];
-        [self.userTable reloadData];
-    }else{//血糖
-        if (self.recordlist&&[self.recordlist count]>0) {
-            [self.recordlist removeAllObjects];
-        }
-        self.recordTable.hidden=NO;
-        self.userTable.hidden=YES;
-        [self.view bringSubviewToFront:self.recordTable];
-       self.recordlist=[self.bloodSugarHelper findByUser:self.userId];
-        [self.recordTable reloadData];
-    }
-    
-    
+    [self switchLoadSource];
 }
 #pragma mark UITableViewDataSource Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -232,15 +226,22 @@
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    RecordBlood *entity=self.list[indexPath.row];
+    if (self.topView.selectedIndex==1) {
+        RecordBlood *entity=self.list[indexPath.row];
+        return [self getCellHeightWithTitle:entity.BloodDetail detailText:entity.TimeSpanText];
+    }
+    RecordBloodSugar *mod=self.recordlist[indexPath.row];
+    return [self getCellHeightWithTitle:mod.SugarDetail detailText:mod.TimeSpanText];
+}
+//计算cell高度
+- (CGFloat)getCellHeightWithTitle:(NSString*)title detailText:(NSString*)detail{
     CGFloat leftX=10,topY=10,total=0;
     CGFloat w=self.view.bounds.size.width-leftX-20-5-2;
-    NSString *title=entity.BloodDetail;
     CGSize size=[title textSize:[UIFont fontWithName:defaultDeviceFontName size:18] withWidth:w];
     total+=topY+size.height+5;
     
     
-    size=[entity.TimeSpanText textSize:[UIFont fontWithName:defaultDeviceFontName size:18] withWidth:w];
+    size=[detail textSize:[UIFont fontWithName:defaultDeviceFontName size:18] withWidth:w];
     total+=size.height+topY;
     
     return total>95.0f?total:95.0f;
@@ -252,4 +253,5 @@
 {
     [super didReceiveMemoryWarning];
 }
+
 @end
