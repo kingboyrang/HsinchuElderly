@@ -31,15 +31,16 @@
     self.title=@"血糖記錄";
     self.navigationItem.rightBarButtonItem=[UIBarButtonItem barButtonWithTitle:@"完成" target:self action:@selector(buttonFinishedClick:) forControlEvents:UIControlEventTouchUpInside];
     
+    //DeviceIsPad?@"RecordBloodSugarView~ipad":@"RecordBloodSugarView"
     NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"RecordBloodSugarView" owner:nil options:nil];
     self.sugarView=(RecordBloodSugarView*)[nibContents objectAtIndex:0];
-    self.sugarView.frame=CGRectMake((self.view.bounds.size.width-320)/2, 0, 320, 202);
+    self.sugarView.frame=CGRectMake(0, 0, self.view.bounds.size.width, DeviceIsPad?256:202);
     [self.view addSubview:self.sugarView];
     [self.sugarView defaultInitControl];
     
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"RecordTimeView" owner:nil options:nil];
     self.timeView=(RecordTimeView*)[nib objectAtIndex:0];
-    self.timeView.frame=CGRectMake((self.view.bounds.size.width-320)/2,212, 320, 195);
+    self.timeView.frame=CGRectMake(0,self.sugarView.frame.size.height+10,self.view.bounds.size.width, 195);
     [self.view addSubview:self.timeView];
     [self.timeView defaultInitParams];
     

@@ -34,7 +34,7 @@
     
     NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"ShrinkPickerView" owner:nil options:nil];
     self.shrinkView=(ShrinkPickerView*)[nibContents objectAtIndex:0];
-    self.shrinkView.frame=CGRectMake((self.view.bounds.size.width-320)/2, 0, 320, 202);
+    self.shrinkView.frame=CGRectMake(0, 0, self.view.bounds.size.width, 202);
     [self.view addSubview:self.shrinkView];
     [self.shrinkView defaultSelectedPicker];
     
@@ -42,7 +42,7 @@
     
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"RecordTimeView" owner:nil options:nil];
     self.timeView=(RecordTimeView*)[nib objectAtIndex:0];
-    self.timeView.frame=CGRectMake((self.view.bounds.size.width-320)/2,212, 320, 195);
+    self.timeView.frame=CGRectMake(0,212, self.view.bounds.size.width, 195);
     [self.view addSubview:self.timeView];
     [self.timeView defaultInitParams];
     

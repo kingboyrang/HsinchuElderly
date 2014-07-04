@@ -13,4 +13,10 @@
 - (BOOL)editRecord:(RecordBlood*)entity;
 - (BOOL)deleteWithGuid:(NSString*)guid;
 - (NSMutableArray*)findByUser:(NSString*)guid;
+//取得脉搏资料
+- (NSMutableArray*)charPulsesWithSource:(NSArray*)source;
+//取得收缩压资料
+- (NSMutableArray*)charShrinksWithSource:(NSArray*)source;
+//取得舒张压资料
+- (NSMutableArray*)charDiastolesWithSource:(NSArray*)source;
 @end

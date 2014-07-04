@@ -44,6 +44,24 @@
     [self.pickView selectRow:80 inComponent:1 animated:NO];
     [self.pickView selectRow:70 inComponent:2 animated:NO];
 }
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    CGRect r=self.pickView.frame;
+    r.size.width=self.bounds.size.width;
+    self.pickView.frame=r;
+    
+    r=self.lab1.frame;
+    r.origin.x=DeviceIsPad?110:20;
+    self.lab1.frame=r;
+    
+    r=self.lab2.frame;
+    r.origin.x=(self.bounds.size.width-r.size.width)/2;
+    self.lab2.frame=r;
+    
+    r=self.lab3.frame;
+    r.origin.x=self.bounds.size.width-self.lab1.frame.origin.x-r.size.width;
+    self.lab3.frame=r;
+}
 #pragma mark -
 #pragma mark UIPickerView DataSource Methods
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView

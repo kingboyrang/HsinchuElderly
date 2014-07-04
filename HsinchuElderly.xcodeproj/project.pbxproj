@@ -32,6 +32,8 @@
 		014CA958196577830033AF2D /* RecordBloodListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA957196577830033AF2D /* RecordBloodListController.m */; };
 		014CA95B19657FB60033AF2D /* TKRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA95A19657FB60033AF2D /* TKRecordCell.m */; };
 		014CA95E1965836F0033AF2D /* RecordBloodSugarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA95D1965836F0033AF2D /* RecordBloodSugarHelper.m */; };
+		014CA96119663EA10033AF2D /* ChartRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA96019663EA10033AF2D /* ChartRecord.m */; };
+		014CA96319664A8A0033AF2D /* RecordBloodSugarView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014CA96219664A8A0033AF2D /* RecordBloodSugarView~ipad.xib */; };
 		01565F8E1939795500873B3E /* UploadAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01565F8D1939795500873B3E /* UploadAlertView.m */; };
 		01566010193E1B4B00873B3E /* TKDetailDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0156600F193E1B4B00873B3E /* TKDetailDataCell.m */; };
 		0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -235,6 +237,9 @@
 		014CA95A19657FB60033AF2D /* TKRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRecordCell.m; sourceTree = "<group>"; };
 		014CA95C1965836F0033AF2D /* RecordBloodSugarHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordBloodSugarHelper.h; sourceTree = "<group>"; };
 		014CA95D1965836F0033AF2D /* RecordBloodSugarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordBloodSugarHelper.m; sourceTree = "<group>"; };
+		014CA95F19663EA10033AF2D /* ChartRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartRecord.h; sourceTree = "<group>"; };
+		014CA96019663EA10033AF2D /* ChartRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartRecord.m; sourceTree = "<group>"; };
+		014CA96219664A8A0033AF2D /* RecordBloodSugarView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "RecordBloodSugarView~ipad.xib"; sourceTree = "<group>"; };
 		01565F8C1939795500873B3E /* UploadAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadAlertView.h; sourceTree = "<group>"; };
 		01565F8D1939795500873B3E /* UploadAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadAlertView.m; sourceTree = "<group>"; };
 		0156600E193E1B4B00873B3E /* TKDetailDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDetailDataCell.h; sourceTree = "<group>"; };
@@ -586,6 +591,7 @@
 				014CA94619655DB70033AF2D /* RecordBloodSugarView.h */,
 				014CA94719655DB70033AF2D /* RecordBloodSugarView.m */,
 				014CA94919655DC70033AF2D /* RecordBloodSugarView.xib */,
+				014CA96219664A8A0033AF2D /* RecordBloodSugarView~ipad.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1100,6 +1106,8 @@
 				014CA94C19656EAB0033AF2D /* RecordBlood.m */,
 				014CA94E19656F230033AF2D /* RecordBloodSugar.h */,
 				014CA94F19656F230033AF2D /* RecordBloodSugar.m */,
+				014CA95F19663EA10033AF2D /* ChartRecord.h */,
+				014CA96019663EA10033AF2D /* ChartRecord.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1394,6 +1402,7 @@
 				26DEBA34191F440F0007DB43 /* blueArrow.png in Resources */,
 				0189C52819343E3B002ED63A /* iTunesArtwork in Resources */,
 				014CA93F1965551A0033AF2D /* RecordTimeView.xib in Resources */,
+				014CA96319664A8A0033AF2D /* RecordBloodSugarView~ipad.xib in Resources */,
 				26DEBA36191F440F0007DB43 /* blueArrowDown.png in Resources */,
 				01BE5921195BBF8D0040A8F5 /* remind.sqlite in Resources */,
 				01A97386191DF0120073530F /* Frequency.plist in Resources */,
@@ -1441,6 +1450,7 @@
 				01CDC1E6191A289A0002AE47 /* BasicNavigationController.m in Sources */,
 				01A974191920B8090073530F /* SVGeocoder.m in Sources */,
 				01A974251920C50D0073530F /* HEService.m in Sources */,
+				014CA96119663EA10033AF2D /* ChartRecord.m in Sources */,
 				014CA94419655B190033AF2D /* RecordBloodSugarController.m in Sources */,
 				26A9F524191F74060018EE32 /* HEItemDetailController.m in Sources */,
 				01A9755719236A060073530F /* NSData+MKBase64.m in Sources */,

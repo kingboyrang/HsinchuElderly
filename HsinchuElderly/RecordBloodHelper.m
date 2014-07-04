@@ -9,6 +9,7 @@
 #import "RecordBloodHelper.h"
 #import "NSDate+TPCategory.h"
 #import "FMDatabase.h"
+#import "ChartRecord.h"
 @implementation RecordBloodHelper
 - (BOOL)addRecord:(RecordBlood*)entity{
     NSString *time=[[NSDate date] stringWithFormat:@"yyyy-MM-dd"];
@@ -64,5 +65,44 @@
         [db close];
     }
     return sources;
+}
+//取得脉搏资料
+- (NSMutableArray*)charPulsesWithSource:(NSArray*)source{
+    NSMutableArray *results=[NSMutableArray array];
+    if (source&&[source count]>0) {
+        for (RecordBlood *item in source) {
+            ChartRecord *entity=[[ChartRecord alloc] init];
+            entity.chartDate=item.TimeSpanText;
+            entity.chartValue=item.Pulse;
+            [results addObject:entity];
+        }
+    }
+    return results;
+}
+//取得收缩压资料
+- (NSMutableArray*)charShrinksWithSource:(NSArray*)source{
+    NSMutableArray *results=[NSMutableArray array];
+    if (source&&[source count]>0) {
+        for (RecordBlood *item in source) {
+            ChartRecord *entity=[[ChartRecord alloc] init];
+            entity.chartDate=item.TimeSpanText;
+            entity.chartValue=item.Shrink;
+            [results addObject:entity];
+        }
+    }
+    return results;
+}
+//取得舒张压资料
+- (NSMutableArray*)charDiastolesWithSource:(NSArray*)source{
+    NSMutableArray *results=[NSMutableArray array];
+    if (source&&[source count]>0) {
+        for (RecordBlood *item in source) {
+            ChartRecord *entity=[[ChartRecord alloc] init];
+            entity.chartDate=item.TimeSpanText;
+            entity.chartValue=item.Diastolic;
+            [results addObject:entity];
+        }
+    }
+    return results;
 }
 @end

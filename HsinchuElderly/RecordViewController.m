@@ -13,7 +13,7 @@
 #import "RecordBloodSugarController.h"
 #import "RecordBloodListController.h"
 @interface RecordViewController ()<RecordTopViewDelegate>
-
+- (void)switchLoadSource;
 @end
 
 @implementation RecordViewController
@@ -30,23 +30,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
-    self.recordType=@"1";
+    self.bloodHelper=[[RecordBloodHelper alloc] init];
+    self.bloodSugarHelper=[[RecordBloodSugarHelper alloc] init];
     
     //状态栏右上角内容
     UIBarButtonItem *btn1=[UIBarButtonItem barButtonWithTitle:@"列表" target:self action:@selector(buttonListClick:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *btn2=[UIBarButtonItem barButtonWithTitle:@"記錄" target:self action:@selector(buttonRecordClick:) forControlEvents:UIControlEventTouchUpInside];
     NSArray *actionButtonItems = [NSArray arrayWithObjects:btn2,btn1, nil];
     self.navigationItem.rightBarButtonItems = actionButtonItems;
-    
-    
-    //self.title=@"記錄";
+   //表头
     self.topView=[[RecordTopView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 50)];
     self.topView.delegate=self;
     [self.view addSubview:self.topView];
     
   
-    
+    //图表内容
     CGRect r=self.view.bounds;
     r.origin.y=50;
     r.origin.x=10;
@@ -55,6 +53,26 @@
     
     PolygonalScrollView *scrollView=[[PolygonalScrollView alloc] initWithFrame:r];
     [self.view addSubview:scrollView];
+}
+//视图将出现时加载不同的图表资料
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self switchLoadSource];
+}
+//切换显示不同的图表
+- (void)switchLoadSource{
+    if (self.topView.selectedIndex==1) {//血压记录
+        if (self.bloodList&&[self.bloodList count]>0) {
+            [self.bloodList removeAllObjects];
+        }
+        self.bloodList=[self.bloodHelper findByUser:self.userId];
+        
+    }else{//血糖记录
+        if (self.sugarList&&[self.sugarList count]>0) {
+            [self.sugarList removeAllObjects];
+        }
+        self.sugarList=[self.bloodSugarHelper findByUser:self.userId];
+    }
 }
 //列表
 - (void)buttonListClick:(UIButton*)btn{
@@ -78,7 +96,7 @@
 }
 #pragma mark - RecordTopViewDelegate Methods
 - (void)selectedButton:(UIButton*)btn type:(NSInteger)type{
-    
+    [self switchLoadSource];
 }
 - (void)didReceiveMemoryWarning
 {

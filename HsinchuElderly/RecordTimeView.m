@@ -32,4 +32,14 @@
     self.dateForFormat=[[NSDateFormatter alloc] init];
     [self.dateForFormat setDateFormat:@"HH:mm"];
 }
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    CGRect r=self.timePicker.frame;
+    r.size.width=self.bounds.size.width;
+    self.timePicker.frame=r;
+    
+    r=self.labTime.frame;
+    r.origin.x=(self.bounds.size.width-r.size.width)/2;
+    self.labTime.frame=r;
+}
 @end

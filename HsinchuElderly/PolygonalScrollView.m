@@ -7,7 +7,7 @@
 //
 
 #import "PolygonalScrollView.h"
-
+#import "ChartRecord.h"
 @implementation PolygonalScrollView
 
 - (id)initWithFrame:(CGRect)frame
@@ -27,10 +27,22 @@
         UIFont *font=[UIFont systemFontOfSize:12.0f];
         NSString *str=@"07/02 17:48";
         CGSize size=[str textSize:font withWidth:frame.size.width];
-        self.columnWidth=size.width/2+size.width+8;
+        self.columnWidth=size.width/2+size.width+5;
+        
+        self.dateFont=font;
+        self.valueFont=[UIFont systemFontOfSize:10.0f];
     }
     return self;
 }
+//画血压图表
+- (void)drawBloodWithSource:(NSArray*)source dateFieldName:(NSString*)dName valueFieldName:(NSString*)vName{
+    NSMutableArray *results=[NSMutableArray array];
+    if (source&&[source count]>0) {
+        
+    }
+    self.Entitys=results;
+}
+#pragma mark - 画图部份
 - (void)drawJoinLine:(CGContextRef)ctx startPoint:(CGPoint)spoint endPoint:(CGPoint)epoint{
     //保存结果
     CGPoint startP=CGPointMake(0, spoint.y);
@@ -66,10 +78,9 @@
 }
 //画日期文字
 - (void)drawTextWithContext:(CGContextRef)ctx point:(CGPoint)point value:(NSString*)val{
-    UIFont *font=[UIFont systemFontOfSize:12.0f];
-    CGSize size=[val textSize:font withWidth:self.bounds.size.width];
+    CGSize size=[val textSize:self.dateFont withWidth:self.bounds.size.width];
     //画文字
-    [val drawInRect:CGRectMake(point.x,point.y, size.width,size.height) withFont:font lineBreakMode:NSLineBreakByClipping alignment:NSTextAlignmentCenter];
+    [val drawInRect:CGRectMake(point.x,point.y, size.width,size.height) withFont:self.dateFont lineBreakMode:NSLineBreakByClipping alignment:NSTextAlignmentCenter];
 }
 //画线
 - (void)drawLineWithContext:(CGContextRef)ctx start:(CGPoint)spoint end:(CGPoint)epoint{
@@ -92,14 +103,18 @@
     CGContextDrawPath(ctx, kCGPathStroke); //绘制路径
     
     //画文字
-    UIFont *font=[UIFont systemFontOfSize:10.0f];
-    CGSize size=[val textSize:font withWidth:self.bounds.size.width];
+    CGSize size=[val textSize:self.valueFont withWidth:self.bounds.size.width];
     CGFloat leftX=x-size.width/2;
     leftX=leftX<0?x:leftX;
-    [val drawInRect:CGRectMake(leftX, y-(self.radius+self.radiusWidth+5), size.width,size.height) withFont:font lineBreakMode:NSLineBreakByClipping alignment:NSTextAlignmentCenter];
+    [val drawInRect:CGRectMake(leftX, y-(self.radius+self.radiusWidth+5), size.width,size.height) withFont:self.valueFont lineBreakMode:NSLineBreakByClipping alignment:NSTextAlignmentCenter];
     
 }
-//乡亲们我要画图了
+//乡亲们我要画图了,求鉴赏~~~
+/**
+  1.有几行数据画几列，先画表格
+  2.再画日期文字
+  3.画连接线
+ **/
 - (void)drawRect:(CGRect)rect{
     CGContextRef ctx =UIGraphicsGetCurrentContext();
     UIFont *font=[UIFont systemFontOfSize:3.5f];
