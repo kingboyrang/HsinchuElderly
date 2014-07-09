@@ -36,6 +36,7 @@
 		014CA96319664A8A0033AF2D /* RecordBloodSugarView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014CA96219664A8A0033AF2D /* RecordBloodSugarView~ipad.xib */; };
 		014CA9661966791D0033AF2D /* TKChartRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA9651966791D0033AF2D /* TKChartRecordCell.m */; };
 		014CA96919669EB70033AF2D /* ChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA96819669EB70033AF2D /* ChartView.m */; };
+		014CA96C196D187A0033AF2D /* TKRecordMemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA96B196D187A0033AF2D /* TKRecordMemoCell.m */; };
 		01565F8E1939795500873B3E /* UploadAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01565F8D1939795500873B3E /* UploadAlertView.m */; };
 		01566010193E1B4B00873B3E /* TKDetailDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0156600F193E1B4B00873B3E /* TKDetailDataCell.m */; };
 		0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -241,6 +242,8 @@
 		014CA9651966791D0033AF2D /* TKChartRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKChartRecordCell.m; sourceTree = "<group>"; };
 		014CA96719669EB70033AF2D /* ChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartView.h; sourceTree = "<group>"; };
 		014CA96819669EB70033AF2D /* ChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartView.m; sourceTree = "<group>"; };
+		014CA96A196D187A0033AF2D /* TKRecordMemoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRecordMemoCell.h; sourceTree = "<group>"; };
+		014CA96B196D187A0033AF2D /* TKRecordMemoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRecordMemoCell.m; sourceTree = "<group>"; };
 		01565F8C1939795500873B3E /* UploadAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadAlertView.h; sourceTree = "<group>"; };
 		01565F8D1939795500873B3E /* UploadAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadAlertView.m; sourceTree = "<group>"; };
 		0156600E193E1B4B00873B3E /* TKDetailDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDetailDataCell.h; sourceTree = "<group>"; };
@@ -901,6 +904,8 @@
 				014CA9651966791D0033AF2D /* TKChartRecordCell.m */,
 				014CA96719669EB70033AF2D /* ChartView.h */,
 				014CA96819669EB70033AF2D /* ChartView.m */,
+				014CA96A196D187A0033AF2D /* TKRecordMemoCell.h */,
+				014CA96B196D187A0033AF2D /* TKRecordMemoCell.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1425,6 +1430,7 @@
 				01BE57A7194AA4670040A8F5 /* RecordViewController.m in Sources */,
 				01A974461920E06B0073530F /* HEWelfareViewController.m in Sources */,
 				01BFE059191CA4BF00095A8A /* AlbumCameraImage.m in Sources */,
+				014CA96C196D187A0033AF2D /* TKRecordMemoCell.m in Sources */,
 				01A974591921FD4D0073530F /* BasicMapAnnotation.m in Sources */,
 				01A9755619236A060073530F /* NSAlert+MKNetworkKitAdditions.m in Sources */,
 				01A9738C191DFE2B0073530F /* BloodHelper.m in Sources */,
@@ -1606,7 +1612,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 澜洲 吴 (M3F85US4G2)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1647,7 +1653,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 澜洲 吴 (M3F85US4G2)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

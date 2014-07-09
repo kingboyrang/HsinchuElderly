@@ -75,9 +75,10 @@
     UIImage *exclamationImg=[UIImage imageNamed:[self imageNameWithName:@"exclamation" forType:@"png"]];
     [self addMenuItemWithFrame:CGRectMake(10,self.view.frame.size.height-exclamationImg.size.height, exclamationImg.size.width,exclamationImg.size.height) tag:106 image:exclamationImg];
     //好康抽獎
+    /***
     UIImage *lotteryImg=[UIImage imageNamed:[self imageNameWithName:@"lottery" forType:@"png"]];
      [self addMenuItemWithFrame:CGRectMake(self.view.bounds.size.width-lotteryImg.size.width-5,self.view.frame.size.height-lotteryImg.size.height, lotteryImg.size.width,lotteryImg.size.height) tag:107 image:lotteryImg];
-    
+    ***/
    
 
 }

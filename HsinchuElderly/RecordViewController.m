@@ -13,6 +13,7 @@
 #import "RecordBloodListController.h"
 #import "TKChartRecordCell.h"
 #import "ChartView.h"
+#import "TKRecordMemoCell.h"
 @interface RecordViewController ()<RecordTopViewDelegate>
 - (void)switchLoadSource;
 @end
@@ -99,6 +100,17 @@
     //表示有值
     if (self.bloodList&&[self.bloodList count]>0) {
         NSMutableArray *results=[NSMutableArray array];
+        TKRecordMemoCell *cell=[[TKRecordMemoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell.labMemo1.text=@"高血壓：血壓高於160(舒張)/95(收縮)";
+        cell.labMemo2.text=@"低血壓：血壓低於90(舒張)/50(收縮)";
+        [results addObject:cell];
+        CGFloat h=0;
+        CGFloat w=self.view.bounds.size.width-20;
+        CGSize size=[cell.labMemo1.text textSize:cell.labMemo1.font withWidth:w];
+        h+=size.height+5+2;
+        size=[cell.labMemo2.text textSize:cell.labMemo2.font withWidth:w];
+        h+=size.height+5;
+        [self.cellHeights addObject:[NSNumber numberWithFloat:h]];
         //舒张压与收缩压
         //舒张压
         NSMutableArray  *diastoles=[self.bloodHelper charDiastolesWithSource:self.bloodList];
@@ -139,6 +151,20 @@
     //表示有值
     if (self.sugarList&&[self.sugarList count]>0) {
         NSMutableArray *results=[NSMutableArray array];
+        
+        NSMutableArray *memos=[self.bloodSugarHelper getMaxMinSugarfindByUser:self.userId];
+        TKRecordMemoCell *cell=[[TKRecordMemoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell.labMemo1.text=memos[0];
+        cell.labMemo2.text=memos[1];
+        [results addObject:cell];
+        CGFloat h=0;
+        CGFloat w=self.view.bounds.size.width-20;
+        CGSize size=[cell.labMemo1.text textSize:cell.labMemo1.font withWidth:w];
+        h+=size.height+5+2;
+        size=[cell.labMemo2.text textSize:cell.labMemo2.font withWidth:w];
+        h+=size.height+5;
+        [self.cellHeights addObject:[NSNumber numberWithFloat:h]];
+        
         //飯前血糖
          NSMutableArray *beforeMelas=[self.bloodSugarHelper beforeMealsWithSource:self.sugarList];
         if ([beforeMelas count]>0) {

@@ -37,7 +37,7 @@
         //血壓記錄
         [db executeUpdate:@"CREATE TABLE if not exists \"RecordBlood\" (\"ID\" CHAR(36) PRIMARY KEY  NOT NULL  UNIQUE,\"BloodGuid\" CHAR(36), \"Name\" CHAR(100), \"Shrink\" CHAR(50),\"Diastolic\" CHAR(50),\"Pulse\" CHAR(50),\"TimeSpan\" CHAR(50),\"UserId\" CHAR(50),\"RecordDate\" DATETIME,\"CreateDate\" DATETIME DEFAULT CURRENT_TIMESTAMP);"];
         //血糖記錄
-        [db executeUpdate:@"CREATE TABLE if not exists \"RecordBloodSugar\" (\"ID\" CHAR(36) PRIMARY KEY  NOT NULL  UNIQUE,\"BloodSugarGuid\" CHAR(36),\"Name\" CHAR(100),\"Measure\" CHAR(50),\"BloodSugar\" CHAR(50),\"TimeSpan\" CHAR(50),\"UserId\" CHAR(50),\"RecordDate\" DATETIME, \"CreateDate\" DATETIME DEFAULT CURRENT_TIMESTAMP);"];
+        [db executeUpdate:@"CREATE TABLE if not exists \"RecordBloodSugar\" (\"ID\" CHAR(36) PRIMARY KEY  NOT NULL  UNIQUE,\"BloodSugarGuid\" CHAR(36),\"Name\" CHAR(100),\"Measure\" CHAR(50),\"BloodSugar\" INTEGER,\"TimeSpan\" CHAR(50),\"UserId\" CHAR(50),\"RecordDate\" DATETIME, \"CreateDate\" DATETIME DEFAULT CURRENT_TIMESTAMP);"];
         [db commit];
         [db close];
     }
@@ -47,7 +47,6 @@
     if (source==nil) {
         source=[self searchWithCategory:guid aresGuid:@""];
     }
-    NSLog(@"len=%d",[source count]);
     NSMutableArray *result=[NSMutableArray array];
     [result addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"所有區域",@"Name",@"",@"ID", nil]];
     if (source&&[source count]>0&&self.allAreas&&[self.allAreas count]>0) {
@@ -58,7 +57,6 @@
             }
             NSString *memo=areaGuid&&[areaGuid length]>0?[NSString stringWithFormat:@" AND self.CategoryGuid=='%@'",guid]:@"";
             NSString *match=[NSString stringWithFormat:@"SELF.Address CONTAINS[cd] '%@'%@",[item objectForKey:@"Name"],memo];
-            NSLog(@"match=%@",match);
             NSPredicate *predicate = [NSPredicate predicateWithFormat:match];
             NSArray *arr=[source filteredArrayUsingPredicate:predicate];
             if (arr&&[arr count]>0) {

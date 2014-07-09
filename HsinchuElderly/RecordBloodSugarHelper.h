@@ -13,6 +13,8 @@
 - (BOOL)editRecord:(RecordBloodSugar*)entity;
 - (BOOL)deleteWithGuid:(NSString*)guid;
 - (NSMutableArray*)findByUser:(NSString*)guid;
+//取得最大与最小的血糖值
+- (NSMutableArray*)getMaxMinSugarfindByUser:(NSString*)guid;
 //取得饭前资图表资料
 - (NSMutableArray*)beforeMealsWithSource:(NSArray*)source;
 //取得饭后资图表资料

@@ -46,6 +46,7 @@
     return boo;
 }
 - (NSMutableArray*)findByUser:(NSString*)guid{
+    
     NSMutableArray *sources=[NSMutableArray array];
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
     if ([db open]) {
@@ -62,6 +63,36 @@
             [sources addObject:entity];
         }
         [db close];
+    }
+    return sources;
+}
+//取得最大与最小的血糖值
+- (NSMutableArray*)getMaxMinSugarfindByUser:(NSString*)guid{
+    NSString *time=[[NSDate date] stringWithFormat:@"yyyy-MM-dd"];
+    NSMutableArray *sources=[NSMutableArray array];
+    FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
+    if ([db open]) {
+        NSString *sql=[NSString stringWithFormat:@"select MAX(BloodSugar) from RecordBloodSugar where UserId='%@' and RecordDate='%@'",guid,time];
+        FMResultSet *rs = [db executeQuery:sql];
+        while (rs.next) {
+            [sources addObject:[NSString stringWithFormat:@"%@ 最高值:%@",[time stringByReplacingOccurrencesOfString:@"-" withString:@"/"],[rs stringForColumnIndex:0]]];
+        }
+        [db close];
+    }
+    if (sources.count==0) {
+        
+        [sources addObject:[NSString stringWithFormat:@"%@ 最高值:0",[time stringByReplacingOccurrencesOfString:@"-" withString:@"/"]]];
+    }
+    if ([db open]) {
+        NSString *sql=[NSString stringWithFormat:@"select MIN(BloodSugar) from RecordBloodSugar where UserId='%@' and RecordDate='%@'",guid,time];
+        FMResultSet *rs = [db executeQuery:sql];
+        while (rs.next) {
+            [sources addObject:[NSString stringWithFormat:@"%@ 最低值:%@",[time stringByReplacingOccurrencesOfString:@"-" withString:@"/"],[rs stringForColumnIndex:0]]];
+        }
+        [db close];
+    }
+    if (sources.count==0) {
+        [sources addObject:[NSString stringWithFormat:@"%@ 最低值:0",[time stringByReplacingOccurrencesOfString:@"-" withString:@"/"]]];
     }
     return sources;
 }
