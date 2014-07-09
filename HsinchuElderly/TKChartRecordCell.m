@@ -20,7 +20,7 @@
     
     [self.contentView addSubview:_labTitle];
     
-    _charScrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(10,_labTitle.frame.size.height, self.bounds.size.width-20, 290)];
+    _charScrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(10,_labTitle.frame.size.height, self.bounds.size.width-10, 290)];
     _charScrollView.pagingEnabled=YES;
     _charScrollView.showsHorizontalScrollIndicator=YES;
     _charScrollView.showsVerticalScrollIndicator=NO;

@@ -146,7 +146,7 @@
         RecordBloodSugarController *recordSugar=[[RecordBloodSugarController alloc] init];
         recordSugar.operType=2;
         recordSugar.userId=self.userId;
-        recordSugar.Entity=self.list[indexPath.row];
+        recordSugar.Entity=self.recordlist[indexPath.row];
         [self.navigationController pushViewController:recordSugar animated:YES];
     }
 
@@ -158,7 +158,12 @@
         v=[v superview];
     }
     UITableViewCell *cell=(UITableViewCell*)v;
-    NSIndexPath *indexPath=[self.userTable indexPathForCell:cell];
+    NSIndexPath *indexPath;
+     if (self.topView.selectedIndex==1) {
+         indexPath=[self.userTable indexPathForCell:cell];
+     }else{
+         indexPath=[self.recordTable indexPathForCell:cell];
+     }
     
     [AlertHelper initWithTitle:@"提示" message:@"確定是否刪除?" cancelTitle:@"取消" cancelAction:nil confirmTitle:@"確認" confirmAction:^{
         BOOL boo;
@@ -166,7 +171,7 @@
             RecordBlood *entity=self.list[indexPath.row];
             boo=[self.bloodHelper deleteWithGuid:entity.ID];
         }else{//血糖
-            RecordBloodSugar *entity=self.list[indexPath.row];
+            RecordBloodSugar *entity=self.recordlist[indexPath.row];
             boo=[self.bloodSugarHelper deleteWithGuid:entity.ID];
         }
         if (boo&&self.topView.selectedIndex==1) {
