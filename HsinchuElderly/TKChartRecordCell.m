@@ -12,7 +12,7 @@
 
 - (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if(!(self=[super initWithStyle:style reuseIdentifier:reuseIdentifier])) return nil;
-    _labTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 44)];
+    _labTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, 44)];
     _labTitle.backgroundColor=[UIColor clearColor];
     _labTitle.textColor=[UIColor blackColor];
     _labTitle.font=[UIFont fontWithName:defaultDeviceFontName size:20];
@@ -20,7 +20,7 @@
     
     [self.contentView addSubview:_labTitle];
     
-    _charScrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(10,_labTitle.frame.size.height, self.bounds.size.width-10, 290)];
+    _charScrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(10,_labTitle.frame.size.height, DeviceWidth-10, 290)];
     _charScrollView.pagingEnabled=YES;
     _charScrollView.showsHorizontalScrollIndicator=YES;
     _charScrollView.showsVerticalScrollIndicator=NO;
