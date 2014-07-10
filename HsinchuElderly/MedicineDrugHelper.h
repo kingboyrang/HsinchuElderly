@@ -13,6 +13,7 @@
 //列表
 - (NSMutableArray*)medicineDrugs;
 //新增與修改
+- (void)addDrugWithModel:(MedicineDrug*)entity name:(NSString*)name;
 - (void)addEditDrugWithModel:(MedicineDrug*)entity name:(NSString*)name;
 //儲存
 - (void)saveWithSources:(NSArray*)sources;

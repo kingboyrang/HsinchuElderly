@@ -82,7 +82,7 @@
         NSIndexPath *indexPath=[self.userTable indexPathForCell:cell];
         
         MedicineDrug *entity=self.list[indexPath.row];
-        [AppHelper removeLocationNoticeWithName:entity.ID];
+        [entity removeNotifices];
         
         [self.list removeObjectAtIndex:indexPath.row];
         [self.userTable beginUpdates];
@@ -102,6 +102,7 @@
     if (cell==nil) {
         cell=[[TKDrugCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         [cell.deleteButton addTarget:self action:@selector(buttonDeleteClick:) forControlEvents:UIControlEventTouchUpInside];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
     }
     MedicineDrug *entity=self.list[indexPath.row];
     cell.drugName.text=[self getShowName:entity];
@@ -124,6 +125,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    return;
     UseDrugModifyController *user=[[UseDrugModifyController alloc] init];
     user.operType=2;
     user.systemUsers=[self.systemUserHelper dictonaryUsers];

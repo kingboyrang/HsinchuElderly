@@ -10,7 +10,8 @@
 #import "MedicineDrug.h"
 #import "TKSelectFieldCell.h"
 #import "TKCalendarFieldCell.h"
-@interface UseDrugModifyController : BasicViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,CVUICalendarDelegate,CVUISelectDelegate>
+#import "TKRateViewCell.h"
+@interface UseDrugModifyController : BasicViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,CVUICalendarDelegate,CVUISelectDelegate,CVUIRateViewDelegate>
 @property (nonatomic,strong) UITableView *userTable;
 @property (nonatomic,strong) NSMutableArray *cells;
 @property (nonatomic,strong) NSMutableArray *systemUsers;

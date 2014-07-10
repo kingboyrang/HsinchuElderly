@@ -13,6 +13,7 @@
 //列表
 - (NSMutableArray*)pressureBloodSugars;
 //新增與修改
+- (void)addBloodSugarWithModel:(BloodSugar*)entity name:(NSString*)name;
 - (void)addEditWithModel:(BloodSugar*)entity name:(NSString*)name;
 //儲存
 - (void)saveWithSources:(NSArray*)sources;

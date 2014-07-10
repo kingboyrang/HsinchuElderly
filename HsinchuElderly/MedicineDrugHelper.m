@@ -9,6 +9,7 @@
 #import "MedicineDrugHelper.h"
 #import "FileHelper.h"
 #import "AppHelper.h"
+#import "NSDate+TPCategory.h"
 @interface MedicineDrugHelper ()
 @property (nonatomic,strong) NSMutableArray *drugDataSource;
 - (BOOL)findById:(NSString*)sysId position:(NSInteger*)index;
@@ -44,23 +45,32 @@
     }
     return self.drugDataSource;
 }
+- (void)addDrugWithModel:(MedicineDrug*)entity name:(NSString*)name{
+    NSString *msg=[NSString stringWithFormat:PushDrugMessage,name];
+    NSString *str=[NSString stringWithFormat:@"%@",entity.TimeSpan];
+    NSArray *times=[str componentsSeparatedByString:@";"];
+    NSMutableArray *source=[self medicineDrugs];
+    for (NSString *item in times) {
+        entity.ID=[NSString createGUID];
+        entity.CreateDate=[NSDate stringFromDate:[NSDate date] withFormat:@"yyyy/MM/dd HH:mm:ss"];
+        entity.TimeSpan=item;
+        [entity addLocalNotificeWithMessage:msg];//添加通知
+        [source addObject:[entity copy]];
+    }
+    [self saveWithSources:source];
+}
 - (void)addEditDrugWithModel:(MedicineDrug*)entity name:(NSString*)name{
     NSInteger index;
     BOOL boo=[self findById:entity.ID position:&index];
     NSMutableArray *source=[self medicineDrugs];
-     NSString *msg=[NSString stringWithFormat:PushDrugMessage,name];
+    NSString *msg=[NSString stringWithFormat:PushDrugMessage,name];
     if (boo) {//存在就修改
         [source replaceObjectAtIndex:index withObject:entity];
-         [AppHelper removeLocationNoticeWithName:entity.ID];
+        [entity removeNotifices];
     }else{//新增
         [source addObject:entity];
     }
-    //entity.ID,entity.UserName,entity.Name,entity.TimeSpan
-    
-    NSDictionary *userInfo=[NSDictionary dictionaryWithObjectsAndKeys:entity.ID,@"guid",@"1",@"type",entity.UserName,@"UserName",
-                            entity.Name,@"Name",entity.TimeSpan,@"TimeSpan",nil];
-    [AppHelper sendLocationNotice:userInfo message:msg noticeDate:entity.repeatDate repeatInterval:entity.repeatInterval];
-    //[AppHelper sendLocationNotice:entity.ID sendType:@"1" message:msg noticeDate:entity.repeatDate repeatInterval:entity.repeatInterval];
+    [entity sendLocalNotificeWithMessage:msg];
     [self saveWithSources:source];
 }
 - (BOOL)findById:(NSString*)sysId position:(NSInteger*)index{
@@ -79,10 +89,8 @@
 }
 //儲存
 -(void)saveWithSources:(NSArray*)sources{
-    if (sources&&[sources count]>0) {
-        NSString *path=[DocumentPath stringByAppendingPathComponent:@"medicineDrug.db"];
-        [NSKeyedArchiver archiveRootObject:sources toFile:path];
-    }
+    NSString *path=[DocumentPath stringByAppendingPathComponent:@"medicineDrug.db"];
+    [NSKeyedArchiver archiveRootObject:sources toFile:path];
 }
 - (BOOL)existsByUserId:(NSString*)userId{
     NSMutableArray *arr=[self medicineDrugs];

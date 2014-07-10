@@ -9,6 +9,7 @@
 #import "BloodHelper.h"
 #import "FileHelper.h"
 #import "AppHelper.h"
+#import "NSDate+TPCategory.h"
 @interface BloodHelper ()
 @property (nonatomic,strong) NSMutableArray *drugDataSource;
 - (BOOL)findById:(NSString*)sysId position:(NSInteger*)index;
@@ -41,6 +42,19 @@
     }
     return self.drugDataSource;
 }
+- (void)addBloodWithModel:(Blood*)entity name:(NSString*)name{
+    NSString *msg=[NSString stringWithFormat:PushBloodMessage,name];
+    NSArray *times=[entity.TimeSpan componentsSeparatedByString:@";"];
+   NSMutableArray *source=[self pressureBloods];
+    for (NSString *item in times) {
+        entity.ID=[NSString createGUID];
+        entity.CreateDate=[NSDate stringFromDate:[NSDate date] withFormat:@"yyyy/MM/dd HH:mm:ss"];
+        entity.TimeSpan=item;
+        [entity addLocalNotificeWithMessage:msg];//添加通知
+        [source addObject:[entity copy]];
+    }
+    [self saveWithSources:source];
+}
 - (void)addEditDrugWithModel:(Blood*)entity name:(NSString*)name{
     NSInteger index;
     BOOL boo=[self findById:entity.ID position:&index];
@@ -48,13 +62,11 @@
      NSString *msg=[NSString stringWithFormat:PushBloodMessage,name];
     if (boo) {//存在就修改
         [source replaceObjectAtIndex:index withObject:entity];
-        [AppHelper removeLocationNoticeWithName:entity.ID];
+        [entity removeNotifices];
     }else{//新增
         [source addObject:entity];
     }
-    NSDictionary *userInfo=[NSDictionary dictionaryWithObjectsAndKeys:entity.ID,@"guid",@"2",@"type",entity.UserName,@"UserName",entity.TimeSpan,@"TimeSpan", nil];
-    [AppHelper sendLocationNotice:userInfo message:msg noticeDate:entity.repeatDate repeatInterval:entity.repeatInterval];
-    //[AppHelper sendLocationNotice:entity.ID sendType:@"2" message:msg noticeDate:entity.repeatDate repeatInterval:entity.repeatInterval];
+    [entity sendLocalNotificeWithMessage:msg];
     [self saveWithSources:source];
 }
 - (BOOL)findById:(NSString*)sysId position:(NSInteger*)index{
@@ -73,10 +85,8 @@
 }
 //儲存
 -(void)saveWithSources:(NSArray*)sources{
-    if (sources&&[sources count]>0) {
-        NSString *path=[DocumentPath stringByAppendingPathComponent:@"blood.db"];
-        [NSKeyedArchiver archiveRootObject:sources toFile:path];
-    }
+    NSString *path=[DocumentPath stringByAppendingPathComponent:@"blood.db"];
+    [NSKeyedArchiver archiveRootObject:sources toFile:path];
 }
 - (BOOL)existsByUserId:(NSString*)userId{
     NSMutableArray *arr=[self pressureBloods];

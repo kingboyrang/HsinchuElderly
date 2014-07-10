@@ -8,12 +8,18 @@
 
 #import "Blood.h"
 #import "NSDate+TPCategory.h"
+#import "AppHelper.h"
+@interface Blood()
+- (NSDate*)repeatDateWithTime:(NSString*)time;
+@end
+
 @implementation Blood
 - (void)encodeWithCoder:(NSCoder *)encoder{
     [encoder encodeObject:self.ID forKey:@"ID"];
     [encoder encodeObject:self.UserId forKey:@"UserId"];
     [encoder encodeObject:self.UserName forKey:@"UserName"];
     [encoder encodeObject:self.Rate forKey:@"Rate"];
+    [encoder encodeInteger:self.RateCount forKey:@"RateCount"];
     [encoder encodeObject:self.TimeSpan forKey:@"TimeSpan"];
     [encoder encodeObject:self.CreateDate forKey:@"CreateDate"];
 }
@@ -23,6 +29,7 @@
         self.UserId=[aDecoder decodeObjectForKey:@"UserId"];
         self.UserName=[aDecoder decodeObjectForKey:@"UserName"];
         self.Rate=[aDecoder decodeObjectForKey:@"Rate"];
+        self.RateCount=[aDecoder decodeIntegerForKey:@"RateCount"];
         self.TimeSpan=[aDecoder decodeObjectForKey:@"TimeSpan"];
         self.CreateDate=[aDecoder decodeObjectForKey:@"CreateDate"];
     }
@@ -35,6 +42,7 @@
     result.UserId=self.UserId;
     result.UserName=self.UserName;
     result.Rate=self.Rate;
+    result.RateCount=self.RateCount;
     result.TimeSpan=self.TimeSpan;
     result.CreateDate=self.CreateDate;
     return result;
@@ -47,6 +55,12 @@
         return NSCalendarUnitWeekday;
     }
     return 0;
+}
+- (NSDate*)repeatDateWithTime:(NSString*)time{
+    NSDate *nowT=[NSDate date];
+    NSString *str1=[NSDate stringFromDate:nowT withFormat:@"yyyy-MM-dd"];
+    str1=[NSString stringWithFormat:@"%@ %@",str1,time];
+    return [NSDate dateFromString:str1 withFormat:@"yyyy-MM-dd HH:mm"];
 }
 - (NSDate*)repeatDate{
     NSDate *nowT=[NSDate date];
@@ -133,5 +147,22 @@
         return [NSString stringWithFormat:@"%@ %d點%@分",str,minute,arr[1]];
     }
     return @"";
+}
+//移除设定闹钟
+- (void)removeNotifices{
+    [AppHelper removeLocationNoticeWithName:self.ID];
+}
+//设定闹钟
+- (void)addLocalNotificeWithMessage:(NSString*)msg{
+    NSDictionary *userInfo=[NSDictionary dictionaryWithObjectsAndKeys:self.ID,@"guid",@"2",@"type",self.UserName,@"UserName",self.TimeSpan,@"TimeSpan", nil];
+    [AppHelper sendLocationNotice:userInfo message:msg noticeDate:self.repeatDate repeatInterval:self.repeatInterval];
+}
+//设定闹钟
+- (void)sendLocalNotificeWithMessage:(NSString*)msg{
+    NSArray *times=[self.TimeSpan componentsSeparatedByString:@";"];
+    for (NSInteger i=0;i<times.count;i++) {
+        NSDictionary *userInfo=[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%@_%d",self.ID,i],@"guid",@"2",@"type",self.UserName,@"UserName",times[i],@"TimeSpan", nil];
+        [AppHelper sendLocationNotice:userInfo message:msg noticeDate:[self repeatDateWithTime:times[i]] repeatInterval:self.repeatInterval];
+    }
 }
 @end

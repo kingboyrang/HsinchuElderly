@@ -8,6 +8,12 @@
 
 #import "MedicineDrug.h"
 #import "NSDate+TPCategory.h"
+#import "AppHelper.h"
+
+@interface MedicineDrug()
+- (NSDate*)repeatDateWithTime:(NSString*)time;
+@end
+
 @implementation MedicineDrug
 - (void)encodeWithCoder:(NSCoder *)encoder{
     [encoder encodeObject:self.ID forKey:@"ID"];
@@ -15,6 +21,7 @@
     [encoder encodeObject:self.UserName forKey:@"UserName"];
     [encoder encodeObject:self.Name forKey:@"Name"];
     [encoder encodeObject:self.Rate forKey:@"Rate"];
+    [encoder encodeInteger:self.RateCount forKey:@"RateCount"];
     [encoder encodeObject:self.TimeSpan forKey:@"TimeSpan"];
     [encoder encodeObject:self.CreateDate forKey:@"CreateDate"];
     [encoder encodeInteger:self.myHash forKey:@"myHash"];
@@ -26,6 +33,7 @@
         self.UserId=[aDecoder decodeObjectForKey:@"UserId"];
         self.UserName=[aDecoder decodeObjectForKey:@"UserName"];
         self.Rate=[aDecoder decodeObjectForKey:@"Rate"];
+        self.RateCount=[aDecoder decodeIntegerForKey:@"RateCount"];
         self.TimeSpan=[aDecoder decodeObjectForKey:@"TimeSpan"];
         self.CreateDate=[aDecoder decodeObjectForKey:@"CreateDate"];
         self.myHash=[aDecoder decodeIntegerForKey:@"myHash"];
@@ -40,6 +48,7 @@
     result.UserName=self.UserName;
     result.Name=self.Name;
     result.Rate=self.Rate;
+    result.RateCount=self.RateCount;
     result.TimeSpan=self.TimeSpan;
     result.CreateDate=self.CreateDate;
     [result setMyHash:self.myHash];
@@ -68,6 +77,12 @@
         return NSCalendarUnitWeekday;
     }
     return NSCalendarUnitWeekday;
+}
+- (NSDate*)repeatDateWithTime:(NSString*)time{
+    NSDate *nowT=[NSDate date];
+    NSString *str1=[NSDate stringFromDate:nowT withFormat:@"yyyy-MM-dd"];
+    str1=[NSString stringWithFormat:@"%@ %@",str1,time];
+    return [NSDate dateFromString:str1 withFormat:@"yyyy-MM-dd HH:mm"];
 }
 - (NSDate*)repeatDate{
     NSDate *nowT=[NSDate date];
@@ -124,78 +139,6 @@
     str=[NSString stringWithFormat:@"%@ %@",str,[self TimeSpan]];
     NSLog(@"str=%@",str);
     return [NSDate dateFromString:str withFormat:@"yyyy-MM-dd HH:mm"];
-    /***
-    long int delayTime;
-    BOOL figure=NO;
-    delayTime = (24 -hour+htime1) * 60 * 60 - min * 60 - sec + 24 * 60 * 60;
-    
-    int wd=weekDay==1?7:weekDay-1;
-    if (wd==[self.Rate intValue]) {//表示同一天
-        if (hour<=htime1) {//時間沒到十點
-            delayTime = (htime1-hour) * 60 * 60 - min * 60 - sec;
-            figure=YES;
-        }
-    }
-    if (!figure) {
-        delayTime=(weekDay-1)*24*60*60+hour*60*60+min*60+sec;
-    }
-    //用一周時間 -已經度過時間+將要發生時間
-    delayTime=7*24*60*60-delayTime+htime1*60*60+mtime1*60;
-    return  [now dateByAddingTimeInterval:delayTime];
-     ***/
-     
-    /***
-    NSDate *date = [NSDate date];
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *comp = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:date];
-    int hour = [comp hour];
-    int min = [comp minute];
-    int sec = [comp second];
-    if (self.repeatInterval==NSDayCalendarUnit) {//每天鬧鐘提醒
-        NSArray *arr=[_TimeSpan componentsSeparatedByString:@":"];
-        int minute=[arr[1] integerValue];
-        int h=[arr[0] integerValue];
-        long int delayTime;
-        
-        if (hour < h){//時間還沒到
-            delayTime = (h-1-hour) * 60 * 60 - min * 60 - sec+minute*60;
-        }else {
-            delayTime = (24-hour+h) * 60 * 60 - min * 60 - sec + 24 * 60 * 60-minute*60;
-        }
-        NSDate *dates = [date dateByAddingTimeInterval:delayTime];
-        return dates;
-    }else{//某一天提醒
-        NSArray *arr=[_TimeSpan componentsSeparatedByString:@":"];
-        int minute=[arr[1] integerValue];
-        int h=[arr[0] integerValue];
-        
-        int weekDay=[comp weekday];
-        long int delayTime;
-        BOOL figure=NO;
-        delayTime = (24 -hour+10) * 60 * 60 - min * 60 - sec + 24 * 60 * 60;
-        if (weekDay==[self.Rate intValue]) {//為相同的天
-            if (hour<=h) {//時間沒到十點
-                delayTime = (h-1-hour) * 60 * 60 - min * 60 - sec+minute*60;
-                figure=YES;
-            }
-        }
-        if (!figure) {
-            delayTime=(weekDay-1)*24*60*60+hour*60*60+min*60+sec+minute*60;
-        }
-        //用一周時間 -已經度過時間+將要發生時間
-        delayTime=7*24*60*60-delayTime+10*60*60;
-        NSDate *dates = [date dateByAddingTimeInterval:delayTime];
-        return dates;
-    }
-     ***/
-     
-   /***
-    
-    NSDate *now=[NSDate date];
-    NSString *str=[NSDate stringFromDate:now withFormat:@"yyyy-MM-dd"];
-    str=[NSString stringWithFormat:@"%@ %@",str,[self TimeSpan]];
-    return [NSDate dateFromString:str withFormat:@"yyyy-MM-dd HH:mm"];
-    ***/
 }
 - (NSString*)TimeSpanText{
     if (_TimeSpan&&[_TimeSpan length]>0) {
@@ -213,5 +156,24 @@
         return [NSString stringWithFormat:@"%@ %d點%@分",str,minute,arr[1]];
     }
     return @"";
+}
+//移除设定闹钟
+- (void)removeNotifices{
+    [AppHelper removeLocationNoticeWithName:self.ID];
+}
+//设定闹钟
+- (void)addLocalNotificeWithMessage:(NSString*)msg{
+    NSDictionary *userInfo=[NSDictionary dictionaryWithObjectsAndKeys:self.ID,@"guid",@"1",@"type",self.UserName,@"UserName",
+                            self.Name,@"Name",self.TimeSpan,@"TimeSpan",nil];
+    [AppHelper sendLocationNotice:userInfo message:msg noticeDate:self.repeatDate repeatInterval:self.repeatInterval];
+}
+//设定闹钟
+- (void)sendLocalNotificeWithMessage:(NSString*)msg{
+    NSArray *times=[self.TimeSpan componentsSeparatedByString:@";"];
+    for (NSInteger i=0;i<times.count;i++) {
+        NSDictionary *userInfo=[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%@_%d",self.ID,i],@"guid",@"1",@"type",self.UserName,@"UserName",
+                                self.Name,@"Name",times[i],@"TimeSpan",nil];
+        [AppHelper sendLocationNotice:userInfo message:msg noticeDate:[self repeatDateWithTime:times[i]] repeatInterval:self.repeatInterval];
+    }
 }
 @end

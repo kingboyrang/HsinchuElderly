@@ -13,6 +13,7 @@
 //列表
 - (NSMutableArray*)pressureBloods;
 //新增與修改
+- (void)addBloodWithModel:(Blood*)entity name:(NSString*)name;
 - (void)addEditDrugWithModel:(Blood*)entity name:(NSString*)name;
 //儲存
 - (void)saveWithSources:(NSArray*)sources;

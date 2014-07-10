@@ -37,6 +37,8 @@
 		014CA9661966791D0033AF2D /* TKChartRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA9651966791D0033AF2D /* TKChartRecordCell.m */; };
 		014CA96919669EB70033AF2D /* ChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA96819669EB70033AF2D /* ChartView.m */; };
 		014CA96C196D187A0033AF2D /* TKRecordMemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA96B196D187A0033AF2D /* TKRecordMemoCell.m */; };
+		014CA970196E44460033AF2D /* CVUIRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA96F196E44460033AF2D /* CVUIRateView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		014CA973196E68010033AF2D /* TKRateViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA972196E68010033AF2D /* TKRateViewCell.m */; };
 		01565F8E1939795500873B3E /* UploadAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01565F8D1939795500873B3E /* UploadAlertView.m */; };
 		01566010193E1B4B00873B3E /* TKDetailDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0156600F193E1B4B00873B3E /* TKDetailDataCell.m */; };
 		0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -244,6 +246,10 @@
 		014CA96819669EB70033AF2D /* ChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartView.m; sourceTree = "<group>"; };
 		014CA96A196D187A0033AF2D /* TKRecordMemoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRecordMemoCell.h; sourceTree = "<group>"; };
 		014CA96B196D187A0033AF2D /* TKRecordMemoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRecordMemoCell.m; sourceTree = "<group>"; };
+		014CA96E196E44460033AF2D /* CVUIRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVUIRateView.h; sourceTree = "<group>"; };
+		014CA96F196E44460033AF2D /* CVUIRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVUIRateView.m; sourceTree = "<group>"; };
+		014CA971196E68010033AF2D /* TKRateViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRateViewCell.h; sourceTree = "<group>"; };
+		014CA972196E68010033AF2D /* TKRateViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRateViewCell.m; sourceTree = "<group>"; };
 		01565F8C1939795500873B3E /* UploadAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadAlertView.h; sourceTree = "<group>"; };
 		01565F8D1939795500873B3E /* UploadAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadAlertView.m; sourceTree = "<group>"; };
 		0156600E193E1B4B00873B3E /* TKDetailDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDetailDataCell.h; sourceTree = "<group>"; };
@@ -605,9 +611,21 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		014CA96D196E43130033AF2D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				014CA96E196E44460033AF2D /* CVUIRateView.h */,
+				014CA96F196E44460033AF2D /* CVUIRateView.m */,
+				014CA971196E68010033AF2D /* TKRateViewCell.h */,
+				014CA972196E68010033AF2D /* TKRateViewCell.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		017FF270191B0FB600255E76 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
+				014CA96D196E43130033AF2D /* UI */,
 				01BE57A4194AA2480040A8F5 /* Record */,
 				01BF7FBE191B53B9002E34E9 /* Account */,
 				01A97394191E03EC0073530F /* BloodSugar */,
@@ -1480,6 +1498,7 @@
 				014CA94819655DB70033AF2D /* RecordBloodSugarView.m in Sources */,
 				01A9736E191DC6300073530F /* TKDrugCell.m in Sources */,
 				01A97539192357F40073530F /* UploadPhotoController.m in Sources */,
+				014CA973196E68010033AF2D /* TKRateViewCell.m in Sources */,
 				01A97393191DFF1F0073530F /* BloodModifyController.m in Sources */,
 				014CA938196541E70033AF2D /* ShrinkPickerView.m in Sources */,
 				01A9752619231E980073530F /* HEConsultationHelper.m in Sources */,
@@ -1513,6 +1532,7 @@
 				01BFE064191CAAB100095A8A /* UIAlertView+Blocks.m in Sources */,
 				01BFE065191CAAB100095A8A /* RIButtonItem.m in Sources */,
 				01A9745C192203BB0073530F /* TKLineCell.m in Sources */,
+				014CA970196E44460033AF2D /* CVUIRateView.m in Sources */,
 				01A9752B192338BC0073530F /* LotteryViewController.m in Sources */,
 				01A973A1191E120F0073530F /* UIPopoverListView.m in Sources */,
 				01BF7FB7191B1DC7002E34E9 /* UIImage+TPCategory.m in Sources */,

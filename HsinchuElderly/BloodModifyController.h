@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Blood.h"
-@interface BloodModifyController : BasicViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+#import "TKRateViewCell.h"
+@interface BloodModifyController : BasicViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,CVUIRateViewDelegate>
 @property (nonatomic,strong) UITableView *userTable;
 @property (nonatomic,strong) NSMutableArray *cells;
 @property (nonatomic,strong) NSMutableArray *systemUsers;
