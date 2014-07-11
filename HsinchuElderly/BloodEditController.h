@@ -1,18 +1,18 @@
 //
-//  BloodModifyController.h
+//  BloodEditController.h
 //  HsinchuElderly
 //
-//  Created by aJia on 2014/5/10.
+//  Created by aJia on 2014/7/11.
 //  Copyright (c) 2014年 lz. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "Blood.h"
-#import "TKRateViewCell.h"
-@interface BloodModifyController : BasicViewController<UITableViewDataSource,UITableViewDelegate,CVUIRateViewDelegate>
+#import "TKSelectFieldCell.h"
+@interface BloodEditController :  BasicViewController<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *userTable;
 @property (nonatomic,strong) NSMutableArray *cells;
 @property (nonatomic,strong) NSMutableArray *systemUsers;
 @property (nonatomic,strong) Blood *Entity;
-@property (nonatomic,assign) NSInteger operType;//1:表示新增 2:表示修改
+
 @end

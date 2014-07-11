@@ -39,6 +39,9 @@
 		014CA96C196D187A0033AF2D /* TKRecordMemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA96B196D187A0033AF2D /* TKRecordMemoCell.m */; };
 		014CA970196E44460033AF2D /* CVUIRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA96F196E44460033AF2D /* CVUIRateView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		014CA973196E68010033AF2D /* TKRateViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA972196E68010033AF2D /* TKRateViewCell.m */; };
+		014CA976196FD26C0033AF2D /* UseDrugEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA975196FD26C0033AF2D /* UseDrugEditController.m */; };
+		014CA979196FD9B30033AF2D /* BloodEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA978196FD9B30033AF2D /* BloodEditController.m */; };
+		014CA97C196FDBF80033AF2D /* BloodSugaEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA97B196FDBF80033AF2D /* BloodSugaEditController.m */; };
 		01565F8E1939795500873B3E /* UploadAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01565F8D1939795500873B3E /* UploadAlertView.m */; };
 		01566010193E1B4B00873B3E /* TKDetailDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0156600F193E1B4B00873B3E /* TKDetailDataCell.m */; };
 		0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -250,6 +253,12 @@
 		014CA96F196E44460033AF2D /* CVUIRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVUIRateView.m; sourceTree = "<group>"; };
 		014CA971196E68010033AF2D /* TKRateViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRateViewCell.h; sourceTree = "<group>"; };
 		014CA972196E68010033AF2D /* TKRateViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRateViewCell.m; sourceTree = "<group>"; };
+		014CA974196FD26C0033AF2D /* UseDrugEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseDrugEditController.h; sourceTree = "<group>"; };
+		014CA975196FD26C0033AF2D /* UseDrugEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseDrugEditController.m; sourceTree = "<group>"; };
+		014CA977196FD9B30033AF2D /* BloodEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodEditController.h; sourceTree = "<group>"; };
+		014CA978196FD9B30033AF2D /* BloodEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodEditController.m; sourceTree = "<group>"; };
+		014CA97A196FDBF80033AF2D /* BloodSugaEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodSugaEditController.h; sourceTree = "<group>"; };
+		014CA97B196FDBF80033AF2D /* BloodSugaEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodSugaEditController.m; sourceTree = "<group>"; };
 		01565F8C1939795500873B3E /* UploadAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadAlertView.h; sourceTree = "<group>"; };
 		01565F8D1939795500873B3E /* UploadAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadAlertView.m; sourceTree = "<group>"; };
 		0156600E193E1B4B00873B3E /* TKDetailDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDetailDataCell.h; sourceTree = "<group>"; };
@@ -666,6 +675,8 @@
 				01A97360191CE1EB0073530F /* UseDrugViewController.m */,
 				01A97368191DC27A0073530F /* UseDrugModifyController.h */,
 				01A97369191DC27A0073530F /* UseDrugModifyController.m */,
+				014CA974196FD26C0033AF2D /* UseDrugEditController.h */,
+				014CA975196FD26C0033AF2D /* UseDrugEditController.m */,
 			);
 			name = Drug;
 			sourceTree = "<group>";
@@ -725,6 +736,8 @@
 				01A9738F191DFF000073530F /* BloodViewController.m */,
 				01A97391191DFF1F0073530F /* BloodModifyController.h */,
 				01A97392191DFF1F0073530F /* BloodModifyController.m */,
+				014CA977196FD9B30033AF2D /* BloodEditController.h */,
+				014CA978196FD9B30033AF2D /* BloodEditController.m */,
 			);
 			name = Blood;
 			sourceTree = "<group>";
@@ -736,6 +749,8 @@
 				01A973C1192075060073530F /* BloodSugarViewController.m */,
 				01A973C9192078410073530F /* BloodSugaModifyController.h */,
 				01A973CA192078410073530F /* BloodSugaModifyController.m */,
+				014CA97A196FDBF80033AF2D /* BloodSugaEditController.h */,
+				014CA97B196FDBF80033AF2D /* BloodSugaEditController.m */,
 			);
 			name = BloodSugar;
 			sourceTree = "<group>";
@@ -1475,6 +1490,7 @@
 				01382B9D19381CAE005AAD8E /* SendMailViewController.m in Sources */,
 				01A9755D19236A060073530F /* MKNetworkEngine.m in Sources */,
 				01A973B3192062040073530F /* ShowMapController.m in Sources */,
+				014CA976196FD26C0033AF2D /* UseDrugEditController.m in Sources */,
 				01BE57AB194AA6730040A8F5 /* RecordTopView.m in Sources */,
 				01BE58FE195036E20040A8F5 /* UIView+convenience.m in Sources */,
 				01CDC1E9191A2BD90002AE47 /* BasicViewController.m in Sources */,
@@ -1493,6 +1509,7 @@
 				014CA958196577830033AF2D /* RecordBloodListController.m in Sources */,
 				01A974491921AD910073530F /* HEItemListMapsController.m in Sources */,
 				01A97390191DFF000073530F /* BloodViewController.m in Sources */,
+				014CA97C196FDBF80033AF2D /* BloodSugaEditController.m in Sources */,
 				01A973A4191E15490073530F /* TPMenuHelper.m in Sources */,
 				26DEBA18191F2C4D0007DB43 /* FMDatabase.m in Sources */,
 				014CA94819655DB70033AF2D /* RecordBloodSugarView.m in Sources */,
@@ -1571,6 +1588,7 @@
 				01A9756B19236AF50073530F /* ServiceArgs.m in Sources */,
 				01A973CB192078410073530F /* BloodSugaModifyController.m in Sources */,
 				26DEBA28191F2E2F0007DB43 /* MedicalCareHelper.m in Sources */,
+				014CA979196FD9B30033AF2D /* BloodEditController.m in Sources */,
 				01A974221920C4DF0073530F /* HEStudy.m in Sources */,
 				01A974561921BEAB0073530F /* TKEmptyCell.m in Sources */,
 			);
@@ -1702,6 +1720,7 @@
 				INFOPLIST_FILE = "HsinchuElderly/HsinchuElderly-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "A1D7BAE6-9084-4B86-906A-6973F75344AA";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1712,11 +1731,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 澜洲 吴 (M3F85US4G2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HsinchuElderly/HsinchuElderly-Prefix.pch";
 				INFOPLIST_FILE = "HsinchuElderly/HsinchuElderly-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "A1D7BAE6-9084-4B86-906A-6973F75344AA";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

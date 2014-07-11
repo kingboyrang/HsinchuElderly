@@ -12,6 +12,7 @@
 #import "AlertHelper.h"
 #import "TKDrugCell.h"
 #import "AppHelper.h"
+#import "BloodEditController.h"
 @interface BloodViewController ()
 - (void)buttonAddClick:(UIButton*)btn;
 - (NSString*)getShowName:(Blood*)entity;
@@ -127,9 +128,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    return;
-    BloodModifyController *user=[[BloodModifyController alloc] init];
-    user.operType=2;
+    BloodEditController *user=[[BloodEditController alloc] init];
     user.systemUsers=[self.systemUserHelper dictonaryUsers];
     user.Entity=self.list[indexPath.row];
     [self.navigationController pushViewController:user animated:YES];

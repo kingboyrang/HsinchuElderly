@@ -12,6 +12,7 @@
 #import "UIBarButtonItem+TPCategory.h"
 #import "AlertHelper.h"
 #import "AppHelper.h"
+#import "UseDrugEditController.h"
 @interface UseDrugViewController ()
 - (NSString*)getShowName:(MedicineDrug*)entity;
 - (void)buttonDeleteClick:(UIButton*)btn;
@@ -125,9 +126,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    return;
-    UseDrugModifyController *user=[[UseDrugModifyController alloc] init];
-    user.operType=2;
+    UseDrugEditController *user=[[UseDrugEditController alloc] init];
     user.systemUsers=[self.systemUserHelper dictonaryUsers];
     user.Entity=self.list[indexPath.row];
     [self.navigationController pushViewController:user animated:YES];

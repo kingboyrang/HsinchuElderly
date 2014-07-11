@@ -230,16 +230,6 @@
         }
     }
 }
-#pragma mark UITextFieldDelegate Methods
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    if(strlen([textField.text UTF8String]) >= 20 && range.length != 1)
-        return NO;
-    return YES;
-}
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [textField resignFirstResponder];
-    return YES;
-}
 #pragma mark UITableViewDataSource Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.cells count];

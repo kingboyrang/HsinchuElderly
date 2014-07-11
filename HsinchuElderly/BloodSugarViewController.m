@@ -12,6 +12,7 @@
 #import "AlertHelper.h"
 #import "TKDrugCell.h"
 #import "AppHelper.h"
+#import "BloodSugaEditController.h"
 @interface BloodSugarViewController ()
 - (NSString*)getShowName:(BloodSugar*)entity;
 @end
@@ -125,9 +126,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    return;
-    BloodSugaModifyController *user=[[BloodSugaModifyController alloc] init];
-    user.operType=2;
+    BloodSugaEditController *user=[[BloodSugaEditController alloc] init];
     user.systemUsers=[self.systemUserHelper dictonaryUsers];
     user.Entity=self.list[indexPath.row];
     [self.navigationController pushViewController:user animated:YES];

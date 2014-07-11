@@ -60,6 +60,7 @@
     [self saveWithSources:source];
 }
 - (void)addEditDrugWithModel:(MedicineDrug*)entity name:(NSString*)name{
+
     NSInteger index;
     BOOL boo=[self findById:entity.ID position:&index];
     NSMutableArray *source=[self medicineDrugs];
@@ -70,7 +71,7 @@
     }else{//新增
         [source addObject:entity];
     }
-    [entity sendLocalNotificeWithMessage:msg];
+    [entity addLocalNotificeWithMessage:msg];
     [self saveWithSources:source];
 }
 - (BOOL)findById:(NSString*)sysId position:(NSInteger*)index{
