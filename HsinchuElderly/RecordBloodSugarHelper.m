@@ -12,9 +12,7 @@
 #import "ChartRecord.h"
 @implementation RecordBloodSugarHelper
 - (BOOL)addRecord:(RecordBloodSugar*)entity{
-    NSString *time=[[NSDate date] stringWithFormat:@"yyyy-MM-dd"];
     entity.ID=[NSString createGUID];
-    entity.RecordDate=time;
     
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
     BOOL boo=NO;
@@ -29,8 +27,8 @@
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
     BOOL boo=NO;
     if ([db open]) {
-        NSString *sql=@"update RecordBloodSugar set Measure=?,BloodSugar=?,TimeSpan=? where ID=?";
-        boo=[db executeUpdate:sql,entity.Measure,entity.BloodSugar,entity.TimeSpan,entity.ID];
+        NSString *sql=@"update RecordBloodSugar set Measure=?,BloodSugar=?,TimeSpan=?,RecordDate=? where ID=?";
+        boo=[db executeUpdate:sql,entity.Measure,entity.BloodSugar,entity.TimeSpan,entity.RecordDate,entity.ID];
         [db close];
     }
     return boo;
@@ -50,7 +48,7 @@
     NSMutableArray *sources=[NSMutableArray array];
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
     if ([db open]) {
-        NSString *sql=[NSString stringWithFormat:@"select * from RecordBloodSugar where UserId='%@' order by CreateDate DESC",guid];
+        NSString *sql=[NSString stringWithFormat:@"select * from RecordBloodSugar where UserId='%@' order by RecordDate DESC",guid];
         FMResultSet *rs = [db executeQuery:sql];
         while (rs.next) {
             RecordBloodSugar *entity=[[RecordBloodSugar alloc] init];
@@ -75,23 +73,27 @@
         NSString *sql=[NSString stringWithFormat:@"select MAX(BloodSugar) from RecordBloodSugar where UserId='%@' and RecordDate='%@'",guid,time];
         FMResultSet *rs = [db executeQuery:sql];
         while (rs.next) {
-            [sources addObject:[NSString stringWithFormat:@"%@ 最高值:%@",[time stringByReplacingOccurrencesOfString:@"-" withString:@"/"],[rs stringForColumnIndex:0]]];
+            if ([rs stringForColumnIndex:0]&&[[rs stringForColumnIndex:0] length]>0) {
+                 [sources addObject:[NSString stringWithFormat:@"%@ 最高值:%@",[time stringByReplacingOccurrencesOfString:@"-" withString:@"/"],[rs stringForColumnIndex:0]]];
+            }
+           
         }
         [db close];
     }
     if (sources.count==0) {
-        
         [sources addObject:[NSString stringWithFormat:@"%@ 最高值:0",[time stringByReplacingOccurrencesOfString:@"-" withString:@"/"]]];
     }
     if ([db open]) {
         NSString *sql=[NSString stringWithFormat:@"select MIN(BloodSugar) from RecordBloodSugar where UserId='%@' and RecordDate='%@'",guid,time];
         FMResultSet *rs = [db executeQuery:sql];
         while (rs.next) {
+           if ([rs stringForColumnIndex:0]&&[[rs stringForColumnIndex:0] length]>0) {
             [sources addObject:[NSString stringWithFormat:@"%@ 最低值:%@",[time stringByReplacingOccurrencesOfString:@"-" withString:@"/"],[rs stringForColumnIndex:0]]];
+            }
         }
         [db close];
     }
-    if (sources.count==0) {
+    if (sources.count==1) {
         [sources addObject:[NSString stringWithFormat:@"%@ 最低值:0",[time stringByReplacingOccurrencesOfString:@"-" withString:@"/"]]];
     }
     return sources;

@@ -12,10 +12,7 @@
 #import "ChartRecord.h"
 @implementation RecordBloodHelper
 - (BOOL)addRecord:(RecordBlood*)entity{
-    NSString *time=[[NSDate date] stringWithFormat:@"yyyy-MM-dd"];
     entity.ID=[NSString createGUID];
-    entity.RecordDate=time;
-    
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
     BOOL boo=NO;
     if ([db open]) {
@@ -29,8 +26,8 @@
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
     BOOL boo=NO;
     if ([db open]) {
-        NSString *sql=@"update RecordBlood set Shrink=?,Diastolic=?,Pulse=?,TimeSpan=? where ID=?";
-        boo=[db executeUpdate:sql,entity.Shrink,entity.Diastolic,entity.Pulse,entity.TimeSpan,entity.ID];
+        NSString *sql=@"update RecordBlood set Shrink=?,Diastolic=?,Pulse=?,TimeSpan=?,RecordDate=? where ID=?";
+        boo=[db executeUpdate:sql,entity.Shrink,entity.Diastolic,entity.Pulse,entity.TimeSpan,entity.RecordDate,entity.ID];
         [db close];
     }
     return boo;
@@ -49,7 +46,7 @@
     NSMutableArray *sources=[NSMutableArray array];
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
     if ([db open]) {
-        NSString *sql=[NSString stringWithFormat:@"select * from RecordBlood where UserId='%@' order by CreateDate DESC",guid];
+        NSString *sql=[NSString stringWithFormat:@"select * from RecordBlood where UserId='%@' order by RecordDate DESC",guid];
         FMResultSet *rs = [db executeQuery:sql];
         while (rs.next) {
             RecordBlood *entity=[[RecordBlood alloc] init];

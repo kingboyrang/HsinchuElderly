@@ -10,9 +10,10 @@
 #import "ShrinkPickerView.h"
 #import "RecordTimeView.h"
 #import "RecordBloodHelper.h"
-@interface RecordBloodController : BasicViewController
-@property (nonatomic,strong) ShrinkPickerView *shrinkView;
-@property (nonatomic,strong) RecordTimeView *timeView;
+#import "RecordCalendarView.h"
+@interface RecordBloodController : BasicViewController<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic,strong) UITableView *bloodTable;
+@property (nonatomic,strong) NSMutableArray *cells;
 @property (nonatomic,strong) RecordBloodHelper *bloodHelper;
 @property (nonatomic,strong) RecordBlood *Entity;
 @property (nonatomic,assign) int operType;//1表示新增 2:修改

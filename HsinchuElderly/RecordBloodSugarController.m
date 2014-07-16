@@ -9,6 +9,9 @@
 #import "RecordBloodSugarController.h"
 #import "UIBarButtonItem+TPCategory.h"
 #import "AlertHelper.h"
+#import "TKRecordBloodSugarCell.h"
+#import "TkTimeViewCell.h"
+#import "TKRecordCalendarCell.h"
 @interface RecordBloodSugarController ()
 
 @end
@@ -31,23 +34,27 @@
     self.title=@"血糖記錄";
     self.navigationItem.rightBarButtonItem=[UIBarButtonItem barButtonWithTitle:@"完成" target:self action:@selector(buttonFinishedClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    //DeviceIsPad?@"RecordBloodSugarView~ipad":@"RecordBloodSugarView"
-    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"RecordBloodSugarView" owner:nil options:nil];
-    self.sugarView=(RecordBloodSugarView*)[nibContents objectAtIndex:0];
-    self.sugarView.frame=CGRectMake(0, 0, self.view.bounds.size.width, DeviceIsPad?256:202);
-    [self.view addSubview:self.sugarView];
-    [self.sugarView defaultInitControl];
+    CGRect r=self.view.bounds;
+    r.size.height-=[self topHeight];
+    _bloodTable=[[UITableView alloc] initWithFrame:r style:UITableViewStylePlain];
+    _bloodTable.dataSource=self;
+    _bloodTable.delegate=self;
+    _bloodTable.backgroundColor=[UIColor clearColor];
+    _bloodTable.separatorStyle=UITableViewCellSeparatorStyleNone;
+    _bloodTable.bounces=NO;
+    [self.view addSubview:_bloodTable];
+    TKRecordBloodSugarCell *cell1=[[TKRecordBloodSugarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    TkTimeViewCell *cell2=[[TkTimeViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    TKRecordCalendarCell *cell3=[[TKRecordCalendarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    self.cells=[NSMutableArray arrayWithObjects:cell1,cell2,cell3, nil];
     
-    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"RecordTimeView" owner:nil options:nil];
-    self.timeView=(RecordTimeView*)[nib objectAtIndex:0];
-    self.timeView.frame=CGRectMake(0,self.sugarView.frame.size.height+10,self.view.bounds.size.width, 195);
-    [self.view addSubview:self.timeView];
-    [self.timeView defaultInitParams];
-    
+
     if (self.operType==2) {//修改
-        [self.sugarView setSelectedValue:self.Entity.Measure];
-        self.sugarView.sugarField.text=self.Entity.BloodSugar;
-        [self.timeView setSelectedValue:self.Entity.TimeSpan];
+        NSLog(@"BloodSugar=%@",self.Entity.BloodSugar);
+        [cell1.sugarView setSelectedValue:self.Entity.Measure];
+        cell1.sugarView.sugarField.text=self.Entity.BloodSugar;
+        [cell2.timeView setSelectedValue:self.Entity.TimeSpan];
+        [cell3.calendarView setSelectedValue:self.Entity.RecordDate];
     }else{
         self.Entity=[[RecordBloodSugar alloc] init];
         
@@ -55,18 +62,23 @@
 }
 //完成
 - (void)buttonFinishedClick:(UIButton*)btn{
-    if (!self.sugarView.hasValue) {
+    TKRecordBloodSugarCell *cell1=self.cells[0];
+    TkTimeViewCell *cell2=self.cells[1];
+    TKRecordCalendarCell *cell3=self.cells[2];
+    
+    if (!cell1.sugarView.hasValue) {
         [AlertHelper showMessage:@"請輸入血糖值!"];
         return;
     }
-    if (![self.sugarView.sugarField.text isNumberString]) {
+    if (![cell1.sugarView.sugarField.text isNumberString]) {
         [AlertHelper showMessage:@"血糖值只能為0～999之間的數字!"];
         return;
     }
     self.Entity.UserId=self.userId;
-    self.Entity.Measure=self.sugarView.bloodValue;
-    self.Entity.BloodSugar=self.sugarView.sugarField.text;
-    self.Entity.TimeSpan=self.timeView.timeValue;
+    self.Entity.Measure=cell1.sugarView.bloodValue;
+    self.Entity.BloodSugar=cell1.sugarView.sugarField.text;
+    self.Entity.TimeSpan=cell2.timeView.timeValue;
+    self.Entity.RecordDate=cell3.calendarView.calendarValue;
     BOOL boo;
     NSString *memo=@"新增";
     if (self.operType==1) {
@@ -87,4 +99,24 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark UITableViewDataSource Methods
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [self.cells count];
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell=self.cells[indexPath.row];
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([self.cells[indexPath.row] isKindOfClass:[TKRecordBloodSugarCell class]]) {
+        return DeviceIsPad?256:202;
+    }
+    if ([self.cells[indexPath.row] isKindOfClass:[TkTimeViewCell class]]) {
+        return 195;
+    }
+    return 200;
+}
+
 @end

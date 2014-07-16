@@ -32,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title=@"血壓記錄";
     self.bloodHelper=[[RecordBloodHelper alloc] init];
     self.bloodSugarHelper=[[RecordBloodSugarHelper alloc] init];
     
@@ -72,6 +73,7 @@
         [self.chartTable reloadData];
     }
     if (self.topView.selectedIndex==1) {//血压记录
+        self.title=@"血壓記錄";
         if (self.bloodList&&[self.bloodList count]>0) {
             [self.bloodList removeAllObjects];
         }
@@ -79,6 +81,7 @@
         //加载图表
         [self loadBloodChart];
     }else{//血糖记录
+        self.title=@"血糖記錄";
         if (self.sugarList&&[self.sugarList count]>0) {
             [self.sugarList removeAllObjects];
         }

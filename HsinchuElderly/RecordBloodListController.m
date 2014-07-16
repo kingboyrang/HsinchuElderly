@@ -35,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title=@"血壓記錄";
     self.bloodHelper=[[RecordBloodHelper alloc] init];
     self.bloodSugarHelper=[[RecordBloodSugarHelper alloc] init];
     
@@ -91,6 +92,7 @@
 //根据选中不同的对象加载资料
 - (void)switchLoadSource{
     if (self.topView.selectedIndex==1) {//血壓
+        self.title=@"血壓記錄";
         if (self.list&&[self.list count]>0) {
             [self.list removeAllObjects];
         }
@@ -100,6 +102,7 @@
         self.list=[self.bloodHelper findByUser:self.userId];
         [self.userTable reloadData];
     }else{//血糖
+        self.title=@"血糖記錄";
         if (self.recordlist&&[self.recordlist count]>0) {
             [self.recordlist removeAllObjects];
         }
@@ -135,7 +138,12 @@
         v=[v superview];
     }
     UITableViewCell *cell=(UITableViewCell*)v;
-    NSIndexPath *indexPath=[self.userTable indexPathForCell:cell];
+    NSIndexPath *indexPath;
+    if (self.topView.selectedIndex==1) {
+        indexPath=[self.userTable indexPathForCell:cell];
+    }else{
+        indexPath=[self.recordTable indexPathForCell:cell];
+    }
     if (self.topView.bloodButton.selected) {
         RecordBloodController *record=[[RecordBloodController alloc] init];
         record.operType=2;
@@ -143,6 +151,7 @@
         record.Entity=self.list[indexPath.row];
         [self.navigationController pushViewController:record animated:YES];
     }else{
+        NSLog(@"aa===bb!!!");
         RecordBloodSugarController *recordSugar=[[RecordBloodSugarController alloc] init];
         recordSugar.operType=2;
         recordSugar.userId=self.userId;

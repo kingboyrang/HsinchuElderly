@@ -42,6 +42,12 @@
 		014CA976196FD26C0033AF2D /* UseDrugEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA975196FD26C0033AF2D /* UseDrugEditController.m */; };
 		014CA979196FD9B30033AF2D /* BloodEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA978196FD9B30033AF2D /* BloodEditController.m */; };
 		014CA97C196FDBF80033AF2D /* BloodSugaEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA97B196FDBF80033AF2D /* BloodSugaEditController.m */; };
+		014CA97F197524460033AF2D /* RecordCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA97E197524460033AF2D /* RecordCalendarView.m */; };
+		014CA981197524620033AF2D /* RecordCalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014CA980197524620033AF2D /* RecordCalendarView.xib */; };
+		014CA98419752B8D0033AF2D /* TKRecordCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA98319752B8D0033AF2D /* TKRecordCalendarCell.m */; };
+		014CA98719752CBE0033AF2D /* TkTimeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA98619752CBE0033AF2D /* TkTimeViewCell.m */; };
+		014CA98A19752DC90033AF2D /* TkRecordShrinkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA98919752DC90033AF2D /* TkRecordShrinkCell.m */; };
+		014CA98D197535E00033AF2D /* TKRecordBloodSugarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CA98C197535E00033AF2D /* TKRecordBloodSugarCell.m */; };
 		01565F8E1939795500873B3E /* UploadAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01565F8D1939795500873B3E /* UploadAlertView.m */; };
 		01566010193E1B4B00873B3E /* TKDetailDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0156600F193E1B4B00873B3E /* TKDetailDataCell.m */; };
 		0162221D191CC57D00B4AD50 /* NSDate+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0162221C191CC57D00B4AD50 /* NSDate+TPCategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -259,6 +265,17 @@
 		014CA978196FD9B30033AF2D /* BloodEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodEditController.m; sourceTree = "<group>"; };
 		014CA97A196FDBF80033AF2D /* BloodSugaEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodSugaEditController.h; sourceTree = "<group>"; };
 		014CA97B196FDBF80033AF2D /* BloodSugaEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodSugaEditController.m; sourceTree = "<group>"; };
+		014CA97D197524460033AF2D /* RecordCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordCalendarView.h; sourceTree = "<group>"; };
+		014CA97E197524460033AF2D /* RecordCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordCalendarView.m; sourceTree = "<group>"; };
+		014CA980197524620033AF2D /* RecordCalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordCalendarView.xib; sourceTree = "<group>"; };
+		014CA98219752B8D0033AF2D /* TKRecordCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRecordCalendarCell.h; sourceTree = "<group>"; };
+		014CA98319752B8D0033AF2D /* TKRecordCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRecordCalendarCell.m; sourceTree = "<group>"; };
+		014CA98519752CBE0033AF2D /* TkTimeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TkTimeViewCell.h; sourceTree = "<group>"; };
+		014CA98619752CBE0033AF2D /* TkTimeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TkTimeViewCell.m; sourceTree = "<group>"; };
+		014CA98819752DC90033AF2D /* TkRecordShrinkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TkRecordShrinkCell.h; sourceTree = "<group>"; };
+		014CA98919752DC90033AF2D /* TkRecordShrinkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TkRecordShrinkCell.m; sourceTree = "<group>"; };
+		014CA98B197535E00033AF2D /* TKRecordBloodSugarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRecordBloodSugarCell.h; sourceTree = "<group>"; };
+		014CA98C197535E00033AF2D /* TKRecordBloodSugarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRecordBloodSugarCell.m; sourceTree = "<group>"; };
 		01565F8C1939795500873B3E /* UploadAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadAlertView.h; sourceTree = "<group>"; };
 		01565F8D1939795500873B3E /* UploadAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadAlertView.m; sourceTree = "<group>"; };
 		0156600E193E1B4B00873B3E /* TKDetailDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDetailDataCell.h; sourceTree = "<group>"; };
@@ -601,6 +618,8 @@
 				014CA94719655DB70033AF2D /* RecordBloodSugarView.m */,
 				014CA94919655DC70033AF2D /* RecordBloodSugarView.xib */,
 				014CA96219664A8A0033AF2D /* RecordBloodSugarView~ipad.xib */,
+				014CA98B197535E00033AF2D /* TKRecordBloodSugarCell.h */,
+				014CA98C197535E00033AF2D /* TKRecordBloodSugarCell.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -616,6 +635,15 @@
 				014CA93E1965551A0033AF2D /* RecordTimeView.xib */,
 				014CA95919657FB60033AF2D /* TKRecordCell.h */,
 				014CA95A19657FB60033AF2D /* TKRecordCell.m */,
+				014CA97D197524460033AF2D /* RecordCalendarView.h */,
+				014CA97E197524460033AF2D /* RecordCalendarView.m */,
+				014CA980197524620033AF2D /* RecordCalendarView.xib */,
+				014CA98219752B8D0033AF2D /* TKRecordCalendarCell.h */,
+				014CA98319752B8D0033AF2D /* TKRecordCalendarCell.m */,
+				014CA98519752CBE0033AF2D /* TkTimeViewCell.h */,
+				014CA98619752CBE0033AF2D /* TkTimeViewCell.m */,
+				014CA98819752DC90033AF2D /* TkRecordShrinkCell.h */,
+				014CA98919752DC90033AF2D /* TkRecordShrinkCell.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1419,6 +1447,7 @@
 				26DEBA35191F440F0007DB43 /* blueArrow@2x.png in Resources */,
 				014CA94A19655DC70033AF2D /* RecordBloodSugarView.xib in Resources */,
 				01CDC1C0191A220A0002AE47 /* Images.xcassets in Resources */,
+				014CA981197524620033AF2D /* RecordCalendarView.xib in Resources */,
 				014CA941196555FE0033AF2D /* ShrinkPickerView.xib in Resources */,
 				26DEBA37191F440F0007DB43 /* blueArrowDown@2x.png in Resources */,
 				01CDC1AF191A220A0002AE47 /* InfoPlist.strings in Resources */,
@@ -1470,6 +1499,8 @@
 				01382BAA19383885005AAD8E /* ToolSearchShow.m in Sources */,
 				01BF7FD7191B6D57002E34E9 /* TKLabelSegmentCell.m in Sources */,
 				01A97378191DCD560073530F /* CVUIPopoverView.m in Sources */,
+				014CA98419752B8D0033AF2D /* TKRecordCalendarCell.m in Sources */,
+				014CA98D197535E00033AF2D /* TKRecordBloodSugarCell.m in Sources */,
 				01382BA019382678005AAD8E /* HEItemSearchController.m in Sources */,
 				01CDC1E6191A289A0002AE47 /* BasicNavigationController.m in Sources */,
 				01A974191920B8090073530F /* SVGeocoder.m in Sources */,
@@ -1500,6 +1531,7 @@
 				01A97367191DBBF50073530F /* MedicineDrugHelper.m in Sources */,
 				014CA95E1965836F0033AF2D /* RecordBloodSugarHelper.m in Sources */,
 				01BFE06D191CACE800095A8A /* SystemUser.m in Sources */,
+				014CA98719752CBE0033AF2D /* TkTimeViewCell.m in Sources */,
 				01382BA719382912005AAD8E /* LocationGPS.m in Sources */,
 				01BFE02E191C682600095A8A /* HESegmentControl.m in Sources */,
 				26DEBA1C191F2C4D0007DB43 /* FMResultSet.m in Sources */,
@@ -1529,6 +1561,7 @@
 				01A97532192352B30073530F /* ChoosePhotoController.m in Sources */,
 				01A9741A1920B8090073530F /* SVPlacemark.m in Sources */,
 				01BE5901195036E20040A8F5 /* UIColor+expanded.m in Sources */,
+				014CA98A19752DC90033AF2D /* TkRecordShrinkCell.m in Sources */,
 				01BE58FF195036E20040A8F5 /* NSMutableArray+convenience.m in Sources */,
 				014CA9661966791D0033AF2D /* TKChartRecordCell.m in Sources */,
 				01A97379191DCD560073530F /* CVUIPopoverText.m in Sources */,
@@ -1569,6 +1602,7 @@
 				01A97361191CE1EB0073530F /* UseDrugViewController.m in Sources */,
 				014CA93D19654FA70033AF2D /* RecordTimeView.m in Sources */,
 				01A9736A191DC27A0073530F /* UseDrugModifyController.m in Sources */,
+				014CA97F197524460033AF2D /* RecordCalendarView.m in Sources */,
 				01BFE056191CA25900095A8A /* UserManagerController.m in Sources */,
 				01BF7FAF191B1C30002E34E9 /* ClockViewController.m in Sources */,
 				26DEBA19191F2C4D0007DB43 /* FMDatabaseAdditions.m in Sources */,

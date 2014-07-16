@@ -10,9 +10,9 @@
 #import "RecordBloodSugarView.h"
 #import "RecordTimeView.h"
 #import "RecordBloodSugarHelper.h"
-@interface RecordBloodSugarController : BasicViewController
-@property (nonatomic,strong) RecordBloodSugarView *sugarView;
-@property (nonatomic,strong) RecordTimeView *timeView;
+@interface RecordBloodSugarController : BasicViewController<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic,strong) UITableView *bloodTable;
+@property (nonatomic,strong) NSMutableArray *cells;
 @property (nonatomic,strong) RecordBloodSugarHelper *bloodSugarHelper;
 @property (nonatomic,strong) RecordBloodSugar *Entity;
 @property (nonatomic,assign) int operType;//1表示新增 2:修改
