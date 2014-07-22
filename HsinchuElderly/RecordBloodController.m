@@ -52,8 +52,8 @@
     
     
     if (self.operType==2) {//修改
-        [cell1.shrinkView setSelectedValue:self.Entity.Shrink component:0];
-        [cell1.shrinkView setSelectedValue:self.Entity.Diastolic component:1];
+        [cell1.shrinkView setSelectedValue:self.Entity.Diastolic component:0];
+        [cell1.shrinkView setSelectedValue:self.Entity.Shrink component:1];
         [cell1.shrinkView setSelectedValue:self.Entity.Pulse component:2];
         [cell2.timeView setSelectedValue:self.Entity.TimeSpan];
         [cell3.calendarView setSelectedValue:self.Entity.RecordDate];

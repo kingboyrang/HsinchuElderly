@@ -10,7 +10,7 @@
 #import "NSDate+TPCategory.h"
 @implementation RecordBlood
 - (NSString*)BloodDetail{
-    return [NSString stringWithFormat:@"%@(舒張)/%@(收縮)/%@(脈搏)",self.Shrink,self.Diastolic,self.Pulse];
+    return [NSString stringWithFormat:@"%@(舒張)/%@(收縮)/%@(脈搏)",self.Diastolic,self.Shrink,self.Pulse];
 }
 - (NSString*)TimeSpanText{
     NSDate *date1=[NSDate dateFromString:self.RecordDate withFormat:@"yyyy-MM-dd"];

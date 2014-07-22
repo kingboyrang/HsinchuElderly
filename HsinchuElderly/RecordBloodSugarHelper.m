@@ -66,35 +66,38 @@
 }
 //取得最大与最小的血糖值
 - (NSMutableArray*)getMaxMinSugarfindByUser:(NSString*)guid{
-    NSString *time=[[NSDate date] stringWithFormat:@"yyyy-MM-dd"];
+    //NSString *time=[[NSDate date] stringWithFormat:@"yyyy-MM-dd"];
     NSMutableArray *sources=[NSMutableArray array];
     FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
     if ([db open]) {
-        NSString *sql=[NSString stringWithFormat:@"select MAX(BloodSugar) from RecordBloodSugar where UserId='%@' and RecordDate='%@'",guid,time];
+        NSString *sql=[NSString stringWithFormat:@"select * from RecordBloodSugar where BloodSugar in (select MAX(BloodSugar) from RecordBloodSugar where UserId='%@')",guid];
         FMResultSet *rs = [db executeQuery:sql];
+        NSString *memo=@"";
         while (rs.next) {
-            if ([rs stringForColumnIndex:0]&&[[rs stringForColumnIndex:0] length]>0) {
-                 [sources addObject:[NSString stringWithFormat:@"%@ 最高值:%@",[time stringByReplacingOccurrencesOfString:@"-" withString:@"/"],[rs stringForColumnIndex:0]]];
+            if ([rs stringForColumn:@"RecordDate"]&&[[rs stringForColumn:@"RecordDate"] length]>0) {
+                memo=[[rs stringForColumn:@"RecordDate"] stringByReplacingOccurrencesOfString:@"-" withString:@"/"];
             }
-           
+            if ([rs stringForColumn:@"BloodSugar"]&&[[rs stringForColumn:@"BloodSugar"] length]>0) {
+                memo=[NSString stringWithFormat:@"%@ 最高值:%@",memo,[rs stringForColumn:@"BloodSugar"]];
+            }
         }
+        [sources addObject:memo];
         [db close];
-    }
-    if (sources.count==0) {
-        [sources addObject:[NSString stringWithFormat:@"%@ 最高值:0",[time stringByReplacingOccurrencesOfString:@"-" withString:@"/"]]];
     }
     if ([db open]) {
-        NSString *sql=[NSString stringWithFormat:@"select MIN(BloodSugar) from RecordBloodSugar where UserId='%@' and RecordDate='%@'",guid,time];
+        NSString *sql=[NSString stringWithFormat:@"select * from RecordBloodSugar where BloodSugar in (select MIN(BloodSugar) from RecordBloodSugar where UserId='%@')",guid];
         FMResultSet *rs = [db executeQuery:sql];
+         NSString *memo=@"";
         while (rs.next) {
-           if ([rs stringForColumnIndex:0]&&[[rs stringForColumnIndex:0] length]>0) {
-            [sources addObject:[NSString stringWithFormat:@"%@ 最低值:%@",[time stringByReplacingOccurrencesOfString:@"-" withString:@"/"],[rs stringForColumnIndex:0]]];
+            if ([rs stringForColumn:@"RecordDate"]&&[[rs stringForColumn:@"RecordDate"] length]>0) {
+                memo=[[rs stringForColumn:@"RecordDate"] stringByReplacingOccurrencesOfString:@"-" withString:@"/"];
+            }
+            if ([rs stringForColumn:@"BloodSugar"]&&[[rs stringForColumn:@"BloodSugar"] length]>0) {
+                memo=[NSString stringWithFormat:@"%@ 最低值:%@",memo,[rs stringForColumn:@"BloodSugar"]];
             }
         }
+        [sources addObject:memo];
         [db close];
-    }
-    if (sources.count==1) {
-        [sources addObject:[NSString stringWithFormat:@"%@ 最低值:0",[time stringByReplacingOccurrencesOfString:@"-" withString:@"/"]]];
     }
     return sources;
 }
