@@ -123,6 +123,8 @@
 		01A9756F19236C700073530F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A9756E19236C700073530F /* SystemConfiguration.framework */; };
 		01A9757119236CA20073530F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A9757019236CA20073530F /* ImageIO.framework */; };
 		01A97575192376720073530F /* NetWorkConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97574192376720073530F /* NetWorkConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01BD87E5197E398A0093F40D /* TKCalendarTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BD87E4197E398A0093F40D /* TKCalendarTimeCell.m */; };
+		01BD87E9197FA3060093F40D /* remind.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 01BD87E8197FA3060093F40D /* remind.sqlite */; };
 		01BE57A7194AA4670040A8F5 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE57A6194AA4670040A8F5 /* RecordViewController.m */; };
 		01BE57AB194AA6730040A8F5 /* RecordTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE57AA194AA6730040A8F5 /* RecordTopView.m */; };
 		01BE58FD195036E20040A8F5 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58F4195036E20040A8F5 /* VRGCalendarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -130,7 +132,6 @@
 		01BE58FF195036E20040A8F5 /* NSMutableArray+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58F8195036E20040A8F5 /* NSMutableArray+convenience.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01BE5900195036E20040A8F5 /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58FA195036E20040A8F5 /* NSDate+convenience.m */; };
 		01BE5901195036E20040A8F5 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58FC195036E20040A8F5 /* UIColor+expanded.m */; };
-		01BE5921195BBF8D0040A8F5 /* remind.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 01BE5920195BBF8D0040A8F5 /* remind.sqlite */; };
 		01BF7FA8191B186C002E34E9 /* UIColor+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */; };
 		01BF7FAF191B1C30002E34E9 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FAE191B1C30002E34E9 /* ClockViewController.m */; };
 		01BF7FB4191B1DB9002E34E9 /* UIButton+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF7FB3191B1DB9002E34E9 /* UIButton+TPCategory.m */; };
@@ -419,6 +420,9 @@
 		01A9757019236CA20073530F /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		01A97573192376720073530F /* NetWorkConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkConnection.h; sourceTree = "<group>"; };
 		01A97574192376720073530F /* NetWorkConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkConnection.m; sourceTree = "<group>"; };
+		01BD87E3197E398A0093F40D /* TKCalendarTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCalendarTimeCell.h; sourceTree = "<group>"; };
+		01BD87E4197E398A0093F40D /* TKCalendarTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCalendarTimeCell.m; sourceTree = "<group>"; };
+		01BD87E8197FA3060093F40D /* remind.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = remind.sqlite; sourceTree = "<group>"; };
 		01BE57A5194AA4670040A8F5 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
 		01BE57A6194AA4670040A8F5 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		01BE57A9194AA6730040A8F5 /* RecordTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordTopView.h; sourceTree = "<group>"; };
@@ -433,7 +437,6 @@
 		01BE58FA195036E20040A8F5 /* NSDate+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+convenience.m"; sourceTree = "<group>"; };
 		01BE58FB195036E20040A8F5 /* UIColor+expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+expanded.h"; sourceTree = "<group>"; };
 		01BE58FC195036E20040A8F5 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
-		01BE5920195BBF8D0040A8F5 /* remind.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = remind.sqlite; sourceTree = "<group>"; };
 		01BF7FA6191B186C002E34E9 /* UIColor+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TPCategory.h"; sourceTree = "<group>"; };
 		01BF7FA7191B186C002E34E9 /* UIColor+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TPCategory.m"; sourceTree = "<group>"; };
 		01BF7FAA191B188C002E34E9 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
@@ -644,6 +647,8 @@
 				014CA98619752CBE0033AF2D /* TkTimeViewCell.m */,
 				014CA98819752DC90033AF2D /* TkRecordShrinkCell.h */,
 				014CA98919752DC90033AF2D /* TkRecordShrinkCell.m */,
+				01BD87E3197E398A0093F40D /* TKCalendarTimeCell.h */,
+				01BD87E4197E398A0093F40D /* TKCalendarTimeCell.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -751,7 +756,7 @@
 		01A97384191DEFD20073530F /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				01BE5920195BBF8D0040A8F5 /* remind.sqlite */,
+				01BD87E8197FA3060093F40D /* remind.sqlite */,
 				01A97385191DF0120073530F /* Frequency.plist */,
 			);
 			name = Source;
@@ -1456,7 +1461,7 @@
 				014CA93F1965551A0033AF2D /* RecordTimeView.xib in Resources */,
 				014CA96319664A8A0033AF2D /* RecordBloodSugarView~ipad.xib in Resources */,
 				26DEBA36191F440F0007DB43 /* blueArrowDown.png in Resources */,
-				01BE5921195BBF8D0040A8F5 /* remind.sqlite in Resources */,
+				01BD87E9197FA3060093F40D /* remind.sqlite in Resources */,
 				01A97386191DF0120073530F /* Frequency.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1501,6 +1506,7 @@
 				01A97378191DCD560073530F /* CVUIPopoverView.m in Sources */,
 				014CA98419752B8D0033AF2D /* TKRecordCalendarCell.m in Sources */,
 				014CA98D197535E00033AF2D /* TKRecordBloodSugarCell.m in Sources */,
+				01BD87E5197E398A0093F40D /* TKCalendarTimeCell.m in Sources */,
 				01382BA019382678005AAD8E /* HEItemSearchController.m in Sources */,
 				01CDC1E6191A289A0002AE47 /* BasicNavigationController.m in Sources */,
 				01A974191920B8090073530F /* SVGeocoder.m in Sources */,

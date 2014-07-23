@@ -54,7 +54,12 @@
     r.size.height=view.frame.size.height+Arror_height;
     self.frame=r;
     //self.centerOffset= CGPointMake(0, -55*r.size.height/80+25);
-    self.centerOffset = CGPointMake(0, -(self.frame.size.height/2.0 + 13));
+    if (DeviceIsPad) {
+        self.centerOffset = CGPointMake(0, -(self.frame.size.height/2.0 + 25));
+    }else{
+        self.centerOffset = CGPointMake(0, -(self.frame.size.height/2.0 + 13));
+    }
+    
     [self setNeedsDisplay];
 }
 

@@ -12,6 +12,7 @@
 #import "TkRecordShrinkCell.h"
 #import "TkTimeViewCell.h"
 #import "TKRecordCalendarCell.h"
+#import "TKCalendarTimeCell.h"
 @interface RecordBloodController ()
 
 @end
@@ -45,6 +46,9 @@
     _bloodTable.bounces=NO;
     [self.view addSubview:_bloodTable];
     TkRecordShrinkCell *cell1=[[TkRecordShrinkCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    
+    //TKCalendarTimeCell *cell2=[[TKCalendarTimeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    
     TkTimeViewCell *cell2=[[TkTimeViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     TKRecordCalendarCell *cell3=[[TKRecordCalendarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     self.cells=[NSMutableArray arrayWithObjects:cell1,cell2,cell3, nil];
@@ -107,6 +111,7 @@
     if ([self.cells[indexPath.row] isKindOfClass:[TkRecordShrinkCell class]]) {
         return 202;
     }
+   
     if ([self.cells[indexPath.row] isKindOfClass:[TkTimeViewCell class]]) {
         return 195;
     }

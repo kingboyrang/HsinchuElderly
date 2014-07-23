@@ -353,16 +353,16 @@
 }
 - (NSString*)getAnnotationImageName:(BasicModel*)entity{
     if ([entity.AreaGuid isEqualToString:@"1"]) {//咨詢
-        return [NSString stringWithFormat:@"d%@.png",entity.CategoryGuid];
+        return [NSString stringWithFormat:@"d%@",entity.CategoryGuid];
         
     }else  if ([entity.AreaGuid isEqualToString:@"2"]) {//醫療
-       return [NSString stringWithFormat:@"a%@.png",entity.CategoryGuid];
+       return [NSString stringWithFormat:@"a%@",entity.CategoryGuid];
     }
     else  if ([entity.AreaGuid isEqualToString:@"3"]) {//服務
-        return [NSString stringWithFormat:@"b%@.png",entity.CategoryGuid];
+        return [NSString stringWithFormat:@"b%@",entity.CategoryGuid];
     }
     else  if ([entity.AreaGuid isEqualToString:@"4"]) {//休閒
-        return [NSString stringWithFormat:@"c%@.png",entity.CategoryGuid];
+        return [NSString stringWithFormat:@"c%@",entity.CategoryGuid];
     }else{//福利
     
     }
