@@ -61,6 +61,9 @@ UIColor* UIColorMakeRGB(CGFloat red, CGFloat green, CGFloat blue) {
 }
 + (UIColor *)colorFromHexRGB:(NSString *)inColorString
 {
+    return [self colorFromHexRGB:inColorString alpha:1.0];
+}
++ (UIColor *)colorFromHexRGB:(NSString *)inColorString alpha:(CGFloat)alpha{
     UIColor *result = nil;
     unsigned int colorCode = 0;
     unsigned char redByte, greenByte, blueByte;
@@ -77,7 +80,7 @@ UIColor* UIColorMakeRGB(CGFloat red, CGFloat green, CGFloat blue) {
               colorWithRed: (float)redByte / 0xff
               green: (float)greenByte/ 0xff
               blue: (float)blueByte / 0xff
-              alpha:1.0];
+              alpha:alpha];
     return result;
 }
 - (CGFloat)red {

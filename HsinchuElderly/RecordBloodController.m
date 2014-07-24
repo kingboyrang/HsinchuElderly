@@ -13,6 +13,7 @@
 #import "TkTimeViewCell.h"
 #import "TKRecordCalendarCell.h"
 #import "TKCalendarTimeCell.h"
+#import "RollTooBar.h"
 @interface RecordBloodController ()
 
 @end
@@ -45,6 +46,21 @@
     _bloodTable.separatorStyle=UITableViewCellSeparatorStyleNone;
     _bloodTable.bounces=NO;
     [self.view addSubview:_bloodTable];
+    
+    if (!DeviceIsPad) {//如果为iphone
+        
+        RollTooBar *roll=[[RollTooBar alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+        [roll.btnDown addTarget:self action:@selector(buttonRollDownClick) forControlEvents:UIControlEventTouchUpInside];
+        [roll.btnUp addTarget:self action:@selector(buttonRollUpClick) forControlEvents:UIControlEventTouchUpInside];
+        CGRect rect=roll.frame;
+        rect.origin.x=self.view.bounds.size.width-rect.size.width-5;
+        rect.origin.y=self.view.bounds.size.height-[self topHeight]-rect.size.height-15;
+        roll.frame=rect;
+        [self.view addSubview:roll];
+        
+    }
+    
+    
     TkRecordShrinkCell *cell1=[[TkRecordShrinkCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     
     //TKCalendarTimeCell *cell2=[[TKCalendarTimeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
@@ -64,6 +80,13 @@
     }else{
         self.Entity=[[RecordBlood alloc] init];
     }
+}
+- (void)buttonRollDownClick{
+    NSIndexPath *indxPath= [NSIndexPath indexPathForRow:self.cells.count-1 inSection:0];
+    [_bloodTable scrollToRowAtIndexPath:indxPath atScrollPosition:UITableViewScrollPositionBottom  animated:YES];
+}
+- (void)buttonRollUpClick{
+    [_bloodTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 //完成
 - (void)buttonFinishedClick:(UIButton*)btn{

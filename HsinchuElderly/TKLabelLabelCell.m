@@ -10,7 +10,7 @@
 #import "UIImage+TPCategory.h"
 
 @interface TKLabelLabelCell ()
-@property (nonatomic,strong) UIImageView *lineImageView;
+//@property (nonatomic,strong) UIImageView *lineImageView;
 @end
 
 @implementation TKLabelLabelCell
@@ -34,10 +34,12 @@
     _labDetail.lineBreakMode=NSLineBreakByWordWrapping;
 	[self.contentView addSubview:_labDetail];
     
+    /***
     UIImage *image=[UIImage createImageWithColor:[UIColor colorFromHexRGB:@"fec75a"] imageSize:CGSizeMake(self.frame.size.width, 2)];
     _lineImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
     [_lineImageView setImage:image];
     [self.contentView addSubview:_lineImageView];
+     ***/
     return self;
 }
 - (id) initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
@@ -62,10 +64,12 @@
     size=[_labDetail.text textSize:_labDetail.font withWidth:w];
     _labDetail.frame=CGRectMake(leftX,(self.frame.size.height-size.height)/2, size.width, size.height);
     
+    /***
     r=_lineImageView.frame;
     r.size.width=self.frame.size.width;
     r.origin.y=self.frame.size.height-r.size.height;
     _lineImageView.frame=r;
+     ***/
 }
 
 @end

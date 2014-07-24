@@ -40,10 +40,11 @@
         cell2.labName.text=@"地址:";
         TKLabelLabelCell *cell3=[[TKLabelLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         cell3.labName.text=@"電話:";
-        TKEmptyCell *cell4=[[TKEmptyCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-        cell4.detailTextLabel.textColor=defaultDeviceFontColor;
-        cell4.detailTextLabel.font=default18DeviceFont;
-        cell4.detailTextLabel.text=@"導航";
+        TKEmptyCell *cell4=[[TKEmptyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell4.textLabel.textColor=defaultDeviceFontColor;
+        cell4.textLabel.font=default18DeviceFont;
+        cell4.textLabel.text=@"導航";
+        cell4.textLabel.textAlignment=NSTextAlignmentCenter;
         self.cells=[NSMutableArray arrayWithObjects:cell1,cell2,cell3,cell4, nil];
     }
     return self;
@@ -87,11 +88,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell=self.cells[indexPath.row];
     if (indexPath.row==self.cells.count-1) {
+        /***
         UIImage *rightImg=[UIImage imageNamed:@"arrow_right.png"];
         UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame=CGRectMake(0, 0, rightImg.size.width, rightImg.size.height);
         [btn setBackgroundImage:rightImg forState:UIControlStateNormal];
         cell.accessoryView=btn;
+         ***/
     }else{
        cell.selectionStyle=UITableViewCellSelectionStyleNone;
     }

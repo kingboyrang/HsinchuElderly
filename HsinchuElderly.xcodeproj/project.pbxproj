@@ -125,6 +125,7 @@
 		01A97575192376720073530F /* NetWorkConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A97574192376720073530F /* NetWorkConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01BD87E5197E398A0093F40D /* TKCalendarTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BD87E4197E398A0093F40D /* TKCalendarTimeCell.m */; };
 		01BD87E9197FA3060093F40D /* remind.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 01BD87E8197FA3060093F40D /* remind.sqlite */; };
+		01BD87F81980A0130093F40D /* RollTooBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BD87F71980A0130093F40D /* RollTooBar.m */; };
 		01BE57A7194AA4670040A8F5 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE57A6194AA4670040A8F5 /* RecordViewController.m */; };
 		01BE57AB194AA6730040A8F5 /* RecordTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE57AA194AA6730040A8F5 /* RecordTopView.m */; };
 		01BE58FD195036E20040A8F5 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE58F4195036E20040A8F5 /* VRGCalendarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -423,6 +424,8 @@
 		01BD87E3197E398A0093F40D /* TKCalendarTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCalendarTimeCell.h; sourceTree = "<group>"; };
 		01BD87E4197E398A0093F40D /* TKCalendarTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCalendarTimeCell.m; sourceTree = "<group>"; };
 		01BD87E8197FA3060093F40D /* remind.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = remind.sqlite; sourceTree = "<group>"; };
+		01BD87F61980A0130093F40D /* RollTooBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RollTooBar.h; sourceTree = "<group>"; };
+		01BD87F71980A0130093F40D /* RollTooBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RollTooBar.m; sourceTree = "<group>"; };
 		01BE57A5194AA4670040A8F5 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
 		01BE57A6194AA4670040A8F5 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		01BE57A9194AA6730040A8F5 /* RecordTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordTopView.h; sourceTree = "<group>"; };
@@ -649,6 +652,8 @@
 				014CA98919752DC90033AF2D /* TkRecordShrinkCell.m */,
 				01BD87E3197E398A0093F40D /* TKCalendarTimeCell.h */,
 				01BD87E4197E398A0093F40D /* TKCalendarTimeCell.m */,
+				01BD87F61980A0130093F40D /* RollTooBar.h */,
+				01BD87F71980A0130093F40D /* RollTooBar.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1600,6 +1605,7 @@
 				01A9755A19236A060073530F /* NSString+MKNetworkKitAdditions.m in Sources */,
 				01A9752F19233B9E0073530F /* ActivityView.m in Sources */,
 				01566010193E1B4B00873B3E /* TKDetailDataCell.m in Sources */,
+				01BD87F81980A0130093F40D /* RollTooBar.m in Sources */,
 				01622223191CC6C500B4AD50 /* AnimateErrorView.m in Sources */,
 				01A97383191DD1C10073530F /* TKLabelSelectCell.m in Sources */,
 				01A9741F1920C4460073530F /* BasicModel.m in Sources */,

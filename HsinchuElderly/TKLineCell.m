@@ -9,7 +9,7 @@
 #import "TKLineCell.h"
 #import "UIImage+TPCategory.h"
 @interface TKLineCell ()
-@property (nonatomic,strong) UIImageView *lineImageView;
+//@property (nonatomic,strong) UIImageView *lineImageView;
 @end
 
 @implementation TKLineCell
@@ -19,11 +19,12 @@
     self.textLabel.textColor=defaultDeviceFontColor;
     self.textLabel.font=default18DeviceFont;
     
+    /***
     UIImage *image=[UIImage createImageWithColor:[UIColor colorFromHexRGB:@"fec75a"] imageSize:CGSizeMake(self.frame.size.width, 2)];
     _lineImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
     [_lineImageView setImage:image];
     [self.contentView addSubview:_lineImageView];
-    
+    ***/
     return self;
 }
 - (id) initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
@@ -33,8 +34,10 @@
 - (void) layoutSubviews {
     [super layoutSubviews];
 	
+    /***
    CGRect r=_lineImageView.frame;
     r.origin.y=self.frame.size.height-r.size.height;
     _lineImageView.frame=r;
+     ***/
 }
 @end
