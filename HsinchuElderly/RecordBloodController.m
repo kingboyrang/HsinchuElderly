@@ -14,6 +14,9 @@
 #import "TKRecordCalendarCell.h"
 #import "TKCalendarTimeCell.h"
 #import "RollTooBar.h"
+#import "TKLabelCell.h"
+#import "TKCalendarFieldCell.h"
+#import "NSDate+TPCategory.h"
 @interface RecordBloodController ()
 
 @end
@@ -47,18 +50,7 @@
     _bloodTable.bounces=NO;
     [self.view addSubview:_bloodTable];
     
-    if (!DeviceIsPad) {//如果为iphone
-        
-        RollTooBar *roll=[[RollTooBar alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-        [roll.btnDown addTarget:self action:@selector(buttonRollDownClick) forControlEvents:UIControlEventTouchUpInside];
-        [roll.btnUp addTarget:self action:@selector(buttonRollUpClick) forControlEvents:UIControlEventTouchUpInside];
-        CGRect rect=roll.frame;
-        rect.origin.x=self.view.bounds.size.width-rect.size.width-5;
-        rect.origin.y=self.view.bounds.size.height-[self topHeight]-rect.size.height-15;
-        roll.frame=rect;
-        [self.view addSubview:roll];
-        
-    }
+   
     
     
     TkRecordShrinkCell *cell1=[[TkRecordShrinkCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
@@ -67,39 +59,83 @@
     
     TkTimeViewCell *cell2=[[TkTimeViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     TKRecordCalendarCell *cell3=[[TKRecordCalendarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    self.cells=[NSMutableArray arrayWithObjects:cell1,cell2,cell3, nil];
-   
+  
     
     
+    TKLabelCell *cell5=[[TKLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell5.label.text=@"時間";
+    cell5.label.textAlignment=NSTextAlignmentCenter;
+    
+    TKCalendarFieldCell *cell6=[[TKCalendarFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell6.calendar.popText.field.placeholder=@"請選擇時間";
+    cell6.calendar.datePicker.datePickerMode=UIDatePickerModeTime;
+    [cell6.calendar.dateForFormat setDateFormat:@"HH:mm"];
+    if (self.operType==2) {
+         cell6.calendar.popText.field.text=self.Entity.TimeSpan;
+    }else{
+        cell6.calendar.popText.field.text=[cell6.calendar calendarValue];
+    }
+    
+    TKLabelCell *cell7=[[TKLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell7.label.text=@"日期";
+    cell7.label.textAlignment=NSTextAlignmentCenter;
+    
+    TKCalendarFieldCell *cell8=[[TKCalendarFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell8.calendar.popText.field.placeholder=@"請選擇日期";
+    if (self.operType==2) {
+        cell8.calendar.popText.field.text=self.Entity.RecordDate;
+    }else{
+        cell8.calendar.popText.field.text=[NSDate stringFromDate:[NSDate date] withFormat:@"yyyy-MM-dd"];
+    }
+    if (DeviceIsPad) {
+         self.cells=[NSMutableArray arrayWithObjects:cell1,cell2,cell3, nil];
+    }else{
+        self.cells=[NSMutableArray arrayWithObjects:cell1,cell5,cell6,cell7,cell8, nil];
+    }
     if (self.operType==2) {//修改
         [cell1.shrinkView setSelectedValue:self.Entity.Diastolic component:0];
         [cell1.shrinkView setSelectedValue:self.Entity.Shrink component:1];
         [cell1.shrinkView setSelectedValue:self.Entity.Pulse component:2];
-        [cell2.timeView setSelectedValue:self.Entity.TimeSpan];
-        [cell3.calendarView setSelectedValue:self.Entity.RecordDate];
+        if (DeviceIsPad) {
+            [cell2.timeView setSelectedValue:self.Entity.TimeSpan];
+            [cell3.calendarView setSelectedValue:self.Entity.RecordDate];
+        }
     }else{
         self.Entity=[[RecordBlood alloc] init];
     }
 }
-- (void)buttonRollDownClick{
-    NSIndexPath *indxPath= [NSIndexPath indexPathForRow:self.cells.count-1 inSection:0];
-    [_bloodTable scrollToRowAtIndexPath:indxPath atScrollPosition:UITableViewScrollPositionBottom  animated:YES];
-}
-- (void)buttonRollUpClick{
-    [_bloodTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-}
+
 //完成
 - (void)buttonFinishedClick:(UIButton*)btn{
     TkRecordShrinkCell *cell1=self.cells[0];
-    TkTimeViewCell *cell2=self.cells[1];
-    TKRecordCalendarCell *cell3=self.cells[2];
+    if (DeviceIsPad) {
+        TkTimeViewCell *cell2=self.cells[1];
+        TKRecordCalendarCell *cell3=self.cells[2];
+        
+        self.Entity.TimeSpan=cell2.timeView.timeValue;
+        self.Entity.RecordDate=cell3.calendarView.calendarValue;
+    }else{
+        TKCalendarFieldCell *cell2=self.cells[2];
+        TKCalendarFieldCell *cell3=self.cells[4];
+        
+        if ([cell2.calendar.popText.field.text length]==0) {
+            [AlertHelper initWithTitle:@"提示" message:@"請選擇時間!"];
+            return;
+        }
+        if ([cell3.calendar.popText.field.text length]==0) {
+            [AlertHelper initWithTitle:@"提示" message:@"請選擇日期!"];
+            return;
+        }
+        self.Entity.TimeSpan=cell2.calendar.popText.field.text;
+        self.Entity.RecordDate=cell3.calendar.popText.field.text;
+    }
+   
     
     self.Entity.UserId=self.userId;
     self.Entity.Shrink=cell1.shrinkView.shrinkValue;
     self.Entity.Diastolic=cell1.shrinkView.diastolicValue;
     self.Entity.Pulse=cell1.shrinkView.pulseValue;
-    self.Entity.TimeSpan=cell2.timeView.timeValue;
-    self.Entity.RecordDate=cell3.calendarView.calendarValue;
+   
     BOOL boo;
     NSString *memo=@"新增";
     if (self.operType==1) {
@@ -127,6 +163,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell=self.cells[indexPath.row];
+    cell.backgroundColor=[UIColor clearColor];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -134,10 +171,12 @@
     if ([self.cells[indexPath.row] isKindOfClass:[TkRecordShrinkCell class]]) {
         return 202;
     }
-   
-    if ([self.cells[indexPath.row] isKindOfClass:[TkTimeViewCell class]]) {
-        return 195;
+    if (DeviceIsPad) {
+        if ([self.cells[indexPath.row] isKindOfClass:[TkTimeViewCell class]]) {
+            return 195;
+        }
+        return 200;
     }
-    return 200;
+    return 44.0f;
 }
 @end

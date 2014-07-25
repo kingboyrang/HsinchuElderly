@@ -22,6 +22,7 @@
 @property(nonatomic,retain) UIDatePicker *datePicker;
 @property(nonatomic,retain) NSDateFormatter *dateForFormat;
 @property(nonatomic,retain) CVUIPopoverView *popView;
+@property(nonatomic,readonly) NSString *calendarValue;
 @property(nonatomic,assign) id<CVUICalendarDelegate> delegate;
 - (void)show;
 @end

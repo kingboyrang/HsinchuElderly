@@ -64,6 +64,9 @@
         [_popView addChildView:_datePicker];
     }
 }
+- (NSString*)calendarValue{
+    return [_dateForFormat stringFromDate:_datePicker.date];
+}
 -(void)setCalendarValue{
     if ([_popText.field.text length]>0) {
         NSDate *date = [_dateForFormat dateFromString:_popText.field.text];
@@ -78,6 +81,7 @@
         [self.delegate showPopoverCalendar:self];
     }
 }
+
 //確定事件
 -(void)buttonDoneClick{
     _popText.field.text=[_dateForFormat stringFromDate:_datePicker.date];
