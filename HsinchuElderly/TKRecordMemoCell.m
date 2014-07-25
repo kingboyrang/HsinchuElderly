@@ -15,14 +15,14 @@
     _labMemo1=[[UILabel alloc] initWithFrame:CGRectZero];
     _labMemo1.backgroundColor=[UIColor clearColor];
     _labMemo1.textColor=[UIColor blackColor];
-    _labMemo1.font=[UIFont fontWithName:defaultDeviceFontName size:18];
+    _labMemo1.font=default18DeviceFont;
     _labMemo1.textAlignment=NSTextAlignmentLeft;
     [self.contentView addSubview:_labMemo1];
     
     _labMemo2=[[UILabel alloc] initWithFrame:CGRectZero];
     _labMemo2.backgroundColor=[UIColor clearColor];
     _labMemo2.textColor=[UIColor blackColor];
-    _labMemo2.font=[UIFont fontWithName:defaultDeviceFontName size:18];
+    _labMemo2.font=default18DeviceFont;
     _labMemo2.textAlignment=NSTextAlignmentLeft;
     [self.contentView addSubview:_labMemo2];
 

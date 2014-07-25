@@ -15,7 +15,7 @@
     _labTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, 44)];
     _labTitle.backgroundColor=[UIColor clearColor];
     _labTitle.textColor=[UIColor blackColor];
-    _labTitle.font=[UIFont fontWithName:defaultDeviceFontName size:20];
+    _labTitle.font=DeviceIsPad?default18DeviceFont:[UIFont fontWithName:defaultDeviceFontName size:20];
     _labTitle.textAlignment=NSTextAlignmentCenter;
     
     [self.contentView addSubview:_labTitle];

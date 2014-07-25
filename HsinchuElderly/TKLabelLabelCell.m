@@ -59,12 +59,13 @@
     r.origin.y=(self.frame.size.height-size.height)/2;
 	_labName.frame = r;
     
+    
     CGFloat leftX=r.origin.x+r.size.width+2;
     CGFloat w=self.frame.size.width-leftX-18;
     size=[_labDetail.text textSize:_labDetail.font withWidth:w];
     _labDetail.frame=CGRectMake(leftX,(self.frame.size.height-size.height)/2, size.width, size.height);
 
-    
+    NSLog(@"r=%@",NSStringFromCGRect(_labDetail.frame));
     /***
     r=_lineImageView.frame;
     r.size.width=self.frame.size.width;

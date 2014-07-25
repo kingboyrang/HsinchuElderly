@@ -23,13 +23,13 @@
         self.rowHeight=10.0f;
         self.rate=1.0f;
         
-        UIFont *font=[UIFont systemFontOfSize:10.0f];
+        UIFont *font=[UIFont systemFontOfSize:DeviceIsPad?10*1.5:10];
         NSString *str=@"07/02 17:48";
         CGSize size=[str textSize:font withWidth:frame.size.width];
         self.columnWidth=size.width/2+size.width+5;
         
         self.dateFont=font;
-        self.valueFont=[UIFont systemFontOfSize:12.0f];
+        self.valueFont=[UIFont systemFontOfSize:DeviceIsPad?12*1.5:12];
         self.chartColor=[UIColor redColor];
     }
     return self;

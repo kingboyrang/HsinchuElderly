@@ -131,12 +131,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.cells[indexPath.row] isKindOfClass:[TKLabelLabelCell class]]) {
         TKLabelLabelCell *cell=self.cells[indexPath.row];
-        CGFloat w=(DeviceIsPad?380:280)-cell.labName.frame.size.width-cell.labName.frame.origin.x-18;
+        CGSize size1=[cell.labName.text textSize:cell.labName.font withWidth:self.bounds.size.width];
+        CGFloat w=(DeviceIsPad?380:280)-size1.width-10-20;
         CGSize size=[cell.labDetail.text textSize:cell.labDetail.font withWidth:w];
-        if (size.height+20>44.0f) {
-            return size.height+20;
+        if (size.height+10>44.0f) {
+            return size.height+10;
         }
     }
-    return 44.0f;
+    return DeviceIsPad?54.0f:44.0f;
 }
 @end
