@@ -63,6 +63,7 @@
     CGFloat w=self.frame.size.width-leftX-18;
     size=[_labDetail.text textSize:_labDetail.font withWidth:w];
     _labDetail.frame=CGRectMake(leftX,(self.frame.size.height-size.height)/2, size.width, size.height);
+
     
     /***
     r=_lineImageView.frame;

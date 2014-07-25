@@ -36,8 +36,15 @@
 }
 - (void)layoutSubviews{
     [super layoutSubviews];
+    if (DeviceIsPad) {
+        self.labTitle.font=default18DeviceFont;
+    }
      self.labTitle.textColor=defaultDeviceFontColor;
     CGRect r=self.labTitle.frame;
+    if (DeviceIsPad) {
+        CGSize size=[self.labTitle.text textSize:self.labTitle.font withWidth:self.bounds.size.width];
+        r.size=size;
+    }
     r.origin.x=(self.frame.size.width-r.size.width)/2;
     self.labTitle.frame=r;
     

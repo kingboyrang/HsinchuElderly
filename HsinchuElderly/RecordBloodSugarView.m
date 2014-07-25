@@ -31,8 +31,24 @@
     return NO;
 }
 - (void)defaultInitControl{
+    if (DeviceIsPad) {
+        self.labTime.font=default18DeviceFont;
+        self.labSugar.font=default18DeviceFont;
+    }
     self.labTime.textColor=defaultDeviceFontColor;
     self.labSugar.textColor=defaultDeviceFontColor;
+}
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    if (DeviceIsPad) {
+        CGRect r=self.labTime.frame;
+        r.size=[self.labTime.text textSize:self.labTime.font withWidth:self.bounds.size.width];
+        self.labTime.frame=r;
+        
+        r=self.labSugar.frame;
+        r.size=[self.labSugar.text textSize:self.labSugar.font withWidth:self.bounds.size.width];
+        self.labSugar.frame=r;
+    }
 }
 - (void)setSelectedValue:(NSString*)val{
     NSInteger v=[val integerValue];

@@ -26,7 +26,7 @@
     
     _drugName=[[UILabel alloc] initWithFrame:CGRectZero];
     _drugName.backgroundColor=[UIColor clearColor];
-    _drugName.font=[UIFont fontWithName:defaultDeviceFontName size:18];
+    _drugName.font=[UIFont fontWithName:defaultDeviceFontName size:DeviceIsPad?18*1.5:18];
     _drugName.textColor=[UIColor colorFromHexRGB:@"711200"];
     _drugName.numberOfLines=0;
     _drugName.lineBreakMode=NSLineBreakByWordWrapping;
@@ -34,7 +34,7 @@
     
     _timeText=[[UILabel alloc] initWithFrame:CGRectZero];
     _timeText.backgroundColor=[UIColor clearColor];
-    _timeText.font=[UIFont fontWithName:defaultDeviceFontName size:14];
+    _timeText.font=[UIFont fontWithName:defaultDeviceFontName size:DeviceIsPad?14*1.5:14];
     _timeText.textColor=defaultDeviceFontColor;
     [self.contentView addSubview:_timeText];
     return self;

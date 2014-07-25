@@ -405,7 +405,7 @@
         if (!annotationView) {
             annotationView = [[CallOutAnnotationVifew alloc] initWithAnnotation:annotation reuseIdentifier:ann.Entity.ID];
             //添加自定View
-            PaoPaoView *paoView=[[PaoPaoView alloc] initWithFrame:CGRectMake(0, 0, 280, 100)];
+             PaoPaoView *paoView=[[PaoPaoView alloc] initWithFrame:CGRectMake(0, 0, DeviceIsPad?380:280, DeviceIsPad?380*100/280:100)];
             [paoView setViewDataSource:ann.Entity];
             [annotationView addCustomView:paoView];
         }

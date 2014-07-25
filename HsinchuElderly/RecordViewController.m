@@ -60,6 +60,8 @@
     _chartTable.bounces=NO;
     [self.view addSubview:_chartTable];
     
+    
+    
 }
 //视图将出现时加载不同的图表资料
 - (void)viewWillAppear:(BOOL)animated{

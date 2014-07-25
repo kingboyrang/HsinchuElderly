@@ -34,7 +34,7 @@
         self.backgroundColor = [UIColor clearColor];
         self.canShowCallout = NO;
         self.centerOffset = CGPointMake(0, -55);
-        self.frame = CGRectMake(0, 0, 280, 80);
+        self.frame = CGRectMake(0, 0, DeviceIsPad?380:280, DeviceIsPad?380*100/280:100);
         
         UIView *_contentView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - Arror_height)] autorelease];
         _contentView.backgroundColor   = [UIColor clearColor];

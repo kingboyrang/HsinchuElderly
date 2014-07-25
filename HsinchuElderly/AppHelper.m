@@ -87,7 +87,7 @@
     NSDictionary *dicAttrs=[NSDictionary dictionaryWithObjectsAndKeys:
                             color, NSForegroundColorAttributeName,
                             shadow, NSShadowAttributeName,
-                            [UIFont fontWithName:@"Helvetica-Bold" size:20], NSFontAttributeName, nil];
+                            [UIFont fontWithName:@"Helvetica-Bold" size:DeviceIsPad?20*1.5:20], NSFontAttributeName, nil];
     
     //郵件設置
      if (IOSVersion>=7.0) {
@@ -95,7 +95,7 @@
         [[UINavigationBar appearance] setTitleTextAttributes:dicAttrs];
         NSDictionary *dicAttrs1=[NSDictionary dictionaryWithObjectsAndKeys:
                              [UIColor blackColor], NSForegroundColorAttributeName,
-                             [UIFont fontWithName:@"Helvetica-Bold" size:20], NSFontAttributeName, nil];
+                             [UIFont fontWithName:@"Helvetica-Bold" size:DeviceIsPad?20*1.5:20], NSFontAttributeName, nil];
    
         [[UINavigationBar appearanceWhenContainedIn:[MFMailComposeViewController class], nil] setTitleTextAttributes:dicAttrs1];
     }

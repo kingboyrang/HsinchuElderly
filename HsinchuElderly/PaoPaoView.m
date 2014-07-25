@@ -131,7 +131,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.cells[indexPath.row] isKindOfClass:[TKLabelLabelCell class]]) {
         TKLabelLabelCell *cell=self.cells[indexPath.row];
-        CGFloat w=280-cell.labName.frame.size.width-cell.labName.frame.origin.x-18;
+        CGFloat w=(DeviceIsPad?380:280)-cell.labName.frame.size.width-cell.labName.frame.origin.x-18;
         CGSize size=[cell.labDetail.text textSize:cell.labDetail.font withWidth:w];
         if (size.height+20>44.0f) {
             return size.height+20;

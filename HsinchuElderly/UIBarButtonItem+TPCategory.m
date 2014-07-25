@@ -16,10 +16,10 @@
     corImg=[corImg stretchableImageWithLeftCapWidth:corImg.size.width/2 topCapHeight:corImg.size.height/2];
     
     UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame=CGRectMake(0, 0, 55,30);
+    btn.frame=CGRectMake(0, 0, DeviceIsPad?65:55,30);
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setTitleColor:defaultDeviceFontColor forState:UIControlStateNormal];
-    btn.titleLabel.font=[UIFont fontWithName:defaultDeviceFontName size:18];
+    btn.titleLabel.font=default18DeviceFont;//[UIFont fontWithName:defaultDeviceFontName size:18];
     //btn.titleLabel.shadowColor=[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
     //btn.titleLabel.shadowOffset=CGSizeMake(0, 0);
     [btn setBackgroundImage:corImg forState:UIControlStateNormal];

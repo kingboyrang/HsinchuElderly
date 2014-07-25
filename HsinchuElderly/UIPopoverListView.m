@@ -45,14 +45,14 @@
     self.backgroundColor=[UIColor whiteColor];
     
     _titleView = [[UILabel alloc] initWithFrame:CGRectZero];
-    _titleView.font = [UIFont systemFontOfSize:17.0f];
+    _titleView.font = default18DeviceFont;
     //_titleView.backgroundColor = [UIColor colorWithRed:59./255. green:89./255. blue:152./255. alpha:1.0f];
     _titleView.backgroundColor=[UIColor clearColor];
     
     _titleView.textAlignment = NSTextAlignmentLeft;
     _titleView.textColor = [UIColor colorFromHexRGB:@"fc9a08"];
     CGFloat xWidth = self.bounds.size.width;
-    _titleView.lineBreakMode = UILineBreakModeTailTruncation;
+    _titleView.lineBreakMode = NSLineBreakByTruncatingTail;
     _titleView.frame = CGRectMake(5, 0, xWidth, 32.0f);
     [self addSubview:_titleView];
     

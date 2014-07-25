@@ -251,11 +251,11 @@
 - (CGFloat)getCellHeightWithTitle:(NSString*)title detailText:(NSString*)detail{
     CGFloat leftX=10,topY=10,total=0;
     CGFloat w=self.view.bounds.size.width-leftX-20-5-2;
-    CGSize size=[title textSize:[UIFont fontWithName:defaultDeviceFontName size:18] withWidth:w];
+    CGSize size=[title textSize:default18DeviceFont withWidth:w];
     total+=topY+size.height+5;
     
     
-    size=[detail textSize:[UIFont fontWithName:defaultDeviceFontName size:18] withWidth:w];
+    size=[detail textSize:default18DeviceFont withWidth:w];
     total+=size.height+topY;
     
     return total>95.0f?total:95.0f;

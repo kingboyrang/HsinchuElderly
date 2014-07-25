@@ -216,11 +216,11 @@
     BasicModel *entity=self.list[indexPath.row];
     CGFloat leftX=10,topY=10,total=0;
     CGFloat w=self.view.bounds.size.width-leftX-20-5-2;
-    CGSize size=[entity.Name textSize:[UIFont fontWithName:defaultDeviceFontName size:18] withWidth:w];
+    CGSize size=[entity.Name textSize:[UIFont fontWithName:defaultDeviceFontName size:DeviceIsPad?18*1.5:18] withWidth:w];
     total+=topY+size.height+5;
     
     NSString *title=[NSString stringWithFormat:@"%.1f公里",[entity distanceWithLatitude:self.Latitude longitude:self.longitude]];
-    size=[title textSize:[UIFont fontWithName:defaultDeviceFontName size:14] withWidth:w];
+    size=[title textSize:[UIFont fontWithName:defaultDeviceFontName size:DeviceIsPad?14*1.5:14] withWidth:w];
     total+=size.height+topY;
    
     return total>60.0f?total:60.0f;

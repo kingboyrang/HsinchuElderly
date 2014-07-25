@@ -37,7 +37,7 @@
     _labName = [[UILabel alloc] initWithFrame:CGRectZero];
 	_labName.backgroundColor = [UIColor clearColor];
     _labName.textColor = defaultDeviceFontColor;
-    _labName.font = [UIFont fontWithName:defaultDeviceFontName size:18];
+    _labName.font = default18DeviceFont;
     _labName.numberOfLines = 0;
     _labName.lineBreakMode=NSLineBreakByWordWrapping;
 	

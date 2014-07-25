@@ -144,7 +144,53 @@
     }
     return 5;
 }
+
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+
+{
+    
+    UILabel *myView = nil;
+    
+    if (component == 0) {
+        NSDictionary *dic=[self.pickerData objectAtIndex:row];
+        NSString *val=[dic objectForKey:self.bindName];
+        if ([self.bindName length]==0) {
+            val=@"";
+        }
+        myView = [[[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, self.bounds.size.width/2, 40)] autorelease];
+        
+        myView.textAlignment = NSTextAlignmentCenter;
+        
+        myView.text = val;
+        
+        myView.font = defaultBDeviceFont;         //用label来设置字体大小
+        
+        myView.backgroundColor = [UIColor clearColor];
+        
+    }else {
+        
+        myView = [[[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, self.bounds.size.width/2, 40)] autorelease];
+        
+        myView.text = [NSString stringWithFormat:@"%d次",row+1];
+        
+        myView.textAlignment = NSTextAlignmentCenter;
+        
+        myView.font = defaultBDeviceFont;
+        
+        myView.backgroundColor = [UIColor clearColor];
+        
+    }
+    
+    return myView;
+    
+}
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
+{
+    return 40.0;
+}
+
 #pragma mark Picker Delegate Methods
+/***
 -(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     if (component==0) {
@@ -156,6 +202,7 @@
     }
     return [NSString stringWithFormat:@"%d次",row+1];
 }
+ ***/
 #pragma mark -
 #pragma mark 私有方法
 -(void)findByName:(NSString*)search searchName:(NSString*)name{

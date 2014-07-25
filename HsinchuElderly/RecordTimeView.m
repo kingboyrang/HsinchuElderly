@@ -27,6 +27,9 @@
     [self.timePicker setDate:[NSDate dateFromString:time withFormat:@"yyyy-MM-dd HH:mm"] animated:YES];
 }
 - (void)defaultInitParams{
+    if (DeviceIsPad) {
+        self.labTime.font=default18DeviceFont;
+    }
     self.labTime.textColor=defaultDeviceFontColor;
     //設定日曆格式
     self.dateForFormat=[[NSDateFormatter alloc] init];
@@ -39,6 +42,10 @@
     self.timePicker.frame=r;
     
     r=self.labTime.frame;
+    if (DeviceIsPad) {
+        CGSize size=[self.labTime.text textSize:self.labTime.font withWidth:self.bounds.size.width];
+        r.size=size;
+    }
     r.origin.x=(self.bounds.size.width-r.size.width)/2;
     self.labTime.frame=r;
 }

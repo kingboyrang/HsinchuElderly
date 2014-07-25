@@ -150,6 +150,9 @@
     _labTitle.backgroundColor=[UIColor clearColor];
     _labTitle.textAlignment=NSTextAlignmentCenter;
     [self addSubview:_labTitle];
+    if (DeviceIsPad) {
+        _labTitle.hidden=YES;
+    }
   
         CGFloat topY=44;
         CGFloat viewY=screenRect.size.height+topY;

@@ -24,12 +24,16 @@
 
 //Helvetica-Bold Courier-Bold
 //介面顏色設定
+#define defaultBFontSize  DeviceIsPad?19*1.5:19
+#define defaultSFontSize  DeviceIsPad?16*1.5:16
+#define default18FontSize  DeviceIsPad?18*1.5:18
+
 #define defaultDeviceFontColorName @"e32600"
 #define defaultDeviceFontName @"Helvetica-Bold"
 #define defaultDeviceFontColor [UIColor colorFromHexRGB:defaultDeviceFontColorName]
-#define defaultBDeviceFont [UIFont fontWithName:defaultDeviceFontName size:19]
-#define defaultSDeviceFont [UIFont fontWithName:defaultDeviceFontName size:16]
-#define default18DeviceFont [UIFont fontWithName:defaultDeviceFontName size:18]
+#define defaultBDeviceFont [UIFont fontWithName:defaultDeviceFontName size:defaultBFontSize]
+#define defaultSDeviceFont [UIFont fontWithName:defaultDeviceFontName size:defaultSFontSize]
+#define default18DeviceFont [UIFont fontWithName:defaultDeviceFontName size:default18FontSize]
 
 //資料庫設置路徑
 //#define HEDBPath [[NSBundle mainBundle] pathForResource:@"HsinchuElderly" ofType:@"sqlite"]

@@ -37,6 +37,11 @@
     [self.pickView selectRow:v inComponent:row animated:NO];
 }
 - (void)defaultSelectedPicker{
+    if (DeviceIsPad) {
+        self.lab1.font=default18DeviceFont;
+        self.lab2.font=default18DeviceFont;
+        self.lab3.font=default18DeviceFont;
+    }
     self.lab1.textColor=defaultDeviceFontColor;
     self.lab2.textColor=defaultDeviceFontColor;
     self.lab3.textColor=defaultDeviceFontColor;
@@ -52,14 +57,27 @@
     
     r=self.lab1.frame;
     r.origin.x=DeviceIsPad?110:20;
+    if (DeviceIsPad) {
+        CGSize size=[self.lab1.text textSize:self.lab1.font withWidth:self.bounds.size.width];
+        r.size=size;
+    }
+    
     self.lab1.frame=r;
     
     r=self.lab2.frame;
     r.origin.x=(self.bounds.size.width-r.size.width)/2;
+    if (DeviceIsPad) {
+        CGSize size=[self.lab2.text textSize:self.lab2.font withWidth:self.bounds.size.width];
+        r.size=size;
+    }
     self.lab2.frame=r;
     
     r=self.lab3.frame;
     r.origin.x=self.bounds.size.width-self.lab1.frame.origin.x-r.size.width;
+    if (DeviceIsPad) {
+        CGSize size=[self.lab3.text textSize:self.lab3.font withWidth:self.bounds.size.width];
+        r.size=size;
+    }
     self.lab3.frame=r;
 }
 #pragma mark -

@@ -29,7 +29,7 @@
     _labName = [[UILabel alloc] initWithFrame:CGRectZero];
 	_labName.backgroundColor = [UIColor clearColor];
     _labName.textColor = defaultDeviceFontColor;
-    _labName.font = [UIFont fontWithName:defaultDeviceFontName size:18];
+    _labName.font = [UIFont fontWithName:defaultDeviceFontName size:DeviceIsPad?18*1.5:18];
     _labName.numberOfLines = 0;
     _labName.lineBreakMode=NSLineBreakByWordWrapping;
 	
@@ -38,7 +38,7 @@
     _labDistance = [[UILabel alloc] initWithFrame:CGRectZero];
 	_labDistance.backgroundColor = [UIColor clearColor];
     _labDistance.textColor = defaultDeviceFontColor;
-    _labDistance.font = [UIFont fontWithName:defaultDeviceFontName size:14];
+    _labDistance.font = [UIFont fontWithName:defaultDeviceFontName size:DeviceIsPad?14*1.5:14];
     _labDistance.numberOfLines = 0;
     _labDistance.lineBreakMode=NSLineBreakByWordWrapping;
 	
