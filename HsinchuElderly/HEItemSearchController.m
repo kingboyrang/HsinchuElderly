@@ -13,6 +13,9 @@
 #import "HEItemListMapsController.h"
 #import "LocationGPS.h"
 #import "TKHEItemCell.h"
+#import "FetchDataManager.h"
+#import "NetWorkConnection.h"
+#import "AlertHelper.h"
 @interface HEItemSearchController ()
 
 @end
@@ -52,6 +55,8 @@
     [self.view addSubview:_refreshTable];
     [self.view insertSubview:_topBarView belowSubview:_refreshTable];
     
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUpateFinished) name:kNotificeUpdateMetaFinished object:nil];
+    
     self.menuHelper=[[TPMenuHelper alloc] init];
     
    
@@ -68,6 +73,10 @@
     //定位並載入數據
     [self loadDataSource];
     
+}
+//表示数据更新完成
+- (void)receiveUpateFinished{
+    [self loadDataSource];
 }
 //定位並加載數據
 - (void)loadDataSource{
@@ -92,6 +101,17 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         // 處理耗時操作的block...
         NSMutableArray *arr=[self.dbHelper searchWithCategory:self.categoryGuid aresGuid:self.areaGuid];
+        if ([arr count]==0) {
+            if (![NetWorkConnection IsEnableConnection]) {//表示网络未连接
+                [AlertHelper initWithTitle:@"提示" message:@"網絡未連接,請檢查!"];
+            }else{
+                if (!self.isFirstLoad) {
+                    self.isFirstLoad=YES;
+                    [[FetchDataManager sharedInstance] updateMetaData];
+                }
+            }
+            return;
+        }
         //self.medicalAreas=[self.dbHelper searchAreaWithCategory:self.categoryGuid areaGuid:self.areaGuid source:nil];
             //通知MainThread更新
             dispatch_async(dispatch_get_main_queue(), ^{

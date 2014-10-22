@@ -1,5 +1,13 @@
+//
+//  ServiceArgs.h
+//  CommonLibrary
+//
+//  Created by aJia on 13/2/20.
+//  Copyright (c) 2013年 rang. All rights reserved.
+//
+
 #import <Foundation/Foundation.h>
-//請求方式(ServiceHttpSoap1與ServiceHttpSoap12的區別在於請求頭不一樣)
+//请求方式(ServiceHttpSoap1与ServiceHttpSoap12的区别在于请求头不一样)
 typedef enum{
     ServiceHttpGet=0,
     ServiceHttpPost=1,
@@ -10,27 +18,22 @@ typedef enum{
 @interface ServiceArgs : NSObject
 @property(nonatomic,readonly) NSURLRequest *request;
 @property(nonatomic,readonly) NSURL *webURL;
-@property(nonatomic,readonly) NSString *hostName;
 @property(nonatomic,readonly) NSString *defaultSoapMesage;
-@property(nonatomic,readonly) NSString *contentType;
-@property(nonatomic,readonly) NSString *httpMethod;//請求方法
-@property(nonatomic,readonly) NSString *operationPath;
-
-@property(nonatomic,assign)   ServiceHttpWay httpWay;//請求方式,預設為ServiceHttpSoap12請求
-@property(nonatomic,assign)   NSTimeInterval timeOutSeconds;//請求超過時間,預設60秒
-@property(nonatomic,assign)   NSStringEncoding defaultEncoding;//預設编辑
-@property(nonatomic,copy)     NSString *serviceURL;//webservice訪問地址
-@property(nonatomic,copy)     NSString *serviceNameSpace;//webservice命名空間
-@property(nonatomic,copy)     NSString *methodName;//調用的方法名
-@property(nonatomic,copy)     NSString *bodyMessage;//請求字串
-@property(nonatomic,copy)     NSString *soapHeader;//有認證的請求頭設置
-@property(nonatomic,retain)   NSDictionary *headers;//請求頭
-@property(nonatomic,retain)   NSArray *soapParams;//方法參數設置
+@property(nonatomic,assign)   ServiceHttpWay httpWay;//请求方式,默认为ServiceHttpSoap12请求
+@property(nonatomic,assign)   NSTimeInterval timeOutSeconds;//请求超时时间,默认60秒
+@property(nonatomic,assign)   NSStringEncoding defaultEncoding;//默认编辑
+@property(nonatomic,copy)     NSString *serviceURL;//webservice访问地址
+@property(nonatomic,copy)     NSString *serviceNameSpace;//webservice命名空间
+@property(nonatomic,copy)     NSString *methodName;//调用的方法名 
+@property(nonatomic,copy)     NSString *bodyMessage;//请求字符串
+@property(nonatomic,copy)     NSString *soapHeader;//有认证的请求头设置
+@property(nonatomic,retain)   NSDictionary *headers;//请求头
+@property(nonatomic,retain)   NSArray *soapParams;//方法参数设置
+@property (nonatomic,readonly) NSString *hostName;
 
 +(ServiceArgs*)serviceMethodName:(NSString*)methodName;
 +(ServiceArgs*)serviceMethodName:(NSString*)methodName soapMessage:(NSString*)soapMsg;
-//webservice訪問設置
+//webservice访问设置
 +(void)setNameSapce:(NSString*)space;
 +(void)setWebServiceURL:(NSString*)url;
--(NSURL*)requestURL;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "HEBasicHelper.h"
-
+#import "UCSUserDefaultManager.h"
 @interface HEBasicHelper ()
 @property (assign, nonatomic) Class customSubclass;
 @end
@@ -18,6 +18,44 @@
         self.allAreas=[self areas];
     }
     return self;
+}
++ (void)updateInformationWithArray:(NSArray*)sources{
+    FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
+    if ([db open]) {
+        NSString *sql2=@"insert into Information(NAME,ADDRESS,PHONE,SITE,TYPE,CATEGORY,LAT,LNG) values(?,?,?,?,?,?,?,?)";
+        [db beginTransaction];
+        [db executeUpdate:@"DELETE FROM Information"];
+        for (NSInteger i=0;i<[sources count];i++) {
+            NSDictionary *item=[sources objectAtIndex:i];
+            [db executeUpdate:sql2,[item objectForKey:@"name"],[item objectForKey:@"address"],[item objectForKey:@"phone"],[item objectForKey:@"site"],[item objectForKey:@"type"],[item objectForKey:@"category"],[item objectForKey:@"lat"],[item objectForKey:@"lng"]];
+        }
+        [db commit];
+        [db close];
+    }
+    
+    int total=[self getMetaDataCount];
+    NSLog(@"update total=%d",total);
+    if (total>0) {
+        [UCSUserDefaultManager SetLocalDataBoolen:YES key:kUpdateMetaSuccess];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificeUpdateMetaFinished object:nil];
+    }
+    //DELETE FROM Information
+}
++ (int)getMetaDataCount{
+    int total=0;
+    FMDatabase *db=[FMDatabase databaseWithPath:HEDBPath];
+    if ([db open]) {
+        NSString *sql1=@"SELECT count(*) FROM Information";
+        FMResultSet *rs = [db executeQuery:sql1];
+        while (rs.next) {
+            if ([rs columnNameForIndex:0]) {
+                total=[[rs stringForColumn:[rs columnNameForIndex:0]] intValue];
+                break;
+            }
+        }
+        [db close];
+    }
+    return total;
 }
 //創建表
 + (void)createTables{

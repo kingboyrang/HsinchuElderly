@@ -23,6 +23,7 @@
 @property (nonatomic,strong) NSMutableArray *list;
 @property (nonatomic,copy) NSString *categoryGuid;
 @property (nonatomic,copy) NSString *areaGuid;
+@property (nonatomic,assign) BOOL isFirstLoad;
 
 @property (nonatomic,assign) double Latitude;
 @property (nonatomic,assign) double longitude;

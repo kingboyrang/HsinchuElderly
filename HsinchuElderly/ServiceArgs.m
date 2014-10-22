@@ -7,15 +7,17 @@
 //
 
 #import "ServiceArgs.h"
-//soap 1.1請求方式
+//soap 1.1请求方式
 #define defaultSoap1Message @"<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Header>%@</soap:Header><soap:Body>%@</soap:Body></soap:Envelope>"
-//soap 1.2請求方式
+//soap 1.2请求方式
 #define defaultSoap12Message @"<?xml version=\"1.0\" encoding=\"utf-8\"?><soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\"><soap12:Header>%@</soap12:Header><soap12:Body>%@</soap12:Body></soap12:Envelope>"
 @interface ServiceArgs()
+
 -(NSString*)stringSoapMessage:(NSArray*)params;
 -(NSString*)paramsFormatString:(NSArray*)params;
 -(NSString*)soapAction:(NSString*)namespace methodName:(NSString*)methodName;
 -(NSString*)paramsTostring;
+-(NSURL*)requestURL;
 @end
 
 static NSString *defaultWebServiceUrl=DataWebserviceURL;
@@ -39,14 +41,14 @@ static NSString *defaultWebServiceNameSpace=DataWeserviceNameSpace;
 }
 -(id)init{
     if (self=[super init]) {
-        self.httpWay=ServiceHttpSoap12;
+        self.httpWay=ServiceHttpSoap1;
         self.timeOutSeconds=60.0;
         self.defaultEncoding=NSUTF8StringEncoding;
     }
     return self;
 }
 #pragma mark -
-#pragma mark 屬性重寫
+#pragma mark 属性重写
 -(NSString*)defaultSoapMesage{
     if (self.httpWay==ServiceHttpSoap1) {
         return defaultSoap1Message;
@@ -55,14 +57,6 @@ static NSString *defaultWebServiceNameSpace=DataWeserviceNameSpace;
 }
 -(NSURL*)webURL{
     return [NSURL URLWithString:[self serviceURL]];
-}
-- (NSString*)hostName{
-    NSURL *url=[self requestURL];
-    NSString *host=[url host];
-    if (url.port) {
-        return [NSString stringWithFormat:@"%@:%d",host,[url.port intValue]];
-    }
-    return host;
 }
 -(NSString*)serviceURL{
     if (_serviceURL&&[_serviceURL length]>0) {
@@ -88,34 +82,31 @@ static NSString *defaultWebServiceNameSpace=DataWeserviceNameSpace;
     }
     return [self stringSoapMessage:[self soapParams]];
 }
-- (NSString*)contentType{
-    if (self.httpWay==ServiceHttpSoap1) {
-        return @"text/xml; charset=utf-8";
+- (NSString*)hostName{
+    NSURL *webURL=[self requestURL];
+    if (webURL.port) {
+        return [NSString stringWithFormat:@"%@:%d",webURL.host,[webURL.port intValue]];
     }
-    if (self.httpWay==ServiceHttpSoap12) {
-        return @"application/soap+xml; charset=utf-8";
-    }
-    return @"application/x-www-form-urlencoded";
-}
-- (NSString*)httpMethod{
-    return self.httpWay!=ServiceHttpGet?@"POST":@"GET";
-}
-- (NSString*)operationPath{
-    NSURL *url=[self requestURL];
-    if (url.query&&[url.query length]>0) {
-        return [NSString stringWithFormat:@"%@?%@",url.path,url.query];
-    }
-    return [url path];
+    return [webURL host];
 }
 -(NSDictionary*)headers{
     if (_headers&&[_headers count]>0) {
         return _headers;
     }
     if (self.httpWay==ServiceHttpGet) {
-        return [NSMutableDictionary dictionaryWithObjectsAndKeys:[self.webURL host],@"Host", nil];
+        return [NSMutableDictionary dictionaryWithObjectsAndKeys:[self hostName],@"Host", nil];
     }
     NSMutableDictionary *dic=[NSMutableDictionary dictionary];
-    [dic setValue:[[self webURL] host] forKey:@"Host"];
+    [dic setValue:[self hostName] forKey:@"Host"];
+    if (self.httpWay==ServiceHttpPost) {
+        [dic setValue:@"application/x-www-form-urlencoded" forKey:@"Content-Type"];
+    }
+    if (self.httpWay==ServiceHttpSoap1) {
+        [dic setValue:@"text/xml; charset=utf-8" forKey:@"Content-Type"];
+    }
+    if (self.httpWay==ServiceHttpSoap12) {
+        [dic setValue:@"application/soap+xml; charset=utf-8" forKey:@"Content-Type"];
+    }
     [dic setValue:[NSString stringWithFormat:@"%d",(int)[[self bodyMessage] length]] forKey:@"Content-Length"];
     if (self.httpWay==ServiceHttpSoap1) {
         NSString *soapAction=[self soapAction:[self serviceNameSpace] methodName:[self methodName]];
@@ -127,11 +118,11 @@ static NSString *defaultWebServiceNameSpace=DataWeserviceNameSpace;
 }
 - (NSURLRequest*)request{
     NSMutableURLRequest *req=[NSMutableURLRequest requestWithURL:[self requestURL]];
-    //頭部設置
+    //头部设置
     [req setAllHTTPHeaderFields:[self headers]];
-    //超時設置
+    //超时设置
     [req setTimeoutInterval:self.timeOutSeconds];
-    //訪問方式
+    //访问方式
     [req setHTTPMethod:self.httpWay==ServiceHttpGet?@"GET":@"POST"];
     //body内容
     if (self.httpWay!=ServiceHttpGet) {
@@ -144,7 +135,7 @@ static NSString *defaultWebServiceNameSpace=DataWeserviceNameSpace;
 -(NSString*)stringSoapMessage:(NSArray*)params{
     NSString *header=_soapHeader&&[_soapHeader length]>0?_soapHeader:@"";
     NSString *xmlnsStr=[[self serviceNameSpace] length]>0?[NSString stringWithFormat:@" xmlns=\"%@\"",[self serviceNameSpace]]:@"";
-    
+
     if (params) {
         NSMutableString *soap=[NSMutableString stringWithFormat:@"<%@%@>",[self methodName],xmlnsStr];
         
@@ -188,7 +179,7 @@ static NSString *defaultWebServiceNameSpace=DataWeserviceNameSpace;
     if (arr&&[arr count]>0) {
         NSMutableArray *results=[NSMutableArray array];
         for (NSDictionary *item in arr) {
-            NSString *key=[[item allKeys] objectAtIndex:0];
+             NSString *key=[[item allKeys] objectAtIndex:0];
             [results addObject:[NSString stringWithFormat:@"%@=%@",key,[item objectForKey:key]]];
         }
         return [results componentsJoinedByString:@"&"];

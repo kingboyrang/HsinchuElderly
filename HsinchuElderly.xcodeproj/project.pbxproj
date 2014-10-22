@@ -88,7 +88,6 @@
 		01A974221920C4DF0073530F /* HEStudy.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974211920C4DF0073530F /* HEStudy.m */; };
 		01A974251920C50D0073530F /* HEService.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974241920C50D0073530F /* HEService.m */; };
 		01A974281920C5730073530F /* HEStudyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A974271920C5730073530F /* HEStudyHelper.m */; };
-		01A9742F1920CABF0073530F /* HEBasicHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9742E1920CABF0073530F /* HEBasicHelper.m */; };
 		01A974311920D9300073530F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A974301920D9300073530F /* CoreLocation.framework */; };
 		01A9743C1920DEF60073530F /* HEServiceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9743B1920DEF60073530F /* HEServiceHelper.m */; };
 		01A9743F1920DF6E0073530F /* HEWelfare.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9743E1920DF6E0073530F /* HEWelfare.m */; };
@@ -118,7 +117,6 @@
 		01A9755F19236A060073530F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9755519236A060073530F /* Reachability.m */; };
 		01A9756119236A420073530F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A9756019236A420073530F /* CFNetwork.framework */; };
 		01A9756319236A4A0073530F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A9756219236A4A0073530F /* Security.framework */; };
-		01A9756B19236AF50073530F /* ServiceArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9756619236AF50073530F /* ServiceArgs.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01A9756C19236AF50073530F /* SRMNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A9756819236AF50073530F /* SRMNetworkEngine.m */; };
 		01A9756F19236C700073530F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A9756E19236C700073530F /* SystemConfiguration.framework */; };
 		01A9757119236CA20073530F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A9757019236CA20073530F /* ImageIO.framework */; };
@@ -189,6 +187,11 @@
 		26DEBA36191F440F0007DB43 /* blueArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DEBA30191F440F0007DB43 /* blueArrowDown.png */; };
 		26DEBA37191F440F0007DB43 /* blueArrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DEBA31191F440F0007DB43 /* blueArrowDown@2x.png */; };
 		26DEBA38191F440F0007DB43 /* PullingRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DEBA33191F440F0007DB43 /* PullingRefreshTableView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		26FD142619F802D6009AFC7D /* ServiceRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FD142519F802D6009AFC7D /* ServiceRequestManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		26FD142919F80303009AFC7D /* UCSUserDefaultManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FD142819F80303009AFC7D /* UCSUserDefaultManager.m */; };
+		26FD142C19F80314009AFC7D /* FetchDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FD142B19F80314009AFC7D /* FetchDataManager.m */; };
+		26FD143219F803AC009AFC7D /* HEBasicHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FD143119F803AC009AFC7D /* HEBasicHelper.m */; };
+		26FD143519F80BEB009AFC7D /* ServiceArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FD143419F80BEB009AFC7D /* ServiceArgs.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -355,8 +358,6 @@
 		01A974241920C50D0073530F /* HEService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEService.m; sourceTree = "<group>"; };
 		01A974261920C5730073530F /* HEStudyHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEStudyHelper.h; sourceTree = "<group>"; };
 		01A974271920C5730073530F /* HEStudyHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEStudyHelper.m; sourceTree = "<group>"; };
-		01A9742D1920CABF0073530F /* HEBasicHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEBasicHelper.h; sourceTree = "<group>"; };
-		01A9742E1920CABF0073530F /* HEBasicHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEBasicHelper.m; sourceTree = "<group>"; };
 		01A974301920D9300073530F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		01A9743A1920DEF60073530F /* HEServiceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEServiceHelper.h; sourceTree = "<group>"; };
 		01A9743B1920DEF60073530F /* HEServiceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEServiceHelper.m; sourceTree = "<group>"; };
@@ -413,8 +414,6 @@
 		01A9755519236A060073530F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		01A9756019236A420073530F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		01A9756219236A4A0073530F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		01A9756519236AF50073530F /* ServiceArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceArgs.h; sourceTree = "<group>"; };
-		01A9756619236AF50073530F /* ServiceArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceArgs.m; sourceTree = "<group>"; };
 		01A9756719236AF50073530F /* SRMNetworkEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRMNetworkEngine.h; sourceTree = "<group>"; };
 		01A9756819236AF50073530F /* SRMNetworkEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRMNetworkEngine.m; sourceTree = "<group>"; };
 		01A9756E19236C700073530F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -542,6 +541,16 @@
 		26DEBA31191F440F0007DB43 /* blueArrowDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrowDown@2x.png"; sourceTree = "<group>"; };
 		26DEBA32191F440F0007DB43 /* PullingRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullingRefreshTableView.h; sourceTree = "<group>"; };
 		26DEBA33191F440F0007DB43 /* PullingRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullingRefreshTableView.m; sourceTree = "<group>"; };
+		26FD142419F802D6009AFC7D /* ServiceRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceRequestManager.h; sourceTree = "<group>"; };
+		26FD142519F802D6009AFC7D /* ServiceRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceRequestManager.m; sourceTree = "<group>"; };
+		26FD142719F80303009AFC7D /* UCSUserDefaultManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCSUserDefaultManager.h; sourceTree = "<group>"; };
+		26FD142819F80303009AFC7D /* UCSUserDefaultManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCSUserDefaultManager.m; sourceTree = "<group>"; };
+		26FD142A19F80314009AFC7D /* FetchDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchDataManager.h; sourceTree = "<group>"; };
+		26FD142B19F80314009AFC7D /* FetchDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchDataManager.m; sourceTree = "<group>"; };
+		26FD143019F803AC009AFC7D /* HEBasicHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEBasicHelper.h; sourceTree = "<group>"; };
+		26FD143119F803AC009AFC7D /* HEBasicHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEBasicHelper.m; sourceTree = "<group>"; };
+		26FD143319F80BEB009AFC7D /* ServiceArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceArgs.h; sourceTree = "<group>"; };
+		26FD143419F80BEB009AFC7D /* ServiceArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceArgs.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -934,8 +943,10 @@
 		01A9756419236AE70073530F /* WebService */ = {
 			isa = PBXGroup;
 			children = (
-				01A9756519236AF50073530F /* ServiceArgs.h */,
-				01A9756619236AF50073530F /* ServiceArgs.m */,
+				26FD143319F80BEB009AFC7D /* ServiceArgs.h */,
+				26FD143419F80BEB009AFC7D /* ServiceArgs.m */,
+				26FD142419F802D6009AFC7D /* ServiceRequestManager.h */,
+				26FD142519F802D6009AFC7D /* ServiceRequestManager.m */,
 				01A9756719236AF50073530F /* SRMNetworkEngine.h */,
 				01A9756819236AF50073530F /* SRMNetworkEngine.m */,
 			);
@@ -1024,6 +1035,10 @@
 		01BF7FA9191B187A002E34E9 /* Uitils */ = {
 			isa = PBXGroup;
 			children = (
+				26FD142A19F80314009AFC7D /* FetchDataManager.h */,
+				26FD142B19F80314009AFC7D /* FetchDataManager.m */,
+				26FD142719F80303009AFC7D /* UCSUserDefaultManager.h */,
+				26FD142819F80303009AFC7D /* UCSUserDefaultManager.m */,
 				01BFE067191CAC6F00095A8A /* FileHelper.h */,
 				01BFE068191CAC6F00095A8A /* FileHelper.m */,
 				01BF7FAA191B188C002E34E9 /* Global.h */,
@@ -1176,6 +1191,8 @@
 		01BFE06E191CADE300095A8A /* DAL */ = {
 			isa = PBXGroup;
 			children = (
+				26FD143019F803AC009AFC7D /* HEBasicHelper.h */,
+				26FD143119F803AC009AFC7D /* HEBasicHelper.m */,
 				01BFE06F191CADF900095A8A /* SystemUserHelper.h */,
 				01BFE070191CADF900095A8A /* SystemUserHelper.m */,
 				01A97365191DBBF50073530F /* MedicineDrugHelper.h */,
@@ -1188,8 +1205,6 @@
 				01A973C7192075730073530F /* BloodSugarHelper.m */,
 				01A974261920C5730073530F /* HEStudyHelper.h */,
 				01A974271920C5730073530F /* HEStudyHelper.m */,
-				01A9742D1920CABF0073530F /* HEBasicHelper.h */,
-				01A9742E1920CABF0073530F /* HEBasicHelper.m */,
 				01A9743A1920DEF60073530F /* HEServiceHelper.h */,
 				01A9743B1920DEF60073530F /* HEServiceHelper.m */,
 				01A974401920DF8D0073530F /* HEWelfareHelper.h */,
@@ -1493,6 +1508,7 @@
 				01A97389191DFD870073530F /* Blood.m in Sources */,
 				01C9419B192CB5680044AA2B /* AppHelper.m in Sources */,
 				01BE5900195036E20040A8F5 /* NSDate+convenience.m in Sources */,
+				26FD142619F802D6009AFC7D /* ServiceRequestManager.m in Sources */,
 				01BFE071191CADF900095A8A /* SystemUserHelper.m in Sources */,
 				01BFE066191CAAB100095A8A /* AlertHelper.m in Sources */,
 				01A973AD19205E810073530F /* ActionSheetHelper.m in Sources */,
@@ -1564,6 +1580,7 @@
 				01A9752619231E980073530F /* HEConsultationHelper.m in Sources */,
 				01A9743F1920DF6E0073530F /* HEWelfare.m in Sources */,
 				01A974281920C5730073530F /* HEStudyHelper.m in Sources */,
+				26FD143219F803AC009AFC7D /* HEBasicHelper.m in Sources */,
 				01BF7FBA191B1DD4002E34E9 /* NSData+TPCategory.m in Sources */,
 				01BFE069191CAC6F00095A8A /* FileHelper.m in Sources */,
 				01A97575192376720073530F /* NetWorkConnection.m in Sources */,
@@ -1574,6 +1591,7 @@
 				01BE5901195036E20040A8F5 /* UIColor+expanded.m in Sources */,
 				014CA98A19752DC90033AF2D /* TkRecordShrinkCell.m in Sources */,
 				01BE58FF195036E20040A8F5 /* NSMutableArray+convenience.m in Sources */,
+				26FD143519F80BEB009AFC7D /* ServiceArgs.m in Sources */,
 				014CA9661966791D0033AF2D /* TKChartRecordCell.m in Sources */,
 				01A97379191DCD560073530F /* CVUIPopoverText.m in Sources */,
 				01A9756C19236AF50073530F /* SRMNetworkEngine.m in Sources */,
@@ -1589,16 +1607,17 @@
 				01A97364191CE31A0073530F /* MedicineDrug.m in Sources */,
 				01A97372191DCD3F0073530F /* CVUICalendar.m in Sources */,
 				01BFE034191C746700095A8A /* TopBarView.m in Sources */,
+				26FD142C19F80314009AFC7D /* FetchDataManager.m in Sources */,
 				26DEBA25191F2DC80007DB43 /* MedicalCare.m in Sources */,
 				01BFE064191CAAB100095A8A /* UIAlertView+Blocks.m in Sources */,
 				01BFE065191CAAB100095A8A /* RIButtonItem.m in Sources */,
 				01A9745C192203BB0073530F /* TKLineCell.m in Sources */,
 				014CA970196E44460033AF2D /* CVUIRateView.m in Sources */,
 				01A9752B192338BC0073530F /* LotteryViewController.m in Sources */,
+				26FD142919F80303009AFC7D /* UCSUserDefaultManager.m in Sources */,
 				01A973A1191E120F0073530F /* UIPopoverListView.m in Sources */,
 				01BF7FB7191B1DC7002E34E9 /* UIImage+TPCategory.m in Sources */,
 				01A9752319231E730073530F /* HEConsultation.m in Sources */,
-				01A9742F1920CABF0073530F /* HEBasicHelper.m in Sources */,
 				01CDC1E2191A28460002AE47 /* IndexViewController.m in Sources */,
 				01BF7FA8191B186C002E34E9 /* UIColor+TPCategory.m in Sources */,
 				01BFE053191C896A00095A8A /* UIBarButtonItem+TPCategory.m in Sources */,
@@ -1631,7 +1650,6 @@
 				01BFE037191C782800095A8A /* UINavigationBar+TPCategory.m in Sources */,
 				01382B8D19371700005AAD8E /* TKTextFieldCell.m in Sources */,
 				26DEBA1B191F2C4D0007DB43 /* FMDatabaseQueue.m in Sources */,
-				01A9756B19236AF50073530F /* ServiceArgs.m in Sources */,
 				01A973CB192078410073530F /* BloodSugaModifyController.m in Sources */,
 				26DEBA28191F2E2F0007DB43 /* MedicalCareHelper.m in Sources */,
 				014CA979196FD9B30033AF2D /* BloodEditController.m in Sources */,
@@ -1761,12 +1779,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bai Fu (KJ93M4ECNB)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HsinchuElderly/HsinchuElderly-Prefix.pch";
 				INFOPLIST_FILE = "HsinchuElderly/HsinchuElderly-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A1D7BAE6-9084-4B86-906A-6973F75344AA";
+				PROVISIONING_PROFILE = "344C3F50-674F-4184-A7C4-FA75E56CABCF";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1777,13 +1796,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 澜洲 吴 (M3F85US4G2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bai Fu (KJ93M4ECNB)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HsinchuElderly/HsinchuElderly-Prefix.pch";
 				INFOPLIST_FILE = "HsinchuElderly/HsinchuElderly-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A1D7BAE6-9084-4B86-906A-6973F75344AA";
+				PROVISIONING_PROFILE = "344C3F50-674F-4184-A7C4-FA75E56CABCF";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

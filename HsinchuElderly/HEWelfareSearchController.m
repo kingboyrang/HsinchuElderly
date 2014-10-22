@@ -13,6 +13,9 @@
 #import "HEItemDetailController.h"
 #import "BasicModel.h"
 #import "LocationGPS.h"
+#import "FetchDataManager.h"
+#import "NetWorkConnection.h"
+#import "AlertHelper.h"
 @interface HEWelfareSearchController ()
 
 @end
@@ -48,9 +51,15 @@
     _refreshTable.separatorStyle=UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_refreshTable];
     
+       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUpateFinished) name:kNotificeUpdateMetaFinished object:nil];
+    
     //載入數據
     [self loadDataSource];
     
+}
+//表示数据更新完成
+- (void)receiveUpateFinished{
+    [self loadDataSource];
 }
 //地圖
 - (void)buttonMapClick:(UIButton*)btn{
@@ -81,6 +90,17 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         // 處理耗時操作的block...
         NSMutableArray *arr=[self.dbHelper searchWithCategory:self.categoryGuid aresGuid:@""];
+        if ([arr count]==0) {
+            if (![NetWorkConnection IsEnableConnection]) {//表示网络未连接
+                [AlertHelper initWithTitle:@"提示" message:@"網絡未連接,請檢查!"];
+            }else{
+                if (!self.isFirstLoad) {
+                    self.isFirstLoad=YES;
+                    [[FetchDataManager sharedInstance] updateMetaData];
+                }
+            }
+            return;
+        }
         //通知MainThread更新
         dispatch_async(dispatch_get_main_queue(), ^{
             NSArray *sortArray=[arr sortedArrayUsingComparator: ^(id obj1, id obj2) {

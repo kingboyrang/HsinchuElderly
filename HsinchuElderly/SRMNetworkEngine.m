@@ -10,6 +10,7 @@
 
 @implementation SRMNetworkEngine
 -(MKNetworkOperation*) operationWithArgs:(ServiceArgs*) args{
+    /***
     MKNetworkOperation *op=[self operationWithPath:[args operationPath] params:nil httpMethod:args.httpMethod];
     op.stringEncoding=args.defaultEncoding;
     //body内容
@@ -25,6 +26,8 @@
     }
     [self enqueueOperation:op];
     return op;
+     ***/
+    return nil;
 }
 - (void)requestWithArgs:(ServiceArgs*) args success:(MKNKResponseBlock)response failure:(MKNKResponseErrorBlock)error{
     MKNetworkOperation *opr=[self operationWithArgs:args];

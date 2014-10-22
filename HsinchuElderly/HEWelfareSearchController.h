@@ -16,6 +16,7 @@
 @property (nonatomic,strong) ToolSearchShow *toolSearch;
 @property (nonatomic,copy) NSString *categoryGuid;
 @property (nonatomic,copy) NSString *categoryName;
+@property (nonatomic,assign) BOOL isFirstLoad;
 
 @property (nonatomic,assign) double Latitude;
 @property (nonatomic,assign) double longitude;

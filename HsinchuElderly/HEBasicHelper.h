@@ -25,6 +25,8 @@ typedef enum{
 @property (nonatomic,retain) NSArray *allAreas;
 
 + (void)createTables;
++ (void)updateInformationWithArray:(NSArray*)sources;
++ (int)getMetaDataCount;
 
 - (NSMutableArray*)searchAreaWithCategory:(NSString*)guid areaGuid:(NSString*)areaGuid source:(NSArray*)source;
 //類別

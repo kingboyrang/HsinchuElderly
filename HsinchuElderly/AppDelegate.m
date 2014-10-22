@@ -14,6 +14,7 @@
 #import "NSDate+TPCategory.h"
 #import "HEBasicHelper.h"
 #import "ClockViewController.h"
+#import "FetchDataManager.h"
 @implementation AppDelegate
 
 - (void)dbInitLoad{
@@ -38,10 +39,16 @@
     NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
     if (![userDefaults objectForKey:@"flags"]) {
         [userDefaults setValue:@"1" forKey:@"flags"];
-        [userDefaults synchronize];
         [AppHelper removeLocationNotice];
         application.applicationIconBadgeNumber=0;
     }
+    if (![userDefaults objectForKey:kUpdateMetaSuccess]) {
+        [userDefaults setBool:NO forKey:kUpdateMetaSuccess];
+    }
+    if (![userDefaults objectForKey:kMetaVersion]) {
+        [userDefaults setValue:@"" forKey:kMetaVersion];
+    }
+    [userDefaults synchronize];
     [self dbInitLoad];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
@@ -80,6 +87,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+     [[FetchDataManager sharedInstance] updateMetaData];//更新数据
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
     //[self resetBageNumber];

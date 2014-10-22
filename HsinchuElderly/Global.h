@@ -22,6 +22,10 @@
 //Device
 #define DeviceIsPad UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad
 
+#define kMetaVersion                @"kMetaVersion"
+#define kUpdateMetaSuccess          @"kUpdateMetaSuccess"
+#define kNotificeUpdateMetaFinished @"kNotificeUpdateMetaFinished"
+
 //Helvetica-Bold Courier-Bold
 //介面顏色設定
 #define defaultBFontSize  DeviceIsPad?19*1.5:19
