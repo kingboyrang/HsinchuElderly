@@ -7,7 +7,6 @@
 //
 
 #import "UploadPhotoController.h"
-#import "SRMNetworkEngine.h"
 #import "UIImage+TPCategory.h"
 @interface UploadPhotoController ()
 - (CGSize)autoImageSize:(CGSize)imgSize;
@@ -119,7 +118,7 @@
         [self showErrorNetWorkNotice:nil];
         return;
     }
-    
+    /***
     _uploadBtn.enabled=NO;
     [self showLoadingAnimatedWithTitle:@"正在上傳圖片..."];
     
@@ -142,6 +141,7 @@
         _uploadBtn.enabled=YES;
         [self hideLoadingFailedWithTitle:@"上傳失敗！" completed:nil];
     }];
+     ***/
 }
 //上傳圖片
 - (void)buttonUploadClick:(UIButton*)btn{

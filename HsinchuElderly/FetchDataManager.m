@@ -7,7 +7,7 @@
 //
 
 #import "FetchDataManager.h"
-#import "ServiceRequestManager.h"
+#import "ASIServiceArgs.h"
 #import "HEBasicHelper.h"
 #import "UCSUserDefaultManager.h"
 #import "NetWorkConnection.h"
@@ -31,43 +31,51 @@
 }
 - (void)backgroundFetchData{
     [UCSUserDefaultManager SetLocalDataBoolen:NO key:kUpdateMetaSuccess];
-    ServiceArgs *args=[[ServiceArgs alloc] init];
+    ASIServiceArgs *args=[[ASIServiceArgs alloc] init];
     args.methodName=@"GetAppData";
-    ServiceRequestManager *manager=[ServiceRequestManager requestWithArgs:args];
-    [manager success:^{
+    ASIHTTPRequest *manager=[args request];
+    __block ASIHTTPRequest *request = manager;
+    [manager setCompletionBlock:^{
         NSError *error=nil;
-        NSArray *arr=[NSJSONSerialization JSONObjectWithData:manager.responseData options:1 error:&error];
+        NSArray *arr=[NSJSONSerialization JSONObjectWithData:request.responseData options:1 error:&error];
         if (error==nil) {//表示转换正常
             [HEBasicHelper updateInformationWithArray:arr];
         }
-    } failure:^{
+    }];
+    [manager setFailedBlock:^{
         
     }];
+    [manager startAsynchronous];
 }
 - (void)asyncMetaVersion{
-    ServiceArgs *args=[[ServiceArgs alloc] init];
-    args.methodName=@"GetAppDataVersion";
+    ASIServiceArgs *args=[[ASIServiceArgs alloc] init];
+    args.methodName=@"GetAppDataVersion";//GetAppData GetAppDataVersion
     NSLog(@"header=%@",args.headers);
     NSLog(@"body=%@",args.bodyMessage);
-    ServiceRequestManager *manager=[ServiceRequestManager requestWithArgs:args];
-    [manager success:^{
-        NSLog(@"xml=%@",manager.responseString);
-        NSString *version=manager.responseString;
+    ASIHTTPRequest *manager=[args request];
+    __block ASIHTTPRequest *request = manager;
+    [manager setCompletionBlock:^{
+        NSLog(@"xml=%@",request.responseString);
+        
+        NSString *version=request.responseString;
         NSString *oldVersion=[UCSUserDefaultManager GetLocalDataString:kMetaVersion];
         if (![version isEqualToString:oldVersion]) {
             [UCSUserDefaultManager SetLocalDataString:version key:kMetaVersion];
             [self backgroundFetchData];//更新数据
         }
-    } failure:^{
-        NSLog(@"error=%@",manager.error.description);
     }];
+    [manager setFailedBlock:^{
+         NSLog(@"error=%@",request.error.description);
+    }];
+    [manager startAsynchronous];
 }
 - (void)updateCheckMeta{
-    ServiceArgs *args=[[ServiceArgs alloc] init];
+    ASIServiceArgs *args=[[ASIServiceArgs alloc] init];
     args.methodName=@"GetAppDataVersion";
-    ServiceRequestManager *manager=[ServiceRequestManager requestWithArgs:args];
-    [manager success:^{
-        NSString *version=manager.responseString;
+    ASIHTTPRequest *manager=[args request];
+     __block ASIHTTPRequest *request = manager;
+    [manager setCompletionBlock:^{
+        NSString *version=request.responseString;
         NSString *oldVersion=[UCSUserDefaultManager GetLocalDataString:kMetaVersion];
         int total=[HEBasicHelper getMetaDataCount];
         if (![version isEqualToString:oldVersion]||total==0) {
@@ -77,8 +85,10 @@
         {
             [self backgroundFetchData];//更新数据
         }
-    } failure:^{
-        
     }];
+    [manager setFailedBlock:^{
+        NSLog(@"error=%@",request.error.description);
+    }];
+    [manager startAsynchronous];
 }
 @end

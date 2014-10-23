@@ -10,29 +10,29 @@
 	<string>HsinchuElderly</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>EB235FC5-F5EA-434E-86B6-D806885E6D7D</key>
+		<key>571E568CBC11E5AEA94E04CF5DD613A35F9C7ED3</key>
 		<string>https://github.com/kingboyrang/HsinchuElderly.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>HsinchuElderly.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>EB235FC5-F5EA-434E-86B6-D806885E6D7D</key>
+		<key>571E568CBC11E5AEA94E04CF5DD613A35F9C7ED3</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/kingboyrang/HsinchuElderly.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>EB235FC5-F5EA-434E-86B6-D806885E6D7D</string>
+	<string>571E568CBC11E5AEA94E04CF5DD613A35F9C7ED3</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>EB235FC5-F5EA-434E-86B6-D806885E6D7D</string>
+			<string>571E568CBC11E5AEA94E04CF5DD613A35F9C7ED3</string>
 			<key>IDESourceControlWCCName</key>
 			<string>HsinchuElderly</string>
 		</dict>
