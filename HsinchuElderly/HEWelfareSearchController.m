@@ -12,12 +12,12 @@
 #import "TKHEItemCell.h"
 #import "HEItemDetailController.h"
 #import "BasicModel.h"
-#import "LocationGPS.h"
+#import "CLLocationManager+blocks.h"
 #import "FetchDataManager.h"
 #import "NetWorkConnection.h"
 #import "AlertHelper.h"
 @interface HEWelfareSearchController ()
-
+@property (nonatomic, strong) CLLocationManager *manager;
 @end
 
 @implementation HEWelfareSearchController
@@ -51,6 +51,10 @@
     _refreshTable.separatorStyle=UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_refreshTable];
     
+    self.manager=[CLLocationManager updateManager];
+    self.manager.updateAccuracyFilter = kCLUpdateAccuracyFilterNone;
+    self.manager.updateLocationAgeFilter = kCLLocationAgeFilterNone;
+    
        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUpateFinished) name:kNotificeUpdateMetaFinished object:nil];
     
     //載入數據
@@ -72,15 +76,20 @@
 }
 //定位並載入數據
 - (void)loadDataSource{
-    //取得目前位置
-    LocationGPS *gps=[LocationGPS sharedInstance];
-    [gps startCurrentLocation:^(CLLocationCoordinate2D coor2D) {
-        self.Latitude=coor2D.latitude;
-        self.longitude=coor2D.longitude;
+    if ([CLLocationManager isLocationUpdatesAvailable]) {
+        [self.manager startUpdatingLocationWithUpdateBlock:^(CLLocationManager *manager, CLLocation *location, NSError *error, BOOL *stopUpdating) {
+            if (error) {
+                [self loadData];
+            }else{
+                self.Latitude=location.coordinate.latitude;
+                self.longitude=location.coordinate.longitude;
+                [self loadData];
+            }
+            *stopUpdating = YES;
+        }];
+    }else{//未开启定位
         [self loadData];
-    } failed:^(NSError *error) {
-        [self loadData];
-    }];
+    }
 }
 //載入數據
 - (void)loadData{

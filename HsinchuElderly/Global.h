@@ -45,7 +45,7 @@
 
 //图片上传
 //http://60.251.51.217/Hchg_Elderly/WebService.asmx
-#define DataWebserviceURL @"http://data.hsinchu.gov.tw/hchggrandpa/WebService.asmx"
+#define DataWebserviceURL @"https://data.hsinchu.gov.tw/hchgopendataadmin/webservice.asmx"
 #define DataWeserviceNameSpace @"http://tempuri.org/"
 
 #define PushBloodSugarMessage @"親愛的%@,該量血糖囉!"

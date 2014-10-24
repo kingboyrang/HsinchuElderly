@@ -187,6 +187,7 @@
 		3E5251E719F9063C00BFDC57 /* ASIServiceArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5251E619F9063C00BFDC57 /* ASIServiceArgs.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3E5251E919F9086F00BFDC57 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5251E819F9086F00BFDC57 /* MobileCoreServices.framework */; };
 		3E5251EB19F9088300BFDC57 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5251EA19F9088300BFDC57 /* libz.1.2.5.dylib */; };
+		3EA6768619F9E7A000DBAEC3 /* CLLocationManager+blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6768519F9E7A000DBAEC3 /* CLLocationManager+blocks.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -532,6 +533,8 @@
 		3E5251E619F9063C00BFDC57 /* ASIServiceArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIServiceArgs.m; sourceTree = "<group>"; };
 		3E5251E819F9086F00BFDC57 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3E5251EA19F9088300BFDC57 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		3EA6768419F9E7A000DBAEC3 /* CLLocationManager+blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocationManager+blocks.h"; sourceTree = "<group>"; };
+		3EA6768519F9E7A000DBAEC3 /* CLLocationManager+blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocationManager+blocks.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -562,6 +565,8 @@
 		01382BA4193828E8005AAD8E /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				3EA6768419F9E7A000DBAEC3 /* CLLocationManager+blocks.h */,
+				3EA6768519F9E7A000DBAEC3 /* CLLocationManager+blocks.m */,
 				01382BA519382912005AAD8E /* LocationGPS.h */,
 				01382BA619382912005AAD8E /* LocationGPS.m */,
 			);
@@ -1518,6 +1523,7 @@
 				01A9745C192203BB0073530F /* TKLineCell.m in Sources */,
 				014CA970196E44460033AF2D /* CVUIRateView.m in Sources */,
 				01A9752B192338BC0073530F /* LotteryViewController.m in Sources */,
+				3EA6768619F9E7A000DBAEC3 /* CLLocationManager+blocks.m in Sources */,
 				26FD142919F80303009AFC7D /* UCSUserDefaultManager.m in Sources */,
 				01A973A1191E120F0073530F /* UIPopoverListView.m in Sources */,
 				01BF7FB7191B1DC7002E34E9 /* UIImage+TPCategory.m in Sources */,

@@ -11,6 +11,7 @@
 #import "HEBasicHelper.h"
 #import "UCSUserDefaultManager.h"
 #import "NetWorkConnection.h"
+#import "NSString+TPCategory.h"
 @implementation FetchDataManager
 //单例模式
 + (FetchDataManager *)sharedInstance{
@@ -25,7 +26,7 @@
 - (void)updateMetaData{
     //表示有网络
     if ([NetWorkConnection IsEnableConnection]) {
-        [self asyncMetaVersion];
+        [self updateCheckMeta];
        //[self performSelectorInBackground:@selector(asyncMetaVersion) withObject:nil];
     }
 }
@@ -34,6 +35,7 @@
     ASIServiceArgs *args=[[ASIServiceArgs alloc] init];
     args.methodName=@"GetAppData";
     ASIHTTPRequest *manager=[args request];
+    [manager setValidatesSecureCertificate:NO];//请求https的时候，就要设置这个属性
     __block ASIHTTPRequest *request = manager;
     [manager setCompletionBlock:^{
         NSError *error=nil;
@@ -43,25 +45,24 @@
         }
     }];
     [manager setFailedBlock:^{
-        
+        NSLog(@"error=%@",request.error.description);
     }];
     [manager startAsynchronous];
 }
 - (void)asyncMetaVersion{
     ASIServiceArgs *args=[[ASIServiceArgs alloc] init];
     args.methodName=@"GetAppDataVersion";//GetAppData GetAppDataVersion
-    NSLog(@"header=%@",args.headers);
-    NSLog(@"body=%@",args.bodyMessage);
     ASIHTTPRequest *manager=[args request];
+    [manager setValidatesSecureCertificate:NO];//请求https的时候，就要设置这个属性
     __block ASIHTTPRequest *request = manager;
     [manager setCompletionBlock:^{
-        NSLog(@"xml=%@",request.responseString);
-        
         NSString *version=request.responseString;
-        NSString *oldVersion=[UCSUserDefaultManager GetLocalDataString:kMetaVersion];
-        if (![version isEqualToString:oldVersion]) {
-            [UCSUserDefaultManager SetLocalDataString:version key:kMetaVersion];
-            [self backgroundFetchData];//更新数据
+        if ([version isNumberString]) {
+            NSString *oldVersion=[UCSUserDefaultManager GetLocalDataString:kMetaVersion];
+            if (![version isEqualToString:oldVersion]) {
+                [UCSUserDefaultManager SetLocalDataString:version key:kMetaVersion];
+                [self backgroundFetchData];//更新数据
+            }
         }
     }];
     [manager setFailedBlock:^{
@@ -73,17 +74,20 @@
     ASIServiceArgs *args=[[ASIServiceArgs alloc] init];
     args.methodName=@"GetAppDataVersion";
     ASIHTTPRequest *manager=[args request];
+    [manager setValidatesSecureCertificate:NO];//请求https的时候，就要设置这个属性
      __block ASIHTTPRequest *request = manager;
     [manager setCompletionBlock:^{
         NSString *version=request.responseString;
         NSString *oldVersion=[UCSUserDefaultManager GetLocalDataString:kMetaVersion];
         int total=[HEBasicHelper getMetaDataCount];
-        if (![version isEqualToString:oldVersion]||total==0) {
-            [UCSUserDefaultManager SetLocalDataString:version key:kMetaVersion];
-            [self backgroundFetchData];//更新数据
-        }else if (![UCSUserDefaultManager GetLocalDataBoolen:kUpdateMetaSuccess])
-        {
-            [self backgroundFetchData];//更新数据
+        if ([version isNumberString]) {
+            if (![version isEqualToString:oldVersion]||total==0) {
+                [UCSUserDefaultManager SetLocalDataString:version key:kMetaVersion];
+                [self backgroundFetchData];//更新数据
+            }else if (![UCSUserDefaultManager GetLocalDataBoolen:kUpdateMetaSuccess])
+            {
+                [self backgroundFetchData];//更新数据
+            }
         }
     }];
     [manager setFailedBlock:^{

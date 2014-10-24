@@ -13,13 +13,14 @@
 #import "CallOutAnnotationVifew.h"
 #import "PaoPaoView.h"
 #import "BasicMapAnnotation.h"
-#import "LocationGPS.h"
+#import "CLLocationManager+blocks.h"
 #import <QuartzCore/QuartzCore.h>
 @interface HEItemListMapsController (){
     CalloutMapAnnotation *_calloutAnnotation;
 	//CalloutMapAnnotation *_previousdAnnotation;
     BOOL isFirstCurrentLocation;
 }
+@property (nonatomic, strong) CLLocationManager *manager;
 - (void)buttonCategoryClick:(UIButton*)btn;
 - (void)buttonAreaClick:(UIButton*)btn;
 - (void)cleanMap;
@@ -55,6 +56,10 @@
     [self.view addSubview:self.map];
     
     self.menuHelper=[[TPMenuHelper alloc] init];
+    self.menuHelper=[[TPMenuHelper alloc] init];
+    self.manager=[CLLocationManager updateManager];
+    self.manager.updateAccuracyFilter = kCLUpdateAccuracyFilterNone;
+    self.manager.updateLocationAgeFilter = kCLLocationAgeFilterNone;
     
     //[self defaultInitParams];//數據初始化
     
@@ -142,37 +147,35 @@
 }
 //開始當前定位
 - (void)startCurrentLocation{
-    LocationGPS *gps=[LocationGPS sharedInstance];
-    [gps startCurrentLocation:^(CLLocationCoordinate2D coor2D) {
-        
-        MKPointAnnotation *ann = [[MKPointAnnotation alloc] init];
-        ann.coordinate = coor2D;
-        //[ann setTitle:@"當前位置"];
-        //[ann setSubtitle:self.Address];
-        //觸發viewForAnnotation
-        [self.map addAnnotation:ann];
-        
-        if (isFirstCurrentLocation) {
-            isFirstCurrentLocation=NO;
-            MKCoordinateRegion region;
-            MKCoordinateSpan span;
-            span.latitudeDelta=0.1; //zoom level
-            span.longitudeDelta=0.1; //zoom level
-            region.span=span;
-            region.center=coor2D;
-            // 設置顯示位置(動畫)
-            [self.map setRegion:region animated:YES];
-            // 設置地圖顯示的類型及根據範圍進行顯示
-            [self.map regionThatFits:region];
-        }
-       
-        //預設選中
-        //[self.map selectAnnotation:ann animated:YES];
-       
-        
-    } failed:^(NSError *error) {
-        
-    }];
+    if ([CLLocationManager isLocationUpdatesAvailable]) {
+        [self.manager startUpdatingLocationWithUpdateBlock:^(CLLocationManager *manager, CLLocation *location, NSError *error, BOOL *stopUpdating) {
+            if (error) {
+                
+            }else{
+                MKPointAnnotation *ann = [[MKPointAnnotation alloc] init];
+                ann.coordinate = location.coordinate;
+                //[ann setTitle:@"當前位置"];
+                //[ann setSubtitle:self.Address];
+                //觸發viewForAnnotation
+                [self.map addAnnotation:ann];
+                
+                if (isFirstCurrentLocation) {
+                    isFirstCurrentLocation=NO;
+                    MKCoordinateRegion region;
+                    MKCoordinateSpan span;
+                    span.latitudeDelta=0.1; //zoom level
+                    span.longitudeDelta=0.1; //zoom level
+                    region.span=span;
+                    region.center=location.coordinate;
+                    // 設置顯示位置(動畫)
+                    [self.map setRegion:region animated:YES];
+                    // 設置地圖顯示的類型及根據範圍進行顯示
+                    [self.map regionThatFits:region];
+                }
+            }
+            *stopUpdating = YES;
+        }];
+    }
 }
 - (void)loadAnnotationWithSource:(NSArray*)source{
     
